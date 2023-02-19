@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'settings.dart';
+part of 'core.dart';
 
 // **************************************************************************
 // RiverpodGenerator
@@ -29,81 +29,64 @@ class _SystemHash {
   }
 }
 
-String _$CurrentAppValueHash() => r'0ad7cec64c925b6f669b620722c20f4e258744da';
+String _$listOfFilesHash() => r'ea98f5cbe871c7e37d53cdeb6f06a56c32467d90';
 
-/// See also [CurrentAppValue].
-final currentAppValueProvider =
-    AutoDisposeNotifierProvider<CurrentAppValue, dynamic>(
-  CurrentAppValue.new,
-  name: r'currentAppValueProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$CurrentAppValueHash,
-);
-typedef CurrentAppValueRef = AutoDisposeNotifierProviderRef<dynamic>;
-
-abstract class _$CurrentAppValue extends AutoDisposeNotifier<dynamic> {
-  @override
-  dynamic build();
-}
-
-String _$currentAppHash() => r'db787e7ee0755c9c60f7e2e0fbff341f06d0b2f9';
-
-/// See also [currentApp].
-class CurrentAppProvider extends AutoDisposeProvider<Widget> {
-  CurrentAppProvider(
-    this.availableApps,
+/// See also [listOfFiles].
+class ListOfFilesProvider
+    extends AutoDisposeFutureProvider<List<FileSystemEntity>> {
+  ListOfFilesProvider(
+    this.directory,
   ) : super(
-          (ref) => currentApp(
+          (ref) => listOfFiles(
             ref,
-            availableApps,
+            directory,
           ),
-          from: currentAppProvider,
-          name: r'currentAppProvider',
+          from: listOfFilesProvider,
+          name: r'listOfFilesProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$currentAppHash,
+                  : _$listOfFilesHash,
         );
 
-  final AvailableApps availableApps;
+  final Future<Directory> directory;
 
   @override
   bool operator ==(Object other) {
-    return other is CurrentAppProvider && other.availableApps == availableApps;
+    return other is ListOfFilesProvider && other.directory == directory;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, availableApps.hashCode);
+    hash = _SystemHash.combine(hash, directory.hashCode);
 
     return _SystemHash.finish(hash);
   }
 }
 
-typedef CurrentAppRef = AutoDisposeProviderRef<Widget>;
+typedef ListOfFilesRef = AutoDisposeFutureProviderRef<List<FileSystemEntity>>;
 
-/// See also [currentApp].
-final currentAppProvider = CurrentAppFamily();
+/// See also [listOfFiles].
+final listOfFilesProvider = ListOfFilesFamily();
 
-class CurrentAppFamily extends Family<Widget> {
-  CurrentAppFamily();
+class ListOfFilesFamily extends Family<AsyncValue<List<FileSystemEntity>>> {
+  ListOfFilesFamily();
 
-  CurrentAppProvider call(
-    AvailableApps availableApps,
+  ListOfFilesProvider call(
+    Future<Directory> directory,
   ) {
-    return CurrentAppProvider(
-      availableApps,
+    return ListOfFilesProvider(
+      directory,
     );
   }
 
   @override
-  AutoDisposeProvider<Widget> getProviderOverride(
-    covariant CurrentAppProvider provider,
+  AutoDisposeFutureProvider<List<FileSystemEntity>> getProviderOverride(
+    covariant ListOfFilesProvider provider,
   ) {
     return call(
-      provider.availableApps,
+      provider.directory,
     );
   }
 
@@ -114,5 +97,5 @@ class CurrentAppFamily extends Family<Widget> {
   List<ProviderOrFamily>? get dependencies => null;
 
   @override
-  String? get name => r'currentAppProvider';
+  String? get name => r'listOfFilesProvider';
 }

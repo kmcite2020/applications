@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'userManagerApp.dart';
+part of 'users.dart';
 
 // **************************************************************************
 // RiverpodGenerator
@@ -29,7 +29,7 @@ class _SystemHash {
   }
 }
 
-String _$UsersHash() => r'3404144b6db20f2d9a2c695593c445d8419ea8be';
+String _$UsersHash() => r'230dbc1838ae0446e4b4e2181af63a1d9a177475';
 
 /// See also [Users].
 final usersProvider = AutoDisposeNotifierProvider<Users, List<UserModel>>(

@@ -3,15 +3,15 @@
 import 'dart:math';
 
 import 'package:apps/models/user_model.dart';
-import 'package:apps/settings/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 
+import '../../controllers/settings.dart';
+import '../../controllers/users.dart';
 import '../../utils.dart';
-
-part 'userManagerApp.g.dart';
+import '../../views/widgets/app_selector.dart';
 
 class UserManagerApp extends HookConsumerWidget {
   const UserManagerApp({super.key});
@@ -82,10 +82,9 @@ class UserManagerApp extends HookConsumerWidget {
             tooltip: 'add random user data',
             onPressed: () {
               ref.read(usersProvider.notifier).addUser(
-                    UserModel(
-                      email: Random().nextInt(1 << 32).toString(),
-                      password: Random().nextInt(1 << 32).toString(),
-                    ),
+                    Random().nextInt(1 << 32).toString(),
+                    Random().nextInt(1 << 32).toString(),
+                    Random().nextInt(1 << 32).toString(),
                   );
               // CLEAR ALL USERS FROM REPOSITORIES
             },
@@ -158,22 +157,4 @@ class UserDetails extends HookConsumerWidget {
       ),
     );
   }
-}
-
-@riverpod
-class Users extends _$Users {
-  @override
-  List<UserModel> build() {
-    return [];
-  }
-
-  void addUser(UserModel user) {
-    state = [...state, user];
-  }
-
-  void removeUser(UserModel user) {
-    state = state.where((element) => element != user).toList();
-  }
-
-  void removeAllUsers() => state = [];
 }

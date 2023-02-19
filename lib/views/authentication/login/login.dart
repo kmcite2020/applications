@@ -1,23 +1,24 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers, sized_box_for_whitespace
 
-import 'package:apps/globals.dart';
 import 'package:apps/models/user_model.dart';
 import "package:flutter/material.dart";
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import '../../settings/settings.dart';
-import '../../utils.dart';
-import '../../settings/authentication.dart';
+
+import '../../../controllers/settings.dart';
+import '../../../controllers/users.dart';
+import '../../../utils.dart';
+import '../../settings/themes.dart';
+import '../../widgets/app_selector.dart';
+import '../register/register.dart';
 
 class LoginForm extends HookConsumerWidget {
   LoginForm({key}) : super(key: key);
-  // final obscure = RM.inject(() => true);
   final loginForm = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context, ref) {
     final Size size = MediaQuery.of(context).size;
     final settingsModel = ref.watch(settingsProvider);
-    final settingsNotifier = ref.watch(settingsProvider.notifier);
     final obscure = useState(true);
     final email = useTextEditingController();
     final password = useTextEditingController();
@@ -25,6 +26,13 @@ class LoginForm extends HookConsumerWidget {
     return Form(
       key: loginForm,
       child: Scaffold(
+        appBar: AppBar(actions: [
+          IconButton(
+              onPressed: () {
+                to(RegisterForm(), context);
+              },
+              icon: Icon(Icons.supervised_user_circle))
+        ]),
         body: Stack(
           children: [
             BackgroundWidget(size),
@@ -34,6 +42,7 @@ class LoginForm extends HookConsumerWidget {
                 child: Card(
                   child: Column(
                     children: [
+                      SettingsWidgets(),
                       SizedBox(height: 15),
                       Padding(
                         padding: EdgeInsets.all(settingsModel.padding),
@@ -73,29 +82,40 @@ class LoginForm extends HookConsumerWidget {
                         child: ElevatedButton(
                           onPressed: () {
                             // for (final eachUser in users) {}
+                            ref.read(settingsProvider.notifier).signIn(email.text, password.text);
 
-                            (loginForm.currentState!.validate())
-                                ? settingsNotifier.signIn(
-                                    UserModel(
-                                      email: email.text,
-                                      password: password.text,
-                                    ),
-                                  )
-                                : null;
+                            // (loginForm.currentState!.validate())
+                            //     ? ref.read(authenticationProvider.notifier).signIn(email.text, password.text)
+                            //     : null;
                           },
-                          child: Text("Login"),
+                          child: Text("Sign"),
                         ),
                         // TODO - re-implement login system
                       ),
-                      Divider(),
-                      for (final eachApp in availableApps)
-                        Card(
-                          child: ListTile(
-                            title: Text(
-                              eachApp.description,
-                            ),
-                          ),
-                        )
+                      Padding(
+                        padding: EdgeInsets.all(settingsModel.padding),
+                        child: ElevatedButton(
+                          onPressed: () {
+                            // for (final eachUser in users) {}
+                            // ref.read(settingsProvider.notifier).signIn(email.text, password.text);
+                            ref.read(settingsProvider.notifier).currentUser(guestUser);
+                            // (loginForm.currentState!.validate())
+                            //     ? ref.read(authenticationProvider.notifier).signIn(email.text, password.text)
+                            //     : null;
+                          },
+                          child: Text("TEST - authenticate"),
+                        ),
+                        // TODO - re-implement login system
+                      ),
+                      // Divider(),
+                      // for (final eachApp in availableApps)
+                      //   Card(
+                      //     child: ListTile(
+                      //       title: Text(
+                      //         eachApp.description,
+                      //       ),
+                      //     ),
+                      //   )
                     ],
                   ),
                 ),

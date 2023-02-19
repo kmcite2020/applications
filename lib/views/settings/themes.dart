@@ -6,9 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../globals.dart';
-import '../utils.dart';
-import 'settings.dart';
+import '../../utils.dart';
+import '../../controllers/settings.dart';
 
 class SettingsWidgets extends HookConsumerWidget {
   const SettingsWidgets({super.key});
@@ -33,7 +32,7 @@ class SettingsWidgets extends HookConsumerWidget {
           child: DropdownButtonFormField<ThemeMode>(
             borderRadius: BorderRadius.circular(settingsModel.borderRadius),
             value: settingsModel.themeMode,
-            onChanged: (value) => settingsNotifier.themeMode = value,
+            onChanged: (_) => settingsNotifier.themeMode,
             items: themeModes
                 .map(
                   (ThemeMode eachThemeMode) => DropdownMenuItem(
@@ -61,7 +60,7 @@ class SettingsWidgets extends HookConsumerWidget {
             icon: SizedBox(),
             borderRadius: BorderRadius.circular(settingsModel.borderRadius),
             value: settingsModel.materialColor,
-            onChanged: (value) => settingsNotifier.materialColor = value,
+            onChanged: settingsNotifier.materialColor,
             selectedItemBuilder: (context) => colors
                 .map(
                   (e) => Text(e.colorName.toUpperCase()),
@@ -112,7 +111,7 @@ class SettingsWidgets extends HookConsumerWidget {
             max: 25,
             // divisions: 10,
             value: settingsModel.padding,
-            onChanged: (value) => settingsNotifier.padding = value,
+            onChanged: settingsNotifier.padding,
           ),
         ),
         Card(
@@ -137,7 +136,7 @@ class SettingsWidgets extends HookConsumerWidget {
             min: 0,
             max: 30,
             value: settingsModel.borderRadius,
-            onChanged: (value) => settingsNotifier.borderRadius = value,
+            onChanged: settingsNotifier.borderRadius,
           ),
         ),
         Card(
@@ -159,7 +158,7 @@ class SettingsWidgets extends HookConsumerWidget {
           child: DropdownButtonFormField<String>(
             borderRadius: BorderRadius.circular(settingsModel.borderRadius),
             value: settingsModel.font,
-            onChanged: (value) => settingsNotifier.font = value,
+            onChanged: settingsNotifier.font,
             items: fonts
                 .map(
                   (String? eachFont) => DropdownMenuItem(

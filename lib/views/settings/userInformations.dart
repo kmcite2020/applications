@@ -3,8 +3,8 @@
 import "package:flutter/material.dart";
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../settings/settings.dart';
-import '../utils.dart';
+import '../../controllers/settings.dart';
+import '../../utils.dart';
 
 class UserInformations extends HookConsumerWidget {
   const UserInformations({Key? key}) : super(key: key);
@@ -16,7 +16,7 @@ class UserInformations extends HookConsumerWidget {
     return Card(
       child: ListTile(
         title: Text("ACCOUNT SETTINGS"),
-        subtitle: settingsModel.authenticated
+        subtitle: ref.watch(settingsProvider).authenticated
             ? Column(
                 children: [
                   Column(
@@ -24,7 +24,8 @@ class UserInformations extends HookConsumerWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("NAME: ${settingsModel.currentUser!.name}"),
+                          // TODO - focus on current user
+                          Text("NAME: ${settingsModel.currentUser?.name}"),
                           IconButton(onPressed: () {}, icon: Icon(Icons.account_circle_outlined))
                         ],
                       ),
@@ -45,9 +46,9 @@ class UserInformations extends HookConsumerWidget {
                       //   ),
                       // ),
 
-                      Text("EMAIL: ${settingsModel.currentUser!.email}", softWrap: true),
+                      Text("EMAIL: ${settingsModel.currentUser?.email}", softWrap: true),
                       Text(
-                        "PHONE: ${settingsModel.currentUser!.age}",
+                        "PHONE: ${settingsModel.currentUser?.age}",
                         softWrap: true,
                       ),
                     ],
@@ -73,7 +74,7 @@ class UserInformations extends HookConsumerWidget {
                   ),
                 ],
               )
-            : Text("no user is signed in"),
+            : Text("GUEST USER"),
       ),
     );
   }

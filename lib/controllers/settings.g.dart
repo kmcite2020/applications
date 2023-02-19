@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'authentication.dart';
+part of 'settings.dart';
 
 // **************************************************************************
 // RiverpodGenerator
@@ -29,20 +29,18 @@ class _SystemHash {
   }
 }
 
-String _$AuthenticationHash() => r'c628f9f4843c03926bbbaf222fc3007f717470bc';
+String _$SettingsHash() => r'f672cca251d2a22ece349108485e1521ee5c9a8e';
 
-/// See also [Authentication].
-final authenticationProvider =
-    AutoDisposeNotifierProvider<Authentication, bool>(
-  Authentication.new,
-  name: r'authenticationProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$AuthenticationHash,
+/// See also [Settings].
+final settingsProvider = AutoDisposeNotifierProvider<Settings, SettingsModel>(
+  Settings.new,
+  name: r'settingsProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : _$SettingsHash,
 );
-typedef AuthenticationRef = AutoDisposeNotifierProviderRef<bool>;
+typedef SettingsRef = AutoDisposeNotifierProviderRef<SettingsModel>;
 
-abstract class _$Authentication extends AutoDisposeNotifier<bool> {
+abstract class _$Settings extends AutoDisposeNotifier<SettingsModel> {
   @override
-  bool build();
+  SettingsModel build();
 }

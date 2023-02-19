@@ -1,10 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:flutter/material.dart';
 // import 'package:states_rebuilder/states_rebuilder.dart';
 
-import 'settings/user_information.dart';
-import 'core.dart';
 
 // class Initialize extends ReactiveStatelessWidget {
 //   Initialize({

@@ -1,12 +1,9 @@
-// // ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors
 
-// import 'dart:io';
+import 'dart:io';
 
-// import 'package:dashboard/apps/HiveDB/databasePage.dart';
-// import 'package:flutter/material.dart';
-// import 'package:hive_flutter/hive_flutter.dart';
-// import 'package:path_provider/path_provider.dart';
-// import 'package:states_rebuilder/states_rebuilder.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+part 'core.g.dart';
 
 // Box get currentDB => databaseRM.state;
 // bool get isWaiting => databaseRM.isWaiting;
@@ -26,7 +23,12 @@
 
 // final currentFileRM = RM.inject<String>(() => 'DEFAULT');
 
-// List<FileSystemEntity> get files => filesRM.state;
+@riverpod
+Future<List<FileSystemEntity>> listOfFiles(ListOfFilesRef ref, Future<Directory> directory) async {
+  return directory.then((value) => value.listSync());
+}
+
+
 // final filesRM = RM.injectFuture(getFilesInDocumentsDirectory);
 // Future<List<FileSystemEntity>> getFilesInDocumentsDirectory() async {
 //   Directory directory = await getApplicationDocumentsDirectory();
