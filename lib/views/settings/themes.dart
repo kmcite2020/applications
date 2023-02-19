@@ -1,21 +1,16 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:apps/main.dart';
-import 'package:colornames/colornames.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../utils.dart';
-import '../../controllers/settings.dart';
 
-class SettingsWidgets extends HookConsumerWidget {
+class SettingsWidgets extends StatelessWidget {
   const SettingsWidgets({super.key});
 
   @override
-  Widget build(context, ref) {
-    final settingsModel = ref.watch(settingsProvider);
-    final settingsNotifier = ref.watch(settingsProvider.notifier);
+  Widget build(context) {
+    // final settingsModel = ref.watch(settingsProvider);
+    // final settingsNotifier = ref.watch(settingsProvider.notifier);
     return Column(
       children: [
         Card(
@@ -27,24 +22,21 @@ class SettingsWidgets extends HookConsumerWidget {
             subtitle: Text('CUSTOMISE YOUR THEME MODE'),
           ),
         ),
-        Padding(
-          padding: EdgeInsets.all(settingsModel.padding),
-          child: DropdownButtonFormField<ThemeMode>(
-            borderRadius: BorderRadius.circular(settingsModel.borderRadius),
-            value: settingsModel.themeMode,
-            onChanged: (_) => settingsNotifier.themeMode,
-            items: themeModes
-                .map(
-                  (ThemeMode eachThemeMode) => DropdownMenuItem(
-                    value: eachThemeMode,
-                    child: Text(
-                      eachThemeMode.name.toUpperCase(),
-                    ),
-                  ),
-                )
-                .toList(),
-          ),
-        ),
+        // DropdownButtonFormField<ThemeMode>(
+        //   borderRadius: BorderRadius.circular(settingsModel.borderRadius),
+        //   value: settingsModel.themeMode,
+        //   onChanged: (_) => settingsNotifier.themeMode,
+        //   items: themeModes
+        //       .map(
+        //         (ThemeMode eachThemeMode) => DropdownMenuItem(
+        //           value: eachThemeMode,
+        //           child: Text(
+        //             eachThemeMode.name.toUpperCase(),
+        //           ),
+        //         ),
+        //       )
+        //       .toList(),
+        // ),
         Card(
           child: ListTile(
             title: Text(
@@ -54,91 +46,91 @@ class SettingsWidgets extends HookConsumerWidget {
             subtitle: Text('CUSTOMISE YOUR BACKGROUND COLOR'),
           ),
         ),
-        Padding(
-          padding: EdgeInsets.all(settingsModel.padding),
-          child: DropdownButtonFormField<MaterialColor>(
-            icon: SizedBox(),
-            borderRadius: BorderRadius.circular(settingsModel.borderRadius),
-            value: settingsModel.materialColor,
-            onChanged: settingsNotifier.materialColor,
-            selectedItemBuilder: (context) => colors
-                .map(
-                  (e) => Text(e.colorName.toUpperCase()),
-                )
-                .toList(),
-            items: colors
-                .map(
-                  (MaterialColor eachColor) => DropdownMenuItem(
-                    value: eachColor,
-                    child: Container(
-                      width: 200,
-                      padding: EdgeInsets.all(settingsModel.padding),
-                      margin: EdgeInsets.all(2),
-                      decoration: BoxDecoration(
-                        color: eachColor,
-                        borderRadius: BorderRadius.circular(settingsModel.borderRadius),
-                        border: Border.symmetric(),
-                      ),
-                      child: Text(
-                        eachColor.colorName.toUpperCase(),
-                        // style: TextStyle(color: eachColor),
-                      ),
-                    ),
-                  ),
-                )
-                .toList(),
-          ),
-        ),
-        Card(
-          child: ListTile(
-            title: Text(
-              'PADDING',
-              textScaleFactor: 1.5,
-              softWrap: true,
-            ),
-            subtitle: Text('CUSTOMISE PADDING'),
-            trailing: Text(
-              '${settingsModel.padding.toInt()}',
-              // textScaleFactor: 2,
-            ),
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.all(settingsModel.padding),
-          child: Slider(
-            label: settingsModel.padding.toInt().toString(),
-            min: 0,
-            max: 25,
-            // divisions: 10,
-            value: settingsModel.padding,
-            onChanged: settingsNotifier.padding,
-          ),
-        ),
-        Card(
-          child: ListTile(
-            title: Text(
-              'ROUNDED CORNERS',
-              textScaleFactor: 1.5,
-              softWrap: true,
-            ),
-            subtitle: Text('CUSTOMISE ROUNDED CORNERS'),
-            trailing: Text(
-              '${settingsModel.borderRadius.toInt()}',
-              // textScaleFactor: 2,
-            ),
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.all(settingsModel.padding),
-          child: Slider(
-            label: settingsModel.borderRadius.toInt().toString(),
-            // divisions: 20,
-            min: 0,
-            max: 30,
-            value: settingsModel.borderRadius,
-            onChanged: settingsNotifier.borderRadius,
-          ),
-        ),
+        // Padding(
+        //   padding: EdgeInsets.all(settingsModel.padding),
+        //   child: DropdownButtonFormField<MaterialColor>(
+        //     icon: SizedBox(),
+        //     borderRadius: BorderRadius.circular(settingsModel.borderRadius),
+        //     value: settingsModel.materialColor,
+        //     onChanged: settingsNotifier.materialColor,
+        //     selectedItemBuilder: (context) => colors
+        //         .map(
+        //           (e) => Text(e.colorName.toUpperCase()),
+        //         )
+        //         .toList(),
+        //     items: colors
+        //         .map(
+        //           (MaterialColor eachColor) => DropdownMenuItem(
+        //             value: eachColor,
+        //             child: Container(
+        //               width: 200,
+        //               padding: EdgeInsets.all(settingsModel.padding),
+        //               margin: EdgeInsets.all(2),
+        //               decoration: BoxDecoration(
+        //                 color: eachColor,
+        //                 borderRadius: BorderRadius.circular(settingsModel.borderRadius),
+        //                 border: Border.symmetric(),
+        //               ),
+        //               child: Text(
+        //                 eachColor.colorName.toUpperCase(),
+        //                 // style: TextStyle(color: eachColor),
+        //               ),
+        //             ),
+        //           ),
+        //         )
+        //         .toList(),
+        //   ),
+        // ),
+        // Card(
+        //   child: ListTile(
+        //     title: Text(
+        //       'PADDING',
+        //       textScaleFactor: 1.5,
+        //       softWrap: true,
+        //     ),
+        //     subtitle: Text('CUSTOMISE PADDING'),
+        //     trailing: Text(
+        //       '${settingsModel.padding.toInt()}',
+        //       // textScaleFactor: 2,
+        //     ),
+        //   ),
+        // ),
+        // Padding(
+        //   padding: EdgeInsets.all(settingsModel.padding),
+        //   child: Slider(
+        //     label: settingsModel.padding.toInt().toString(),
+        //     min: 0,
+        //     max: 25,
+        //     // divisions: 10,
+        //     value: settingsModel.padding,
+        //     onChanged: settingsNotifier.padding,
+        //   ),
+        // ),
+        // Card(
+        //   child: ListTile(
+        //     title: Text(
+        //       'ROUNDED CORNERS',
+        //       textScaleFactor: 1.5,
+        //       softWrap: true,
+        //     ),
+        //     subtitle: Text('CUSTOMISE ROUNDED CORNERS'),
+        //     trailing: Text(
+        //       '${settingsModel.borderRadius.toInt()}',
+        //       // textScaleFactor: 2,
+        //     ),
+        //   ),
+        // ),
+        // Padding(
+        //   padding: EdgeInsets.all(settingsModel.padding),
+        //   child: Slider(
+        //     label: settingsModel.borderRadius.toInt().toString(),
+        //     // divisions: 20,
+        //     min: 0,
+        //     max: 30,
+        //     value: settingsModel.borderRadius,
+        //     onChanged: settingsNotifier.borderRadius,
+        //   ),
+        // ),
         Card(
           child: ListTile(
             title: Text(
@@ -153,25 +145,25 @@ class SettingsWidgets extends HookConsumerWidget {
             ),
           ),
         ),
-        Padding(
-          padding: EdgeInsets.all(settingsModel.padding),
-          child: DropdownButtonFormField<String>(
-            borderRadius: BorderRadius.circular(settingsModel.borderRadius),
-            value: settingsModel.font,
-            onChanged: settingsNotifier.font,
-            items: fonts
-                .map(
-                  (String? eachFont) => DropdownMenuItem(
-                    value: eachFont,
-                    child: Text(
-                      eachFont!.toUpperCase(),
-                      style: GoogleFonts.getFont(eachFont),
-                    ),
-                  ),
-                )
-                .toList(),
-          ),
-        ),
+        // Padding(
+        //   padding: EdgeInsets.all(settingsModel.padding),
+        //   child: DropdownButtonFormField<String>(
+        //     borderRadius: BorderRadius.circular(settingsModel.borderRadius),
+        //     value: settingsModel.font,
+        //     onChanged: settingsNotifier.font,
+        //     items: fonts
+        //         .map(
+        //           (String? eachFont) => DropdownMenuItem(
+        //             value: eachFont,
+        //             child: Text(
+        //               eachFont!.toUpperCase(),
+        //               style: GoogleFonts.getFont(eachFont),
+        //             ),
+        //           ),
+        //         )
+        //         .toList(),
+        //   ),
+        // ),
       ],
     );
   }

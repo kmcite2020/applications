@@ -1,13 +1,10 @@
 // ignore_for_file: file_names, prefer_typing_uninitialized_variables, prefer_const_constructors
-import 'package:apps/controllers/settings.dart';
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'core.dart';
 
-class DatabaseDetailsPage extends HookConsumerWidget {
+class DatabaseDetailsPage extends StatelessWidget {
   const DatabaseDetailsPage({super.key});
   @override
-  Widget build(BuildContext context, ref) {
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
           // title: Text(
@@ -44,15 +41,15 @@ class DatabaseDetailsPage extends HookConsumerWidget {
   }
 }
 
-class KeyWidget extends HookConsumerWidget {
+class KeyWidget extends StatelessWidget {
   const KeyWidget(this.keyObject, {super.key});
   final String keyObject;
   @override
-  Widget build(BuildContext context, ref) {
-    final settingsModel = ref.watch(settingsProvider);
+  Widget build(BuildContext context) {
+    // final settingsModel = ref.watch(settingsProvider);
     return Container(
-      padding: EdgeInsets.all(settingsModel.padding),
-      decoration: BoxDecoration(border: Border.all(), borderRadius: BorderRadius.circular(settingsModel.borderRadius)),
+      // padding: EdgeInsets.all(settingsModel.padding),
+      // decoration: BoxDecoration(border: Border.all(), borderRadius: BorderRadius.circular(settingsModel.borderRadius)),
       child: Text(keyObject),
     );
   }

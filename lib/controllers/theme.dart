@@ -1,22 +1,15 @@
+import 'package:apps/controllers/settings.dart';
 import 'package:flutter/material.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../models/settings.dart';
 import '../utils.dart';
-import 'settings.dart';
-part 'theme.g.dart';
 
-@riverpod
-ThemeData themeData(ThemeDataRef ref, {required bool dark}) {
-  final settingsModel = ref.watch(settingsProvider);
+ThemeData themeData(bool dark) {
+  final settingsModel = Settings() as dynamic;
   if (dark) {
     return ThemeData(
-      backgroundColor: settingsModel.materialColor,
-      bottomAppBarColor: settingsModel.materialColor,
       cardColor: settingsModel.materialColor,
       disabledColor: settingsModel.materialColor,
       dividerColor: settingsModel.materialColor,
-      errorColor: settingsModel.materialColor,
       highlightColor: settingsModel.materialColor,
       scaffoldBackgroundColor: settingsModel.materialColor.shade800,
       canvasColor: settingsModel.materialColor.shade900,
@@ -28,10 +21,8 @@ ThemeData themeData(ThemeDataRef ref, {required bool dark}) {
       primaryColorLight: settingsModel.materialColor.shade200,
       colorSchemeSeed: settingsModel.materialColor,
       secondaryHeaderColor: settingsModel.materialColor,
-      selectedRowColor: settingsModel.materialColor,
       shadowColor: settingsModel.materialColor,
       splashColor: settingsModel.materialColor,
-      toggleableActiveColor: settingsModel.materialColor,
       unselectedWidgetColor: settingsModel.materialColor.withAlpha(100),
       dialogTheme: DialogTheme(backgroundColor: settingsModel.materialColor.shade700),
       popupMenuTheme: PopupMenuThemeData(
@@ -90,6 +81,51 @@ ThemeData themeData(ThemeDataRef ref, {required bool dark}) {
       brightness: Brightness.dark,
       useMaterial3: true,
       fontFamily: getGoogleFont(settingsModel.font),
+      // colorScheme: ColorScheme(error: settingsModel.materialColor),
+      // colorScheme: ColorScheme(background: settingsModel.materialColor),
+      switchTheme: SwitchThemeData(
+        thumbColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
+          if (states.contains(MaterialState.disabled)) {
+            return null;
+          }
+          if (states.contains(MaterialState.selected)) {
+            return settingsModel.materialColor;
+          }
+          return null;
+        }),
+        trackColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
+          if (states.contains(MaterialState.disabled)) {
+            return null;
+          }
+          if (states.contains(MaterialState.selected)) {
+            return settingsModel.materialColor;
+          }
+          return null;
+        }),
+      ),
+      radioTheme: RadioThemeData(
+        fillColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
+          if (states.contains(MaterialState.disabled)) {
+            return null;
+          }
+          if (states.contains(MaterialState.selected)) {
+            return settingsModel.materialColor;
+          }
+          return null;
+        }),
+      ),
+      checkboxTheme: CheckboxThemeData(
+        fillColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
+          if (states.contains(MaterialState.disabled)) {
+            return null;
+          }
+          if (states.contains(MaterialState.selected)) {
+            return settingsModel.materialColor;
+          }
+          return null;
+        }),
+      ),
+      bottomAppBarTheme: BottomAppBarTheme(color: settingsModel.materialColor),
     );
   } else {
     return ThemeData(
@@ -140,10 +176,8 @@ ThemeData themeData(ThemeDataRef ref, {required bool dark}) {
       primaryColorLight: settingsModel.materialColor.shade200,
       // primarySwatch: Colors.blue,
       secondaryHeaderColor: settingsModel.materialColor,
-      selectedRowColor: settingsModel.materialColor,
       shadowColor: settingsModel.materialColor,
       splashColor: settingsModel.materialColor,
-      toggleableActiveColor: settingsModel.materialColor,
       unselectedWidgetColor: settingsModel.materialColor.withAlpha(100),
       dialogTheme: DialogTheme(
         elevation: 10,
@@ -211,6 +245,48 @@ ThemeData themeData(ThemeDataRef ref, {required bool dark}) {
       brightness: Brightness.light,
       useMaterial3: true,
       fontFamily: getGoogleFont(settingsModel.font),
+      switchTheme: SwitchThemeData(
+        thumbColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
+          if (states.contains(MaterialState.disabled)) {
+            return null;
+          }
+          if (states.contains(MaterialState.selected)) {
+            return settingsModel.materialColor;
+          }
+          return null;
+        }),
+        trackColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
+          if (states.contains(MaterialState.disabled)) {
+            return null;
+          }
+          if (states.contains(MaterialState.selected)) {
+            return settingsModel.materialColor;
+          }
+          return null;
+        }),
+      ),
+      radioTheme: RadioThemeData(
+        fillColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
+          if (states.contains(MaterialState.disabled)) {
+            return null;
+          }
+          if (states.contains(MaterialState.selected)) {
+            return settingsModel.materialColor;
+          }
+          return null;
+        }),
+      ),
+      checkboxTheme: CheckboxThemeData(
+        fillColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
+          if (states.contains(MaterialState.disabled)) {
+            return null;
+          }
+          if (states.contains(MaterialState.selected)) {
+            return settingsModel.materialColor;
+          }
+          return null;
+        }),
+      ),
     );
   }
 }

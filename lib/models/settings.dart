@@ -1,27 +1,24 @@
-import 'package:flutter/foundation.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../views/apps.dart';
-import '../apps/userManagerApp/userManagerApp.dart';
 import 'enums.dart';
 
-part 'settings.freezed.dart';
-part 'settings.g.dart';
+class SettingsModel {
+  final ThemeMode themeMode;
+  final String font;
+  final MaterialColor materialColor;
+  final double padding;
+  final double borderRadius;
+  final AvailableApps? currentApp;
+  SettingsModel({
+    required this.themeMode,
+    required this.font,
+    required this.materialColor,
+    required this.padding,
+    required this.borderRadius,
+    this.currentApp,
+  });
 
-@freezed
-class SettingsModel with _$SettingsModel {
-  const SettingsModel._();
-  const factory SettingsModel({
-    required final ThemeMode themeMode,
-    required final String font,
-    @MaterialColorSerializer() required final MaterialColor materialColor,
-    required final double padding,
-    required final double borderRadius,
-    required final AvailableApps? currentApp,
-    // required final UserModel? currentUser,
-  }) = _SettingModel;
-  factory SettingsModel.fromJson(Map<String, dynamic> json) => _$SettingsModelFromJson(json);
   double get appBarHeight {
     if (padding <= 10) {
       return 60;
@@ -34,46 +31,39 @@ class SettingsModel with _$SettingsModel {
 
 // Widget get home => currentApp == null? DashboardApp() : ;
 
-  Widget currentAppWidget() {
-    switch (currentApp) {
-      case AvailableApps.idealApp:
-        return const UserManagerApp();
-      case AvailableApps.opthalmologyApp:
-        return const UserManagerApp();
-      case AvailableApps.timerApp:
-        return const UserManagerApp();
-      case AvailableApps.mcqsManagerApp:
-        return const UserManagerApp();
-      case AvailableApps.prayersApp:
-        return const UserManagerApp();
-      case AvailableApps.commonSymptomsApp:
-        return const UserManagerApp();
-      case AvailableApps.hospitalApp:
-        return const UserManagerApp();
-      case AvailableApps.prescriptionsApp:
-        return const UserManagerApp();
-      case AvailableApps.beseechApp:
-        return const UserManagerApp();
-      case AvailableApps.bloodPressureManagerApp:
-        return const UserManagerApp();
-      case AvailableApps.userManagerApp:
-        return const UserManagerApp();
-      case AvailableApps.hmisApp:
-        return const UserManagerApp();
-      case AvailableApps.settingsApp:
-        return const UserManagerApp();
-      case AvailableApps.taskManagerApp:
-        return const Apps();
-      case AvailableApps.dashboard:
-        return const Apps();
-      case AvailableApps.fcpsApp:
-        return const UserManagerApp();
-      case AvailableApps.hiveDB:
-        return const UserManagerApp();
-      case AvailableApps.googleFontsViewerApp:
-        return const UserManagerApp();
-      case null:
-        return const Apps();
+  Widget? currentAppWidget() {
+    switch (currentApp!) {
+      case AvailableApps.todo:
+        // TODO: Handle this case.
+        break;
+      case AvailableApps.weather:
+        // TODO: Handle this case.
+        break;
+      case AvailableApps.recipe:
+        // TODO: Handle this case.
+        break;
+      case AvailableApps.calculator:
+        // TODO: Handle this case.
+        break;
+      case AvailableApps.quiz:
+        // TODO: Handle this case.
+        break;
+      case AvailableApps.budget:
+        // TODO: Handle this case.
+        break;
+      case AvailableApps.chat:
+        // TODO: Handle this case.
+        break;
+      case AvailableApps.musicPlayer:
+        // TODO: Handle this case.
+        break;
+      case AvailableApps.flashcard:
+        // TODO: Handle this case.
+        break;
+      case AvailableApps.news:
+        // TODO: Handle this case.
+        break;
     }
+    return null;
   }
 }
