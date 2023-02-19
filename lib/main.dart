@@ -27,7 +27,7 @@ Future<void> main() async {
                 dark: true,
               ),
             ),
-            home: Apps(),
+            home: const Apps(),
           );
         },
       ),
