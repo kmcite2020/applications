@@ -2,8 +2,6 @@
 
 import 'dart:io';
 
-import 'package:riverpod_annotation/riverpod_annotation.dart';
-part 'core.g.dart';
 
 // Box get currentDB => databaseRM.state;
 // bool get isWaiting => databaseRM.isWaiting;
@@ -23,10 +21,10 @@ part 'core.g.dart';
 
 // final currentFileRM = RM.inject<String>(() => 'DEFAULT');
 
-@riverpod
-Future<List<FileSystemEntity>> listOfFiles(ListOfFilesRef ref, Future<Directory> directory) async {
-  return directory.then((value) => value.listSync());
-}
+
+// Future<List<FileSystemEntity>> listOfFiles(ListOfFilesRef ref, Future<Directory> directory) async {
+//   return directory.then((value) => value.listSync());
+// }
 
 
 // final filesRM = RM.injectFuture(getFilesInDocumentsDirectory);
