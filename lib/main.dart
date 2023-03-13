@@ -1,37 +1,67 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:apps/features/calculator/calculator.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:states_rebuilder/scr/state_management/rm.dart';
 
-import 'assets/licenses.dart';
-import 'utils.dart';
+import 'commons/extensions.dart';
+import 'commons/storage.dart';
+import 'commons/themes.dart';
+import 'features/settings/personalizations/background/widgets/backtainer_view.dart';
+import 'features/settings/personalizations/personalizations_bloc.dart';
+import 'features/settings/settings_view.dart';
 
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  GoogleFonts.config.allowRuntimeFetching = false;
-  addLicenses();
-  await initDefaultImage;
-  runApp(
-    const MaterialApp(),
-  );
+void main() async {
+  await RM.storageInitializer(HiveStorage());
+  // await RM.deleteAllPersistState();
+  runApp(const MyApp());
 }
 
-class Applications extends StatelessWidget {
-  const Applications({super.key});
+class MyApp extends ReactiveStatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
+    return const MyMaterialApp();
+  }
+}
+
+class MyMaterialApp extends ReactiveStatelessWidget {
+  const MyMaterialApp({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      navigatorKey: RM.navigate.navigatorKey,
       debugShowCheckedModeBanner: false,
-      routeInformationParser: router.routeInformationParser,
-      routerDelegate: router.routerDelegate,
-      // theme: ref.watch(themeDataProvider.call(dark: false)),
-      // themeMode: ref.watch(settingsProvider).themeMode,
-      // darkTheme: ref.watch(
-      //   themeDataProvider.call(
-      //     dark: true,
-      //   ),
-      // ),
-      // home: const Apps(),
+      theme: Themes.theme,
+      darkTheme: Themes.darkTheme,
+      themeMode: personalizationsBloc.themeMode,
+      home: Scaffold(
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          title: Row(
+            children: [
+              IconButton(
+                onPressed: () => RM.navigate.to(const SettingsView()),
+                icon: const Icon(
+                  Icons.settings,
+                ),
+              ).pad,
+            ],
+          ),
+        ),
+        body: BackTainer(
+          child: ListView(
+            children: [
+              ElevatedButton(
+                onPressed: () => RM.navigate.to(const Calculator()),
+                child: "Calculator".text,
+              ).pad
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

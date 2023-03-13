@@ -1,5 +1,7 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void addLicenses() {
   LicenseRegistry.addLicense(() async* {
@@ -42,4 +44,10 @@ void addLicenses() {
     final license = await rootBundle.loadString('fonts/Ubuntu/OFL.txt');
     yield LicenseEntryWithLineBreaks(['Ubuntu'], license);
   });
+}
+
+void initialize() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  addLicenses();
+  GoogleFonts.config.allowRuntimeFetching = false;
 }
