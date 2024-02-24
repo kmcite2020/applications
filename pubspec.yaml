@@ -1,0 +1,6 @@
+name: applications
+environment:
+  sdk: '^3.2.0'
+dev_dependencies:
+  melos: ^3.1.0
+  build_runner: ^2.4.8

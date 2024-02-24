@@ -1,0 +1,5 @@
+name: applications
+
+packages:
+  - apps/**
+  - packages/**
