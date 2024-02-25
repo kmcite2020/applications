@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:manager/manager.dart';
+import 'package:manager/persistor.dart';
 part 'notes.freezed.dart';
 part 'notes.g.dart';
 
@@ -26,6 +27,14 @@ class Notes with _$Notes {
 class NotesRM extends Cubit<Notes> {
   @override
   Notes get initialState => const Notes();
+  @override
+  Persistor<Notes>? get persistor {
+    return Persistor(
+      key: 'notes',
+      toJson: (notes) => notes.toJson(),
+      fromJson: Notes.fromJson,
+    );
+  }
 
   void setNote(Note note) {
     call(

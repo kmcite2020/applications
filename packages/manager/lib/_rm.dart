@@ -30,7 +30,7 @@ class _RM<State> {
     return state;
   }
 
-  final Changed<State>? onChanged;
+  final Transition<State>? onChanged;
 }
 
-typedef Changed<State> = void Function(State oldState, State newState);
+typedef Transition<State> = void Function(State oldState, State newState);

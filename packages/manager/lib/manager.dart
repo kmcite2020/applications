@@ -1,7 +1,7 @@
 import 'dart:convert';
 
+import 'package:manager/hive_storage.dart';
 import 'package:states_rebuilder/states_rebuilder.dart' as rebuilder;
-import 'package:states_rebuilder/states_rebuilder.dart';
 
 import 'manager.dart';
 import 'persistor.dart';
@@ -12,15 +12,17 @@ part '_rm.dart';
 
 abstract class RM<T> {
   static final navigate = rebuilder.RM.navigate;
+  static final scaffold = rebuilder.RM.scaffold;
 
-  static void build(Widget app) {
+  static void build(Widget app) async {
+    await rebuilder.RM.storageInitializer(HiveStorage());
     runApp(app);
   }
 
   // ignore: library_private_types_in_public_api
   static _RM<T> inject<T>(
     T state, {
-    Changed<T>? onChanged,
+    Transition<T>? onChanged,
     bool? autoDispose,
   }) =>
       _RM<T>(

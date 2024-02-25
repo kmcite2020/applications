@@ -3,14 +3,14 @@ part of 'manager.dart';
 abstract class Cubit<State> {
   State get initialState;
   bool get autoDispose => true;
-  Changed<State>? get onChanged => null;
+  Transition<State>? get onTransition => null;
   Persistor<State>? get persistor => null;
   int get undoStackLength => 0;
-  late final inj = Injected(
+  late final inj = rebuilder.Injected(
     creator: () => initialState,
     persist: persistor != null
         ? () {
-            return PersistState(
+            return rebuilder.PersistState(
               key: persistor!.key,
               toJson: (state) => jsonEncode(persistor!.toJson(state)),
               fromJson: (json) => persistor!.fromJson(jsonDecode(json)),
@@ -28,7 +28,7 @@ abstract class Cubit<State> {
     State? newState,
   ]) {
     if (newState != null) {
-      onChanged?.call(state, newState);
+      onTransition?.call(state, newState);
       state = newState;
     }
     return state;
