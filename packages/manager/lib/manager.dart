@@ -31,6 +31,7 @@ class RM<State> {
 
   static void build(Widget app) async {
     await rebuilder.RM.storageInitializer(HiveStorage());
+    // await rebuilder.RM.deleteAllPersistState();
     runApp(app);
   }
 }

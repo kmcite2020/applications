@@ -6,6 +6,9 @@ extension DynamicExtensions on dynamic {
         toString(),
         textScaler: TextScaler.linear(textScaleFactor ?? 1),
       );
+
+  bool get isNull => this == null;
+  bool get isNotNull => !isNull;
 }
 
 extension WidgetExtensions on Widget {
@@ -15,6 +18,8 @@ extension WidgetExtensions on Widget {
       child: this,
     );
   }
+
+  Widget center() => Center(child: this);
 }
 
 String get randomID => const Uuid().v4();

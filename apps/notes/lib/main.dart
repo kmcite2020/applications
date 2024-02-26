@@ -19,12 +19,18 @@ class MyApp extends StatelessWidget {
       theme: FlexThemeData.light(
         useMaterial3: true,
         lightIsWhite: true,
+        // subThemesData: FlexSubThemesData(
+        //   defaultRadius: settingsRM().borderRadius,
+        // ),
       ),
       darkTheme: FlexThemeData.dark(
         useMaterial3: true,
         darkIsTrueBlack: true,
+        subThemesData: FlexSubThemesData(
+          defaultRadius: settingsRM().borderRadius,
+        ),
       ),
-      themeMode: themeModeRM(),
+      themeMode: settingsRM().themeMode,
       home: switch (navigationRM()) {
         0 => const NotesPage(),
         _ => const SettingsPage(),

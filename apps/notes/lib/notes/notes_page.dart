@@ -1,6 +1,7 @@
 import 'package:extensions/main.dart';
 import 'package:manager/manager.dart';
 import 'package:notes/drawer/drawer.dart';
+import 'package:notes/notes/note_page/note_page.dart';
 import 'package:notes/notes/notes.dart';
 import 'package:notes/settings/settings.dart';
 
@@ -12,21 +13,23 @@ class NotesPage extends StatelessWidget {
     return Scaffold(
       drawer: const DrawerPage(),
       appBar: AppBar(
-        title: 'Notes'.text(),
+        title: const SearchBar(
+          elevation: MaterialStatePropertyAll(0),
+        ),
         actions: [
           IconButton(
             onPressed: () {
-              switch (viewModeRM()) {
+              switch (settingsRM().viewMode) {
                 case ViewMode.grid:
-                  viewModeRM(ViewMode.list);
+                  settingsRM.setViewMode(ViewMode.list);
                   break;
                 case ViewMode.list:
-                  viewModeRM(ViewMode.grid);
+                  settingsRM.setViewMode(ViewMode.grid);
                   break;
               }
             },
             icon: Icon(
-              switch (viewModeRM()) {
+              switch (settingsRM().viewMode) {
                 ViewMode.list => Icons.grid_3x3,
                 ViewMode.grid => Icons.list,
               },
@@ -34,13 +37,27 @@ class NotesPage extends StatelessWidget {
           ).pad()
         ],
       ),
-      body: switch (viewModeRM()) {
+      body: switch (settingsRM().viewMode) {
         ViewMode.list => ListView.builder(
-            itemCount: notesRM().cache.length,
+            itemCount: notesRM()().length,
             itemBuilder: (context, index) {
-              final note = notesRM().cache.values.toList()[index];
-              return ListTile(
-                title: note.text(),
+              final note = notesRM()()[index];
+              return Container(
+                margin: const EdgeInsets.all(2),
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Theme.of(context).primaryColor,
+                  ),
+                  borderRadius:
+                      BorderRadius.circular(settingsRM().borderRadius),
+                ),
+                child: ListTile(
+                  title: note.title.text(),
+                  subtitle: note.details.text(),
+                  onTap: () {
+                    RM.navigate.to(NotePage(note.id));
+                  },
+                ),
               );
             },
           ),
@@ -48,11 +65,25 @@ class NotesPage extends StatelessWidget {
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
             ),
-            itemCount: notesRM().cache.length,
+            itemCount: notesRM()().length,
             itemBuilder: (context, index) {
-              final note = notesRM().cache.values.toList()[index];
-              return ListTile(
-                title: note.text(),
+              final note = notesRM()()[index];
+              return Container(
+                margin: const EdgeInsets.all(2),
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Theme.of(context).primaryColor,
+                  ),
+                  borderRadius:
+                      BorderRadius.circular(settingsRM().borderRadius),
+                ),
+                child: ListTile(
+                  title: note.title.text(),
+                  subtitle: note.details.text(),
+                  onTap: () {
+                    RM.navigate.to(NotePage(note.id));
+                  },
+                ),
               );
             },
           ),
@@ -62,6 +93,7 @@ class NotesPage extends StatelessWidget {
           notesRM.setNote(
             Note(
               id: randomID,
+              timeCreated: DateTime.now(),
             ),
           );
         },

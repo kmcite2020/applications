@@ -1,10 +1,40 @@
 import 'package:extensions/main.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:manager/manager.dart';
 import 'package:notes/drawer/drawer.dart';
 
+part 'settings.freezed.dart';
+part 'settings.g.dart';
+
+final settingsRM = SettingsRM();
+
+class SettingsRM extends Cubit<Settings> {
+  @override
+  Settings get initialState => const Settings();
+
+  void setViewMode(ViewMode? viewMode) => call(
+        state.copyWith(viewMode: viewMode!),
+      );
+
+  void setThemeMode(ThemeMode? themeMode) => call(
+        state.copyWith(themeMode: themeMode!),
+      );
+}
+
 enum ViewMode { list, grid }
 
-final viewModeRM = RM.inject(ViewMode.grid);
+@freezed
+class Settings with _$Settings {
+  const factory Settings({
+    @Default(ViewMode.list) final ViewMode viewMode,
+    @Default(ThemeMode.system) final ThemeMode themeMode,
+    @Default(8.0) final double borderRadius,
+    @Default(8.0) final double padding,
+  }) = _Settings;
+
+  factory Settings.fromJson(Map<String, dynamic> json) =>
+      _$SettingsFromJson(json);
+}
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
@@ -17,6 +47,21 @@ class SettingsPage extends StatelessWidget {
       body: ListView(
         children: [
           DropdownButtonFormField(
+            value: settingsRM().themeMode,
+            items: ThemeMode.values
+                .map(
+                  (e) => DropdownMenuItem(
+                    value: e,
+                    child: e.name.toUpperCase().text(),
+                  ),
+                )
+                .toList(),
+            onChanged: (themeMode) {
+              settingsRM.setThemeMode(themeMode);
+            },
+          ).pad(),
+          DropdownButtonFormField(
+            value: settingsRM().viewMode,
             items: ViewMode.values
                 .map(
                   (e) => DropdownMenuItem(
@@ -25,7 +70,9 @@ class SettingsPage extends StatelessWidget {
                   ),
                 )
                 .toList(),
-            onChanged: viewModeRM.call,
+            onChanged: (viewMode) {
+              settingsRM.setViewMode(viewMode);
+            },
           ).pad(),
         ],
       ),

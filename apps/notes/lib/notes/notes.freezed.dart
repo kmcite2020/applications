@@ -21,6 +21,7 @@ Note _$NoteFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Note {
   String get id => throw _privateConstructorUsedError;
+  DateTime get timeCreated => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get details => throw _privateConstructorUsedError;
 
@@ -34,7 +35,7 @@ abstract class $NoteCopyWith<$Res> {
   factory $NoteCopyWith(Note value, $Res Function(Note) then) =
       _$NoteCopyWithImpl<$Res, Note>;
   @useResult
-  $Res call({String id, String title, String details});
+  $Res call({String id, DateTime timeCreated, String title, String details});
 }
 
 /// @nodoc
@@ -51,6 +52,7 @@ class _$NoteCopyWithImpl<$Res, $Val extends Note>
   @override
   $Res call({
     Object? id = null,
+    Object? timeCreated = null,
     Object? title = null,
     Object? details = null,
   }) {
@@ -59,6 +61,10 @@ class _$NoteCopyWithImpl<$Res, $Val extends Note>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
+      timeCreated: null == timeCreated
+          ? _value.timeCreated
+          : timeCreated // ignore: cast_nullable_to_non_nullable
+              as DateTime,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -78,7 +84,7 @@ abstract class _$$NoteImplCopyWith<$Res> implements $NoteCopyWith<$Res> {
       __$$NoteImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String title, String details});
+  $Res call({String id, DateTime timeCreated, String title, String details});
 }
 
 /// @nodoc
@@ -92,6 +98,7 @@ class __$$NoteImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
+    Object? timeCreated = null,
     Object? title = null,
     Object? details = null,
   }) {
@@ -100,6 +107,10 @@ class __$$NoteImplCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
+      timeCreated: null == timeCreated
+          ? _value.timeCreated
+          : timeCreated // ignore: cast_nullable_to_non_nullable
+              as DateTime,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -115,13 +126,19 @@ class __$$NoteImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$NoteImpl implements _Note {
-  const _$NoteImpl({required this.id, this.title = '', this.details = ''});
+  const _$NoteImpl(
+      {required this.id,
+      required this.timeCreated,
+      this.title = '',
+      this.details = ''});
 
   factory _$NoteImpl.fromJson(Map<String, dynamic> json) =>
       _$$NoteImplFromJson(json);
 
   @override
   final String id;
+  @override
+  final DateTime timeCreated;
   @override
   @JsonKey()
   final String title;
@@ -131,7 +148,7 @@ class _$NoteImpl implements _Note {
 
   @override
   String toString() {
-    return 'Note(id: $id, title: $title, details: $details)';
+    return 'Note(id: $id, timeCreated: $timeCreated, title: $title, details: $details)';
   }
 
   @override
@@ -140,13 +157,15 @@ class _$NoteImpl implements _Note {
         (other.runtimeType == runtimeType &&
             other is _$NoteImpl &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.timeCreated, timeCreated) ||
+                other.timeCreated == timeCreated) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.details, details) || other.details == details));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, title, details);
+  int get hashCode => Object.hash(runtimeType, id, timeCreated, title, details);
 
   @JsonKey(ignore: true)
   @override
@@ -165,6 +184,7 @@ class _$NoteImpl implements _Note {
 abstract class _Note implements Note {
   const factory _Note(
       {required final String id,
+      required final DateTime timeCreated,
       final String title,
       final String details}) = _$NoteImpl;
 
@@ -172,6 +192,8 @@ abstract class _Note implements Note {
 
   @override
   String get id;
+  @override
+  DateTime get timeCreated;
   @override
   String get title;
   @override
@@ -261,9 +283,10 @@ class __$$NotesImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$NotesImpl implements _Notes {
+class _$NotesImpl extends _Notes {
   const _$NotesImpl({final Map<String, Note> cache = const <String, Note>{}})
-      : _cache = cache;
+      : _cache = cache,
+        super._();
 
   factory _$NotesImpl.fromJson(Map<String, dynamic> json) =>
       _$$NotesImplFromJson(json);
@@ -309,8 +332,9 @@ class _$NotesImpl implements _Notes {
   }
 }
 
-abstract class _Notes implements Notes {
+abstract class _Notes extends Notes {
   const factory _Notes({final Map<String, Note> cache}) = _$NotesImpl;
+  const _Notes._() : super._();
 
   factory _Notes.fromJson(Map<String, dynamic> json) = _$NotesImpl.fromJson;
 
