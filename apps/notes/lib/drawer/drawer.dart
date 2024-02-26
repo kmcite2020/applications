@@ -28,7 +28,7 @@ class DrawerPage extends UI {
 
 final navigationRM = RM.inject(
   0,
-  onChanged: (oldState, newState) {
+  onTransition: (oldState, newState) {
     RM.navigate.back();
   },
   autoDispose: false,
