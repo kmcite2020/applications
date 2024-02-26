@@ -12,14 +12,26 @@ extension DynamicExtensions on dynamic {
 }
 
 extension WidgetExtensions on Widget {
-  Widget pad() {
+  Widget pad({EdgeInsets? customPad}) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: customPad ?? const EdgeInsets.all(8.0),
       child: this,
     );
   }
 
   Widget center() => Center(child: this);
+}
+
+extension DateTimeExtensions on DateTime {
+  String humane() {
+    return "$day-$month-$year";
+  }
+
+  Widget human() => humane().text();
+
+  String get day => this.day.toString();
+  String get month => this.month.toString();
+  String get year => this.year.toString();
 }
 
 String get randomID => const Uuid().v4();

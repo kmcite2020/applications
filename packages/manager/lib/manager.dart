@@ -11,7 +11,7 @@ part 'ui.dart';
 
 typedef Transition<State> = void Function(State oldState, State newState);
 
-class RM<State> {
+class RM<T> {
   static Simple<T> inject<T>(
     T state, {
     Transition<T>? onTransition,
@@ -36,14 +36,19 @@ class RM<State> {
   }
 }
 
-class Simple<T> with CubitInterface<T> {
+class Simple<T> extends ICubit<T> {
   final T _initialState;
   final Transition<T>? _onTransition;
   final bool? _autoDispose;
   final int? _undoStackLength;
   final Persistor<T>? _persistor;
-  Simple(this._initialState, this._onTransition, this._autoDispose,
-      this._undoStackLength, this._persistor);
+  Simple(
+    this._initialState,
+    this._onTransition,
+    this._autoDispose,
+    this._undoStackLength,
+    this._persistor,
+  );
   @override
   T get initialState => _initialState;
   @override
@@ -56,9 +61,13 @@ class Simple<T> with CubitInterface<T> {
   Persistor<T>? get persistor => _persistor;
 }
 
-abstract class Cubit<T> with CubitInterface<T> {}
+typedef Notifier<T> = Cubit<T>;
+typedef NotifierMixin<T> = ICubit<T>;
 
-mixin CubitInterface<T> {
+abstract class Cubit<T> extends ICubit<T> {}
+
+abstract class ICubit<T> {
+  ICubit();
   Transition<T>? get onTransition => null;
   bool get autoDispose => true;
   Persistor<T>? get persistor => null;
@@ -93,4 +102,21 @@ mixin CubitInterface<T> {
     undoStackLength: undoStackLength,
   );
   T get initialState;
+
+  /// State Management with Inherited Concepts
+  late final of = inj.of;
+  late final _get = inj.call;
+  ICubit<T> get(BuildContext context, {bool defaultToGlobal = false}) {
+    return ICubit.fromInj(_get(context, defaultToGlobal: defaultToGlobal));
+  }
+
+  factory ICubit.fromInj(Injected injected) {
+    return Simple(
+      injected.state,
+      null,
+      true,
+      0,
+      null,
+    );
+  }
 }
