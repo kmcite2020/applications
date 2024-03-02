@@ -1,6 +1,4 @@
-import 'package:manager/manager.dart';
-import 'package:manager/model.dart';
-import 'package:roster_system/departments/departments.dart';
+import '../main.dart';
 
 final departmentsRM = DepartmentsRM();
 

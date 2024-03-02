@@ -1,16 +1,13 @@
-import 'package:manager/manager.dart';
-import 'package:roster_system/doctors_management/doctors.dart';
+import '../../main.dart';
 
-import 'doctor_editor_page.dart';
-
-class DoctorsManagerPage extends UI {
-  const DoctorsManagerPage({super.key});
+class DoctorsPage extends UI {
+  const DoctorsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: 'DOCTORS MANAGER'.text(),
+        title: 'DOCTORS'.text(),
       ),
       body: ListView(
         children: doctorsRM()
@@ -21,7 +18,7 @@ class DoctorsManagerPage extends UI {
                 title: doctor.value.name.text(),
                 onTap: () {
                   RM.navigate.to(
-                    DoctorEditorPage(id: doctor.key),
+                    DoctorPage(id: doctor.key),
                   );
                 },
                 trailing: IconButton(

@@ -1,6 +1,4 @@
-import 'package:manager/manager.dart';
-import 'package:manager/model.dart';
-import 'package:roster_system/settings/settings.dart';
+import 'package:roster_system/main.dart';
 
 final settingsRM = SettingsRM();
 

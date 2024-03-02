@@ -1,5 +1,4 @@
-import 'package:manager/manager.dart';
-import 'package:roster_system/departments/departments_rm.dart';
+import 'package:roster_system/main.dart';
 
 part 'departments.freezed.dart';
 part 'departments.g.dart';
@@ -14,7 +13,7 @@ class Department with _$Department {
   factory Department.fromJson(Map<String, dynamic> json) =>
       _$DepartmentFromJson(json);
 
-  static Department get(String id) => departmentsRM().cache[id]!;
+  factory Department.get(String id) => departmentsRM().cache[id]!;
 }
 
 @freezed

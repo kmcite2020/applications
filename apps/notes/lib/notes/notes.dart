@@ -1,5 +1,5 @@
 import 'package:manager/manager.dart';
-import 'package:manager/model.dart';
+
 part 'notes.freezed.dart';
 part 'notes.g.dart';
 

@@ -1,11 +1,10 @@
-import 'package:manager/manager.dart';
-import 'package:roster_system/doctors_management/doctors.dart';
+import '../../main.dart';
 
-class DoctorEditorPage extends UI {
-  const DoctorEditorPage({super.key, required this.id});
+class DoctorPage extends UI {
+  const DoctorPage({super.key, required this.id});
   final String id;
 
-  static late Simple<Doctor>? doctorRM;
+  static late Simple<Doctor> doctorRM;
   @override
   void didMountWidget(BuildContext context) {
     doctorRM = Simple(
@@ -17,24 +16,19 @@ class DoctorEditorPage extends UI {
   }
 
   @override
-  void didUnmountWidget() {
-    doctorRM = null;
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: doctorRM!().name.text(),
+        title: doctorRM().name.text(),
       ),
-      body: doctorRM!().editing
+      body: doctorRM().editing
           ? ListView(
               children: [
                 TextFormField(
-                  initialValue: doctorRM!().name,
+                  initialValue: doctorRM().name,
                   onChanged: (name) {
-                    doctorRM!(
-                      doctorRM!().copyWith(name: name),
+                    doctorRM(
+                      doctorRM().copyWith(name: name),
                     );
                   },
                   decoration: const InputDecoration(
@@ -42,10 +36,10 @@ class DoctorEditorPage extends UI {
                   ),
                 ).pad(),
                 TextFormField(
-                  initialValue: doctorRM!().qualifications,
+                  initialValue: doctorRM().qualifications,
                   onChanged: (qualifications) {
-                    doctorRM!(
-                      doctorRM!().copyWith(qualifications: qualifications),
+                    doctorRM(
+                      doctorRM().copyWith(qualifications: qualifications),
                     );
                   },
                   decoration: const InputDecoration(
@@ -53,10 +47,10 @@ class DoctorEditorPage extends UI {
                   ),
                 ).pad(),
                 TextFormField(
-                  initialValue: doctorRM!().contactDetails,
+                  initialValue: doctorRM().contactDetails,
                   onChanged: (contactDetails) {
-                    doctorRM!(
-                      doctorRM!().copyWith(contactDetails: contactDetails),
+                    doctorRM(
+                      doctorRM().copyWith(contactDetails: contactDetails),
                     );
                   },
                   decoration: const InputDecoration(
@@ -64,7 +58,7 @@ class DoctorEditorPage extends UI {
                   ),
                 ).pad(),
                 DropdownButtonFormField(
-                  value: doctorRM!().gender,
+                  value: doctorRM().gender,
                   items: Gender.values
                       .map(
                         (eachGender) => DropdownMenuItem(
@@ -74,8 +68,8 @@ class DoctorEditorPage extends UI {
                       )
                       .toList(),
                   onChanged: (gender) {
-                    doctorRM!(
-                      doctorRM!().copyWith(gender: gender!),
+                    doctorRM(
+                      doctorRM().copyWith(gender: gender!),
                     );
                   },
                   decoration: const InputDecoration(
@@ -91,14 +85,14 @@ class DoctorEditorPage extends UI {
                     onPressed: () async {
                       final selectedDateOfBirth = await showDatePicker(
                         context: context,
-                        initialDate: doctorRM!().dateOfBirth,
+                        initialDate: doctorRM().dateOfBirth,
                         firstDate: DateTime.fromMicrosecondsSinceEpoch(0),
                         lastDate: DateTime.now(),
                       );
 
                       if (selectedDateOfBirth != null) {
-                        doctorRM!(
-                          doctorRM!().copyWith(
+                        doctorRM(
+                          doctorRM().copyWith(
                             dateOfBirth: selectedDateOfBirth,
                           ),
                         );

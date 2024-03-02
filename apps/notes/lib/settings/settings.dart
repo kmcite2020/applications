@@ -1,5 +1,3 @@
-import 'package:manager/manager.dart';
-import 'package:notes/drawer/drawer.dart';
 import 'package:notes/main.dart';
 
 part 'settings.freezed.dart';

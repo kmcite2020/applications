@@ -1,7 +1,15 @@
-import 'package:manager/manager.dart';
-import 'package:roster_system/doctors_management/pages/doctors_manager_page.dart';
-import 'package:roster_system/settings/settings_rm.dart';
-import 'package:roster_system/settings/settings_page.dart';
+import 'main.dart';
+export 'package:manager/manager.dart';
+export 'package:roster_system/doctors/ui/doctors_page.dart';
+export 'package:roster_system/settings/settings_rm.dart';
+export 'package:roster_system/settings/settings_page.dart';
+export 'package:roster_system/doctors/doctors.dart';
+export 'package:roster_system/settings/settings.dart';
+export 'package:roster_system/doctors/doctors_rm.dart';
+export 'package:roster_system/departments/departments.dart';
+export 'package:roster_system/departments/departments_rm.dart';
+export 'package:roster_system/departments/ui/department_page.dart';
+export 'package:roster_system/doctors/ui/doctor_page.dart';
 
 void main() {
   RM.build(const MyApp());
@@ -45,7 +53,7 @@ class MyHomePage extends UI {
         actions: [
           IconButton(
             onPressed: () {
-              RM.navigate.to(const DoctorsManagerPage());
+              RM.navigate.to(const DoctorsPage());
             },
             icon: const Icon(Icons.healing),
           ),
