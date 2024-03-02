@@ -1,14 +1,14 @@
-import 'package:extensions/main.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:manager/manager.dart';
 import 'package:notes/drawer/drawer.dart';
+import 'package:notes/main.dart';
 
 part 'settings.freezed.dart';
 part 'settings.g.dart';
 
 final settingsRM = SettingsRM();
 
-class SettingsRM extends Cubit<Settings> {
+class SettingsRM extends Manager<Settings> {
   @override
   Settings get initialState => const Settings();
 
@@ -36,7 +36,7 @@ class Settings with _$Settings {
       _$SettingsFromJson(json);
 }
 
-class SettingsPage extends StatelessWidget {
+class SettingsPage extends UI {
   const SettingsPage({super.key});
 
   @override
@@ -73,6 +73,19 @@ class SettingsPage extends StatelessWidget {
             onChanged: (viewMode) {
               settingsRM.setViewMode(viewMode);
             },
+          ).pad(),
+          summerRM().text(textScaleFactor: 5).pad(),
+          ElevatedButton(
+            onPressed: () {
+              summerRM(0);
+            },
+            child: '+'.text(textScaleFactor: 5),
+          ).pad(),
+          ElevatedButton(
+            onPressed: () {
+              summerRM(1);
+            },
+            child: '-'.text(textScaleFactor: 5),
           ).pad(),
         ],
       ),

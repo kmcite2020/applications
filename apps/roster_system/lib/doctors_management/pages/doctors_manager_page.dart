@@ -1,39 +1,46 @@
-// import '../../../main.dart';
+import 'package:manager/manager.dart';
+import 'package:roster_system/doctors_management/doctors.dart';
 
-// class DoctorsManagerPage extends UI {
-//   const DoctorsManagerPage({super.key});
+import 'doctor_editor_page.dart';
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: CustomScrollView(
-//         slivers: [
-//           SliverAppBar(
-//             title: 'DOCTORS MANAGER'.text(),
-//           ),
-//           SliverList.list(
-//             children: doctorsManager.doctors
-//                 .map(
-//                   (doctor) => ListTile(
-//                     title: doctor.name.text(),
-//                     onTap: () =>
-//                         RM.navigate.to(DoctorEditorPage(id: doctor.id)),
-//                     trailing: IconButton(
-//                       onPressed: () => doctorsManager.removeDoctor(doctor),
-//                       icon: Icon(Icons.delete),
-//                     ),
-//                   ),
-//                 )
-//                 .toList(),
-//           ),
-//         ],
-//       ),
-//       floatingActionButton: FloatingActionButton(
-//         onPressed: () {
-//           doctorsManager.addDoctor();
-//         },
-//         child: Icon(Icons.add),
-//       ),
-//     );
-//   }
-// }
+class DoctorsManagerPage extends UI {
+  const DoctorsManagerPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: 'DOCTORS MANAGER'.text(),
+      ),
+      body: ListView(
+        children: doctorsRM()
+            .cache
+            .entries
+            .map(
+              (doctor) => ListTile(
+                title: doctor.value.name.text(),
+                onTap: () {
+                  RM.navigate.to(
+                    DoctorEditorPage(id: doctor.key),
+                  );
+                },
+                trailing: IconButton(
+                  onPressed: () => doctorsRM.removeDoctor(doctor.value),
+                  icon: const Icon(Icons.delete),
+                ),
+              ),
+            )
+            .toList(),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // doctorsManager.addDoctor();
+          doctorsRM.setDoctor(
+            Doctor.init(),
+          );
+        },
+        child: const Icon(Icons.add),
+      ),
+    );
+  }
+}

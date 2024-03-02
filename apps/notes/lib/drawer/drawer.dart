@@ -1,4 +1,3 @@
-import 'package:extensions/main.dart';
 import 'package:manager/manager.dart';
 
 class DrawerPage extends UI {
@@ -26,7 +25,7 @@ class DrawerPage extends UI {
   }
 }
 
-final navigationRM = RM.inject(
+final navigationRM = Simple(
   0,
   onTransition: (oldState, newState) {
     RM.navigate.back();

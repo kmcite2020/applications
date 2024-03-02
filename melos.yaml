@@ -3,3 +3,17 @@ name: applications
 packages:
   - apps/**
   - packages/**
+command:
+  bootstrap:
+    environment:
+      sdk: ">=3.0.0 <4.0.0"
+      flutter: ">=3.0.0 <4.0.0"
+    dependencies:
+      json_annotation:
+      freezed_annotation:
+      flutter_riverpod:
+    
+    dev_dependencies:
+      build_runner: ^2.3.3
+      json_serializable:
+      freezed:

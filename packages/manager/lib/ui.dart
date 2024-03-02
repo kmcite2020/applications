@@ -1,8 +1,8 @@
 // ignore_for_file: unused_result, unused_element
 
-part of 'manager.dart';
+import 'package:states_rebuilder/states_rebuilder.dart';
 
-typedef UI = rebuilder.ReactiveStatelessWidget;
+typedef UI = ReactiveStatelessWidget;
 typedef StatelessWidget = UI;
 
 class _Injected<T> {

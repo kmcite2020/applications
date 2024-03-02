@@ -1,11 +1,10 @@
-import 'package:extensions/main.dart';
 import 'package:manager/manager.dart';
 import 'package:notes/drawer/drawer.dart';
 import 'package:notes/notes/note_page/note_page.dart';
 import 'package:notes/notes/notes.dart';
 import 'package:notes/settings/settings.dart';
 
-class NotesPage extends StatelessWidget {
+class NotesPage extends UI {
   const NotesPage({super.key});
 
   @override
@@ -13,9 +12,6 @@ class NotesPage extends StatelessWidget {
     return Scaffold(
       drawer: const DrawerPage(),
       appBar: AppBar(
-        title: const SearchBar(
-          elevation: MaterialStatePropertyAll(0),
-        ),
         actions: [
           IconButton(
             onPressed: () {
@@ -89,6 +85,7 @@ class NotesPage extends StatelessWidget {
           ),
       },
       floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.add),
         onPressed: () {
           notesRM.setNote(
             Note(

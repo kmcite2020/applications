@@ -1,4 +1,3 @@
-import 'package:extensions/main.dart';
 import 'package:manager/manager.dart';
 import 'package:notes/notes/notes.dart';
 
@@ -68,7 +67,6 @@ class NotePage extends UI {
               },
               textAlignVertical: TextAlignVertical.top,
               expands: true,
-              minLines: null,
               maxLines: null,
               decoration: const InputDecoration(
                 border: InputBorder.none,
@@ -76,7 +74,7 @@ class NotePage extends UI {
               ),
             ).pad(),
           ),
-          note.timeCreated.text().pad(),
+          note.timeCreated.human().pad(),
         ],
       ),
     );

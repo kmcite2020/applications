@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:manager/manager.dart';
-import 'package:manager/persistor.dart';
+import 'package:manager/model.dart';
 part 'notes.freezed.dart';
 part 'notes.g.dart';
 
@@ -24,13 +24,14 @@ class Notes with _$Notes {
   const Notes._();
   List<Note> call() => cache.values.toList()
     ..sort(
-      (a, b) => a.timeCreated.compareTo(b.timeCreated),
-    );
+      (a, b) => b.timeCreated.compareTo(a.timeCreated),
+    )
+    ..reversed.toList();
 
   factory Notes.fromJson(Map<String, dynamic> json) => _$NotesFromJson(json);
 }
 
-class NotesRM extends Cubit<Notes> {
+class NotesRM extends Manager<Notes> {
   @override
   Notes get initialState => const Notes();
   @override
