@@ -1,4 +1,3 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:manager/manager.dart';
 
 part 'settings.g.dart';

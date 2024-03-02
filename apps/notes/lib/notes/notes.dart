@@ -1,4 +1,3 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:manager/manager.dart';
 import 'package:manager/model.dart';
 part 'notes.freezed.dart';

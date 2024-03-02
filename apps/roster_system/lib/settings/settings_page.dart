@@ -1,5 +1,6 @@
 import 'package:manager/manager.dart';
-import 'package:roster_system/settings/settings_manager.dart';
+import 'package:roster_system/departments/ui/departments_page.dart';
+import 'package:roster_system/settings/settings_rm.dart';
 
 class SettingsPage extends UI {
   const SettingsPage({super.key});
@@ -49,6 +50,12 @@ class SettingsPage extends UI {
                 ),
               );
             },
+          ).pad(),
+          ElevatedButton(
+            onPressed: () {
+              RM.navigate.to(const DepartmentsPage());
+            },
+            child: 'Departments'.text(),
           ).pad(),
         ],
       ),

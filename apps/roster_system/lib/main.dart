@@ -1,6 +1,6 @@
 import 'package:manager/manager.dart';
 import 'package:roster_system/doctors_management/pages/doctors_manager_page.dart';
-import 'package:roster_system/settings/settings_manager.dart';
+import 'package:roster_system/settings/settings_rm.dart';
 import 'package:roster_system/settings/settings_page.dart';
 
 void main() {

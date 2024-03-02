@@ -1,4 +1,3 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:manager/manager.dart';
 import 'package:manager/model.dart';
 
@@ -32,10 +31,12 @@ class Doctor with _$Doctor {
   factory Doctor.fromJson(json) => _$DoctorFromJson(json);
   factory Doctor.get({required String id}) => doctorsRM().cache[id]!;
 
-  factory Doctor.init() => Doctor(
-        id: randomID,
-        dateOfBirth: DateTime(1995),
-      );
+  factory Doctor.init() {
+    return Doctor(
+      id: randomID,
+      dateOfBirth: DateTime(1995),
+    );
+  }
 }
 
 @freezed
