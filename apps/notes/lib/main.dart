@@ -21,9 +21,9 @@ class MyApp extends UI {
       theme: FlexThemeData.light(
         useMaterial3: true,
         lightIsWhite: true,
-        // subThemesData: FlexSubThemesData(
-        //   defaultRadius: settingsRM().borderRadius,
-        // ),
+        subThemesData: FlexSubThemesData(
+          defaultRadius: settingsRM().borderRadius,
+        ),
       ),
       darkTheme: FlexThemeData.dark(
         useMaterial3: true,

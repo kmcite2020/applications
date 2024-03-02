@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
 
 extension DynamicExtensions on dynamic {
-  Widget text({double? textScaleFactor}) => Text(
+  Widget text({
+    double? textScaleFactor,
+    TextStyle? style,
+  }) =>
+      Text(
         toString(),
+        style: style,
         textScaler: TextScaler.linear(textScaleFactor ?? 1),
       );
 
