@@ -13,7 +13,7 @@ PreferredSize customAppBar({
       child: DefaultTabController(
         length: 1,
         child: AppBar(
-          title: title.text(),
+          title: title.text(textScaleFactor: 1.2),
           automaticallyImplyLeading: false,
           leading: leading ??
               IconButton(
@@ -24,7 +24,7 @@ PreferredSize customAppBar({
               ),
           bottom: bottom ??
               TabBar(
-                onTap: (x) {
+                onTap: (_) {
                   RM.navigate.toDialog(
                     AlertDialog(
                       title: 'User'.text(),
@@ -41,7 +41,7 @@ PreferredSize customAppBar({
                     text: settingsRM().userName,
                   ),
                 ],
-                overlayColor: MaterialStateProperty.all(Colors.transparent),
+                // overlayColor: MaterialStateProperty.all(Colors.transparent),
               ),
           centerTitle: true,
         ).pad(),

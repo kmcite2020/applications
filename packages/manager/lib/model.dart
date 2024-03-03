@@ -1,6 +1,4 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-
-part 'model.freezed.dart';
+part of 'manager.dart';
 
 typedef ToJson<T> = Map<String, dynamic> Function(T state);
 typedef FromJson<T> = T Function(Map<String, dynamic> json);

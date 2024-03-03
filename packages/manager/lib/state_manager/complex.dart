@@ -1,12 +1,6 @@
 // ignore_for_file: avoid_shadowing_type_parameters, avoid_print
 
-import 'dart:async';
-import 'dart:convert';
-
-import 'package:manager/state_manager/manager.dart';
-import 'package:states_rebuilder/scr/state_management/rm.dart';
-
-import '../model.dart';
+part of '../manager.dart';
 
 typedef Emitter<T> = void Function(T newState);
 typedef EventRegistrar<Event, State> = FutureOr<void> Function(
@@ -16,11 +10,11 @@ typedef EventRegistrar<Event, State> = FutureOr<void> Function(
 
 abstract class Complex<E, T> {
   final _handlers = <Handler>[];
-  late final Injected<T> injected = Injected(
+  late final rebuilder.Injected<T> injected = rebuilder.Injected(
     creator: () => initialState,
     autoDisposeWhenNotUsed: autoDispose,
     persist: persistable
-        ? () => PersistState(
+        ? () => rebuilder.PersistState(
               key: persistor!.key,
               toJson: (state) => jsonEncode(persistor!.toJson(state)),
               fromJson: (json) => persistor!.fromJson(jsonDecode(json)),

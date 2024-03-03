@@ -18,6 +18,14 @@ class PatientPage extends UI {
         ),
         title: patient.name,
       ),
+      body: TextFormField(
+        initialValue: patient.name,
+        onChanged: (value) {
+          patientsRM.add(
+            patient.copyWith(name: value),
+          );
+        },
+      ).pad(),
     );
   }
 }

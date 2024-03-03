@@ -30,5 +30,4 @@ final navigationRM = Simple(
   onTransition: (oldState, newState) {
     RM.navigate.back();
   },
-  autoDispose: false,
 );

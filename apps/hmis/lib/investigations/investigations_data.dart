@@ -3,11 +3,11 @@ import 'package:hmis/main.dart';
 final investigationsBuiltIn = [
   Investigation().copyWith(
     name: 'CBC',
-    price: 100,
+    price: 200,
   ),
   Investigation().copyWith(
     name: 'RBS',
-    price: 50,
+    price: 100,
   ),
   Investigation().copyWith(
     name: 'Urea',
@@ -19,7 +19,7 @@ final investigationsBuiltIn = [
   ),
   Investigation().copyWith(
     name: 'Malarial Parasite',
-    price: 100,
+    price: 200,
   ),
   Investigation().copyWith(
     name: 'Dengue NS-1',
@@ -27,7 +27,7 @@ final investigationsBuiltIn = [
   ),
   Investigation().copyWith(
     name: 'ECG',
-    price: 2500,
+    price: 100,
   ),
   Investigation().copyWith(
     name: 'CT Brain with Bone Window',
@@ -47,7 +47,7 @@ final investigationsBuiltIn = [
   ),
   Investigation().copyWith(
     name: 'Ultrasound',
-    price: 400,
+    price: 500,
   ),
   Investigation().copyWith(
     name: 'Urine RE',
@@ -55,22 +55,22 @@ final investigationsBuiltIn = [
   ),
   Investigation().copyWith(
     name: 'Lipid Profile',
-    price: 150,
+    price: 300,
   ),
   Investigation().copyWith(
     name: 'Liver Function Test',
-    price: 200,
+    price: 300,
   ),
   Investigation().copyWith(
     name: 'Thyroid Function Test',
-    price: 100,
+    price: 2000,
   ),
   Investigation().copyWith(
     name: 'Serum Electrolytes',
-    price: 75,
+    price: 300,
   ),
   Investigation().copyWith(
     name: 'Blood Group & Rh Typing',
-    price: 50,
+    price: 100,
   ),
 ];

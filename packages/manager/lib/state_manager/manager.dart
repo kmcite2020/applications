@@ -1,12 +1,4 @@
-import 'dart:convert';
-
-import 'package:manager/hive_storage.dart';
-import 'package:states_rebuilder/scr/state_management/rm.dart';
-import 'package:states_rebuilder/states_rebuilder.dart' as rebuilder;
-
-import '../model.dart';
-import 'manager.dart';
-export 'package:flutter/material.dart' hide StatelessWidget, State;
+part of '../manager.dart';
 
 typedef Transition<State> = void Function(State oldState, State newState);
 
@@ -44,7 +36,7 @@ abstract class Manager<T> {
     return state;
   }
 
-  late final Injected<T> injected = Injected(
+  late final rebuilder.Injected<T> injected = rebuilder.Injected(
     creator: () => initialState,
     autoDisposeWhenNotUsed: autoDispose,
     persist: persistable

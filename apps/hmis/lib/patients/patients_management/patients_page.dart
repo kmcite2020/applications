@@ -5,11 +5,7 @@ class PatientsPage extends UI {
   static final nameFF = Simple('');
   static final ageFF = Simple(0);
 
-  static late final Simple<String> idRM;
-  @override
-  void didMountWidget(BuildContext context) {
-    idRM = Simple('');
-  }
+  static final Simple<String> idRM = Simple('');
 
   @override
   Widget build(BuildContext context) {
@@ -19,54 +15,59 @@ class PatientsPage extends UI {
         PatientsPages.list => Scaffold(
             appBar: customAppBar(
               title: 'Patients',
-              onDoubleTap: () => RM.navigate.toDialog(
-                Dialog.fullscreen(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      const TextField(
-                        // controller: nameFF.controller,
-                        decoration: InputDecoration(
-                          labelText: 'NAME',
+              onDoubleTap: () async {
+                final patient = await RM.navigate.toDialog<Patient>(
+                  Dialog.fullscreen(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const TextField(
+                          // controller: nameFF.controller,
+                          decoration: InputDecoration(
+                            labelText: 'NAME',
+                          ),
+                        ).pad(),
+                        TextFormField(
+                          initialValue: ageFF().toString(),
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
+                          decoration: const InputDecoration(
+                            labelText: 'AGE',
+                          ),
+                          onChanged: (x) => ageFF(int.tryParse(x)),
+                        ).pad(),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            ElevatedButton(
+                              onPressed: () {
+                                // Patient token = Patient()
+                                //   ..bioData.names.patientFullName = nameFF.text
+                                //   ..age.years = ageFF.value
+                                //   ..dateTime = DateTime.now();
+                                // navigator.back(token);
+                                final patient = Patient(
+                                  id: randomID,
+                                  name: 'name',
+                                  age: '20',
+                                );
+                                RM.navigate.back(patient);
+                              },
+                              child: 'Save'.text(),
+                            ).pad(),
+                            ElevatedButton(
+                              onPressed: () => RM.navigate.back(),
+                              child: 'Cancel'.text(),
+                            ).pad(),
+                          ],
                         ),
-                      ).pad(),
-                      TextFormField(
-                        initialValue: ageFF().toString(),
-                        autovalidateMode: AutovalidateMode.onUserInteraction,
-                        decoration: const InputDecoration(
-                          labelText: 'AGE',
-                        ),
-                        onChanged: (x) => ageFF(int.tryParse(x)),
-                      ).pad(),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          ElevatedButton(
-                            onPressed: () {
-                              // Patient token = Patient()
-                              //   ..bioData.names.patientFullName = nameFF.text
-                              //   ..age.years = ageFF.value
-                              //   ..dateTime = DateTime.now();
-                              // navigator.back(token);
-                              final patient = Patient(
-                                id: randomID,
-                                name: 'name',
-                                age: '20',
-                              );
-                              RM.navigate.back(patient);
-                            },
-                            child: 'Save'.text(),
-                          ).pad(),
-                          ElevatedButton(
-                            onPressed: () => RM.navigate.back(),
-                            child: 'Cancel'.text(),
-                          ).pad(),
-                        ],
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-              ),
+                );
+                if (patient != null) {
+                  patientsRM.add(patient);
+                }
+              },
             ),
             body: patientsRM().cache.isEmpty
                 ? Align(

@@ -31,7 +31,7 @@ final investigationsRM = InvestigationsRM();
 
 class InvestigationsRM extends Manager<Investigations> {
   @override
-  Investigations get initialState => const Investigations();
+  final initialState = const Investigations();
 
   void add(Investigation investigation) {
     call(
@@ -48,4 +48,11 @@ class InvestigationsRM extends Manager<Investigations> {
       ),
     );
   }
+
+  @override
+  final persistor = Persistor(
+    key: 'investigations',
+    toJson: (state) => state.toJson(),
+    fromJson: Investigations.fromJson,
+  );
 }

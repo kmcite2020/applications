@@ -41,7 +41,7 @@ class HomePage extends UI {
                   icon: const Icon(FontAwesomeIcons.route),
                   label: Align(
                     alignment: Alignment.centerLeft,
-                    child: 'Patients'.text().pad(),
+                    child: 'Patients'.text(textScaleFactor: 2).pad(),
                   ),
                 ).pad(),
                 FilledButton.icon(
@@ -49,7 +49,7 @@ class HomePage extends UI {
                   icon: const Icon(FontAwesomeIcons.fileInvoice),
                   label: Align(
                     alignment: Alignment.centerLeft,
-                    child: 'Investigations'.text().pad(),
+                    child: 'Investigations'.text(textScaleFactor: 2).pad(),
                   ),
                 ).pad(),
                 FilledButton.icon(
@@ -57,7 +57,7 @@ class HomePage extends UI {
                   icon: const Icon(FontAwesomeIcons.confluence),
                   label: Align(
                     alignment: Alignment.centerLeft,
-                    child: 'Settings'.text().pad(),
+                    child: 'Settings'.text(textScaleFactor: 2).pad(),
                   ),
                 ).pad(),
               ],

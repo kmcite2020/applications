@@ -1,8 +1,6 @@
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:package_info_plus/package_info_plus.dart';
-import 'package:states_rebuilder/states_rebuilder.dart';
+part of 'manager.dart';
 
-class HiveStorage implements IPersistStore {
+class HiveStorage implements rebuilder.IPersistStore {
   late Box box;
   @override
   Future<void> delete(String key) => box.delete(key);

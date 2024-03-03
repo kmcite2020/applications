@@ -1,3 +1,4 @@
+export 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:hmis/main.dart';
 export 'dart:convert';
 export 'package:hmis/investigations/investigations_page.dart';
@@ -7,11 +8,9 @@ export 'package:hmis/patients/patients.dart';
 export 'package:hmis/patients/patients_rm.dart';
 export 'package:hmis/patients/patients_management/patient_page.dart';
 export 'package:hmis/custom_app_bar.dart';
-export 'package:hmis/leading_back_button.dart';
 export 'package:flutter_native_splash/flutter_native_splash.dart';
 export 'package:manager/manager.dart';
 export 'package:font_awesome_flutter/font_awesome_flutter.dart';
-export 'package:hmis/alert_dialog.dart';
 export 'package:hmis/settings/settings_bloc.dart';
 export 'package:hmis/home/home_page.dart';
 export 'package:hmis/investigations/investigations.dart';
@@ -31,8 +30,14 @@ class MyApp extends UI {
       navigatorKey: RM.navigate.navigatorKey,
       debugShowCheckedModeBanner: false,
       themeAnimationDuration: animationDuration,
-      theme: ThemeData.light(),
-      darkTheme: ThemeData.dark(),
+      theme: FlexThemeData.light(
+        useMaterial3: true,
+        subThemesData: const FlexSubThemesData(defaultRadius: 5),
+      ),
+      darkTheme: FlexThemeData.dark(
+        useMaterial3: true,
+        subThemesData: const FlexSubThemesData(defaultRadius: 5),
+      ),
       themeMode: settingsRM().themeMode,
       home: AnimatedSwitcher(
         duration: animationDuration,

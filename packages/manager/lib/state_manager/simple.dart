@@ -1,9 +1,4 @@
-import 'dart:convert';
-
-import 'package:states_rebuilder/states_rebuilder.dart';
-
-import '../model.dart';
-import 'manager.dart';
+part of '../manager.dart';
 
 class Simple<T> {
   final Persistor<T>? persistor;
@@ -18,11 +13,11 @@ class Simple<T> {
     this.onTransition,
     this.undoStackLength = 0,
   }) {
-    inj = Injected(
+    inj = rebuilder.Injected(
       creator: () => initialState,
       autoDisposeWhenNotUsed: autoDispose,
       persist: persistable
-          ? () => PersistState(
+          ? () => rebuilder.PersistState(
                 key: persistor!.key,
                 toJson: (state) => jsonEncode(persistor!.toJson(state)),
                 fromJson: (json) => persistor!.fromJson(jsonDecode(json)),
@@ -47,5 +42,5 @@ class Simple<T> {
     return state;
   }
 
-  late final Injected<T> inj;
+  late final rebuilder.Injected<T> inj;
 }
