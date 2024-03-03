@@ -1,10 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:manager/manager.dart';
-import 'package:states_rebuilder/states_rebuilder.dart';
+import 'package:smc/main.dart';
 
-import '../../../shared/extensions.dart';
-
-class ReceptionUI extends ReactiveStatelessWidget {
+class ReceptionUI extends UI {
   const ReceptionUI({super.key});
   static const path = '/reception';
   @override

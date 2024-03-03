@@ -1,12 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:manager/manager.dart';
-import '../../../../../shared/extensions.dart';
-import 'package:states_rebuilder/states_rebuilder.dart';
+import 'package:smc/main.dart';
 
 import '../../../../../domain/models/models.dart';
 import '../../../../blocs/patients_bloc.dart';
 
-class TriageView extends ReactiveStatelessWidget {
+class TriageView extends UI {
   const TriageView({
     super.key,
     required this.patient,

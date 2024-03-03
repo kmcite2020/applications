@@ -1,6 +1,6 @@
 {
-    "name": "project_hmis",
-    "short_name": "project_hmis",
+    "name": "hmis",
+    "short_name": "hmis",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

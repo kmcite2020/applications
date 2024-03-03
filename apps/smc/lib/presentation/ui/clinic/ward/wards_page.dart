@@ -1,10 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:manager/manager.dart';
-import '../../../blocs/patients_bloc.dart';
-import '../../../../shared/extensions.dart';
-import 'package:states_rebuilder/states_rebuilder.dart';
+import 'package:smc/main.dart';
 
-class WardsPage extends ReactiveStatelessWidget {
+import '../../../blocs/patients_bloc.dart';
+
+class WardsPage extends UI {
   static const path = '/clinic/ward';
 
   const WardsPage({super.key});

@@ -1,13 +1,11 @@
-import 'package:flutter/material.dart';
-import 'package:manager/manager.dart';
+import 'package:smc/main.dart';
+
 import '../../../blocs/patients_bloc.dart';
-import '../../../../shared/extensions.dart';
-import 'package:states_rebuilder/states_rebuilder.dart';
 
 import '../../../../domain/models/models.dart';
 import '../../../../shared/ui/back_floating_button.dart';
 
-class OutPatientDepartmentUI extends ReactiveStatelessWidget {
+class OutPatientDepartmentUI extends UI {
   static const path = '/clinic/opd';
 
   const OutPatientDepartmentUI({super.key});

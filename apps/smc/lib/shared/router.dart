@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:smc/presentation/ui/configuration/configuration_ui.dart';
 import 'package:states_rebuilder/states_rebuilder.dart';
 

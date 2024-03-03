@@ -25,7 +25,10 @@ abstract class Manager<T> {
   T get state => injected.state;
   set state(T newState) => injected.state = newState;
   bool get persistable => persistor != null;
-  Persistor<T>? get persistor => null;
+  Persistor<T>? get persistor {
+    return null;
+  }
+
   bool get autoDispose => true;
   Transition<T>? get onTransition => null;
   int get undoStackLength => 0;

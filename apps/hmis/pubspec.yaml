@@ -26,6 +26,7 @@ dev_dependencies:
   freezed: any
   json_serializable: any
   build_runner: ^2.3.3
+  flutter_lints: any
 
 flutter:
   assets:

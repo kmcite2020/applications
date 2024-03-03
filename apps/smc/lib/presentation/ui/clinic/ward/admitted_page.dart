@@ -1,11 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:manager/manager.dart';
-import '../../../../shared/extensions.dart';
-import 'package:states_rebuilder/states_rebuilder.dart';
+import 'package:smc/main.dart';
 
 import '../../../blocs/patients_bloc.dart';
 
-class AdmittedPatients extends ReactiveStatelessWidget {
+class AdmittedPatients extends UI {
   const AdmittedPatients({super.key});
 
   @override

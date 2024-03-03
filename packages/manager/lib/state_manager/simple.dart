@@ -14,7 +14,7 @@ class Simple<T> {
   Simple(
     this.initialState, {
     this.persistor,
-    this.autoDispose = true,
+    this.autoDispose = false,
     this.onTransition,
     this.undoStackLength = 0,
   }) {

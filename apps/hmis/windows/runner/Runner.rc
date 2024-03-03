@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "dev.loner" "\0"
-            VALUE "FileDescription", "project_hmis" "\0"
+            VALUE "FileDescription", "hmis" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "project_hmis" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2023 dev.loner. All rights reserved." "\0"
-            VALUE "OriginalFilename", "project_hmis.exe" "\0"
-            VALUE "ProductName", "project_hmis" "\0"
+            VALUE "InternalName", "hmis" "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2024 dev.loner. All rights reserved." "\0"
+            VALUE "OriginalFilename", "hmis.exe" "\0"
+            VALUE "ProductName", "hmis" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

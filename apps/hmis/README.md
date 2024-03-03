@@ -1,4 +1,4 @@
-# project_hmis
+# hmis
 
 A new Flutter project.
 

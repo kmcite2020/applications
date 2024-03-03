@@ -1,13 +1,10 @@
-import 'package:flutter/material.dart';
-import 'package:manager/manager.dart';
-import 'package:states_rebuilder/states_rebuilder.dart';
+import 'package:smc/main.dart';
 
 import '../../../shared/common.dart';
-import '../../../shared/extensions.dart';
 import '../../../shared/router.dart';
 import 'info_widgets.dart';
 
-class DashboardPage extends ReactiveStatelessWidget {
+class DashboardPage extends UI {
   static const path = '/dashboard';
 
   const DashboardPage({super.key});

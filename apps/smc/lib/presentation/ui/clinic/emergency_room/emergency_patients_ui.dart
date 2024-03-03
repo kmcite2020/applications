@@ -1,3 +1,5 @@
+// ignore_for_file: unused_element
+
 import 'package:manager/manager.dart';
 import '../../../blocs/patients_bloc.dart';
 import '../../../../shared/router.dart';
