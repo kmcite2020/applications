@@ -5,14 +5,12 @@ part 'investigations.g.dart';
 
 @freezed
 class Investigation with _$Investigation {
-  const factory Investigation.create({
+  const factory Investigation({
     @Default('') final String id,
     @Default('') final String name,
     @Default(200) final int price,
   }) = _Investigation;
-  factory Investigation() {
-    return Investigation.create(id: randomID);
-  }
+
   factory Investigation.fromJson(Map<String, dynamic> json) =>
       _$InvestigationFromJson(json);
 }

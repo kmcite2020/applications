@@ -1,6 +1,7 @@
 import 'package:hmis/main.dart';
 
 export 'dart:convert';
+export 'package:hmis/patients/ui/add_patient_dialog.dart';
 
 export 'package:flex_color_scheme/flex_color_scheme.dart';
 export 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -10,8 +11,8 @@ export 'package:hmis/home/home_page.dart';
 export 'package:hmis/investigations/investigations.dart';
 export 'package:hmis/investigations/investigations_page.dart';
 export 'package:hmis/patients/patients.dart';
-export 'package:hmis/patients/patients_management/patient_page.dart';
-export 'package:hmis/patients/patients_management/patients_page.dart';
+export 'package:hmis/patients/ui/patient_page.dart';
+export 'package:hmis/patients/ui/patients_page.dart';
 export 'package:hmis/patients/patients_rm.dart';
 export 'package:hmis/settings/settings_rm.dart';
 export 'package:hmis/settings/settings_page.dart';

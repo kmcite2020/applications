@@ -1,5 +1,7 @@
 import 'package:hmis/main.dart';
 
+import '../investigations/investigations_data.dart';
+
 class SettingsPage extends UI {
   const SettingsPage({super.key});
 
@@ -47,7 +49,16 @@ class SettingsPage extends UI {
                 : () => patientsRM(
                       const Patients(),
                     ),
-            child: 'DELETE ALL'.text(),
+            child: 'DELETE ALL'.text(textScaleFactor: 1.5).pad(),
+          ).pad(),
+          FilledButton(
+            onPressed: investigationsBuiltIn
+                    .every(investigationsRM().cache.values.contains)
+                ? null
+                : () {
+                    investigationsBuiltIn.forEach(investigationsRM.add);
+                  },
+            child: 'Built-In Investigations'.text(textScaleFactor: 1.5).pad(),
           ).pad(),
         ],
       ),

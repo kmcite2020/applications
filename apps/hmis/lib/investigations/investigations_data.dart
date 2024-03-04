@@ -1,75 +1,93 @@
 import 'package:hmis/main.dart';
 
-final investigationsBuiltIn = [
-  Investigation().copyWith(
+const investigationsBuiltIn = [
+  Investigation(
+    id: 'cbc',
     name: 'CBC',
     price: 200,
   ),
-  Investigation().copyWith(
+  Investigation(
+    id: 'rbs',
     name: 'RBS',
     price: 100,
   ),
-  Investigation().copyWith(
+  Investigation(
+    id: 'urea',
     name: 'Urea',
     price: 100,
   ),
-  Investigation().copyWith(
+  Investigation(
+    id: 'creatinine',
     name: 'Creatinine',
     price: 100,
   ),
-  Investigation().copyWith(
+  Investigation(
+    id: 'malarial_parasite',
     name: 'Malarial Parasite',
     price: 200,
   ),
-  Investigation().copyWith(
+  Investigation(
+    id: 'dengue_ns_1',
     name: 'Dengue NS-1',
     price: 300,
   ),
-  Investigation().copyWith(
+  Investigation(
+    id: 'ecg',
     name: 'ECG',
     price: 100,
   ),
-  Investigation().copyWith(
+  Investigation(
+    id: 'ct_brain_with_bone_window',
     name: 'CT Brain with Bone Window',
     price: 3000,
   ),
-  Investigation().copyWith(
+  Investigation(
+    id: 'x_ray',
     name: 'X-ray',
     price: 300,
   ),
-  Investigation().copyWith(
+  Investigation(
+    id: 'viral_profile',
     name: 'Viral Profile',
     price: 300,
   ),
-  Investigation().copyWith(
+  Investigation(
+    id: 'upt',
     name: 'UPT',
     price: 100,
   ),
-  Investigation().copyWith(
+  Investigation(
+    id: 'usg',
     name: 'Ultrasound',
     price: 500,
   ),
-  Investigation().copyWith(
+  Investigation(
+    id: 'urine_re',
     name: 'Urine RE',
     price: 100,
   ),
-  Investigation().copyWith(
+  Investigation(
+    id: 'lipid_profile',
     name: 'Lipid Profile',
     price: 300,
   ),
-  Investigation().copyWith(
-    name: 'Liver Function Test',
+  Investigation(
+    id: 'liver_function_tests',
+    name: 'Liver Function Tests',
     price: 300,
   ),
-  Investigation().copyWith(
-    name: 'Thyroid Function Test',
+  Investigation(
+    id: 'thyroid_functions_tests',
+    name: 'Thyroid Function Tests',
     price: 2000,
   ),
-  Investigation().copyWith(
+  Investigation(
+    id: 'serum_electrolytes',
     name: 'Serum Electrolytes',
     price: 300,
   ),
-  Investigation().copyWith(
+  Investigation(
+    id: 'blood_group_rh_typing',
     name: 'Blood Group & Rh Typing',
     price: 100,
   ),

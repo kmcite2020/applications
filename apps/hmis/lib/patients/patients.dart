@@ -154,8 +154,6 @@ enum OutComeStatus {
   expired;
 }
 
-// @embedded
-// class OutCome {
-//   @enumerated
-//   OutComeStatus outComeStatus = OutComeStatus.emergency;
-// }
+class OutCome {
+  OutComeStatus outComeStatus = OutComeStatus.emergency;
+}

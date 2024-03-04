@@ -41,7 +41,7 @@ PreferredSize customAppBar({
                     text: settingsRM().userName,
                   ),
                 ],
-                // overlayColor: MaterialStateProperty.all(Colors.transparent),
+                overlayColor: MaterialStateProperty.all(Colors.transparent),
               ),
           centerTitle: true,
         ).pad(),
