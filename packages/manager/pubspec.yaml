@@ -44,6 +44,7 @@ dependencies:
   colornames: ^0.1.0
   extensions:
     path: D://FLUTTER//applications//packages//extensions
+  flutter_native_splash: ^2.3.11
 
 dev_dependencies:
   flutter_test:

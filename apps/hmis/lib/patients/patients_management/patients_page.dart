@@ -2,8 +2,8 @@ import 'package:hmis/main.dart';
 
 class PatientsPage extends UI {
   const PatientsPage({super.key});
-  static final nameFF = Simple('');
-  static final ageFF = Simple(0);
+  static final nameRM = Simple('');
+  static final ageRM = Simple('20');
 
   static final Simple<String> idRM = Simple('');
 
@@ -21,19 +21,20 @@ class PatientsPage extends UI {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        const TextField(
-                          // controller: nameFF.controller,
-                          decoration: InputDecoration(
+                        TextFormField(
+                          decoration: const InputDecoration(
                             labelText: 'NAME',
                           ),
+                          initialValue: nameRM(),
+                          onChanged: nameRM.call,
                         ).pad(),
                         TextFormField(
-                          initialValue: ageFF().toString(),
+                          initialValue: ageRM(),
                           autovalidateMode: AutovalidateMode.onUserInteraction,
                           decoration: const InputDecoration(
                             labelText: 'AGE',
                           ),
-                          onChanged: (x) => ageFF(int.tryParse(x)),
+                          onChanged: ageRM.call,
                         ).pad(),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -47,8 +48,8 @@ class PatientsPage extends UI {
                                 // navigator.back(token);
                                 final patient = Patient(
                                   id: randomID,
-                                  name: 'name',
-                                  age: '20',
+                                  name: nameRM(),
+                                  age: ageRM(),
                                 );
                                 RM.navigate.back(patient);
                               },
@@ -93,7 +94,7 @@ class PatientsPage extends UI {
                             title: patient.name.text(textScaleFactor: 1.2),
                             selected: patient.id == idRM(),
                           ),
-                        ).pad();
+                        );
                       },
                     ).toList(),
                   ),

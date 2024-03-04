@@ -1,4 +1,4 @@
-import 'package:hmis/settings/settings_model.dart';
+import 'package:hmis/settings/settings.dart';
 
 import '../main.dart';
 

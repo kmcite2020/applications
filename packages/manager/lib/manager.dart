@@ -3,6 +3,7 @@ library manager;
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:states_rebuilder/states_rebuilder.dart' as rebuilder;
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:hive_flutter/hive_flutter.dart';

@@ -40,27 +40,3 @@ class MyApp extends UI {
     );
   }
 }
-
-final summerRM = SummerRM();
-
-class SummerRM extends Complex<int, int> {
-  @override
-  int get initialState => 0;
-  SummerRM() {
-    register<int>(
-      (event, updater) {
-        switch (event) {
-          case 0:
-            updater(state + 1);
-            break;
-          default:
-            updater(state - 1);
-            break;
-        }
-      },
-    );
-  }
-
-  @override
-  int get undoStackLength => 0;
-}

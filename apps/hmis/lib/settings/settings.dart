@@ -1,6 +1,6 @@
 import 'package:hmis/main.dart';
-part 'settings_model.freezed.dart';
-part 'settings_model.g.dart';
+part 'settings.freezed.dart';
+part 'settings.g.dart';
 
 @freezed
 class Settings with _$Settings {

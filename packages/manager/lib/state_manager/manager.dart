@@ -7,7 +7,12 @@ class RM<T> {
   static final scaffold = rebuilder.RM.scaffold;
 
   static void build(Widget app) async {
-    await rebuilder.RM.storageInitializer(HiveStorage());
+    FlutterNativeSplash.preserve(
+      widgetsBinding: WidgetsFlutterBinding.ensureInitialized(),
+    );
+    await rebuilder.RM.storageInitializer(
+      HiveStorage(),
+    );
     // await rebuilder.RM.deleteAllPersistState();
     runApp(app);
   }
@@ -21,7 +26,7 @@ abstract class Manager<T> {
     return null;
   }
 
-  bool get autoDispose => true;
+  bool get autoDispose => false;
   Transition<T>? get onTransition => null;
   int get undoStackLength => 0;
   bool get canRedo => injected.canRedoState;
@@ -40,11 +45,13 @@ abstract class Manager<T> {
     creator: () => initialState,
     autoDisposeWhenNotUsed: autoDispose,
     persist: persistable
-        ? () => rebuilder.PersistState(
+        ? () {
+            return rebuilder.PersistState(
               key: persistor!.key,
               toJson: (state) => jsonEncode(persistor!.toJson(state)),
               fromJson: (json) => persistor!.fromJson(jsonDecode(json)),
-            )
+            );
+          }
         : null,
     undoStackLength: undoStackLength,
   );

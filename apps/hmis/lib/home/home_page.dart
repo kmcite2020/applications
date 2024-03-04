@@ -45,7 +45,7 @@ class HomePage extends UI {
                   ),
                 ).pad(),
                 FilledButton.icon(
-                  onPressed: () => mainPagesRM(MainPages.investigatons),
+                  onPressed: () => mainPagesRM(MainPages.investigations),
                   icon: const Icon(FontAwesomeIcons.fileInvoice),
                   label: Align(
                     alignment: Alignment.centerLeft,

@@ -71,19 +71,6 @@ class SettingsPage extends UI {
               settingsRM.setViewMode(viewMode);
             },
           ).pad(),
-          summerRM().text(textScaleFactor: 5).pad(),
-          ElevatedButton(
-            onPressed: () {
-              summerRM(0);
-            },
-            child: '+'.text(textScaleFactor: 5),
-          ).pad(),
-          ElevatedButton(
-            onPressed: () {
-              summerRM(1);
-            },
-            child: '-'.text(textScaleFactor: 5),
-          ).pad(),
         ],
       ),
     );

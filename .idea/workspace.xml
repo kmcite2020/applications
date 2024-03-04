@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="84dec7a0-4a2e-4ecf-9686-a295977d5d92" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/melos_flutter_run_extensions.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/melos_flutter_run_extensions.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/melos_flutter_run_hmis.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/melos_flutter_run_hmis.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/melos_flutter_run_manager.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/melos_flutter_run_manager.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/melos_flutter_run_notes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/melos_flutter_run_notes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/melos_flutter_run_project_hmis.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/melos_flutter_run_roster_system.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/melos_flutter_run_roster_system.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/melos_flutter_run_smc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/melos_flutter_run_smc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/hmis/lib/home/home_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/hmis/lib/home/home_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/hmis/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/hmis/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/notes/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/notes/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/notes/lib/settings/settings.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/notes/lib/settings/settings.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/notes/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/apps/notes/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/roster_system/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/apps/roster_system/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/smc/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/apps/smc/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/melos_applications.iml" beforeDir="false" afterPath="$PROJECT_DIR$/melos_applications.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/manager/lib/manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/manager/lib/manager.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/manager/lib/state_manager/manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/manager/lib/state_manager/manager.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/manager/lib/state_manager/simple.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/manager/lib/state_manager/simple.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/manager/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/packages/manager/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/manager/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/packages/manager/pubspec.yaml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 3
+}]]></component>
+  <component name="ProjectId" id="2dCWV8k6zKgerIqzy0h2aUXeLDF" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Dart Command Line App.main.dart.executor": "Run",
+    "Flutter.Flutter Run -> 'hmis'.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Shell Script.Melos -> Bootstrap Workspace.executor": "Run",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "main",
+    "io.flutter.reload.alreadyRun": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/FLUTTER/applications",
+    "settings.editor.selected.configurable": "flutter.settings",
+    "show.migrate.to.gradle.popup": "false"
+  }
+}]]></component>
+  <component name="RunManager" selected="Flutter.Flutter Run -&gt; 'manager'">
+    <list>
+      <item itemvalue="Flutter.Flutter Run -&gt; 'extensions'" />
+      <item itemvalue="Flutter.Flutter Run -&gt; 'hmis'" />
+      <item itemvalue="Flutter.Flutter Run -&gt; 'manager'" />
+      <item itemvalue="Flutter.Flutter Run -&gt; 'notes'" />
+      <item itemvalue="Flutter.Flutter Run -&gt; 'roster_system'" />
+      <item itemvalue="Flutter.Flutter Run -&gt; 'smc'" />
+      <item itemvalue="Shell Script.Melos -&gt; Bootstrap Workspace" />
+      <item itemvalue="Shell Script.Melos -&gt; Clean Workspace" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="84dec7a0-4a2e-4ecf-9686-a295977d5d92" name="Changes" comment="" />
+      <created>1709512561740</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1709512561740</updated>
+    </task>
+    <servers />
+  </component>
+</project>

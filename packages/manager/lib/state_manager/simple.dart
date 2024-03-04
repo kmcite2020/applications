@@ -4,6 +4,7 @@ class Simple<T> {
   final Persistor<T>? persistor;
   final T initialState;
   final bool autoDispose;
+
   final Transition<T>? onTransition;
   final int undoStackLength;
   Simple(
@@ -44,3 +45,9 @@ class Simple<T> {
 
   late final rebuilder.Injected<T> inj;
 }
+
+mixin qwertyuiopasdfghjklzxcvbnm {}
+
+class O1234567890 {}
+
+class QWERTYUIOPASDFGHJKLZXCVBNM {}
