@@ -1,4 +1,6 @@
 import 'package:hmis/main.dart';
+import 'package:hmis/settings/settings.dart';
+import 'package:isar/isar.dart';
 
 export 'dart:convert';
 export 'package:hmis/patients/ui/add_patient_dialog.dart';
@@ -18,8 +20,21 @@ export 'package:hmis/settings/settings_rm.dart';
 export 'package:hmis/settings/settings_page.dart';
 export 'package:manager/manager.dart';
 
+late final Isar isar;
+
 void main() async {
-  RM.build(const MyApp());
+  final info = await PackageInfo.fromPlatform();
+
+  isar = Isar.open(
+    schemas: [
+      SettingsModelSchema,
+    ],
+    directory: (await getApplicationDocumentsDirectory()).path,
+    name: info.appName + '2',
+  );
+  RM.build(
+    const MyApp(),
+  );
 }
 
 class MyApp extends UI {

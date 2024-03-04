@@ -10,9 +10,7 @@ class RM<T> {
     FlutterNativeSplash.preserve(
       widgetsBinding: WidgetsFlutterBinding.ensureInitialized(),
     );
-    await rebuilder.RM.storageInitializer(
-      HiveStorage(),
-    );
+    await rebuilder.RM.storageInitializer(HiveStorage());
     // await rebuilder.RM.deleteAllPersistState();
     runApp(app);
   }

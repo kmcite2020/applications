@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_final_parameters
+
 import 'package:hmis/main.dart';
 
 part 'patients.g.dart';
@@ -24,7 +26,9 @@ class Patient with _$Patient {
     @Default(OutComeStatus.emergency) final OutComeStatus outComeStatus,
     @Default('') final String diagnosis,
   }) = _Patient;
-  factory Patient.fromJson(json) => _$PatientFromJson(json);
+  factory Patient.get({required String id}) => patientsRM().cache[id]!;
+  factory Patient.fromJson(Map<String, dynamic> json) =>
+      _$PatientFromJson(json);
   const Patient._();
   int get bills {
     return investigations.fold(
@@ -32,8 +36,6 @@ class Patient with _$Patient {
       (previousValue, element) => previousValue + element.price,
     );
   }
-
-  factory Patient.get({required String id}) => patientsRM().cache[id]!;
 }
 
 // @embedded

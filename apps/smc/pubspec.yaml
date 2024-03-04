@@ -4,32 +4,18 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: ">=3.0.0 <4.0.0"
+  sdk: ">=3.2.0 <4.0.0"
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.2
-  states_rebuilder: ^6.4.0
-  hive_flutter:
-  flex_color_scheme:
-  # intl:
-  uuid:
-  # flutter_animate:
-  # equatable:
-  # isar: ^3.1.0+1
-  # isar_flutter_libs: ^3.1.0+1
-  # path_provider: ^2.1.1
-  rxdart: ^0.27.7
-  colornames: ^0.1.0
-  freezed_annotation: any
-  json_annotation: any
+  cupertino_icons: ^1.0.6
+  flex_color_scheme: ^7.3.1
   manager:
-    path: D://FLUTTER//applications//packages//manager
+    path: D:\FLUTTER\applications\packages\manager
 dev_dependencies:
-  build_runner: ^2.3.3
-  freezed: any
-  json_serializable: any
-  flutter_launcher_icons: ^0.13.1
+  build_runner: ^2.4.8
+  very_good_analysis: ^5.1.0
+
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true

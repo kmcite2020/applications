@@ -9,7 +9,7 @@ part of 'patients.dart';
 _$PatientsImpl _$$PatientsImplFromJson(Map<String, dynamic> json) =>
     _$PatientsImpl(
       cache: (json['cache'] as Map<String, dynamic>?)?.map(
-            (k, e) => MapEntry(k, Patient.fromJson(e)),
+            (k, e) => MapEntry(k, Patient.fromJson(e as Map<String, dynamic>)),
           ) ??
           const <String, Patient>{},
     );

@@ -29,7 +29,14 @@ class Simple<T> {
   }
 
   T get state => inj.state;
-  set state(T newState) => inj.state = newState;
+  set state(T newState) {
+    // print('old before change: ${state}');
+    // print('new before change: ${newState}');
+    inj.state = newState;
+    // print('old after change: ${state}');
+    // print('new after change: ${newState}');
+  }
+
   bool get persistable => persistor != null;
   bool get canRedo => inj.canRedoState;
   bool get canUndo => inj.canUndoState;
@@ -43,11 +50,5 @@ class Simple<T> {
     return state;
   }
 
-  late final rebuilder.Injected<T> inj;
+  late rebuilder.Injected<T> inj;
 }
-
-mixin qwertyuiopasdfghjklzxcvbnm {}
-
-class O1234567890 {}
-
-class QWERTYUIOPASDFGHJKLZXCVBNM {}

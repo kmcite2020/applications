@@ -4,32 +4,22 @@ publish_to: 'none'
 version: 0.1.1
 
 environment:
-  sdk: ">=3.0.0 <4.0.0"
+  sdk: ">=3.2.0 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  freezed_annotation: any
-  json_annotation: any
-  google_fonts: ^5.1.0
-  font_awesome_flutter: ^10.5.0
-  sizer: ^2.0.15
-  flutter_native_splash: ^2.3.1
-  path_provider: ^2.1.1
-  states_rebuilder: ^6.4.0
-  hive_flutter: ^1.1.0
-  uuid: ^4.1.0
   manager:
     path: D://FLUTTER//applications//packages//manager
   flex_color_scheme: ^7.3.1
-  motion_toast: ^2.8.0
+  font_awesome_flutter: ^10.7.0
+  isar: ^4.0.0-dev.13
+  isar_flutter_libs: ^4.0.0-dev.13
+  json_annotation: ^4.8.1
 dev_dependencies:
-  flutter_launcher_icons: ^0.13.1
-  freezed: any
-  json_serializable: any
-  build_runner: ^2.3.3
-  flutter_lints: any
-
+  flutter_launcher_icons: any
+  very_good_analysis: ^5.1.0
+  json_serializable: ^6.7.1    
 flutter:
   assets:
     - assets/

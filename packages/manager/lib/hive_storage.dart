@@ -3,21 +3,23 @@ part of 'manager.dart';
 class HiveStorage implements rebuilder.IPersistStore {
   late Box box;
   @override
-  Future<void> delete(String key) => box.delete(key);
+  Future<void> delete(String key) async => box.delete(key);
 
   @override
-  Future<void> deleteAll() => box.clear();
+  Future<void> deleteAll() async => box.clear();
 
   @override
   Future<void> init() async {
-    await Hive.initFlutter();
+    Hive.defaultDirectory = (await getApplicationDocumentsDirectory()).path;
     final info = await PackageInfo.fromPlatform();
-    box = await Hive.openBox(info.appName);
+    box = Hive.box(
+      name: info.appName,
+    );
   }
 
   @override
   Object? read(String key) => box.get(key);
 
   @override
-  Future<void> write<T>(String key, T value) => box.put(key, value);
+  Future<void> write<T>(String key, T value) async => box.put(key, value);
 }

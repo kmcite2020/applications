@@ -4,28 +4,20 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=3.0.0 <4.0.0"
+  sdk: ">=3.2.0 <4.0.0"
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.2
-  states_rebuilder: ^6.4.0
-  freezed_annotation: any
-  json_annotation: any
-  json_serializable: ^6.7.1
-  hive_flutter: ^1.1.0
-  flex_color_scheme: ^7.3.1
-  package_info_plus: ^5.0.1
+  cupertino_icons: ^1.0.6
   extensions:
-    path: ..//..//packages//extensions
+    path: D://FLUTTER//applications//packages//extensions
   manager:
     path: ..//..//packages//manager
+  flex_color_scheme: ^7.3.1
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
-  freezed: any
-  flutter_lints: ^2.0.0
-  build_runner: ^2.3.3
+  build_runner: ^2.4.8
+  very_good_analysis: ^5.1.0
+
 flutter:
   uses-material-design: true

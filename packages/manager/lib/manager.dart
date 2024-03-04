@@ -3,10 +3,11 @@ library manager;
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:flutter_native_splash/flutter_native_splash.dart';
+export 'package:flutter_native_splash/flutter_native_splash.dart';
+export 'package:hive/hive.dart';
+export 'package:path_provider/path_provider.dart';
 import 'package:states_rebuilder/states_rebuilder.dart' as rebuilder;
-import 'package:package_info_plus/package_info_plus.dart';
-import 'package:hive_flutter/hive_flutter.dart';
+export 'package:package_info_plus/package_info_plus.dart';
 import 'manager.dart';
 
 export 'package:freezed_annotation/freezed_annotation.dart';
