@@ -38,7 +38,7 @@ abstract class Complex<E, T> {
         function: eventRegistrar,
       ),
     );
-    print('$E registered.');
+    log('$E registered.');
   }
 
   T call([E? event]) {
@@ -52,7 +52,7 @@ abstract class Complex<E, T> {
           return state = newState;
         },
       ) as FutureOr<void>;
-      print("${event.runtimeType} called");
+      log("${event.runtimeType} called");
     }
     return state;
   }

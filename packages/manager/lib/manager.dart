@@ -2,6 +2,7 @@ library manager;
 
 import 'dart:async';
 import 'dart:convert';
+import 'dart:developer';
 
 export 'package:flutter_native_splash/flutter_native_splash.dart';
 export 'package:hive/hive.dart';

@@ -545,6 +545,10 @@ BatteryEvent _$BatteryEventFromJson(Map<String, dynamic> json) {
       return RemoveBatteryEvent.fromJson(json);
     case 'restore':
       return RestoreBatteryEvent.fromJson(json);
+    case 'addToCart':
+      return AddToCartBatteryEvent.fromJson(json);
+    case 'removeFromCart':
+      return RemoveFromCartBatteryEvent.fromJson(json);
     case 'update':
       return UpdateBatteryEvent.fromJson(json);
 
@@ -561,6 +565,8 @@ mixin _$BatteryEvent {
     required TResult Function(Battery batteryToAdd) add,
     required TResult Function(Battery batteryToRemove) remove,
     required TResult Function(Battery batteryToRestore) restore,
+    required TResult Function(Battery battery) addToCart,
+    required TResult Function(Battery battery) removeFromCart,
     required TResult Function(Battery oldBattery, Battery newBattery) update,
   }) =>
       throw _privateConstructorUsedError;
@@ -569,6 +575,8 @@ mixin _$BatteryEvent {
     TResult? Function(Battery batteryToAdd)? add,
     TResult? Function(Battery batteryToRemove)? remove,
     TResult? Function(Battery batteryToRestore)? restore,
+    TResult? Function(Battery battery)? addToCart,
+    TResult? Function(Battery battery)? removeFromCart,
     TResult? Function(Battery oldBattery, Battery newBattery)? update,
   }) =>
       throw _privateConstructorUsedError;
@@ -577,6 +585,8 @@ mixin _$BatteryEvent {
     TResult Function(Battery batteryToAdd)? add,
     TResult Function(Battery batteryToRemove)? remove,
     TResult Function(Battery batteryToRestore)? restore,
+    TResult Function(Battery battery)? addToCart,
+    TResult Function(Battery battery)? removeFromCart,
     TResult Function(Battery oldBattery, Battery newBattery)? update,
     required TResult orElse(),
   }) =>
@@ -586,6 +596,8 @@ mixin _$BatteryEvent {
     required TResult Function(AddBatteryEvent value) add,
     required TResult Function(RemoveBatteryEvent value) remove,
     required TResult Function(RestoreBatteryEvent value) restore,
+    required TResult Function(AddToCartBatteryEvent value) addToCart,
+    required TResult Function(RemoveFromCartBatteryEvent value) removeFromCart,
     required TResult Function(UpdateBatteryEvent value) update,
   }) =>
       throw _privateConstructorUsedError;
@@ -594,6 +606,8 @@ mixin _$BatteryEvent {
     TResult? Function(AddBatteryEvent value)? add,
     TResult? Function(RemoveBatteryEvent value)? remove,
     TResult? Function(RestoreBatteryEvent value)? restore,
+    TResult? Function(AddToCartBatteryEvent value)? addToCart,
+    TResult? Function(RemoveFromCartBatteryEvent value)? removeFromCart,
     TResult? Function(UpdateBatteryEvent value)? update,
   }) =>
       throw _privateConstructorUsedError;
@@ -602,6 +616,8 @@ mixin _$BatteryEvent {
     TResult Function(AddBatteryEvent value)? add,
     TResult Function(RemoveBatteryEvent value)? remove,
     TResult Function(RestoreBatteryEvent value)? restore,
+    TResult Function(AddToCartBatteryEvent value)? addToCart,
+    TResult Function(RemoveFromCartBatteryEvent value)? removeFromCart,
     TResult Function(UpdateBatteryEvent value)? update,
     required TResult orElse(),
   }) =>
@@ -714,6 +730,8 @@ class _$AddBatteryEventImpl implements AddBatteryEvent {
     required TResult Function(Battery batteryToAdd) add,
     required TResult Function(Battery batteryToRemove) remove,
     required TResult Function(Battery batteryToRestore) restore,
+    required TResult Function(Battery battery) addToCart,
+    required TResult Function(Battery battery) removeFromCart,
     required TResult Function(Battery oldBattery, Battery newBattery) update,
   }) {
     return add(batteryToAdd);
@@ -725,6 +743,8 @@ class _$AddBatteryEventImpl implements AddBatteryEvent {
     TResult? Function(Battery batteryToAdd)? add,
     TResult? Function(Battery batteryToRemove)? remove,
     TResult? Function(Battery batteryToRestore)? restore,
+    TResult? Function(Battery battery)? addToCart,
+    TResult? Function(Battery battery)? removeFromCart,
     TResult? Function(Battery oldBattery, Battery newBattery)? update,
   }) {
     return add?.call(batteryToAdd);
@@ -736,6 +756,8 @@ class _$AddBatteryEventImpl implements AddBatteryEvent {
     TResult Function(Battery batteryToAdd)? add,
     TResult Function(Battery batteryToRemove)? remove,
     TResult Function(Battery batteryToRestore)? restore,
+    TResult Function(Battery battery)? addToCart,
+    TResult Function(Battery battery)? removeFromCart,
     TResult Function(Battery oldBattery, Battery newBattery)? update,
     required TResult orElse(),
   }) {
@@ -751,6 +773,8 @@ class _$AddBatteryEventImpl implements AddBatteryEvent {
     required TResult Function(AddBatteryEvent value) add,
     required TResult Function(RemoveBatteryEvent value) remove,
     required TResult Function(RestoreBatteryEvent value) restore,
+    required TResult Function(AddToCartBatteryEvent value) addToCart,
+    required TResult Function(RemoveFromCartBatteryEvent value) removeFromCart,
     required TResult Function(UpdateBatteryEvent value) update,
   }) {
     return add(this);
@@ -762,6 +786,8 @@ class _$AddBatteryEventImpl implements AddBatteryEvent {
     TResult? Function(AddBatteryEvent value)? add,
     TResult? Function(RemoveBatteryEvent value)? remove,
     TResult? Function(RestoreBatteryEvent value)? restore,
+    TResult? Function(AddToCartBatteryEvent value)? addToCart,
+    TResult? Function(RemoveFromCartBatteryEvent value)? removeFromCart,
     TResult? Function(UpdateBatteryEvent value)? update,
   }) {
     return add?.call(this);
@@ -773,6 +799,8 @@ class _$AddBatteryEventImpl implements AddBatteryEvent {
     TResult Function(AddBatteryEvent value)? add,
     TResult Function(RemoveBatteryEvent value)? remove,
     TResult Function(RestoreBatteryEvent value)? restore,
+    TResult Function(AddToCartBatteryEvent value)? addToCart,
+    TResult Function(RemoveFromCartBatteryEvent value)? removeFromCart,
     TResult Function(UpdateBatteryEvent value)? update,
     required TResult orElse(),
   }) {
@@ -891,6 +919,8 @@ class _$RemoveBatteryEventImpl implements RemoveBatteryEvent {
     required TResult Function(Battery batteryToAdd) add,
     required TResult Function(Battery batteryToRemove) remove,
     required TResult Function(Battery batteryToRestore) restore,
+    required TResult Function(Battery battery) addToCart,
+    required TResult Function(Battery battery) removeFromCart,
     required TResult Function(Battery oldBattery, Battery newBattery) update,
   }) {
     return remove(batteryToRemove);
@@ -902,6 +932,8 @@ class _$RemoveBatteryEventImpl implements RemoveBatteryEvent {
     TResult? Function(Battery batteryToAdd)? add,
     TResult? Function(Battery batteryToRemove)? remove,
     TResult? Function(Battery batteryToRestore)? restore,
+    TResult? Function(Battery battery)? addToCart,
+    TResult? Function(Battery battery)? removeFromCart,
     TResult? Function(Battery oldBattery, Battery newBattery)? update,
   }) {
     return remove?.call(batteryToRemove);
@@ -913,6 +945,8 @@ class _$RemoveBatteryEventImpl implements RemoveBatteryEvent {
     TResult Function(Battery batteryToAdd)? add,
     TResult Function(Battery batteryToRemove)? remove,
     TResult Function(Battery batteryToRestore)? restore,
+    TResult Function(Battery battery)? addToCart,
+    TResult Function(Battery battery)? removeFromCart,
     TResult Function(Battery oldBattery, Battery newBattery)? update,
     required TResult orElse(),
   }) {
@@ -928,6 +962,8 @@ class _$RemoveBatteryEventImpl implements RemoveBatteryEvent {
     required TResult Function(AddBatteryEvent value) add,
     required TResult Function(RemoveBatteryEvent value) remove,
     required TResult Function(RestoreBatteryEvent value) restore,
+    required TResult Function(AddToCartBatteryEvent value) addToCart,
+    required TResult Function(RemoveFromCartBatteryEvent value) removeFromCart,
     required TResult Function(UpdateBatteryEvent value) update,
   }) {
     return remove(this);
@@ -939,6 +975,8 @@ class _$RemoveBatteryEventImpl implements RemoveBatteryEvent {
     TResult? Function(AddBatteryEvent value)? add,
     TResult? Function(RemoveBatteryEvent value)? remove,
     TResult? Function(RestoreBatteryEvent value)? restore,
+    TResult? Function(AddToCartBatteryEvent value)? addToCart,
+    TResult? Function(RemoveFromCartBatteryEvent value)? removeFromCart,
     TResult? Function(UpdateBatteryEvent value)? update,
   }) {
     return remove?.call(this);
@@ -950,6 +988,8 @@ class _$RemoveBatteryEventImpl implements RemoveBatteryEvent {
     TResult Function(AddBatteryEvent value)? add,
     TResult Function(RemoveBatteryEvent value)? remove,
     TResult Function(RestoreBatteryEvent value)? restore,
+    TResult Function(AddToCartBatteryEvent value)? addToCart,
+    TResult Function(RemoveFromCartBatteryEvent value)? removeFromCart,
     TResult Function(UpdateBatteryEvent value)? update,
     required TResult orElse(),
   }) {
@@ -1068,6 +1108,8 @@ class _$RestoreBatteryEventImpl implements RestoreBatteryEvent {
     required TResult Function(Battery batteryToAdd) add,
     required TResult Function(Battery batteryToRemove) remove,
     required TResult Function(Battery batteryToRestore) restore,
+    required TResult Function(Battery battery) addToCart,
+    required TResult Function(Battery battery) removeFromCart,
     required TResult Function(Battery oldBattery, Battery newBattery) update,
   }) {
     return restore(batteryToRestore);
@@ -1079,6 +1121,8 @@ class _$RestoreBatteryEventImpl implements RestoreBatteryEvent {
     TResult? Function(Battery batteryToAdd)? add,
     TResult? Function(Battery batteryToRemove)? remove,
     TResult? Function(Battery batteryToRestore)? restore,
+    TResult? Function(Battery battery)? addToCart,
+    TResult? Function(Battery battery)? removeFromCart,
     TResult? Function(Battery oldBattery, Battery newBattery)? update,
   }) {
     return restore?.call(batteryToRestore);
@@ -1090,6 +1134,8 @@ class _$RestoreBatteryEventImpl implements RestoreBatteryEvent {
     TResult Function(Battery batteryToAdd)? add,
     TResult Function(Battery batteryToRemove)? remove,
     TResult Function(Battery batteryToRestore)? restore,
+    TResult Function(Battery battery)? addToCart,
+    TResult Function(Battery battery)? removeFromCart,
     TResult Function(Battery oldBattery, Battery newBattery)? update,
     required TResult orElse(),
   }) {
@@ -1105,6 +1151,8 @@ class _$RestoreBatteryEventImpl implements RestoreBatteryEvent {
     required TResult Function(AddBatteryEvent value) add,
     required TResult Function(RemoveBatteryEvent value) remove,
     required TResult Function(RestoreBatteryEvent value) restore,
+    required TResult Function(AddToCartBatteryEvent value) addToCart,
+    required TResult Function(RemoveFromCartBatteryEvent value) removeFromCart,
     required TResult Function(UpdateBatteryEvent value) update,
   }) {
     return restore(this);
@@ -1116,6 +1164,8 @@ class _$RestoreBatteryEventImpl implements RestoreBatteryEvent {
     TResult? Function(AddBatteryEvent value)? add,
     TResult? Function(RemoveBatteryEvent value)? remove,
     TResult? Function(RestoreBatteryEvent value)? restore,
+    TResult? Function(AddToCartBatteryEvent value)? addToCart,
+    TResult? Function(RemoveFromCartBatteryEvent value)? removeFromCart,
     TResult? Function(UpdateBatteryEvent value)? update,
   }) {
     return restore?.call(this);
@@ -1127,6 +1177,8 @@ class _$RestoreBatteryEventImpl implements RestoreBatteryEvent {
     TResult Function(AddBatteryEvent value)? add,
     TResult Function(RemoveBatteryEvent value)? remove,
     TResult Function(RestoreBatteryEvent value)? restore,
+    TResult Function(AddToCartBatteryEvent value)? addToCart,
+    TResult Function(RemoveFromCartBatteryEvent value)? removeFromCart,
     TResult Function(UpdateBatteryEvent value)? update,
     required TResult orElse(),
   }) {
@@ -1155,6 +1207,386 @@ abstract class RestoreBatteryEvent implements BatteryEvent {
   @JsonKey(ignore: true)
   _$$RestoreBatteryEventImplCopyWith<_$RestoreBatteryEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AddToCartBatteryEventImplCopyWith<$Res> {
+  factory _$$AddToCartBatteryEventImplCopyWith(
+          _$AddToCartBatteryEventImpl value,
+          $Res Function(_$AddToCartBatteryEventImpl) then) =
+      __$$AddToCartBatteryEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Battery battery});
+
+  $BatteryCopyWith<$Res> get battery;
+}
+
+/// @nodoc
+class __$$AddToCartBatteryEventImplCopyWithImpl<$Res>
+    extends _$BatteryEventCopyWithImpl<$Res, _$AddToCartBatteryEventImpl>
+    implements _$$AddToCartBatteryEventImplCopyWith<$Res> {
+  __$$AddToCartBatteryEventImplCopyWithImpl(_$AddToCartBatteryEventImpl _value,
+      $Res Function(_$AddToCartBatteryEventImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? battery = null,
+  }) {
+    return _then(_$AddToCartBatteryEventImpl(
+      battery: null == battery
+          ? _value.battery
+          : battery // ignore: cast_nullable_to_non_nullable
+              as Battery,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $BatteryCopyWith<$Res> get battery {
+    return $BatteryCopyWith<$Res>(_value.battery, (value) {
+      return _then(_value.copyWith(battery: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$AddToCartBatteryEventImpl implements AddToCartBatteryEvent {
+  const _$AddToCartBatteryEventImpl(
+      {required this.battery, final String? $type})
+      : $type = $type ?? 'addToCart';
+
+  factory _$AddToCartBatteryEventImpl.fromJson(Map<String, dynamic> json) =>
+      _$$AddToCartBatteryEventImplFromJson(json);
+
+  @override
+  final Battery battery;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'BatteryEvent.addToCart(battery: $battery)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddToCartBatteryEventImpl &&
+            (identical(other.battery, battery) || other.battery == battery));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, battery);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddToCartBatteryEventImplCopyWith<_$AddToCartBatteryEventImpl>
+      get copyWith => __$$AddToCartBatteryEventImplCopyWithImpl<
+          _$AddToCartBatteryEventImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Battery batteryToAdd) add,
+    required TResult Function(Battery batteryToRemove) remove,
+    required TResult Function(Battery batteryToRestore) restore,
+    required TResult Function(Battery battery) addToCart,
+    required TResult Function(Battery battery) removeFromCart,
+    required TResult Function(Battery oldBattery, Battery newBattery) update,
+  }) {
+    return addToCart(battery);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Battery batteryToAdd)? add,
+    TResult? Function(Battery batteryToRemove)? remove,
+    TResult? Function(Battery batteryToRestore)? restore,
+    TResult? Function(Battery battery)? addToCart,
+    TResult? Function(Battery battery)? removeFromCart,
+    TResult? Function(Battery oldBattery, Battery newBattery)? update,
+  }) {
+    return addToCart?.call(battery);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Battery batteryToAdd)? add,
+    TResult Function(Battery batteryToRemove)? remove,
+    TResult Function(Battery batteryToRestore)? restore,
+    TResult Function(Battery battery)? addToCart,
+    TResult Function(Battery battery)? removeFromCart,
+    TResult Function(Battery oldBattery, Battery newBattery)? update,
+    required TResult orElse(),
+  }) {
+    if (addToCart != null) {
+      return addToCart(battery);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AddBatteryEvent value) add,
+    required TResult Function(RemoveBatteryEvent value) remove,
+    required TResult Function(RestoreBatteryEvent value) restore,
+    required TResult Function(AddToCartBatteryEvent value) addToCart,
+    required TResult Function(RemoveFromCartBatteryEvent value) removeFromCart,
+    required TResult Function(UpdateBatteryEvent value) update,
+  }) {
+    return addToCart(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AddBatteryEvent value)? add,
+    TResult? Function(RemoveBatteryEvent value)? remove,
+    TResult? Function(RestoreBatteryEvent value)? restore,
+    TResult? Function(AddToCartBatteryEvent value)? addToCart,
+    TResult? Function(RemoveFromCartBatteryEvent value)? removeFromCart,
+    TResult? Function(UpdateBatteryEvent value)? update,
+  }) {
+    return addToCart?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AddBatteryEvent value)? add,
+    TResult Function(RemoveBatteryEvent value)? remove,
+    TResult Function(RestoreBatteryEvent value)? restore,
+    TResult Function(AddToCartBatteryEvent value)? addToCart,
+    TResult Function(RemoveFromCartBatteryEvent value)? removeFromCart,
+    TResult Function(UpdateBatteryEvent value)? update,
+    required TResult orElse(),
+  }) {
+    if (addToCart != null) {
+      return addToCart(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$AddToCartBatteryEventImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class AddToCartBatteryEvent implements BatteryEvent {
+  const factory AddToCartBatteryEvent({required final Battery battery}) =
+      _$AddToCartBatteryEventImpl;
+
+  factory AddToCartBatteryEvent.fromJson(Map<String, dynamic> json) =
+      _$AddToCartBatteryEventImpl.fromJson;
+
+  Battery get battery;
+  @JsonKey(ignore: true)
+  _$$AddToCartBatteryEventImplCopyWith<_$AddToCartBatteryEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$RemoveFromCartBatteryEventImplCopyWith<$Res> {
+  factory _$$RemoveFromCartBatteryEventImplCopyWith(
+          _$RemoveFromCartBatteryEventImpl value,
+          $Res Function(_$RemoveFromCartBatteryEventImpl) then) =
+      __$$RemoveFromCartBatteryEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Battery battery});
+
+  $BatteryCopyWith<$Res> get battery;
+}
+
+/// @nodoc
+class __$$RemoveFromCartBatteryEventImplCopyWithImpl<$Res>
+    extends _$BatteryEventCopyWithImpl<$Res, _$RemoveFromCartBatteryEventImpl>
+    implements _$$RemoveFromCartBatteryEventImplCopyWith<$Res> {
+  __$$RemoveFromCartBatteryEventImplCopyWithImpl(
+      _$RemoveFromCartBatteryEventImpl _value,
+      $Res Function(_$RemoveFromCartBatteryEventImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? battery = null,
+  }) {
+    return _then(_$RemoveFromCartBatteryEventImpl(
+      battery: null == battery
+          ? _value.battery
+          : battery // ignore: cast_nullable_to_non_nullable
+              as Battery,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $BatteryCopyWith<$Res> get battery {
+    return $BatteryCopyWith<$Res>(_value.battery, (value) {
+      return _then(_value.copyWith(battery: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$RemoveFromCartBatteryEventImpl implements RemoveFromCartBatteryEvent {
+  const _$RemoveFromCartBatteryEventImpl(
+      {required this.battery, final String? $type})
+      : $type = $type ?? 'removeFromCart';
+
+  factory _$RemoveFromCartBatteryEventImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$RemoveFromCartBatteryEventImplFromJson(json);
+
+  @override
+  final Battery battery;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'BatteryEvent.removeFromCart(battery: $battery)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RemoveFromCartBatteryEventImpl &&
+            (identical(other.battery, battery) || other.battery == battery));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, battery);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RemoveFromCartBatteryEventImplCopyWith<_$RemoveFromCartBatteryEventImpl>
+      get copyWith => __$$RemoveFromCartBatteryEventImplCopyWithImpl<
+          _$RemoveFromCartBatteryEventImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Battery batteryToAdd) add,
+    required TResult Function(Battery batteryToRemove) remove,
+    required TResult Function(Battery batteryToRestore) restore,
+    required TResult Function(Battery battery) addToCart,
+    required TResult Function(Battery battery) removeFromCart,
+    required TResult Function(Battery oldBattery, Battery newBattery) update,
+  }) {
+    return removeFromCart(battery);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Battery batteryToAdd)? add,
+    TResult? Function(Battery batteryToRemove)? remove,
+    TResult? Function(Battery batteryToRestore)? restore,
+    TResult? Function(Battery battery)? addToCart,
+    TResult? Function(Battery battery)? removeFromCart,
+    TResult? Function(Battery oldBattery, Battery newBattery)? update,
+  }) {
+    return removeFromCart?.call(battery);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Battery batteryToAdd)? add,
+    TResult Function(Battery batteryToRemove)? remove,
+    TResult Function(Battery batteryToRestore)? restore,
+    TResult Function(Battery battery)? addToCart,
+    TResult Function(Battery battery)? removeFromCart,
+    TResult Function(Battery oldBattery, Battery newBattery)? update,
+    required TResult orElse(),
+  }) {
+    if (removeFromCart != null) {
+      return removeFromCart(battery);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AddBatteryEvent value) add,
+    required TResult Function(RemoveBatteryEvent value) remove,
+    required TResult Function(RestoreBatteryEvent value) restore,
+    required TResult Function(AddToCartBatteryEvent value) addToCart,
+    required TResult Function(RemoveFromCartBatteryEvent value) removeFromCart,
+    required TResult Function(UpdateBatteryEvent value) update,
+  }) {
+    return removeFromCart(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AddBatteryEvent value)? add,
+    TResult? Function(RemoveBatteryEvent value)? remove,
+    TResult? Function(RestoreBatteryEvent value)? restore,
+    TResult? Function(AddToCartBatteryEvent value)? addToCart,
+    TResult? Function(RemoveFromCartBatteryEvent value)? removeFromCart,
+    TResult? Function(UpdateBatteryEvent value)? update,
+  }) {
+    return removeFromCart?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AddBatteryEvent value)? add,
+    TResult Function(RemoveBatteryEvent value)? remove,
+    TResult Function(RestoreBatteryEvent value)? restore,
+    TResult Function(AddToCartBatteryEvent value)? addToCart,
+    TResult Function(RemoveFromCartBatteryEvent value)? removeFromCart,
+    TResult Function(UpdateBatteryEvent value)? update,
+    required TResult orElse(),
+  }) {
+    if (removeFromCart != null) {
+      return removeFromCart(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$RemoveFromCartBatteryEventImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class RemoveFromCartBatteryEvent implements BatteryEvent {
+  const factory RemoveFromCartBatteryEvent({required final Battery battery}) =
+      _$RemoveFromCartBatteryEventImpl;
+
+  factory RemoveFromCartBatteryEvent.fromJson(Map<String, dynamic> json) =
+      _$RemoveFromCartBatteryEventImpl.fromJson;
+
+  Battery get battery;
+  @JsonKey(ignore: true)
+  _$$RemoveFromCartBatteryEventImplCopyWith<_$RemoveFromCartBatteryEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1263,6 +1695,8 @@ class _$UpdateBatteryEventImpl implements UpdateBatteryEvent {
     required TResult Function(Battery batteryToAdd) add,
     required TResult Function(Battery batteryToRemove) remove,
     required TResult Function(Battery batteryToRestore) restore,
+    required TResult Function(Battery battery) addToCart,
+    required TResult Function(Battery battery) removeFromCart,
     required TResult Function(Battery oldBattery, Battery newBattery) update,
   }) {
     return update(oldBattery, newBattery);
@@ -1274,6 +1708,8 @@ class _$UpdateBatteryEventImpl implements UpdateBatteryEvent {
     TResult? Function(Battery batteryToAdd)? add,
     TResult? Function(Battery batteryToRemove)? remove,
     TResult? Function(Battery batteryToRestore)? restore,
+    TResult? Function(Battery battery)? addToCart,
+    TResult? Function(Battery battery)? removeFromCart,
     TResult? Function(Battery oldBattery, Battery newBattery)? update,
   }) {
     return update?.call(oldBattery, newBattery);
@@ -1285,6 +1721,8 @@ class _$UpdateBatteryEventImpl implements UpdateBatteryEvent {
     TResult Function(Battery batteryToAdd)? add,
     TResult Function(Battery batteryToRemove)? remove,
     TResult Function(Battery batteryToRestore)? restore,
+    TResult Function(Battery battery)? addToCart,
+    TResult Function(Battery battery)? removeFromCart,
     TResult Function(Battery oldBattery, Battery newBattery)? update,
     required TResult orElse(),
   }) {
@@ -1300,6 +1738,8 @@ class _$UpdateBatteryEventImpl implements UpdateBatteryEvent {
     required TResult Function(AddBatteryEvent value) add,
     required TResult Function(RemoveBatteryEvent value) remove,
     required TResult Function(RestoreBatteryEvent value) restore,
+    required TResult Function(AddToCartBatteryEvent value) addToCart,
+    required TResult Function(RemoveFromCartBatteryEvent value) removeFromCart,
     required TResult Function(UpdateBatteryEvent value) update,
   }) {
     return update(this);
@@ -1311,6 +1751,8 @@ class _$UpdateBatteryEventImpl implements UpdateBatteryEvent {
     TResult? Function(AddBatteryEvent value)? add,
     TResult? Function(RemoveBatteryEvent value)? remove,
     TResult? Function(RestoreBatteryEvent value)? restore,
+    TResult? Function(AddToCartBatteryEvent value)? addToCart,
+    TResult? Function(RemoveFromCartBatteryEvent value)? removeFromCart,
     TResult? Function(UpdateBatteryEvent value)? update,
   }) {
     return update?.call(this);
@@ -1322,6 +1764,8 @@ class _$UpdateBatteryEventImpl implements UpdateBatteryEvent {
     TResult Function(AddBatteryEvent value)? add,
     TResult Function(RemoveBatteryEvent value)? remove,
     TResult Function(RestoreBatteryEvent value)? restore,
+    TResult Function(AddToCartBatteryEvent value)? addToCart,
+    TResult Function(RemoveFromCartBatteryEvent value)? removeFromCart,
     TResult Function(UpdateBatteryEvent value)? update,
     required TResult orElse(),
   }) {

@@ -88,6 +88,34 @@ Map<String, dynamic> _$$RestoreBatteryEventImplToJson(
       'runtimeType': instance.$type,
     };
 
+_$AddToCartBatteryEventImpl _$$AddToCartBatteryEventImplFromJson(
+        Map<String, dynamic> json) =>
+    _$AddToCartBatteryEventImpl(
+      battery: Battery.fromJson(json['battery'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$AddToCartBatteryEventImplToJson(
+        _$AddToCartBatteryEventImpl instance) =>
+    <String, dynamic>{
+      'battery': instance.battery,
+      'runtimeType': instance.$type,
+    };
+
+_$RemoveFromCartBatteryEventImpl _$$RemoveFromCartBatteryEventImplFromJson(
+        Map<String, dynamic> json) =>
+    _$RemoveFromCartBatteryEventImpl(
+      battery: Battery.fromJson(json['battery'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$RemoveFromCartBatteryEventImplToJson(
+        _$RemoveFromCartBatteryEventImpl instance) =>
+    <String, dynamic>{
+      'battery': instance.battery,
+      'runtimeType': instance.$type,
+    };
+
 _$UpdateBatteryEventImpl _$$UpdateBatteryEventImplFromJson(
         Map<String, dynamic> json) =>
     _$UpdateBatteryEventImpl(

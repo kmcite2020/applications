@@ -62,6 +62,12 @@ class BatteryEvent with _$BatteryEvent {
   const factory BatteryEvent.restore({
     required Battery batteryToRestore,
   }) = RestoreBatteryEvent;
+  const factory BatteryEvent.addToCart({
+    required Battery battery,
+  }) = AddToCartBatteryEvent;
+  const factory BatteryEvent.removeFromCart({
+    required Battery battery,
+  }) = RemoveFromCartBatteryEvent;
   const factory BatteryEvent.update({
     required Battery oldBattery,
     required Battery newBattery,
