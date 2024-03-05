@@ -1,12 +1,9 @@
 import 'package:smc/main.dart';
-
-import '../../../shared/common.dart';
-import '../../../shared/router.dart';
-import 'info_widgets.dart';
+import 'package:smc/presentation/ui/admin/admin_page.dart';
+import 'package:smc/presentation/ui/clinic/emergency_room/emergency_patients_ui.dart';
+import 'package:smc/presentation/ui/configuration/configuration_ui.dart';
 
 class DashboardPage extends UI {
-  static const path = '/dashboard';
-
   const DashboardPage({super.key});
 
   @override
@@ -18,11 +15,11 @@ class DashboardPage extends UI {
       body: Column(
         children: [
           ElevatedButton(
-            onPressed: () => router.to(Routes.admin),
+            onPressed: () => RM.navigate.to(AdminPage()),
             child: 'Admin Page'.text(),
           ).pad(),
           ElevatedButton(
-            onPressed: () => router.to(Routes.er),
+            onPressed: () => RM.navigate.to(EmergencyPatientsPage()),
             child: 'Emergency Patients'.text(),
           ).pad(),
           const InfoWidgets(),
@@ -34,7 +31,7 @@ class DashboardPage extends UI {
             tooltip: 'settings',
             heroTag: randomID,
             onPressed: () {
-              router.to(Routes.settings);
+              RM.navigate.to(SettingsPage());
             },
             child: const Icon(Icons.settings),
           ),

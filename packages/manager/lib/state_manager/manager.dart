@@ -2,18 +2,9 @@ part of '../manager.dart';
 
 typedef Transition<State> = void Function(State oldState, State newState);
 
-class RM<T> {
-  static final navigate = rebuilder.RM.navigate;
-  static final scaffold = rebuilder.RM.scaffold;
-
-  static void build(Widget app) async {
-    FlutterNativeSplash.preserve(
-      widgetsBinding: WidgetsFlutterBinding.ensureInitialized(),
-    );
-    await rebuilder.RM.storageInitializer(HiveStorage());
-    // await rebuilder.RM.deleteAllPersistState();
-    runApp(app);
-  }
+class SN<T> {
+  static final navigate = RM.navigate;
+  static final scaffold = RM.scaffold;
 }
 
 abstract class Manager<T> {
@@ -39,12 +30,12 @@ abstract class Manager<T> {
     return state;
   }
 
-  late final rebuilder.Injected<T> injected = rebuilder.Injected(
+  late final Injected<T> injected = Injected(
     creator: () => initialState,
     autoDisposeWhenNotUsed: autoDispose,
     persist: persistable
         ? () {
-            return rebuilder.PersistState(
+            return PersistState(
               key: persistor!.key,
               toJson: (state) => jsonEncode(persistor!.toJson(state)),
               fromJson: (json) => persistor!.fromJson(jsonDecode(json)),

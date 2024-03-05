@@ -1,8 +1,4 @@
-import 'package:manager/manager.dart';
-import 'package:notes/drawer/drawer.dart';
-import 'package:notes/notes/note_page/note_page.dart';
-import 'package:notes/notes/notes.dart';
-import 'package:notes/settings/settings.dart';
+import 'package:notes/main.dart';
 
 class NotesPage extends UI {
   const NotesPage({super.key});

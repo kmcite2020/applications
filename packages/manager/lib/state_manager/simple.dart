@@ -14,11 +14,11 @@ class Simple<T> {
     this.onTransition,
     this.undoStackLength = 0,
   }) {
-    inj = rebuilder.Injected(
+    inj = Injected(
       creator: () => initialState,
       autoDisposeWhenNotUsed: autoDispose,
       persist: persistable
-          ? () => rebuilder.PersistState(
+          ? () => PersistState(
                 key: persistor!.key,
                 toJson: (state) => jsonEncode(persistor!.toJson(state)),
                 fromJson: (json) => persistor!.fromJson(jsonDecode(json)),
@@ -50,5 +50,7 @@ class Simple<T> {
     return state;
   }
 
-  late rebuilder.Injected<T> inj;
+  late Injected<T> inj;
+  @override
+  String toString() => "$state";
 }

@@ -1,4 +1,4 @@
-import 'package:manager/manager.dart';
+import 'package:notes/main.dart';
 
 class DrawerPage extends UI {
   const DrawerPage({super.key});

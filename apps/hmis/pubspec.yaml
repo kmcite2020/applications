@@ -16,6 +16,7 @@ dependencies:
   isar: ^4.0.0-dev.13
   isar_flutter_libs: ^4.0.0-dev.13
   json_annotation: ^4.8.1
+  states_rebuilder: ^6.4.0
 dev_dependencies:
   flutter_launcher_icons: any
   very_good_analysis: ^5.1.0

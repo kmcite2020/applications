@@ -1,7 +1,5 @@
 import 'package:smc/main.dart';
 
-import '../../../blocs/patients_bloc.dart';
-
 class AdmittedPatients extends UI {
   const AdmittedPatients({super.key});
 

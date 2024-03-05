@@ -1,8 +1,4 @@
-import '../../../main.dart';
-import '../../blocs/staff_bloc.dart';
-
-import '../../../shared/router.dart';
-import 'hospital_information_dialog.dart';
+import 'package:smc/main.dart';
 
 class AdminPage extends UI {
   const AdminPage({super.key});

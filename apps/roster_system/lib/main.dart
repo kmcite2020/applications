@@ -10,9 +10,10 @@ export 'package:roster_system/departments/departments.dart';
 export 'package:roster_system/departments/departments_rm.dart';
 export 'package:roster_system/departments/ui/department_page.dart';
 export 'package:roster_system/doctors/ui/doctor_page.dart';
+export 'package:states_rebuilder/states_rebuilder.dart';
 
 void main() {
-  RM.build(const MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends UI {

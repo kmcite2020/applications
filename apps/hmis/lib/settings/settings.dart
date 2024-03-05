@@ -1,5 +1,4 @@
 import 'package:hmis/main.dart';
-import 'package:isar/isar.dart';
 part 'settings.freezed.dart';
 part 'settings.g.dart';
 

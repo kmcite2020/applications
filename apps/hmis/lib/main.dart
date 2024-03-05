@@ -1,6 +1,7 @@
 import 'package:hmis/main.dart';
-import 'package:hmis/settings/settings.dart';
-import 'package:isar/isar.dart';
+export 'package:hmis/settings/settings.dart';
+export 'package:isar/isar.dart';
+export 'package:states_rebuilder/states_rebuilder.dart';
 
 export 'dart:convert';
 export 'package:hmis/patients/ui/add_patient_dialog.dart';
@@ -32,7 +33,7 @@ void main() async {
     directory: (await getApplicationDocumentsDirectory()).path,
     name: info.appName + '2',
   );
-  RM.build(
+  runApp(
     const MyApp(),
   );
 }

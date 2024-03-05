@@ -1,4 +1,4 @@
-import 'package:batteries/battery/batteries_page.dart';
+import 'package:batteries/batteries/pages/products_page.dart';
 import 'package:batteries/main.dart';
 
 class App extends UI {
@@ -20,7 +20,7 @@ class App extends UI {
         ),
         useMaterial3: true,
       ),
-      home: const BatteryUI(),
+      home: const BatteriesStorePage(),
     );
   }
 }

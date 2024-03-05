@@ -1,5 +1,3 @@
-import 'package:hmis/settings/settings.dart';
-
 import '../main.dart';
 
 final settingsRM = SettingsRM();

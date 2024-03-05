@@ -3,25 +3,47 @@ import 'package:batteries/main.dart';
 
 final batteriesRM = BatteriesRM();
 
-class BatteriesRM extends Complex<BatteryEvent, List<Battery>> {
+class BatteriesRM extends Complex<BatteryEvent, Batteries> {
   BatteriesRM() {
     register<AddBatteryEvent>(
-      (event, update) => update(List.of(state)..add(event.batteryToAdd)),
+      (event, update) => update(
+        state.copyWith(
+          cache: Map.of(state.cache)
+            ..[event.batteryToAdd.id] = event.batteryToAdd,
+        ),
+      ),
     );
     register<RemoveBatteryEvent>(
-      (event, update) => update(List.of(state)..remove(event.batteryToRemove)),
+      (event, update) => update(
+        state.copyWith(
+          removedBattery: event.batteryToRemove,
+          cache: Map.of(state.cache)..remove(event.batteryToRemove.id),
+        ),
+      ),
     );
+
     register<UpdateBatteryEvent>(
-      (event, update) {
-        final newBattery = event.newBattery;
-        final index =
-            state.indexWhere((battery) => battery == event.oldBattery);
-        if (index != -1) {
-          update(List<Battery>.from(state)..[index] = newBattery);
-        }
-      },
+      (event, update) => update(
+        state.copyWith(
+          cache: Map.of(state.cache)..[event.oldBattery.id] = event.newBattery,
+        ),
+      ),
+    );
+    register<RestoreBatteryEvent>(
+      (event, update) => update(
+        state.copyWith(
+          cache: Map.of(state.cache)
+            ..[event.batteryToRestore.id] = event.batteryToRestore,
+        ),
+      ),
     );
   }
   @override
-  final initialState = [];
+  final initialState = const Batteries();
+  @override
+  final persistor = Persistor(
+    key: 'batteries',
+    toJson: (state) => state.toJson(),
+    fromJson: Batteries.fromJson,
+  );
 }

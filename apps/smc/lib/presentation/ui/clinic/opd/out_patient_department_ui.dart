@@ -1,10 +1,5 @@
 import 'package:smc/main.dart';
 
-import '../../../blocs/patients_bloc.dart';
-
-import '../../../../domain/models/models.dart';
-import '../../../../shared/ui/back_floating_button.dart';
-
 class OutPatientDepartmentUI extends UI {
   static const path = '/clinic/opd';
 

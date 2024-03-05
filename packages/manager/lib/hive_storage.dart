@@ -1,6 +1,6 @@
 part of 'manager.dart';
 
-class HiveStorage implements rebuilder.IPersistStore {
+class HiveStorage implements IPersistStore {
   late Box box;
   @override
   Future<void> delete(String key) async => box.delete(key);

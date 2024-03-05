@@ -1,6 +1,6 @@
-import 'package:manager/manager.dart';
 import 'package:roster_system/departments/ui/departments_page.dart';
-import 'package:roster_system/settings/settings_rm.dart';
+
+import 'package:roster_system/main.dart';
 
 class SettingsPage extends UI {
   const SettingsPage({super.key});

@@ -700,7 +700,7 @@ packages:
     source: hosted
     version: "1.11.1"
   states_rebuilder:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: states_rebuilder
       sha256: f760498bb7adbe12d0d6da67f23c07e6c41de6261052ba8794356222fe27ddf3

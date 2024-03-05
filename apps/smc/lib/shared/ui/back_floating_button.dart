@@ -7,15 +7,13 @@ class BackFloatingButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return router.canPop
-        ? FloatingActionButton(
-            heroTag: randomID,
-            tooltip: 'back',
-            onPressed: () {
-              router.back();
-            },
-            child: const Icon(Icons.arrow_back_ios_new),
-          )
-        : const SizedBox();
+    return FloatingActionButton(
+      heroTag: randomID,
+      tooltip: 'back',
+      onPressed: () {
+        router.back();
+      },
+      child: const Icon(Icons.arrow_back_ios_new),
+    );
   }
 }

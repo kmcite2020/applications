@@ -1,25 +1,64 @@
+import 'dart:async';
+
+import 'package:flutter/foundation.dart';
+
 import 'main.dart';
 
 export 'package:smc/presentation/ui/dashboard/dashboard_page.dart';
 export 'package:flex_color_scheme/flex_color_scheme.dart';
 export 'package:manager/manager.dart';
+export 'package:smc/presentation/blocs/patients_bloc.dart';
+export 'package:smc/shared/router.dart';
+export 'package:smc/shared/ui/back_floating_button.dart';
+export 'package:smc/shared/common.dart';
+export 'package:smc/presentation/ui/dashboard/info_widgets.dart';
+export 'package:smc/domain/models/models.dart';
+export 'package:smc/presentation/ui/clinic/emergency_view/arrival_datetime.dart';
+export 'package:smc/presentation/ui/clinic/emergency_view/emergency_patients_view.dart';
+export 'package:states_rebuilder/states_rebuilder.dart';
+export 'package:smc/presentation/blocs/staff_bloc.dart';
 
-void main() async {
-  RM.build(MyApp());
-}
+export 'package:smc/presentation/ui/admin/hospital_information_dialog.dart';
 
-class MyApp extends UI {
+void main() => runApp(MyApp());
+
+class MyApp extends TopUI {
   const MyApp({super.key});
 
   @override
+  List<FutureOr<void>>? ensureInitialization() => [
+        SynchronousFuture(
+          FlutterNativeSplash.preserve(
+            widgetsBinding: WidgetsFlutterBinding.ensureInitialized(),
+          ),
+        ),
+        Future.delayed(400.milliseconds),
+        RM.storageInitializer(
+          HiveStorage(),
+        ),
+      ];
+
+  @override
+  Widget? splashScreen() {
+    return CircleAvatar(
+      child: CircularProgressIndicator().pad(),
+    ).pad();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      navigatorKey: RM.navigate.navigatorKey,
-      debugShowCheckedModeBanner: false,
-      // theme: themes.theme(),
-      // darkTheme: themes.darkTheme(),
-      // themeMode: themes.themeMode,
-      home: DashboardPage(),
+    return OnReactive(
+      () => MaterialApp(
+        navigatorKey: RM.navigate.navigatorKey,
+        debugShowCheckedModeBanner: false,
+        // theme: themes.theme(),
+        // darkTheme: themes.darkTheme(),
+        // themeMode: themes.themeMode,
+        home: DashboardPage(),
+      ),
+      sideEffects: SideEffects(
+        initState: () => FlutterNativeSplash.remove(),
+      ),
     );
   }
 }

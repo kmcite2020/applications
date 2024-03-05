@@ -9,29 +9,45 @@ class BatteryUI extends UI {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: batteriesRM().length.text(),
+        title: batteriesRM().cache.length.text(),
       ),
       body: ListView(
         children: List.generate(
-          batteriesRM().length,
+          batteriesRM().cache.length,
           (index) {
-            final battery = batteriesRM()[index];
+            final battery = batteriesRM().cache.values.toList()[index];
             return ListTile(
               key: Key(battery.id),
               title: battery.text(),
-              subtitle: TextFormField(
-                initialValue: battery.name,
-                onChanged: (name) {
-                  batteriesRM(
-                    UpdateBatteryEvent(
-                      oldBattery: battery,
-                      newBattery: Battery(
-                        id: battery.id,
-                        name: name,
-                      ),
-                    ),
-                  );
-                },
+              subtitle: Column(
+                children: [
+                  TextFormField(
+                    initialValue: battery.brandName,
+                    onChanged: (brandName) {
+                      batteriesRM(
+                        UpdateBatteryEvent(
+                          oldBattery: battery,
+                          newBattery: battery.copyWith(
+                            brandName: brandName,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                  TextFormField(
+                    initialValue: battery.capacity,
+                    onChanged: (capacity) {
+                      batteriesRM(
+                        UpdateBatteryEvent(
+                          oldBattery: battery,
+                          newBattery: battery.copyWith(
+                            capacity: capacity,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ],
               ),
               trailing: IconButton.filledTonal(
                 onPressed: () {
@@ -49,9 +65,8 @@ class BatteryUI extends UI {
         onPressed: () {
           batteriesRM(
             AddBatteryEvent(
-              batteryToAdd: Battery(
-                id: randomID,
-                name: 'new',
+              batteryToAdd: Battery.create(
+                brandName: 'new',
               ),
             ),
           );

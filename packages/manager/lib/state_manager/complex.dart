@@ -10,11 +10,11 @@ typedef EventRegistrar<Event, State> = FutureOr<void> Function(
 
 abstract class Complex<E, T> {
   final _handlers = <Handler>[];
-  late final rebuilder.Injected<T> injected = rebuilder.Injected(
+  late final Injected<T> injected = Injected(
     creator: () => initialState,
     autoDisposeWhenNotUsed: autoDispose,
     persist: persistable
-        ? () => rebuilder.PersistState(
+        ? () => PersistState(
               key: persistor!.key,
               toJson: (state) => jsonEncode(persistor!.toJson(state)),
               fromJson: (json) => persistor!.fromJson(jsonDecode(json)),

@@ -1,13 +1,6 @@
 // ignore_for_file: unused_element
 
-import 'package:manager/manager.dart';
-import '../../../blocs/patients_bloc.dart';
-import '../../../../shared/router.dart';
-import '../../../../shared/ui/back_floating_button.dart';
-
-import '../../../../domain/models/models.dart';
-import '../emergency_view/arrival_datetime.dart';
-import '../emergency_view/emergency_patients_view.dart';
+import 'package:smc/main.dart';
 
 class EmergencyPatientsPage extends UI {
   const EmergencyPatientsPage({super.key});

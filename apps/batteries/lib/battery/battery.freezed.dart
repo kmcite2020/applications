@@ -14,6 +14,188 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
+Batteries _$BatteriesFromJson(Map<String, dynamic> json) {
+  return _Batteries.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Batteries {
+  Map<String, Battery> get cache => throw _privateConstructorUsedError;
+  Battery? get removedBattery => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $BatteriesCopyWith<Batteries> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $BatteriesCopyWith<$Res> {
+  factory $BatteriesCopyWith(Batteries value, $Res Function(Batteries) then) =
+      _$BatteriesCopyWithImpl<$Res, Batteries>;
+  @useResult
+  $Res call({Map<String, Battery> cache, Battery? removedBattery});
+
+  $BatteryCopyWith<$Res>? get removedBattery;
+}
+
+/// @nodoc
+class _$BatteriesCopyWithImpl<$Res, $Val extends Batteries>
+    implements $BatteriesCopyWith<$Res> {
+  _$BatteriesCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? cache = null,
+    Object? removedBattery = freezed,
+  }) {
+    return _then(_value.copyWith(
+      cache: null == cache
+          ? _value.cache
+          : cache // ignore: cast_nullable_to_non_nullable
+              as Map<String, Battery>,
+      removedBattery: freezed == removedBattery
+          ? _value.removedBattery
+          : removedBattery // ignore: cast_nullable_to_non_nullable
+              as Battery?,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $BatteryCopyWith<$Res>? get removedBattery {
+    if (_value.removedBattery == null) {
+      return null;
+    }
+
+    return $BatteryCopyWith<$Res>(_value.removedBattery!, (value) {
+      return _then(_value.copyWith(removedBattery: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$BatteriesImplCopyWith<$Res>
+    implements $BatteriesCopyWith<$Res> {
+  factory _$$BatteriesImplCopyWith(
+          _$BatteriesImpl value, $Res Function(_$BatteriesImpl) then) =
+      __$$BatteriesImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({Map<String, Battery> cache, Battery? removedBattery});
+
+  @override
+  $BatteryCopyWith<$Res>? get removedBattery;
+}
+
+/// @nodoc
+class __$$BatteriesImplCopyWithImpl<$Res>
+    extends _$BatteriesCopyWithImpl<$Res, _$BatteriesImpl>
+    implements _$$BatteriesImplCopyWith<$Res> {
+  __$$BatteriesImplCopyWithImpl(
+      _$BatteriesImpl _value, $Res Function(_$BatteriesImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? cache = null,
+    Object? removedBattery = freezed,
+  }) {
+    return _then(_$BatteriesImpl(
+      cache: null == cache
+          ? _value._cache
+          : cache // ignore: cast_nullable_to_non_nullable
+              as Map<String, Battery>,
+      removedBattery: freezed == removedBattery
+          ? _value.removedBattery
+          : removedBattery // ignore: cast_nullable_to_non_nullable
+              as Battery?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$BatteriesImpl implements _Batteries {
+  const _$BatteriesImpl(
+      {final Map<String, Battery> cache = const <String, Battery>{},
+      this.removedBattery})
+      : _cache = cache;
+
+  factory _$BatteriesImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BatteriesImplFromJson(json);
+
+  final Map<String, Battery> _cache;
+  @override
+  @JsonKey()
+  Map<String, Battery> get cache {
+    if (_cache is EqualUnmodifiableMapView) return _cache;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_cache);
+  }
+
+  @override
+  final Battery? removedBattery;
+
+  @override
+  String toString() {
+    return 'Batteries(cache: $cache, removedBattery: $removedBattery)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$BatteriesImpl &&
+            const DeepCollectionEquality().equals(other._cache, _cache) &&
+            (identical(other.removedBattery, removedBattery) ||
+                other.removedBattery == removedBattery));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_cache), removedBattery);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$BatteriesImplCopyWith<_$BatteriesImpl> get copyWith =>
+      __$$BatteriesImplCopyWithImpl<_$BatteriesImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$BatteriesImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Batteries implements Batteries {
+  const factory _Batteries(
+      {final Map<String, Battery> cache,
+      final Battery? removedBattery}) = _$BatteriesImpl;
+
+  factory _Batteries.fromJson(Map<String, dynamic> json) =
+      _$BatteriesImpl.fromJson;
+
+  @override
+  Map<String, Battery> get cache;
+  @override
+  Battery? get removedBattery;
+  @override
+  @JsonKey(ignore: true)
+  _$$BatteriesImplCopyWith<_$BatteriesImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
 Battery _$BatteryFromJson(Map<String, dynamic> json) {
   return _Battery.fromJson(json);
 }
@@ -21,8 +203,50 @@ Battery _$BatteryFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Battery {
   String get id => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
-
+  String get brandName => throw _privateConstructorUsedError;
+  String get capacity => throw _privateConstructorUsedError;
+  String get voltage => throw _privateConstructorUsedError;
+  String get technologyType =>
+      throw _privateConstructorUsedError; // Li, NiCad, Sulfuric etc.
+  String get price => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String id, String brandName, String capacity,
+            String voltage, String technologyType, String price)
+        raw,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String id, String brandName, String capacity,
+            String voltage, String technologyType, String price)?
+        raw,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id, String brandName, String capacity,
+            String voltage, String technologyType, String price)?
+        raw,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Battery value) raw,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Battery value)? raw,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Battery value)? raw,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $BatteryCopyWith<Battery> get copyWith => throw _privateConstructorUsedError;
@@ -33,7 +257,13 @@ abstract class $BatteryCopyWith<$Res> {
   factory $BatteryCopyWith(Battery value, $Res Function(Battery) then) =
       _$BatteryCopyWithImpl<$Res, Battery>;
   @useResult
-  $Res call({String id, String name});
+  $Res call(
+      {String id,
+      String brandName,
+      String capacity,
+      String voltage,
+      String technologyType,
+      String price});
 }
 
 /// @nodoc
@@ -50,16 +280,36 @@ class _$BatteryCopyWithImpl<$Res, $Val extends Battery>
   @override
   $Res call({
     Object? id = null,
-    Object? name = null,
+    Object? brandName = null,
+    Object? capacity = null,
+    Object? voltage = null,
+    Object? technologyType = null,
+    Object? price = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      brandName: null == brandName
+          ? _value.brandName
+          : brandName // ignore: cast_nullable_to_non_nullable
+              as String,
+      capacity: null == capacity
+          ? _value.capacity
+          : capacity // ignore: cast_nullable_to_non_nullable
+              as String,
+      voltage: null == voltage
+          ? _value.voltage
+          : voltage // ignore: cast_nullable_to_non_nullable
+              as String,
+      technologyType: null == technologyType
+          ? _value.technologyType
+          : technologyType // ignore: cast_nullable_to_non_nullable
+              as String,
+      price: null == price
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -72,7 +322,13 @@ abstract class _$$BatteryImplCopyWith<$Res> implements $BatteryCopyWith<$Res> {
       __$$BatteryImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String name});
+  $Res call(
+      {String id,
+      String brandName,
+      String capacity,
+      String voltage,
+      String technologyType,
+      String price});
 }
 
 /// @nodoc
@@ -87,16 +343,36 @@ class __$$BatteryImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? name = null,
+    Object? brandName = null,
+    Object? capacity = null,
+    Object? voltage = null,
+    Object? technologyType = null,
+    Object? price = null,
   }) {
     return _then(_$BatteryImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      brandName: null == brandName
+          ? _value.brandName
+          : brandName // ignore: cast_nullable_to_non_nullable
+              as String,
+      capacity: null == capacity
+          ? _value.capacity
+          : capacity // ignore: cast_nullable_to_non_nullable
+              as String,
+      voltage: null == voltage
+          ? _value.voltage
+          : voltage // ignore: cast_nullable_to_non_nullable
+              as String,
+      technologyType: null == technologyType
+          ? _value.technologyType
+          : technologyType // ignore: cast_nullable_to_non_nullable
+              as String,
+      price: null == price
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -105,21 +381,34 @@ class __$$BatteryImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$BatteryImpl implements _Battery {
-  const _$BatteryImpl({this.id = '', this.name = ''});
+  const _$BatteryImpl(
+      {required this.id,
+      required this.brandName,
+      required this.capacity,
+      required this.voltage,
+      required this.technologyType,
+      required this.price});
 
   factory _$BatteryImpl.fromJson(Map<String, dynamic> json) =>
       _$$BatteryImplFromJson(json);
 
   @override
-  @JsonKey()
   final String id;
   @override
-  @JsonKey()
-  final String name;
+  final String brandName;
+  @override
+  final String capacity;
+  @override
+  final String voltage;
+  @override
+  final String technologyType;
+// Li, NiCad, Sulfuric etc.
+  @override
+  final String price;
 
   @override
   String toString() {
-    return 'Battery(id: $id, name: $name)';
+    return 'Battery.raw(id: $id, brandName: $brandName, capacity: $capacity, voltage: $voltage, technologyType: $technologyType, price: $price)';
   }
 
   @override
@@ -128,18 +417,88 @@ class _$BatteryImpl implements _Battery {
         (other.runtimeType == runtimeType &&
             other is _$BatteryImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.name, name) || other.name == name));
+            (identical(other.brandName, brandName) ||
+                other.brandName == brandName) &&
+            (identical(other.capacity, capacity) ||
+                other.capacity == capacity) &&
+            (identical(other.voltage, voltage) || other.voltage == voltage) &&
+            (identical(other.technologyType, technologyType) ||
+                other.technologyType == technologyType) &&
+            (identical(other.price, price) || other.price == price));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name);
+  int get hashCode => Object.hash(
+      runtimeType, id, brandName, capacity, voltage, technologyType, price);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$BatteryImplCopyWith<_$BatteryImpl> get copyWith =>
       __$$BatteryImplCopyWithImpl<_$BatteryImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String id, String brandName, String capacity,
+            String voltage, String technologyType, String price)
+        raw,
+  }) {
+    return raw(id, brandName, capacity, voltage, technologyType, price);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String id, String brandName, String capacity,
+            String voltage, String technologyType, String price)?
+        raw,
+  }) {
+    return raw?.call(id, brandName, capacity, voltage, technologyType, price);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id, String brandName, String capacity,
+            String voltage, String technologyType, String price)?
+        raw,
+    required TResult orElse(),
+  }) {
+    if (raw != null) {
+      return raw(id, brandName, capacity, voltage, technologyType, price);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Battery value) raw,
+  }) {
+    return raw(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Battery value)? raw,
+  }) {
+    return raw?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Battery value)? raw,
+    required TResult orElse(),
+  }) {
+    if (raw != null) {
+      return raw(this);
+    }
+    return orElse();
+  }
 
   @override
   Map<String, dynamic> toJson() {
@@ -150,14 +509,28 @@ class _$BatteryImpl implements _Battery {
 }
 
 abstract class _Battery implements Battery {
-  const factory _Battery({final String id, final String name}) = _$BatteryImpl;
+  const factory _Battery(
+      {required final String id,
+      required final String brandName,
+      required final String capacity,
+      required final String voltage,
+      required final String technologyType,
+      required final String price}) = _$BatteryImpl;
 
   factory _Battery.fromJson(Map<String, dynamic> json) = _$BatteryImpl.fromJson;
 
   @override
   String get id;
   @override
-  String get name;
+  String get brandName;
+  @override
+  String get capacity;
+  @override
+  String get voltage;
+  @override
+  String get technologyType;
+  @override // Li, NiCad, Sulfuric etc.
+  String get price;
   @override
   @JsonKey(ignore: true)
   _$$BatteryImplCopyWith<_$BatteryImpl> get copyWith =>
@@ -170,6 +543,8 @@ BatteryEvent _$BatteryEventFromJson(Map<String, dynamic> json) {
       return AddBatteryEvent.fromJson(json);
     case 'remove':
       return RemoveBatteryEvent.fromJson(json);
+    case 'restore':
+      return RestoreBatteryEvent.fromJson(json);
     case 'update':
       return UpdateBatteryEvent.fromJson(json);
 
@@ -185,6 +560,7 @@ mixin _$BatteryEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(Battery batteryToAdd) add,
     required TResult Function(Battery batteryToRemove) remove,
+    required TResult Function(Battery batteryToRestore) restore,
     required TResult Function(Battery oldBattery, Battery newBattery) update,
   }) =>
       throw _privateConstructorUsedError;
@@ -192,6 +568,7 @@ mixin _$BatteryEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Battery batteryToAdd)? add,
     TResult? Function(Battery batteryToRemove)? remove,
+    TResult? Function(Battery batteryToRestore)? restore,
     TResult? Function(Battery oldBattery, Battery newBattery)? update,
   }) =>
       throw _privateConstructorUsedError;
@@ -199,6 +576,7 @@ mixin _$BatteryEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Battery batteryToAdd)? add,
     TResult Function(Battery batteryToRemove)? remove,
+    TResult Function(Battery batteryToRestore)? restore,
     TResult Function(Battery oldBattery, Battery newBattery)? update,
     required TResult orElse(),
   }) =>
@@ -207,6 +585,7 @@ mixin _$BatteryEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(AddBatteryEvent value) add,
     required TResult Function(RemoveBatteryEvent value) remove,
+    required TResult Function(RestoreBatteryEvent value) restore,
     required TResult Function(UpdateBatteryEvent value) update,
   }) =>
       throw _privateConstructorUsedError;
@@ -214,6 +593,7 @@ mixin _$BatteryEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AddBatteryEvent value)? add,
     TResult? Function(RemoveBatteryEvent value)? remove,
+    TResult? Function(RestoreBatteryEvent value)? restore,
     TResult? Function(UpdateBatteryEvent value)? update,
   }) =>
       throw _privateConstructorUsedError;
@@ -221,6 +601,7 @@ mixin _$BatteryEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AddBatteryEvent value)? add,
     TResult Function(RemoveBatteryEvent value)? remove,
+    TResult Function(RestoreBatteryEvent value)? restore,
     TResult Function(UpdateBatteryEvent value)? update,
     required TResult orElse(),
   }) =>
@@ -332,6 +713,7 @@ class _$AddBatteryEventImpl implements AddBatteryEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(Battery batteryToAdd) add,
     required TResult Function(Battery batteryToRemove) remove,
+    required TResult Function(Battery batteryToRestore) restore,
     required TResult Function(Battery oldBattery, Battery newBattery) update,
   }) {
     return add(batteryToAdd);
@@ -342,6 +724,7 @@ class _$AddBatteryEventImpl implements AddBatteryEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Battery batteryToAdd)? add,
     TResult? Function(Battery batteryToRemove)? remove,
+    TResult? Function(Battery batteryToRestore)? restore,
     TResult? Function(Battery oldBattery, Battery newBattery)? update,
   }) {
     return add?.call(batteryToAdd);
@@ -352,6 +735,7 @@ class _$AddBatteryEventImpl implements AddBatteryEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Battery batteryToAdd)? add,
     TResult Function(Battery batteryToRemove)? remove,
+    TResult Function(Battery batteryToRestore)? restore,
     TResult Function(Battery oldBattery, Battery newBattery)? update,
     required TResult orElse(),
   }) {
@@ -366,6 +750,7 @@ class _$AddBatteryEventImpl implements AddBatteryEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(AddBatteryEvent value) add,
     required TResult Function(RemoveBatteryEvent value) remove,
+    required TResult Function(RestoreBatteryEvent value) restore,
     required TResult Function(UpdateBatteryEvent value) update,
   }) {
     return add(this);
@@ -376,6 +761,7 @@ class _$AddBatteryEventImpl implements AddBatteryEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AddBatteryEvent value)? add,
     TResult? Function(RemoveBatteryEvent value)? remove,
+    TResult? Function(RestoreBatteryEvent value)? restore,
     TResult? Function(UpdateBatteryEvent value)? update,
   }) {
     return add?.call(this);
@@ -386,6 +772,7 @@ class _$AddBatteryEventImpl implements AddBatteryEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AddBatteryEvent value)? add,
     TResult Function(RemoveBatteryEvent value)? remove,
+    TResult Function(RestoreBatteryEvent value)? restore,
     TResult Function(UpdateBatteryEvent value)? update,
     required TResult orElse(),
   }) {
@@ -503,6 +890,7 @@ class _$RemoveBatteryEventImpl implements RemoveBatteryEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(Battery batteryToAdd) add,
     required TResult Function(Battery batteryToRemove) remove,
+    required TResult Function(Battery batteryToRestore) restore,
     required TResult Function(Battery oldBattery, Battery newBattery) update,
   }) {
     return remove(batteryToRemove);
@@ -513,6 +901,7 @@ class _$RemoveBatteryEventImpl implements RemoveBatteryEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Battery batteryToAdd)? add,
     TResult? Function(Battery batteryToRemove)? remove,
+    TResult? Function(Battery batteryToRestore)? restore,
     TResult? Function(Battery oldBattery, Battery newBattery)? update,
   }) {
     return remove?.call(batteryToRemove);
@@ -523,6 +912,7 @@ class _$RemoveBatteryEventImpl implements RemoveBatteryEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Battery batteryToAdd)? add,
     TResult Function(Battery batteryToRemove)? remove,
+    TResult Function(Battery batteryToRestore)? restore,
     TResult Function(Battery oldBattery, Battery newBattery)? update,
     required TResult orElse(),
   }) {
@@ -537,6 +927,7 @@ class _$RemoveBatteryEventImpl implements RemoveBatteryEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(AddBatteryEvent value) add,
     required TResult Function(RemoveBatteryEvent value) remove,
+    required TResult Function(RestoreBatteryEvent value) restore,
     required TResult Function(UpdateBatteryEvent value) update,
   }) {
     return remove(this);
@@ -547,6 +938,7 @@ class _$RemoveBatteryEventImpl implements RemoveBatteryEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AddBatteryEvent value)? add,
     TResult? Function(RemoveBatteryEvent value)? remove,
+    TResult? Function(RestoreBatteryEvent value)? restore,
     TResult? Function(UpdateBatteryEvent value)? update,
   }) {
     return remove?.call(this);
@@ -557,6 +949,7 @@ class _$RemoveBatteryEventImpl implements RemoveBatteryEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AddBatteryEvent value)? add,
     TResult Function(RemoveBatteryEvent value)? remove,
+    TResult Function(RestoreBatteryEvent value)? restore,
     TResult Function(UpdateBatteryEvent value)? update,
     required TResult orElse(),
   }) {
@@ -584,6 +977,183 @@ abstract class RemoveBatteryEvent implements BatteryEvent {
   Battery get batteryToRemove;
   @JsonKey(ignore: true)
   _$$RemoveBatteryEventImplCopyWith<_$RemoveBatteryEventImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$RestoreBatteryEventImplCopyWith<$Res> {
+  factory _$$RestoreBatteryEventImplCopyWith(_$RestoreBatteryEventImpl value,
+          $Res Function(_$RestoreBatteryEventImpl) then) =
+      __$$RestoreBatteryEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Battery batteryToRestore});
+
+  $BatteryCopyWith<$Res> get batteryToRestore;
+}
+
+/// @nodoc
+class __$$RestoreBatteryEventImplCopyWithImpl<$Res>
+    extends _$BatteryEventCopyWithImpl<$Res, _$RestoreBatteryEventImpl>
+    implements _$$RestoreBatteryEventImplCopyWith<$Res> {
+  __$$RestoreBatteryEventImplCopyWithImpl(_$RestoreBatteryEventImpl _value,
+      $Res Function(_$RestoreBatteryEventImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? batteryToRestore = null,
+  }) {
+    return _then(_$RestoreBatteryEventImpl(
+      batteryToRestore: null == batteryToRestore
+          ? _value.batteryToRestore
+          : batteryToRestore // ignore: cast_nullable_to_non_nullable
+              as Battery,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $BatteryCopyWith<$Res> get batteryToRestore {
+    return $BatteryCopyWith<$Res>(_value.batteryToRestore, (value) {
+      return _then(_value.copyWith(batteryToRestore: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$RestoreBatteryEventImpl implements RestoreBatteryEvent {
+  const _$RestoreBatteryEventImpl(
+      {required this.batteryToRestore, final String? $type})
+      : $type = $type ?? 'restore';
+
+  factory _$RestoreBatteryEventImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RestoreBatteryEventImplFromJson(json);
+
+  @override
+  final Battery batteryToRestore;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'BatteryEvent.restore(batteryToRestore: $batteryToRestore)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RestoreBatteryEventImpl &&
+            (identical(other.batteryToRestore, batteryToRestore) ||
+                other.batteryToRestore == batteryToRestore));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, batteryToRestore);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RestoreBatteryEventImplCopyWith<_$RestoreBatteryEventImpl> get copyWith =>
+      __$$RestoreBatteryEventImplCopyWithImpl<_$RestoreBatteryEventImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Battery batteryToAdd) add,
+    required TResult Function(Battery batteryToRemove) remove,
+    required TResult Function(Battery batteryToRestore) restore,
+    required TResult Function(Battery oldBattery, Battery newBattery) update,
+  }) {
+    return restore(batteryToRestore);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Battery batteryToAdd)? add,
+    TResult? Function(Battery batteryToRemove)? remove,
+    TResult? Function(Battery batteryToRestore)? restore,
+    TResult? Function(Battery oldBattery, Battery newBattery)? update,
+  }) {
+    return restore?.call(batteryToRestore);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Battery batteryToAdd)? add,
+    TResult Function(Battery batteryToRemove)? remove,
+    TResult Function(Battery batteryToRestore)? restore,
+    TResult Function(Battery oldBattery, Battery newBattery)? update,
+    required TResult orElse(),
+  }) {
+    if (restore != null) {
+      return restore(batteryToRestore);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AddBatteryEvent value) add,
+    required TResult Function(RemoveBatteryEvent value) remove,
+    required TResult Function(RestoreBatteryEvent value) restore,
+    required TResult Function(UpdateBatteryEvent value) update,
+  }) {
+    return restore(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AddBatteryEvent value)? add,
+    TResult? Function(RemoveBatteryEvent value)? remove,
+    TResult? Function(RestoreBatteryEvent value)? restore,
+    TResult? Function(UpdateBatteryEvent value)? update,
+  }) {
+    return restore?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AddBatteryEvent value)? add,
+    TResult Function(RemoveBatteryEvent value)? remove,
+    TResult Function(RestoreBatteryEvent value)? restore,
+    TResult Function(UpdateBatteryEvent value)? update,
+    required TResult orElse(),
+  }) {
+    if (restore != null) {
+      return restore(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$RestoreBatteryEventImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class RestoreBatteryEvent implements BatteryEvent {
+  const factory RestoreBatteryEvent({required final Battery batteryToRestore}) =
+      _$RestoreBatteryEventImpl;
+
+  factory RestoreBatteryEvent.fromJson(Map<String, dynamic> json) =
+      _$RestoreBatteryEventImpl.fromJson;
+
+  Battery get batteryToRestore;
+  @JsonKey(ignore: true)
+  _$$RestoreBatteryEventImplCopyWith<_$RestoreBatteryEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -692,6 +1262,7 @@ class _$UpdateBatteryEventImpl implements UpdateBatteryEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(Battery batteryToAdd) add,
     required TResult Function(Battery batteryToRemove) remove,
+    required TResult Function(Battery batteryToRestore) restore,
     required TResult Function(Battery oldBattery, Battery newBattery) update,
   }) {
     return update(oldBattery, newBattery);
@@ -702,6 +1273,7 @@ class _$UpdateBatteryEventImpl implements UpdateBatteryEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Battery batteryToAdd)? add,
     TResult? Function(Battery batteryToRemove)? remove,
+    TResult? Function(Battery batteryToRestore)? restore,
     TResult? Function(Battery oldBattery, Battery newBattery)? update,
   }) {
     return update?.call(oldBattery, newBattery);
@@ -712,6 +1284,7 @@ class _$UpdateBatteryEventImpl implements UpdateBatteryEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Battery batteryToAdd)? add,
     TResult Function(Battery batteryToRemove)? remove,
+    TResult Function(Battery batteryToRestore)? restore,
     TResult Function(Battery oldBattery, Battery newBattery)? update,
     required TResult orElse(),
   }) {
@@ -726,6 +1299,7 @@ class _$UpdateBatteryEventImpl implements UpdateBatteryEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(AddBatteryEvent value) add,
     required TResult Function(RemoveBatteryEvent value) remove,
+    required TResult Function(RestoreBatteryEvent value) restore,
     required TResult Function(UpdateBatteryEvent value) update,
   }) {
     return update(this);
@@ -736,6 +1310,7 @@ class _$UpdateBatteryEventImpl implements UpdateBatteryEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AddBatteryEvent value)? add,
     TResult? Function(RemoveBatteryEvent value)? remove,
+    TResult? Function(RestoreBatteryEvent value)? restore,
     TResult? Function(UpdateBatteryEvent value)? update,
   }) {
     return update?.call(this);
@@ -746,6 +1321,7 @@ class _$UpdateBatteryEventImpl implements UpdateBatteryEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AddBatteryEvent value)? add,
     TResult Function(RemoveBatteryEvent value)? remove,
+    TResult Function(RestoreBatteryEvent value)? restore,
     TResult Function(UpdateBatteryEvent value)? update,
     required TResult orElse(),
   }) {

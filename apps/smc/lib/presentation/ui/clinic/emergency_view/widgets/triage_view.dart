@@ -1,8 +1,5 @@
 import 'package:smc/main.dart';
 
-import '../../../../../domain/models/models.dart';
-import '../../../../blocs/patients_bloc.dart';
-
 class TriageView extends UI {
   const TriageView({
     super.key,

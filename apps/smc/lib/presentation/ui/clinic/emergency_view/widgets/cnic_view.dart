@@ -1,7 +1,5 @@
 import 'package:smc/main.dart';
 
-import '../../../../../domain/models/models.dart';
-
 class CNICView extends UI {
   const CNICView({
     super.key,

@@ -1,7 +1,4 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:smc/domain/models/models.dart';
 import 'package:smc/main.dart';
-import 'package:smc/shared/router.dart';
 
 class ComplaintsView extends UI {
   const ComplaintsView({
