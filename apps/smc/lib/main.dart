@@ -1,7 +1,5 @@
 import 'dart:async';
 
-import 'package:flutter/foundation.dart';
-
 import 'main.dart';
 
 export 'package:smc/presentation/ui/dashboard/dashboard_page.dart';
@@ -27,23 +25,23 @@ class MyApp extends TopUI {
 
   @override
   List<FutureOr<void>>? ensureInitialization() => [
-        SynchronousFuture(
-          FlutterNativeSplash.preserve(
+        Future.value(
+          () => FlutterNativeSplash.preserve(
             widgetsBinding: WidgetsFlutterBinding.ensureInitialized(),
           ),
         ),
-        Future.delayed(400.milliseconds),
-        RM.storageInitializer(
-          HiveStorage(),
+        Future.delayed(
+          1000.milliseconds,
+          () => RM.storageInitializer(
+            HiveStorage(),
+          ),
         ),
       ];
 
   @override
-  Widget? splashScreen() {
-    return CircleAvatar(
-      child: CircularProgressIndicator().pad(),
-    ).pad();
-  }
+  Widget? splashScreen() => CircleAvatar(
+        child: CircularProgressIndicator().pad(),
+      ).pad().center();
 
   @override
   Widget build(BuildContext context) {

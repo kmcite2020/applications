@@ -1,6 +1,4 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:manager/manager.dart';
-import 'package:smc/shared/router.dart';
+import 'package:smc/main.dart';
 
 class OpenDrawerFloatingButton extends UI {
   const OpenDrawerFloatingButton({super.key});
@@ -11,7 +9,7 @@ class OpenDrawerFloatingButton extends UI {
       tooltip: 'Open Drawer',
       heroTag: randomID,
       onPressed: () {
-        router.scaffold.openDrawer();
+        RM.scaffold.openDrawer();
       },
       child: const Icon(Icons.book_sharp),
     );

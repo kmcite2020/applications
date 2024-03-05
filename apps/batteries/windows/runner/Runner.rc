@@ -89,13 +89,13 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "dev.loner.batteries" "\0"
+            VALUE "CompanyName", "dev.loner" "\0"
             VALUE "FileDescription", "batteries" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
             VALUE "InternalName", "batteries" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2022 dev.loner.batteries. All rights reserved." "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2024 dev.loner. All rights reserved." "\0"
             VALUE "OriginalFilename", "batteries.exe" "\0"
-            VALUE "ProductName", "Batteries" "\0"
+            VALUE "ProductName", "batteries" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END
