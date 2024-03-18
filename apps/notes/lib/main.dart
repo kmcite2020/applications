@@ -9,9 +9,10 @@ export 'package:notes/notes/note_page/note_page.dart';
 export 'package:notes/notes/notes.dart';
 export 'package:states_rebuilder/states_rebuilder.dart';
 
-void main() => runApp(const MyApp());
-
-final themeModeRM = Simple(ThemeMode.system);
+void main() async {
+  await RM.storageInitializer(HiveStorage());
+  runApp(const MyApp());
+}
 
 class MyApp extends UI {
   const MyApp({super.key});

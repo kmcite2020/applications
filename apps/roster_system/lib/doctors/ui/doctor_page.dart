@@ -7,14 +7,16 @@ class DoctorPage extends UI {
   const DoctorPage({super.key, required this.id});
   final String id;
 
-  static late Simple<Doctor> doctorRM;
+  static late Injected<Doctor> doctorRM;
+  static Doctor get doctor => doctorRM.state;
+  static void setDoctor(Doctor doctor) => doctorRM.state = doctor;
   @override
   void didMountWidget(BuildContext context) {
-    doctorRM = Simple(
-      doctors.cache[id]!,
-      onTransition: (oldState, newState) {
-        doctors.setDoctor(newState);
-      },
+    doctorRM = RM.inject(
+      () => doctors.cache[id]!,
+      sideEffects: SideEffects(
+        onSetState: (doctorSnap) => doctors.setDoctor(doctorSnap.state),
+      ),
     );
   }
 
@@ -22,16 +24,16 @@ class DoctorPage extends UI {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: doctorRM().name.text(),
+        title: doctor.name.text(),
       ),
-      body: doctorRM().editing
+      body: doctor.editing
           ? ListView(
               children: [
                 TextFormField(
-                  initialValue: doctorRM().name,
+                  initialValue: doctor.name,
                   onChanged: (name) {
-                    doctorRM(
-                      doctorRM().copyWith(name: name),
+                    setDoctor(
+                      doctor.copyWith(name: name),
                     );
                   },
                   decoration: const InputDecoration(
@@ -39,10 +41,10 @@ class DoctorPage extends UI {
                   ),
                 ).pad(),
                 TextFormField(
-                  initialValue: doctorRM().qualifications,
+                  initialValue: doctor.qualifications,
                   onChanged: (qualifications) {
-                    doctorRM(
-                      doctorRM().copyWith(qualifications: qualifications),
+                    setDoctor(
+                      doctor.copyWith(qualifications: qualifications),
                     );
                   },
                   decoration: const InputDecoration(
@@ -50,10 +52,10 @@ class DoctorPage extends UI {
                   ),
                 ).pad(),
                 TextFormField(
-                  initialValue: doctorRM().contactDetails,
+                  initialValue: doctor.contactDetails,
                   onChanged: (contactDetails) {
-                    doctorRM(
-                      doctorRM().copyWith(contactDetails: contactDetails),
+                    setDoctor(
+                      doctor.copyWith(contactDetails: contactDetails),
                     );
                   },
                   decoration: const InputDecoration(
@@ -61,7 +63,7 @@ class DoctorPage extends UI {
                   ),
                 ).pad(),
                 DropdownButtonFormField(
-                  value: doctorRM().gender,
+                  value: doctor.gender,
                   items: Gender.values
                       .map(
                         (eachGender) => DropdownMenuItem(
@@ -71,8 +73,8 @@ class DoctorPage extends UI {
                       )
                       .toList(),
                   onChanged: (gender) {
-                    doctorRM(
-                      doctorRM().copyWith(gender: gender!),
+                    setDoctor(
+                      doctor.copyWith(gender: gender!),
                     );
                   },
                   decoration: const InputDecoration(
@@ -88,14 +90,14 @@ class DoctorPage extends UI {
                     onPressed: () async {
                       final selectedDateOfBirth = await showDatePicker(
                         context: context,
-                        initialDate: doctorRM().dateOfBirth,
+                        initialDate: doctor.dateOfBirth,
                         firstDate: DateTime.fromMicrosecondsSinceEpoch(0),
                         lastDate: DateTime.now(),
                       );
 
                       if (selectedDateOfBirth != null) {
-                        doctorRM(
-                          doctorRM().copyWith(
+                        setDoctor(
+                          doctor.copyWith(
                             dateOfBirth: selectedDateOfBirth,
                           ),
                         );

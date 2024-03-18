@@ -1,11 +1,11 @@
 part of '../manager.dart';
 
-typedef Transition<State> = void Function(State oldState, State newState);
+// typedef Transition<State> = void Function(State oldState, State newState);
 
-class SN<T> {
-  static final navigate = RM.navigate;
-  static final scaffold = RM.scaffold;
-}
+// class SN<T> {
+//   static final navigate = RM.navigate;
+//   static final scaffold = RM.scaffold;
+// }
 
 // abstract class Manager<T> {
 //   T get state => injected.state;

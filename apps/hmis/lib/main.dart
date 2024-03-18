@@ -56,7 +56,7 @@ class MyApp extends UI {
         canPop: false,
         child: AnimatedContainer(
           duration: animationDuration,
-          child: switch (mainPagesRM()) {
+          child: switch (mainPages) {
             MainPages.home => const HomePage(),
             MainPages.patients => const PatientsPage(),
             MainPages.investigations => const InvestigationsPage(),
@@ -70,6 +70,8 @@ class MyApp extends UI {
 
 enum MainPages { home, patients, investigations, settings }
 
-final mainPagesRM = Simple(MainPages.home);
+final mainPagesRM = RM.inject(() => MainPages.home);
+setMainPages(MainPages mainPages) => mainPagesRM.state = mainPages;
+MainPages get mainPages => mainPagesRM.state;
 
 const animationDuration = Duration(milliseconds: 500);

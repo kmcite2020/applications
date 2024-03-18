@@ -18,7 +18,7 @@ PreferredSize customAppBar({
           leading: leading ??
               IconButton(
                 onPressed: () {
-                  mainPagesRM(MainPages.home);
+                  setMainPages(MainPages.home);
                 },
                 icon: const FaIcon(FontAwesomeIcons.house),
               ),

@@ -53,8 +53,11 @@ class BatteriesStockPage extends UI {
   }
 }
 
+Battery get batteryToAdd => batteryToAddRM.state;
+final batteryToAddRM = RM.inject(() => Battery.create());
+setBatteryToAdd(Battery battery) => batteryToAddRM.state = battery;
+
 class AddBatteryDialog extends UI {
-  static final batteryToAddRM = Simple(Battery.create());
   @override
   Widget build(BuildContext context) {
     return Dialog.fullscreen(
@@ -64,52 +67,52 @@ class AddBatteryDialog extends UI {
           children: [
             'BRAND'.text(),
             TextFormField(
-              initialValue: batteryToAddRM().brandName,
+              initialValue: batteryToAdd.brandName,
               onChanged: (value) {
-                batteryToAddRM(
-                  batteryToAddRM().copyWith(brandName: value),
+                setBatteryToAdd(
+                  batteryToAdd.copyWith(brandName: value),
                 );
               },
             ).pad(),
             'CAPACITY'.text(),
             TextFormField(
-              initialValue: batteryToAddRM().capacity,
+              initialValue: batteryToAdd.capacity,
               onChanged: (value) {
-                batteryToAddRM(
-                  batteryToAddRM().copyWith(capacity: value),
+                setBatteryToAdd(
+                  batteryToAdd.copyWith(capacity: value),
                 );
               },
             ).pad(),
             'VOLTAGE'.text(),
             TextFormField(
-              initialValue: batteryToAddRM().voltage,
+              initialValue: batteryToAdd.voltage,
               onChanged: (value) {
-                batteryToAddRM(
-                  batteryToAddRM().copyWith(voltage: value),
+                setBatteryToAdd(
+                  batteryToAdd.copyWith(voltage: value),
                 );
               },
             ).pad(),
             'TECHNOLOGY'.text(),
             TextFormField(
-              initialValue: batteryToAddRM().technologyType,
+              initialValue: batteryToAdd.technologyType,
               onChanged: (value) {
-                batteryToAddRM(
-                  batteryToAddRM().copyWith(technologyType: value),
+                setBatteryToAdd(
+                  batteryToAdd.copyWith(technologyType: value),
                 );
               },
             ).pad(),
             'PRICE'.text(),
             TextFormField(
-              initialValue: batteryToAddRM().price,
+              initialValue: batteryToAdd.price,
               onChanged: (value) {
-                batteryToAddRM(
-                  batteryToAddRM().copyWith(price: value),
+                setBatteryToAdd(
+                  batteryToAdd.copyWith(price: value),
                 );
               },
             ).pad(),
             ElevatedButton(
               onPressed: () {
-                final batteryToAdd = batteryToAddRM().copyWith(id: randomID);
+                setBatteryToAdd(batteryToAdd.copyWith(id: randomID));
                 RM.navigate.back(batteryToAdd);
               },
               child: 'Add Battery to Stock'.text(),

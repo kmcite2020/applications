@@ -30,21 +30,17 @@ class App extends TopUI {
   Widget build(BuildContext context) {
     return OnReactive(
       sideEffects: SideEffects(
-        initState: () {
-          FlutterNativeSplash.remove();
-        },
+        initState: () => FlutterNativeSplash.remove(),
       ),
-      () {
-        return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          navigatorKey: RM.navigate.navigatorKey,
-          theme: ThemeData(
-            primarySwatch: Colors.deepPurple,
-            useMaterial3: true,
-          ),
-          home: const BatteriesStockPage(),
-        );
-      },
+      () => MaterialApp(
+        debugShowCheckedModeBanner: false,
+        navigatorKey: RM.navigate.navigatorKey,
+        theme: ThemeData(
+          primarySwatch: Colors.deepPurple,
+          useMaterial3: true,
+        ),
+        home: const BatteriesStockPage(),
+      ),
     );
   }
 }

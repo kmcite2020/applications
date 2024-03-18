@@ -116,29 +116,29 @@ class PrescriptionCreator extends UI {
       body: Column(
         children: [
           TextFormField(
-            initialValue: prescriptionName(),
-            onChanged: prescriptionName.call,
+            initialValue: prescriptionName.text,
+            controller: prescriptionName.controller,
             decoration: const InputDecoration(
               labelText: 'PRESCRIPTION',
             ),
           ).pad(),
           TextFormField(
-            initialValue: prescriptionMedicine(),
-            onChanged: prescriptionMedicine.call,
+            initialValue: prescriptionMedicine.text,
+            controller: prescriptionMedicine.controller,
             decoration: const InputDecoration(
               labelText: 'MEDICINE',
             ),
           ).pad(),
           TextFormField(
-            initialValue: prescriptionDose(),
-            onChanged: prescriptionDose.call,
+            initialValue: prescriptionDose.text,
+            controller: prescriptionDose.controller,
             decoration: const InputDecoration(
               labelText: 'DOSE',
             ),
           ).pad(),
           TextFormField(
-            initialValue: prescriptionInstruction(),
-            onChanged: prescriptionInstruction.call,
+            initialValue: prescriptionInstruction.text,
+            controller: prescriptionInstruction.controller,
             decoration: const InputDecoration(
               labelText: 'INSTRUCTIONS',
             ),
@@ -154,9 +154,8 @@ class PrescriptionCreator extends UI {
               Expanded(
                 child: ElevatedButton(
                   onPressed: () {
-                    router.back(
-                        // discharge(patient),
-                        );
+                    router.back();
+                    // discharge(patient),
                   },
                   child: 'SAVE TREATMENT'.text(),
                 ).pad(),
@@ -186,13 +185,13 @@ class PrescriptionCreator extends UI {
 //   );
 // }
 
-final prescriptionName = Simple('');
-final prescriptionMedicine = Simple('');
-final prescriptionDose = Simple('');
-final prescriptionInstruction = Simple('');
+final prescriptionName = RM.injectTextEditing();
+final prescriptionMedicine = RM.injectTextEditing();
+final prescriptionDose = RM.injectTextEditing();
+final prescriptionInstruction = RM.injectTextEditing();
 
-final _homeTreatmentPlanRM = Simple(
-  const HomeTreatmentPlan(homeTreatment: {}),
+final _homeTreatmentPlanRM = RM.inject(
+  () => const HomeTreatmentPlan(homeTreatment: {}),
 );
 
 void _addPrescription() {

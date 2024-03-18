@@ -37,7 +37,7 @@ class HomePage extends UI {
             child: ListView(
               children: [
                 FilledButton.icon(
-                  onPressed: () => mainPagesRM(MainPages.patients),
+                  onPressed: () => setMainPages(MainPages.patients),
                   icon: const Icon(FontAwesomeIcons.route),
                   label: Align(
                     alignment: Alignment.centerLeft,
@@ -45,7 +45,7 @@ class HomePage extends UI {
                   ),
                 ).pad(),
                 FilledButton.icon(
-                  onPressed: () => mainPagesRM(MainPages.investigations),
+                  onPressed: () => setMainPages(MainPages.investigations),
                   icon: const Icon(FontAwesomeIcons.fileInvoice),
                   label: Align(
                     alignment: Alignment.centerLeft,
@@ -53,7 +53,7 @@ class HomePage extends UI {
                   ),
                 ).pad(),
                 FilledButton.icon(
-                  onPressed: () => mainPagesRM(MainPages.settings),
+                  onPressed: () => setMainPages(MainPages.settings),
                   icon: const Icon(FontAwesomeIcons.confluence),
                   label: Align(
                     alignment: Alignment.centerLeft,

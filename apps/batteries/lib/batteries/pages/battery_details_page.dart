@@ -69,14 +69,14 @@ class BatteryDetailsPage extends UI {
             ).pad(),
             FilledButton(
               onPressed: () {
-                showDetailsRM(!showDetailsRM());
+                setShowDetails(!showDetails);
               },
-              child: switch (showDetailsRM()) {
+              child: switch (showDetails) {
                 true => 'Hide Details'.text(),
                 false => 'Show Details'.text(),
               },
             ).pad(),
-            showDetailsRM()
+            showDetails
                 ? Column(
                     children: [
                       remBat!.brandName.text(),
@@ -94,4 +94,6 @@ class BatteryDetailsPage extends UI {
   }
 }
 
-final showDetailsRM = Simple(false);
+void setShowDetails(bool details) => showDetailsRM.state = details;
+final showDetailsRM = RM.inject(() => false);
+bool get showDetails => showDetailsRM.state;

@@ -5,8 +5,8 @@ class AddPatientDialog extends UI {
     super.key,
   });
 
-  static final nameRM = Simple('');
-  static final ageRM = Simple('20');
+  static final nameRM = RM.inject(() => '');
+  static final ageRM = RM.inject(() => '20');
 
   @override
   Widget build(BuildContext context) {
@@ -22,16 +22,16 @@ class AddPatientDialog extends UI {
               decoration: const InputDecoration(
                 labelText: 'NAME',
               ),
-              initialValue: nameRM(),
-              onChanged: nameRM.call,
+              initialValue: nameRM.state,
+              onChanged: (name) => nameRM.state = name,
             ).pad(),
             TextFormField(
-              initialValue: ageRM(),
+              initialValue: ageRM.state,
               autovalidateMode: AutovalidateMode.onUserInteraction,
               decoration: const InputDecoration(
                 labelText: 'AGE',
               ),
-              onChanged: ageRM.call,
+              onChanged: (age) => ageRM.state = age,
             ).pad(),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -40,8 +40,8 @@ class AddPatientDialog extends UI {
                   onPressed: () {
                     final patient = Patient(
                       id: randomID,
-                      name: nameRM(),
-                      age: ageRM(),
+                      name: nameRM.state,
+                      age: ageRM.state,
                     );
                     RM.navigate.back(patient);
                   },

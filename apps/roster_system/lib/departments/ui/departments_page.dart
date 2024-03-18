@@ -19,7 +19,7 @@ class DepartmentsPage extends UI {
               title: departmentEntry.value.name.text(),
               trailing: IconButton(
                 onPressed: () {
-                  departmentsRM.remove(departmentEntry.value);
+                  removeDepartment(departmentEntry.value);
                 },
                 icon: const Icon(Icons.delete_forever_sharp),
               ),
@@ -29,7 +29,7 @@ class DepartmentsPage extends UI {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          departmentsRM.add(
+          addDepartment(
             Department(id: randomID),
           );
         },

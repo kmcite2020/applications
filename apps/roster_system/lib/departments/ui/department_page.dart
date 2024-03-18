@@ -6,14 +6,19 @@ class DepartmentPage extends UI {
     required this.id,
   });
   final String id;
-  static late Simple<Department> departmentRM;
+  static late Injected<Department> departmentRM;
+  static Department get department => departmentRM.state;
+  static void setDepartment(Department department) =>
+      departmentRM.state = department;
   @override
   void didMountWidget(BuildContext context) {
-    departmentRM = Simple(
-      Department.get(id),
-      onTransition: (oldState, newState) {
-        departmentsRM.add(newState);
-      },
+    departmentRM = RM.inject<Department>(
+      () => Department.get(id),
+      sideEffects: SideEffects(
+        onSetState: (departmentSnap) {
+          addDepartment(departmentSnap.state);
+        },
+      ),
     );
   }
 
@@ -21,15 +26,15 @@ class DepartmentPage extends UI {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: departmentRM().name.text(),
+        title: department.name.text(),
       ),
       body: Column(
         children: [
           TextFormField(
-            initialValue: departmentRM().name,
+            initialValue: department.name,
             onChanged: (name) {
-              departmentRM(
-                departmentRM().copyWith(name: name),
+              setDepartment(
+                department.copyWith(name: name),
               );
             },
           ).pad(),

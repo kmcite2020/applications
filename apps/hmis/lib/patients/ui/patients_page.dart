@@ -1,9 +1,10 @@
 import 'package:hmis/main.dart';
 
+final idRM = RM.inject(() => '');
+setId(String i) => idRM.state = i;
+
 class PatientsPage extends UI {
   const PatientsPage({super.key});
-
-  static final Simple<String> idRM = Simple('');
 
   @override
   Widget build(BuildContext context) {
@@ -39,18 +40,18 @@ class PatientsPage extends UI {
                               child: patient.age.text(),
                             ),
                             onTap: () {
-                              idRM(patient.id);
+                              setId(patient.id);
                               setPatientsPages(PatientsPages.single);
                             },
                             title: patient.name.text(textScaleFactor: 1.2),
-                            selected: patient.id == idRM(),
+                            selected: patient.id == idRM.state,
                           ),
                         );
                       },
                     ).toList(),
                   ),
           ),
-        PatientsPages.single => PatientPage(id: idRM()),
+        PatientsPages.single => PatientPage(id: idRM.state),
       },
     );
   }

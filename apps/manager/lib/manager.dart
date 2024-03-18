@@ -23,8 +23,8 @@ export 'package:flutter/material.dart' hide Flow;
 part 'hive_storage.dart';
 part 'model.dart';
 part 'state_manager/manager.dart';
-part 'state_manager/complex.dart';
-part 'state_manager/simple.dart';
+// part 'state_manager/complex.dart';
+// part 'state_manager/simple.dart';
 
 part 'ui.dart';
-part 'manager.freezed.dart';
+// part 'manager.freezed.dart';
