@@ -24,15 +24,7 @@ export 'package:manager/manager.dart';
 late final Isar isar;
 
 void main() async {
-  final info = await PackageInfo.fromPlatform();
-
-  isar = Isar.open(
-    schemas: [
-      SettingsModelSchema,
-    ],
-    directory: (await getApplicationDocumentsDirectory()).path,
-    name: info.appName + '2',
-  );
+  await RM.storageInitializer(HiveStorage());
   runApp(
     const MyApp(),
   );
@@ -59,7 +51,7 @@ class MyApp extends UI {
         useMaterial3: true,
         subThemesData: const FlexSubThemesData(defaultRadius: 5),
       ),
-      themeMode: settingsRM().themeMode,
+      themeMode: settings.themeMode,
       home: PopScope(
         canPop: false,
         child: AnimatedContainer(

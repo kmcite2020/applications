@@ -1,7 +1,6 @@
 import 'package:manager/manager.dart';
 import '../clinic/opd/out_patient_department_ui.dart';
 import '../clinic/ward/discharged_patients_page.dart';
-import 'package:states_rebuilder/states_rebuilder.dart';
 
 import '../../../shared/router.dart';
 import '../../blocs/patients_bloc.dart';

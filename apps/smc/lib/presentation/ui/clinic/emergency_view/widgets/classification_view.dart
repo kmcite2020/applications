@@ -1,5 +1,4 @@
 import 'package:manager/manager.dart';
-import 'package:states_rebuilder/states_rebuilder.dart';
 
 import '../../../../../domain/models/models.dart';
 import '../../../../blocs/patients_bloc.dart';

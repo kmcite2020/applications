@@ -199,7 +199,7 @@ class __$$DoctorImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$DoctorImpl extends _Doctor {
+class _$DoctorImpl extends _Doctor with DiagnosticableTreeMixin {
   const _$DoctorImpl(
       {required this.id,
       this.name = '',
@@ -242,8 +242,24 @@ class _$DoctorImpl extends _Doctor {
   final bool editing;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Doctor(id: $id, name: $name, gender: $gender, dateOfBirth: $dateOfBirth, qualifications: $qualifications, contactDetails: $contactDetails, profilePicture: $profilePicture, departments: $departments, editing: $editing)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Doctor'))
+      ..add(DiagnosticsProperty('id', id))
+      ..add(DiagnosticsProperty('name', name))
+      ..add(DiagnosticsProperty('gender', gender))
+      ..add(DiagnosticsProperty('dateOfBirth', dateOfBirth))
+      ..add(DiagnosticsProperty('qualifications', qualifications))
+      ..add(DiagnosticsProperty('contactDetails', contactDetails))
+      ..add(DiagnosticsProperty('profilePicture', profilePicture))
+      ..add(DiagnosticsProperty('departments', departments))
+      ..add(DiagnosticsProperty('editing', editing));
   }
 
   @override
@@ -404,10 +420,11 @@ class __$$DoctorsImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$DoctorsImpl implements _Doctors {
+class _$DoctorsImpl extends _Doctors with DiagnosticableTreeMixin {
   const _$DoctorsImpl(
       {final Map<String, Doctor> cache = const <String, Doctor>{}})
-      : _cache = cache;
+      : _cache = cache,
+        super._();
 
   factory _$DoctorsImpl.fromJson(Map<String, dynamic> json) =>
       _$$DoctorsImplFromJson(json);
@@ -422,8 +439,16 @@ class _$DoctorsImpl implements _Doctors {
   }
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Doctors(cache: $cache)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Doctors'))
+      ..add(DiagnosticsProperty('cache', cache));
   }
 
   @override
@@ -453,8 +478,9 @@ class _$DoctorsImpl implements _Doctors {
   }
 }
 
-abstract class _Doctors implements Doctors {
+abstract class _Doctors extends Doctors {
   const factory _Doctors({final Map<String, Doctor> cache}) = _$DoctorsImpl;
+  const _Doctors._() : super._();
 
   factory _Doctors.fromJson(Map<String, dynamic> json) = _$DoctorsImpl.fromJson;
 

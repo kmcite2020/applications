@@ -1,7 +1,6 @@
-import 'package:manager/manager.dart';
-import 'package:states_rebuilder/states_rebuilder.dart';
+import 'package:smc/main.dart';
 
-class HospitalInformationDialog extends ReactiveStatelessWidget {
+class HospitalInformationDialog extends UI {
   const HospitalInformationDialog({super.key});
 
   @override

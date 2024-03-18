@@ -29,8 +29,8 @@ PreferredSize customAppBar({
                     AlertDialog(
                       title: 'User'.text(),
                       content: TextFormField(
-                        initialValue: settingsRM().userName,
-                        onChanged: settingsRM.setUserName,
+                        initialValue: settings.userName,
+                        onChanged: setUserName,
                         onEditingComplete: RM.navigate.back,
                       ),
                     ),
@@ -38,7 +38,7 @@ PreferredSize customAppBar({
                 },
                 tabs: [
                   Tab(
-                    text: settingsRM().userName,
+                    text: settings.userName,
                   ),
                 ],
                 overlayColor: MaterialStateProperty.all(Colors.transparent),

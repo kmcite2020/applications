@@ -9,7 +9,7 @@ class PatientsPage extends UI {
   Widget build(BuildContext context) {
     return AnimatedSwitcher(
       duration: animationDuration,
-      child: switch (patientsPagesRM()) {
+      child: switch (patientsPages) {
         PatientsPages.list => Scaffold(
             appBar: customAppBar(
               title: 'Patients',
@@ -17,11 +17,11 @@ class PatientsPage extends UI {
                 final patient = await RM.navigate
                     .toDialog<Patient>(const AddPatientDialog());
                 if (patient != null) {
-                  patientsRM.add(patient);
+                  addPatient(patient);
                 }
               },
             ),
-            body: patientsRM().cache.isEmpty
+            body: patients.cache.isEmpty
                 ? Align(
                     child: const FaIcon(
                       FontAwesomeIcons.peopleGroup,
@@ -30,7 +30,7 @@ class PatientsPage extends UI {
                   )
                 : ListView(
                     physics: const BouncingScrollPhysics(),
-                    children: patientsRM().cache.entries.map(
+                    children: patients.cache.entries.map(
                       (patientEntry) {
                         final patient = patientEntry.value;
                         return Card(
@@ -40,7 +40,7 @@ class PatientsPage extends UI {
                             ),
                             onTap: () {
                               idRM(patient.id);
-                              patientsPagesRM(PatientsPages.single);
+                              setPatientsPages(PatientsPages.single);
                             },
                             title: patient.name.text(textScaleFactor: 1.2),
                             selected: patient.id == idRM(),

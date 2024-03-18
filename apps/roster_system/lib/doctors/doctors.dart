@@ -1,3 +1,4 @@
+import 'package:roster_system/doctors/doctors_rm.dart';
 import 'package:roster_system/main.dart';
 
 part 'doctors.freezed.dart';
@@ -28,7 +29,7 @@ class Doctor with _$Doctor {
   }
 
   factory Doctor.fromJson(json) => _$DoctorFromJson(json);
-  factory Doctor.get({required String id}) => doctorsRM().cache[id]!;
+  factory Doctor.get({required String id}) => doctors.cache[id]!;
 
   factory Doctor.init() {
     return Doctor(
@@ -46,4 +47,18 @@ class Doctors with _$Doctors {
 
   factory Doctors.fromJson(Map<String, dynamic> json) =>
       _$DoctorsFromJson(json);
+
+  const Doctors._();
+
+  void setDoctor(Doctor doctor) {
+    doctors = doctors.copyWith(
+      cache: Map.of(doctors.cache)..[doctor.id] = doctor,
+    );
+  }
+
+  void removeDoctor(Doctor doctor) {
+    doctorsRM.state = doctorsRM.state.copyWith(
+      cache: Map.of(doctors.cache)..remove(doctor.id),
+    );
+  }
 }

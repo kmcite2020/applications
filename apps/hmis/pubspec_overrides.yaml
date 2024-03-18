@@ -1,6 +1,4 @@
-# melos_managed_dependency_overrides: manager,extensions
+# melos_managed_dependency_overrides: manager
 dependency_overrides:
-  extensions:
-    path: ..\\..\\packages\\extensions
   manager:
-    path: ..\\..\\packages\\manager
+    path: ..\\manager

@@ -2,35 +2,33 @@ import '../main.dart';
 
 enum PatientsPages { list, single }
 
-final patientsPagesRM = Simple(PatientsPages.list);
+PatientsPages get patientsPages => patientsPagesRM.state;
+final patientsPagesRM = RM.inject(() => PatientsPages.list);
+setPatientsPages(PatientsPages patientsPages) =>
+    patientsPagesRM.state = patientsPages;
 
-final patientsRM = PatientsRM();
+Patients get patients => patientsRM.state;
+final patientsRM = RM.inject(
+  () => Patients(),
+  persist: () => PersistState(
+    key: "Patients",
+    fromJson: (json) => Patients.fromJson(jsonDecode(json)),
+    toJson: (state) => jsonEncode(state.toJson()),
+  ),
+);
+void setPatients(Patients patients) => patientsRM.state = patients;
+void addPatient(Patient patient) {
+  setPatients(
+    patients.copyWith(
+      cache: Map.of(patients.cache)..[patient.id] = patient,
+    ),
+  );
+}
 
-class PatientsRM extends Manager<Patients> {
-  @override
-  Patients get initialState => const Patients();
-  @override
-  Persistor<Patients>? get persistor {
-    return Persistor(
-      key: 'patientsW',
-      fromJson: Patients.fromJson,
-      toJson: (state) => state.toJson(),
-    );
-  }
-
-  void add(Patient patient) {
-    call(
-      state.copyWith(
-        cache: Map.of(state.cache)..[patient.id] = patient,
-      ),
-    );
-  }
-
-  void remove(Patient patient) {
-    call(
-      state.copyWith(
-        cache: Map.of(state.cache)..remove(patient.id),
-      ),
-    );
-  }
+void removePatient(Patient patient) {
+  setPatients(
+    patients.copyWith(
+      cache: Map.of(patients.cache)..remove(patient.id),
+    ),
+  );
 }

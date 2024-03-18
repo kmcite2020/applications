@@ -9,10 +9,8 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.6
-  extensions:
-    path: D://FLUTTER//applications//packages//extensions
   manager:
-    path: ..//..//packages//manager
+    path: D://FLUTTER//applications//apps//manager
   flex_color_scheme: ^7.3.1
   states_rebuilder: ^6.4.0
 

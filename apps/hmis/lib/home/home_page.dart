@@ -29,7 +29,7 @@ class HomePage extends UI {
           Opacity(
             opacity: 0.4,
             child: Align(
-              child: settingsRM().hospitalName.text(),
+              child: settings.hospitalName.text(),
             ),
           ),
           Opacity(

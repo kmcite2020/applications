@@ -1,4 +1,3 @@
-import 'package:batteries/battery/batteries_rm.dart';
 import 'package:batteries/battery/battery.dart';
 import 'package:batteries/main.dart';
 import 'package:manager/manager.dart';
@@ -18,8 +17,8 @@ class BatteryDetailsPage extends UI {
           actions: [
             IconButton(
               onPressed: () {
-                batteriesRM(
-                  RemoveBatteryEvent(batteryToRemove: battery),
+                batteries(
+                  batteries().remove(battery),
                 );
               },
               icon: Icon(Icons.delete_forever),
@@ -36,7 +35,7 @@ class BatteryDetailsPage extends UI {
         ),
       );
     } else {
-      final remBat = batteriesRM().removedBattery;
+      final remBat = batteries().removedBattery;
 
       return Scaffold(
         appBar: AppBar(
@@ -54,10 +53,8 @@ class BatteryDetailsPage extends UI {
               onPressed: remBat == null
                   ? null
                   : () {
-                      batteriesRM(
-                        RestoreBatteryEvent(
-                          batteryToRestore: batteriesRM().removedBattery!,
-                        ),
+                      batteries(
+                        batteries().restore(),
                       );
                     },
               icon: Icon(

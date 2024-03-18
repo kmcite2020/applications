@@ -1,4 +1,3 @@
-import 'package:batteries/battery/batteries_rm.dart';
 import 'package:batteries/battery/battery.dart';
 import 'package:batteries/main.dart';
 
@@ -9,13 +8,13 @@ class BatteryUI extends UI {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: batteriesRM().cache.length.text(),
+        title: batteries().cache.length.text(),
       ),
       body: ListView(
         children: List.generate(
-          batteriesRM().cache.length,
+          batteries().cache.length,
           (index) {
-            final battery = batteriesRM().cache.values.toList()[index];
+            final battery = batteries().cache.values.toList()[index];
             return ListTile(
               key: Key(battery.id),
               title: battery.text(),
@@ -24,10 +23,9 @@ class BatteryUI extends UI {
                   TextFormField(
                     initialValue: battery.brandName,
                     onChanged: (brandName) {
-                      batteriesRM(
-                        UpdateBatteryEvent(
-                          oldBattery: battery,
-                          newBattery: battery.copyWith(
+                      batteries(
+                        batteries().add(
+                          battery.copyWith(
                             brandName: brandName,
                           ),
                         ),
@@ -37,10 +35,9 @@ class BatteryUI extends UI {
                   TextFormField(
                     initialValue: battery.capacity,
                     onChanged: (capacity) {
-                      batteriesRM(
-                        UpdateBatteryEvent(
-                          oldBattery: battery,
-                          newBattery: battery.copyWith(
+                      batteries(
+                        batteries().add(
+                          battery.copyWith(
                             capacity: capacity,
                           ),
                         ),
@@ -51,8 +48,8 @@ class BatteryUI extends UI {
               ),
               trailing: IconButton.filledTonal(
                 onPressed: () {
-                  batteriesRM(
-                    RemoveBatteryEvent(batteryToRemove: battery),
+                  batteries(
+                    batteries().remove(battery),
                   );
                 },
                 icon: const Icon(Icons.delete_forever),
@@ -63,9 +60,16 @@ class BatteryUI extends UI {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          batteriesRM(
-            AddBatteryEvent(
-              batteryToAdd: Battery.create(
+          // batteriesRM(
+          //   AddBatteryEvent(
+          //     batteryToAdd: Battery.create(
+          //       brandName: 'new',
+          //     ),
+          //   ),
+          // );
+          batteries(
+            batteries().add(
+              Battery.create(
                 brandName: 'new',
               ),
             ),

@@ -1,3 +1,6 @@
+import 'package:roster_system/doctors/doctors.dart';
+import 'package:roster_system/doctors/doctors_rm.dart';
+
 import '../../main.dart';
 
 class DoctorPage extends UI {
@@ -8,9 +11,9 @@ class DoctorPage extends UI {
   @override
   void didMountWidget(BuildContext context) {
     doctorRM = Simple(
-      doctorsRM().cache[id]!,
+      doctors.cache[id]!,
       onTransition: (oldState, newState) {
-        doctorsRM.setDoctor(newState);
+        doctors.setDoctor(newState);
       },
     );
   }

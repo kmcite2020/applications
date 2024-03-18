@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'main.dart';
 
 export 'package:smc/presentation/ui/dashboard/dashboard_page.dart';
@@ -24,39 +22,31 @@ class MyApp extends TopUI {
   const MyApp({super.key});
 
   @override
-  List<FutureOr<void>>? ensureInitialization() => [
-        Future.value(
-          () => FlutterNativeSplash.preserve(
-            widgetsBinding: WidgetsFlutterBinding.ensureInitialized(),
-          ),
+  List<FutureOr<void>>? ensureInitialization() {
+    return [
+      Future.value(
+        () => FlutterNativeSplash.preserve(
+          widgetsBinding: WidgetsFlutterBinding.ensureInitialized(),
         ),
-        Future.delayed(
-          1000.milliseconds,
-          () => RM.storageInitializer(
-            HiveStorage(),
-          ),
+      ),
+      Future.delayed(
+        1000.milliseconds,
+        () => RM.storageInitializer(
+          HiveStorage(),
         ),
-      ];
-
-  @override
-  Widget? splashScreen() => CircleAvatar(
-        child: CircularProgressIndicator().pad(),
-      ).pad().center();
+      ),
+    ];
+  }
 
   @override
   Widget build(BuildContext context) {
-    return OnReactive(
-      () => MaterialApp(
-        navigatorKey: RM.navigate.navigatorKey,
-        debugShowCheckedModeBanner: false,
-        // theme: themes.theme(),
-        // darkTheme: themes.darkTheme(),
-        // themeMode: themes.themeMode,
-        home: DashboardPage(),
-      ),
-      sideEffects: SideEffects(
-        initState: () => FlutterNativeSplash.remove(),
-      ),
+    return MaterialApp(
+      navigatorKey: RM.navigate.navigatorKey,
+      debugShowCheckedModeBanner: false,
+      // theme: themes.theme(),
+      // darkTheme: themes.darkTheme(),
+      // themeMode: themes.themeMode,
+      home: DashboardPage(),
     );
   }
 }

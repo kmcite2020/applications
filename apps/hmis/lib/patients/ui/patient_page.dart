@@ -11,7 +11,7 @@ class PatientPage extends UI {
     return Scaffold(
       appBar: customAppBar(
         leading: IconButton(
-          onPressed: () => patientsPagesRM(PatientsPages.list),
+          onPressed: () => patientsPagesRM.state = (PatientsPages.list),
           icon: const FaIcon(
             FontAwesomeIcons.heartPulse,
           ),
@@ -24,7 +24,7 @@ class PatientPage extends UI {
           TextFormField(
             initialValue: patient.name,
             onChanged: (name) {
-              patientsRM.add(
+              addPatient(
                 patient.copyWith(name: name),
               );
             },
@@ -33,7 +33,7 @@ class PatientPage extends UI {
           TextFormField(
             initialValue: patient.age,
             onChanged: (age) {
-              patientsRM.add(
+              addPatient(
                 patient.copyWith(age: age),
               );
             },
@@ -45,14 +45,14 @@ class PatientPage extends UI {
               PopupMenuButton(
                 onSelected: (investigation) {
                   if (patient.investigations.contains(investigation)) {
-                    patientsRM.add(
+                    addPatient(
                       patient.copyWith(
                         investigations: List.of(patient.investigations)
                           ..remove(investigation),
                       ),
                     );
                   } else {
-                    patientsRM.add(
+                    addPatient(
                       patient.copyWith(
                         investigations: List.of(patient.investigations)
                           ..add(investigation),
@@ -60,9 +60,7 @@ class PatientPage extends UI {
                     );
                   }
                 },
-                itemBuilder: (_) => investigationsRM()
-                    .cache
-                    .values
+                itemBuilder: (_) => investigations.cache.values
                     .map(
                       (value) => PopupMenuItem(
                         value: value,
@@ -88,7 +86,7 @@ class PatientPage extends UI {
                     labelPadding: const EdgeInsets.all(1),
                     label: eachInvestigaion.name.text(),
                     onDeleted: () {
-                      patientsRM.add(
+                      addPatient(
                         patient.copyWith(
                           investigations: List.of(patient.investigations)
                             ..remove(eachInvestigaion),

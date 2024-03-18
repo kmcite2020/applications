@@ -25,32 +25,30 @@ class Investigations with _$Investigations {
       _$InvestigationsFromJson(json);
 }
 
-final investigationsRM = InvestigationsRM();
-
-class InvestigationsRM extends Manager<Investigations> {
-  @override
-  final initialState = const Investigations();
-
-  void add(Investigation investigation) {
-    call(
-      state.copyWith(
-        cache: Map.of(state.cache)..[investigation.id] = investigation,
-      ),
-    );
-  }
-
-  void remove(Investigation investigation) {
-    call(
-      state.copyWith(
-        cache: Map.of(state.cache)..remove(investigation.id),
-      ),
-    );
-  }
-
-  @override
-  final persistor = Persistor(
+Investigations get investigations => investigationsRM.state;
+final investigationsRM = RM.inject(
+  () => Investigations(),
+  persist: () => PersistState(
     key: 'investigations',
-    toJson: (state) => state.toJson(),
-    fromJson: Investigations.fromJson,
+    toJson: (state) => jsonEncode(state.toJson()),
+    fromJson: (json) => Investigations.fromJson(jsonDecode(json)),
+  ),
+);
+void setInvestigations(Investigations investigations) =>
+    investigationsRM.state = investigations;
+
+void addInvestigation(Investigation investigation) {
+  setInvestigations(
+    investigations.copyWith(
+      cache: Map.of(investigations.cache)..[investigation.id] = investigation,
+    ),
+  );
+}
+
+void removeInvestigation(Investigation investigation) {
+  setInvestigations(
+    investigations.copyWith(
+      cache: Map.of(investigations.cache)..remove(investigation.id),
+    ),
   );
 }

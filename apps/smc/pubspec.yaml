@@ -11,7 +11,7 @@ dependencies:
   cupertino_icons: ^1.0.6
   flex_color_scheme: ^7.3.1
   manager:
-    path: D://FLUTTER//applications//packages//manager
+    path: D://FLUTTER//applications//apps//manager
   states_rebuilder: ^6.4.0
   isar: ^4.0.0-dev.13
   isar_flutter_libs: ^4.0.0-dev.13

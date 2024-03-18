@@ -1,2 +1,0 @@
-# extensions
-Extension Methods

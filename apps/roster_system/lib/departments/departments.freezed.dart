@@ -107,7 +107,7 @@ class __$$DepartmentImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$DepartmentImpl implements _Department {
+class _$DepartmentImpl with DiagnosticableTreeMixin implements _Department {
   const _$DepartmentImpl({this.id = '', this.name = ''});
 
   factory _$DepartmentImpl.fromJson(Map<String, dynamic> json) =>
@@ -121,8 +121,17 @@ class _$DepartmentImpl implements _Department {
   final String name;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Department(id: $id, name: $name)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Department'))
+      ..add(DiagnosticsProperty('id', id))
+      ..add(DiagnosticsProperty('name', name));
   }
 
   @override
@@ -251,7 +260,7 @@ class __$$DepartmentsImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$DepartmentsImpl implements _Departments {
+class _$DepartmentsImpl with DiagnosticableTreeMixin implements _Departments {
   const _$DepartmentsImpl(
       {final Map<String, Department> cache = const <String, Department>{}})
       : _cache = cache;
@@ -269,8 +278,16 @@ class _$DepartmentsImpl implements _Departments {
   }
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Departments(cache: $cache)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Departments'))
+      ..add(DiagnosticsProperty('cache', cache));
   }
 
   @override

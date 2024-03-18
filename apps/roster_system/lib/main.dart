@@ -1,70 +1,60 @@
+export 'dart:async';
+
+import 'package:roster_system/settings/settings_rm.dart';
+
 import 'main.dart';
-export 'package:manager/manager.dart';
-export 'package:roster_system/doctors/ui/doctors_page.dart';
-export 'package:roster_system/settings/settings_rm.dart';
 export 'package:roster_system/settings/settings_page.dart';
-export 'package:roster_system/doctors/doctors.dart';
-export 'package:roster_system/settings/settings.dart';
-export 'package:roster_system/doctors/doctors_rm.dart';
 export 'package:roster_system/departments/departments.dart';
 export 'package:roster_system/departments/departments_rm.dart';
 export 'package:roster_system/departments/ui/department_page.dart';
-export 'package:roster_system/doctors/ui/doctor_page.dart';
-export 'package:states_rebuilder/states_rebuilder.dart';
+export 'package:flutter/foundation.dart';
+export 'package:manager/manager.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(App());
 }
 
-class MyApp extends UI {
-  const MyApp({super.key});
+class App extends TopUI {
+  const App({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      navigatorKey: RM.navigate.navigatorKey,
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: settingsRM().materialColor,
-        ),
-        useMaterial3: true,
+  List<FutureOr<void>>? ensureInitialization() {
+    return [
+      SynchronousFuture(
+        WidgetsFlutterBinding.ensureInitialized(),
       ),
-      darkTheme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: settingsRM().materialColor,
-          brightness: Brightness.dark,
+      Future.delayed(
+        1000.milliseconds,
+        () => RM.storageInitializer(
+          HiveStorage(),
         ),
-        useMaterial3: true,
       ),
-      themeMode: settingsRM().themeMode,
-      home: const MyHomePage(),
-    );
+    ];
   }
-}
 
-class MyHomePage extends UI {
-  const MyHomePage({super.key});
+  @override
+  Widget? splashScreen() => CircularProgressIndicator().pad();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: 'Roster System'.text(),
-        actions: [
-          IconButton(
-            onPressed: () {
-              RM.navigate.to(const DoctorsPage());
-            },
-            icon: const Icon(Icons.healing),
+    return OnReactive(
+      () => MaterialApp(
+        navigatorKey: RM.navigate.navigatorKey,
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData.light().copyWith(
+          colorScheme: ColorScheme.fromSwatch(
+            primarySwatch: settingsRM.state.materialColor,
           ),
-          IconButton(
-            onPressed: () {
-              RM.navigate.to(const SettingsPage());
-            },
-            icon: const Icon(Icons.settings),
-          ).pad(),
-        ],
+        ),
+        darkTheme: ThemeData.dark().copyWith(
+          colorScheme: ColorScheme.fromSwatch(
+            primarySwatch: settingsRM.state.materialColor,
+            brightness: Brightness.dark,
+          ),
+          inputDecorationTheme: InputDecorationTheme(),
+        ),
+        themeMode: settingsRM.state.themeMode,
+        home: SettingsPage(),
       ),
     );
   }

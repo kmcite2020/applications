@@ -15,7 +15,7 @@ class SettingsPage extends UI {
         physics: const BouncingScrollPhysics(),
         children: [
           DropdownButtonFormField(
-            value: settingsRM().themeMode,
+            value: settings.themeMode,
             items: ThemeMode.values
                 .map(
                   (e) => DropdownMenuItem(
@@ -24,14 +24,14 @@ class SettingsPage extends UI {
                   ),
                 )
                 .toList(),
-            onChanged: settingsRM.setThemeMode,
+            onChanged: setThemeMode,
           ).pad(),
           Card(
             child: Center(child: 'HOSPITAL'.text().pad()),
           ),
           TextFormField(
-            initialValue: settingsRM.state.hospitalName,
-            onChanged: settingsRM.setHospitalName,
+            initialValue: settings.hospitalName,
+            onChanged: setHospitalName,
             maxLength: 4,
           ).pad(),
           FilledButton(
@@ -44,19 +44,19 @@ class SettingsPage extends UI {
             ),
           ),
           FilledButton(
-            onPressed: patientsRM() == const Patients()
+            onPressed: patients == const Patients()
                 ? null
-                : () => patientsRM(
+                : () => setPatients(
                       const Patients(),
                     ),
             child: 'DELETE ALL'.text(textScaleFactor: 1.5).pad(),
           ).pad(),
           FilledButton(
             onPressed: investigationsBuiltIn
-                    .every(investigationsRM().cache.values.contains)
+                    .every(investigations.cache.values.contains)
                 ? null
                 : () {
-                    investigationsBuiltIn.forEach(investigationsRM.add);
+                    investigationsBuiltIn.forEach(addInvestigation);
                   },
             child: 'Built-In Investigations'.text(textScaleFactor: 1.5).pad(),
           ).pad(),

@@ -8,13 +8,13 @@ class InvestigationsPage extends UI {
     return Scaffold(
       appBar: customAppBar(title: 'Investigations'),
       body: ListView(
-        children: investigationsRM().cache.entries.map(
+        children: investigations.cache.entries.map(
           (investigationEntry) {
             return ListTile(
               title: investigationEntry.value.name.text(textScaleFactor: 1.2),
               trailing: IconButton.outlined(
                 onPressed: () {
-                  investigationsRM.remove(investigationEntry.value);
+                  removeInvestigation(investigationEntry.value);
                 },
                 icon: investigationEntry.value.price.text(),
               ),
@@ -27,7 +27,7 @@ class InvestigationsPage extends UI {
         children: [
           FilledButton(
             onPressed: () {
-              investigationsRM.add(const Investigation());
+              addInvestigation(const Investigation());
             },
             child: 'Add New Investigation'.text(),
           ).pad(),

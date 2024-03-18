@@ -1,16 +1,17 @@
 import 'package:roster_system/main.dart';
+import 'package:roster_system/settings/settings.dart';
 
 final settingsRM = SettingsRM();
 
-class SettingsRM extends Manager<Settings> {
-  @override
-  Settings get initialState => const Settings();
-  @override
-  Persistor<Settings>? get persistor {
-    return Persistor(
+class SettingsRM {
+  final settingsRM = RM.inject(
+    () => Settings(),
+    persist: () => PersistState(
       key: 'settings',
-      toJson: (state) => state.toJson(),
-      fromJson: Settings.fromJson,
-    );
-  }
+      toJson: (state) => jsonEncode(state.toJson()),
+      fromJson: (json) => Settings.fromJson(jsonDecode(json)),
+    ),
+  );
+  Settings get state => settingsRM.state;
+  set state(Settings value) => settingsRM.state = value;
 }

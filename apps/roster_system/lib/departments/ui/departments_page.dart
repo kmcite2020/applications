@@ -10,7 +10,7 @@ class DepartmentsPage extends UI {
         title: 'Departments'.text(),
       ),
       body: ListView(
-        children: departmentsRM().cache.entries.map(
+        children: departmentsRM.state.cache.entries.map(
           (departmentEntry) {
             return ListTile(
               onTap: () => RM.navigate.to(

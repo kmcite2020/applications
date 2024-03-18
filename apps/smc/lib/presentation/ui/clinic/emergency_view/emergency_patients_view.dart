@@ -1,7 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:manager/manager.dart';
 import 'package:smc/shared/router.dart';
-import 'package:states_rebuilder/states_rebuilder.dart';
 
 import '../../../../domain/models/models.dart';
 import '../../../blocs/patients_bloc.dart';

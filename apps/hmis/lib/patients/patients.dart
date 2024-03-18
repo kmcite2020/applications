@@ -26,15 +26,15 @@ class Patient with _$Patient {
     @Default(OutComeStatus.emergency) final OutComeStatus outComeStatus,
     @Default('') final String diagnosis,
   }) = _Patient;
-  factory Patient.get({required String id}) => patientsRM().cache[id]!;
+  factory Patient.get({required String id}) => patients.cache[id]!;
   factory Patient.fromJson(Map<String, dynamic> json) =>
       _$PatientFromJson(json);
   const Patient._();
   int get bills {
-    return investigations.fold(
-      0,
-      (previousValue, element) => previousValue + element.price,
-    );
+    return this.investigations.fold(
+          0,
+          (previousValue, element) => previousValue + element.price,
+        );
   }
 }
 

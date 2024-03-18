@@ -1,5 +1,4 @@
 import 'package:batteries/batteries/pages/battery_details_page.dart';
-import 'package:batteries/battery/batteries_rm.dart';
 import 'package:batteries/battery/battery.dart';
 import 'package:batteries/main.dart';
 
@@ -14,9 +13,9 @@ class BatteriesStockPage extends UI {
       ),
       body: ListView.separated(
         separatorBuilder: (context, index) => Divider(height: 0),
-        itemCount: batteriesRM().cache.length,
+        itemCount: batteries().cache.length,
         itemBuilder: (context, index) {
-          final batteryEntry = batteriesRM().cache.entries.elementAt(index);
+          final batteryEntry = batteries().cache.entries.elementAt(index);
           final battery = batteryEntry.value;
           return ListTile(
             title: battery.brandName.text(),
@@ -42,8 +41,8 @@ class BatteriesStockPage extends UI {
             AddBatteryDialog(),
           );
           if (batteryToAdd != null) {
-            batteriesRM(
-              AddBatteryEvent(batteryToAdd: batteryToAdd),
+            batteries(
+              batteries().add(batteryToAdd),
             );
           }
         },

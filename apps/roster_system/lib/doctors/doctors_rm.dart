@@ -1,28 +1,14 @@
+import 'package:roster_system/doctors/doctors.dart';
 import 'package:roster_system/main.dart';
 
-final doctorsRM = DoctorsRM();
+final doctorsRM = RM.inject(
+  () => Doctors(),
+  persist: () => PersistState(
+    key: 'doctors',
+    toJson: (state) => jsonEncode(state.toJson()),
+    fromJson: (json) => Doctors.fromJson(jsonDecode(json)),
+  ),
+);
 
-class DoctorsRM extends Manager<Doctors> {
-  @override
-  Doctors get initialState => const Doctors();
-  void setDoctor(Doctor doctor) {
-    state = state.copyWith(
-      cache: Map.of(state.cache)..[doctor.id] = doctor,
-    );
-  }
-
-  void removeDoctor(Doctor doctor) {
-    state = state.copyWith(
-      cache: Map.of(state.cache)..remove(doctor.id),
-    );
-  }
-
-  @override
-  Persistor<Doctors>? get persistor {
-    return Persistor(
-      key: 'doctors',
-      toJson: (state) => state.toJson(),
-      fromJson: Doctors.fromJson,
-    );
-  }
-}
+Doctors get doctors => doctorsRM.state;
+set doctors(Doctors _) => doctorsRM.state = _;

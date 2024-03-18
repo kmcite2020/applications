@@ -1,6 +1,4 @@
-import 'dart:async';
-
-import 'package:batteries/batteries/pages/products_page.dart';
+import 'package:batteries/batteries/pages/batteries_stock_page.dart';
 import 'package:batteries/main.dart';
 
 class App extends TopUI {
@@ -20,7 +18,7 @@ class App extends TopUI {
         ),
       ),
       Future.delayed(
-        2.seconds,
+        336.milliseconds,
         () => RM.storageInitializer(
           HiveStorage(),
         ),
@@ -41,12 +39,10 @@ class App extends TopUI {
           debugShowCheckedModeBanner: false,
           navigatorKey: RM.navigate.navigatorKey,
           theme: ThemeData(
-            appBarTheme: AppBarTheme(
-              backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-            ),
+            primarySwatch: Colors.deepPurple,
             useMaterial3: true,
           ),
-          home: const BatteriesStorePage(),
+          home: const BatteriesStockPage(),
         );
       },
     );

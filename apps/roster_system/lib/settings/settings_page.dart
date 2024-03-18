@@ -1,6 +1,7 @@
 import 'package:roster_system/departments/ui/departments_page.dart';
 
 import 'package:roster_system/main.dart';
+import 'package:roster_system/settings/settings_rm.dart';
 
 class SettingsPage extends UI {
   const SettingsPage({super.key});
@@ -16,7 +17,7 @@ class SettingsPage extends UI {
         physics: const BouncingScrollPhysics(),
         children: [
           DropdownButtonFormField(
-            value: settingsRM().themeMode,
+            value: settingsRM.state.themeMode,
             items: ThemeMode.values.map(
               (eachThemeMode) {
                 return DropdownMenuItem(
@@ -26,15 +27,13 @@ class SettingsPage extends UI {
               },
             ).toList(),
             onChanged: (themeMode) {
-              settingsRM(
-                settingsRM().copyWith(
-                  themeMode: themeMode!,
-                ),
+              settingsRM.state = settingsRM.state.copyWith(
+                themeMode: themeMode!,
               );
             },
           ).pad(),
           DropdownButtonFormField(
-            value: settingsRM().materialColor,
+            value: settingsRM.state.materialColor,
             items: Colors.primaries.map(
               (eachMaterialColor) {
                 return DropdownMenuItem(
@@ -44,10 +43,8 @@ class SettingsPage extends UI {
               },
             ).toList(),
             onChanged: (materialColor) {
-              settingsRM(
-                settingsRM().copyWith(
-                  materialColor: materialColor!,
-                ),
+              settingsRM.state = settingsRM.state.copyWith(
+                materialColor: materialColor!,
               );
             },
           ).pad(),
