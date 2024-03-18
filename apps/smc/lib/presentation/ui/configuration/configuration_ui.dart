@@ -1,7 +1,4 @@
-import 'package:manager/manager.dart';
-import '../../../shared/extensions.dart';
-import '../../../shared/ui/back_floating_button.dart';
-import '../../blocs/configuration_bloc.dart';
+import 'package:smc/main.dart';
 
 class SettingsPage extends UI {
   const SettingsPage({super.key});
@@ -17,7 +14,7 @@ class SettingsPage extends UI {
       body: ListView(
         children: [
           DropdownButtonFormField(
-            value: settingsRM().themeMode,
+            value: settings.themeMode,
             items: ThemeMode.values.map(
               (eachThemeMode) {
                 return DropdownMenuItem(
@@ -26,10 +23,10 @@ class SettingsPage extends UI {
                 );
               },
             ).toList(),
-            onChanged: (themeMode) {},
+            onChanged: setThemeMode,
           ).pad(),
           DropdownButtonFormField(
-            value: settingsRM().materialColor,
+            value: settings.materialColor,
             items: Colors.primaries.map(
               (e) {
                 return DropdownMenuItem(
@@ -40,17 +37,17 @@ class SettingsPage extends UI {
             ).toList(),
             onChanged: (materialColor) {},
           ).pad(),
-          MySlider(
-            value: settingsRM().padding,
-            onChanged: (padding) {},
-            name: 'Padding',
+          Slider(
+            value: settings.padding,
+            onChanged: setPadding,
+            // name: 'Padding',
             min: 5,
             max: 12,
           ).pad(),
-          MySlider(
-            value: settingsRM().borderRadius,
-            onChanged: (borderRadius) {},
-            name: 'Border Radius',
+          Slider(
+            value: settings.borderRadius,
+            onChanged: setBorderRadius,
+            // name: 'Border Radius',
             min: 4,
             max: 30,
           ).pad(),

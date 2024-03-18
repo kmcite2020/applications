@@ -1,4 +1,5 @@
 import 'package:manager/manager.dart';
+import 'package:notes/main.dart';
 
 part 'notes.freezed.dart';
 part 'notes.g.dart';
@@ -30,40 +31,36 @@ class Notes with _$Notes {
   factory Notes.fromJson(Map<String, dynamic> json) => _$NotesFromJson(json);
 }
 
-class NotesRM extends Manager<Notes> {
-  @override
-  Notes get initialState => const Notes();
-  @override
-  Persistor<Notes>? get persistor {
-    return Persistor(
-      key: 'notes',
-      toJson: (notes) => notes.toJson(),
-      fromJson: Notes.fromJson,
-    );
-  }
-
-  void setNote(Note note) {
-    call(
-      state.copyWith(
-        cache: Map.of(state.cache)
-          ..[note.id] = note.copyWith(
-            timeCreated: DateTime.now(),
-          ),
-      ),
-    );
-  }
-
-  void removeNote(Note note) {
-    call(
-      state.copyWith(
-        cache: Map.of(state.cache)..remove(note.id),
-      ),
-    );
-  }
-
-  Note? getNote(String id) {
-    return state.cache[id];
-  }
+void setNote(Note note) {
+  setNotes(
+    notes.copyWith(
+      cache: Map.of(notes.cache)
+        ..[note.id] = note.copyWith(
+          timeCreated: DateTime.now(),
+        ),
+    ),
+  );
 }
 
-final notesRM = NotesRM();
+void removeNote(Note note) {
+  setNotes(
+    notes.copyWith(
+      cache: Map.of(notes.cache)..remove(note.id),
+    ),
+  );
+}
+
+Note? getNote(String id) {
+  return notes.cache[id];
+}
+
+Notes get notes => notesRM.state;
+final notesRM = RM.inject(
+  () => Notes(),
+  persist: () => PersistState(
+    key: 'notes',
+    toJson: (notes) => jsonEncode(notes.toJson()),
+    fromJson: (json) => Notes.fromJson(jsonDecode(json)),
+  ),
+);
+void setNotes(Notes notes) => notesRM.state = notes;

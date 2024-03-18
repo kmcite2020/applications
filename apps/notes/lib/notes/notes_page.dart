@@ -11,17 +11,17 @@ class NotesPage extends UI {
         actions: [
           IconButton(
             onPressed: () {
-              switch (settingsRM().viewMode) {
+              switch (settings.viewMode) {
                 case ViewMode.grid:
-                  settingsRM.setViewMode(ViewMode.list);
+                  setViewMode(ViewMode.list);
                   break;
                 case ViewMode.list:
-                  settingsRM.setViewMode(ViewMode.grid);
+                  setViewMode(ViewMode.grid);
                   break;
               }
             },
             icon: Icon(
-              switch (settingsRM().viewMode) {
+              switch (settings.viewMode) {
                 ViewMode.list => Icons.grid_3x3,
                 ViewMode.grid => Icons.list,
               },
@@ -29,19 +29,18 @@ class NotesPage extends UI {
           ).pad()
         ],
       ),
-      body: switch (settingsRM().viewMode) {
+      body: switch (settings.viewMode) {
         ViewMode.list => ListView.builder(
-            itemCount: notesRM()().length,
+            itemCount: notes().length,
             itemBuilder: (context, index) {
-              final note = notesRM()()[index];
+              final note = notes()[index];
               return Container(
                 margin: const EdgeInsets.all(2),
                 decoration: BoxDecoration(
                   border: Border.all(
                     color: Theme.of(context).primaryColor,
                   ),
-                  borderRadius:
-                      BorderRadius.circular(settingsRM().borderRadius),
+                  borderRadius: BorderRadius.circular(settings.borderRadius),
                 ),
                 child: ListTile(
                   title: note.title.text(),
@@ -57,17 +56,16 @@ class NotesPage extends UI {
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
             ),
-            itemCount: notesRM()().length,
+            itemCount: notes().length,
             itemBuilder: (context, index) {
-              final note = notesRM()()[index];
+              final note = notes()[index];
               return Container(
                 margin: const EdgeInsets.all(2),
                 decoration: BoxDecoration(
                   border: Border.all(
                     color: Theme.of(context).primaryColor,
                   ),
-                  borderRadius:
-                      BorderRadius.circular(settingsRM().borderRadius),
+                  borderRadius: BorderRadius.circular(settings.borderRadius),
                 ),
                 child: ListTile(
                   title: note.title.text(),
@@ -83,7 +81,7 @@ class NotesPage extends UI {
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
         onPressed: () {
-          notesRM.setNote(
+          setNote(
             Note(
               id: randomID,
               timeCreated: DateTime.now(),

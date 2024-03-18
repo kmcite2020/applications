@@ -8,11 +8,14 @@ part of 'models.dart';
 
 _$SettingsImpl _$$SettingsImplFromJson(Map<String, dynamic> json) =>
     _$SettingsImpl(
-      borderRadius: (json['borderRadius'] as num).toDouble(),
-      padding: (json['padding'] as num).toDouble(),
-      themeMode: $enumDecode(_$ThemeModeEnumMap, json['themeMode']),
-      materialColor:
-          const MaterialColorConverter().fromJson(json['materialColor'] as int),
+      borderRadius: (json['borderRadius'] as num?)?.toDouble() ?? 8.0,
+      padding: (json['padding'] as num?)?.toDouble() ?? 8.0,
+      themeMode: $enumDecodeNullable(_$ThemeModeEnumMap, json['themeMode']) ??
+          ThemeMode.system,
+      materialColor: json['materialColor'] == null
+          ? Colors.grey
+          : const MaterialColorConverter()
+              .fromJson(json['materialColor'] as int),
     );
 
 Map<String, dynamic> _$$SettingsImplToJson(_$SettingsImpl instance) =>

@@ -25,18 +25,18 @@ class MyApp extends UI {
         useMaterial3: true,
         lightIsWhite: true,
         subThemesData: FlexSubThemesData(
-          defaultRadius: settingsRM().borderRadius,
+          defaultRadius: settings.borderRadius,
         ),
       ),
       darkTheme: FlexThemeData.dark(
         useMaterial3: true,
         darkIsTrueBlack: true,
         subThemesData: FlexSubThemesData(
-          defaultRadius: settingsRM().borderRadius,
+          defaultRadius: settings.borderRadius,
         ),
       ),
-      themeMode: settingsRM().themeMode,
-      home: switch (navigationRM()) {
+      themeMode: settings.themeMode,
+      home: switch (navigation) {
         0 => const NotesPage(),
         _ => const SettingsPage(),
       },

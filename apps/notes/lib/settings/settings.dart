@@ -3,20 +3,26 @@ import 'package:notes/main.dart';
 part 'settings.freezed.dart';
 part 'settings.g.dart';
 
-final settingsRM = SettingsRM();
+Settings get settings => settingsRM.state;
+final settingsRM = RM.inject(
+  () => Settings(),
+  persist: () => PersistState(
+    key: 'Settings',
+    toJson: (s) => jsonEncode(s.toJson()),
+    fromJson: (json) => Settings.fromJson(
+      jsonDecode(json),
+    ),
+  ),
+);
+setSettings(Settings settings) => settingsRM.state = settings;
 
-class SettingsRM extends Manager<Settings> {
-  @override
-  Settings get initialState => const Settings();
+void setViewMode(ViewMode? viewMode) => setSettings(
+      settings.copyWith(viewMode: viewMode!),
+    );
 
-  void setViewMode(ViewMode? viewMode) => call(
-        state.copyWith(viewMode: viewMode!),
-      );
-
-  void setThemeMode(ThemeMode? themeMode) => call(
-        state.copyWith(themeMode: themeMode!),
-      );
-}
+void setThemeMode(ThemeMode? themeMode) => setSettings(
+      settings.copyWith(themeMode: themeMode!),
+    );
 
 enum ViewMode { list, grid }
 
@@ -44,32 +50,28 @@ class SettingsPage extends UI {
       body: ListView(
         children: [
           DropdownButtonFormField(
-            value: settingsRM().themeMode,
+            value: settings.themeMode,
             items: ThemeMode.values
                 .map(
-                  (e) => DropdownMenuItem(
-                    value: e,
-                    child: e.name.toUpperCase().text(),
+                  (eachThemeMode) => DropdownMenuItem(
+                    value: eachThemeMode,
+                    child: eachThemeMode.name.toUpperCase().text(),
                   ),
                 )
                 .toList(),
-            onChanged: (themeMode) {
-              settingsRM.setThemeMode(themeMode);
-            },
+            onChanged: setThemeMode,
           ).pad(),
           DropdownButtonFormField(
-            value: settingsRM().viewMode,
+            value: settings.viewMode,
             items: ViewMode.values
                 .map(
-                  (e) => DropdownMenuItem(
-                    value: e,
-                    child: e.name.toUpperCase().text(),
+                  (eachViewMode) => DropdownMenuItem(
+                    value: eachViewMode,
+                    child: eachViewMode.name.toUpperCase().text(),
                   ),
                 )
                 .toList(),
-            onChanged: (viewMode) {
-              settingsRM.setViewMode(viewMode);
-            },
+            onChanged: setViewMode,
           ).pad(),
         ],
       ),

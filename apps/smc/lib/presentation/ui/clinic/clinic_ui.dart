@@ -17,11 +17,11 @@ class ClinicUI extends UI {
           ...ClinicModel.models.map(
             (e) => Card(
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(settingsRM().borderRadius),
+                borderRadius: BorderRadius.circular(settings.borderRadius),
               ),
               child: InkWell(
                 onTap: () {},
-                borderRadius: BorderRadius.circular(settingsRM().borderRadius),
+                borderRadius: BorderRadius.circular(settings.borderRadius),
                 child: SizedBox(
                   height: 100,
                   child: ListTile(

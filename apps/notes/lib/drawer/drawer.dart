@@ -7,8 +7,8 @@ class DrawerPage extends UI {
   Widget build(BuildContext context) {
     return Drawer(
       child: NavigationDrawer(
-        selectedIndex: navigationRM(),
-        onDestinationSelected: navigationRM.call,
+        selectedIndex: navigation,
+        onDestinationSelected: setNavigation,
         children: [
           'NOTES'.text(textScaleFactor: 3).pad(),
           NavigationDrawerDestination(
@@ -25,9 +25,11 @@ class DrawerPage extends UI {
   }
 }
 
-final navigationRM = Simple(
-  0,
-  onTransition: (oldState, newState) {
-    RM.navigate.back();
-  },
+int get navigation => navigationRM.state;
+void setNavigation(int navigation) => navigationRM.state = navigation;
+final navigationRM = RM.inject<int>(
+  () => 0,
+  sideEffects: SideEffects(
+    onSetState: (_) => RM.navigate.back(),
+  ),
 );

@@ -1,6 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint, non_nullable_equals_parameter
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'models.dart';
@@ -12,7 +12,7 @@ part of 'models.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 Settings _$SettingsFromJson(Map<String, dynamic> json) {
   return _Settings.fromJson(json);
@@ -139,21 +139,25 @@ class __$$SettingsImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$SettingsImpl implements _Settings {
   const _$SettingsImpl(
-      {required this.borderRadius,
-      required this.padding,
-      required this.themeMode,
-      @MaterialColorConverter() required this.materialColor});
+      {this.borderRadius = 8.0,
+      this.padding = 8.0,
+      this.themeMode = ThemeMode.system,
+      @MaterialColorConverter() this.materialColor = Colors.grey});
 
   factory _$SettingsImpl.fromJson(Map<String, dynamic> json) =>
       _$$SettingsImplFromJson(json);
 
   @override
+  @JsonKey()
   final double borderRadius;
   @override
+  @JsonKey()
   final double padding;
   @override
+  @JsonKey()
   final ThemeMode themeMode;
   @override
+  @JsonKey()
   @MaterialColorConverter()
   final MaterialColor materialColor;
 
@@ -163,7 +167,7 @@ class _$SettingsImpl implements _Settings {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SettingsImpl &&
@@ -197,11 +201,11 @@ class _$SettingsImpl implements _Settings {
 
 abstract class _Settings implements Settings {
   const factory _Settings(
-      {required final double borderRadius,
-      required final double padding,
-      required final ThemeMode themeMode,
-      @MaterialColorConverter()
-      required final MaterialColor materialColor}) = _$SettingsImpl;
+          {final double borderRadius,
+          final double padding,
+          final ThemeMode themeMode,
+          @MaterialColorConverter() final MaterialColor materialColor}) =
+      _$SettingsImpl;
 
   factory _Settings.fromJson(Map<String, dynamic> json) =
       _$SettingsImpl.fromJson;
@@ -326,7 +330,7 @@ class _$HomeTreatmentPlanImpl implements _HomeTreatmentPlan {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$HomeTreatmentPlanImpl &&
@@ -466,7 +470,7 @@ class _$MedicineImpl implements _Medicine {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MedicineImpl &&
@@ -644,7 +648,7 @@ class _$StaffImpl extends _Staff {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$StaffImpl &&
@@ -1136,7 +1140,7 @@ class _$PatientImpl implements _Patient {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PatientImpl &&
@@ -1484,7 +1488,7 @@ class _$ExaminationsImpl implements _Examinations {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ExaminationsImpl &&
@@ -1676,7 +1680,7 @@ class _$ComplaintImpl implements _Complaint {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ComplaintImpl &&
@@ -1845,7 +1849,7 @@ class _$CNICImpl implements _CNIC {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CNICImpl &&
@@ -2029,7 +2033,7 @@ class _$AddressImpl implements _Address {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AddressImpl &&
@@ -2205,7 +2209,7 @@ class _$InvestigationImpl implements _Investigation {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$InvestigationImpl &&
@@ -2363,7 +2367,7 @@ class _$ManagementImpl implements _Management {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ManagementImpl &&
@@ -2515,7 +2519,7 @@ class _$OutcomeImpl implements _Outcome {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$OutcomeImpl &&
@@ -2713,7 +2717,7 @@ class _$VitalsImpl implements _Vitals {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$VitalsImpl &&
@@ -2925,7 +2929,7 @@ class _$PrescriptionImpl implements _Prescription {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PrescriptionImpl &&

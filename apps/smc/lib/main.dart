@@ -13,6 +13,7 @@ export 'package:smc/presentation/ui/clinic/emergency_view/arrival_datetime.dart'
 export 'package:smc/presentation/ui/clinic/emergency_view/emergency_patients_view.dart';
 export 'package:states_rebuilder/states_rebuilder.dart';
 export 'package:smc/presentation/blocs/staff_bloc.dart';
+export 'package:smc/presentation/blocs/configuration_bloc.dart';
 
 export 'package:smc/presentation/ui/admin/hospital_information_dialog.dart';
 

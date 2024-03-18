@@ -98,6 +98,7 @@ class StudyTimerPage extends UI {
 }
 
 class RecordLogic {
+  // ignore: unused_field
   late final StreamSubscription<int> _streamSubscription;
   final Stream<int> _stream = Stream.periodic(
     1.seconds,
