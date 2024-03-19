@@ -1,7 +1,8 @@
 import 'main.dart';
 
 export 'package:smc/presentation/ui/dashboard/dashboard_page.dart';
-export 'package:flex_color_scheme/flex_color_scheme.dart';
+export 'package:flex_color_scheme/flex_color_scheme.dart'
+    hide FlexStringExtensions;
 export 'package:manager/manager.dart';
 export 'package:smc/presentation/blocs/patients_bloc.dart';
 export 'package:smc/shared/router.dart';

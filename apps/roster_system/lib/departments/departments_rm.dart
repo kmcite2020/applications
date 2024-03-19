@@ -9,7 +9,7 @@ final departmentsRM = RM.inject(
   ),
 );
 Departments get departments => departmentsRM.state;
-set departments(Departments newState) => departmentsRM.state = newState;
+set departments(Departments newState) => departments = newState;
 
 void addDepartment(Department department) {
   departments = departments.copyWith(

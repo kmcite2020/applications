@@ -13,7 +13,7 @@ class Department with _$Department {
   factory Department.fromJson(Map<String, dynamic> json) =>
       _$DepartmentFromJson(json);
 
-  factory Department.get(String id) => departmentsRM.state.cache[id]!;
+  factory Department.get(String id) => departments.cache[id]!;
 }
 
 @freezed

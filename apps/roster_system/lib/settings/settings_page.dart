@@ -1,7 +1,4 @@
-import 'package:roster_system/departments/ui/departments_page.dart';
-
 import 'package:roster_system/main.dart';
-import 'package:roster_system/settings/settings_rm.dart';
 
 class SettingsPage extends UI {
   const SettingsPage({super.key});
@@ -26,11 +23,7 @@ class SettingsPage extends UI {
                 );
               },
             ).toList(),
-            onChanged: (themeMode) {
-              settingsRM.state = settingsRM.state.copyWith(
-                themeMode: themeMode!,
-              );
-            },
+            onChanged: setThemeMode,
           ).pad(),
           DropdownButtonFormField(
             value: settingsRM.state.materialColor,
@@ -42,11 +35,7 @@ class SettingsPage extends UI {
                 );
               },
             ).toList(),
-            onChanged: (materialColor) {
-              settingsRM.state = settingsRM.state.copyWith(
-                materialColor: materialColor!,
-              );
-            },
+            onChanged: setMaterialColor,
           ).pad(),
           ElevatedButton(
             onPressed: () {

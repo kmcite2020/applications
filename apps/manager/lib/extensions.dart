@@ -1,5 +1,12 @@
 import 'manager.dart';
 
+extension CapitalizerX on String {
+  String get capitalize {
+    final firstChar = this[0];
+    return firstChar.toUpperCase() + this.substring(1);
+  }
+}
+
 extension DynamicExtensions on dynamic {
   Widget text({
     double? textScaleFactor,

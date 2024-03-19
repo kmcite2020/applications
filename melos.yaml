@@ -2,6 +2,11 @@ name: applications
 
 packages:
   - apps/**
+scripts:
+  build apps:
+    exec: flutter build apk
+  install all apps:
+    exec: adb install build\app\outputs\flutter-apk\app-release.apk
 command:
   bootstrap:
     environment:

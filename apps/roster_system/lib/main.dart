@@ -1,6 +1,5 @@
 export 'dart:async';
-
-import 'package:roster_system/settings/settings_rm.dart';
+import 'package:roster_system/dashboard/dashboard.dart';
 
 import 'main.dart';
 export 'package:roster_system/settings/settings_page.dart';
@@ -9,6 +8,8 @@ export 'package:roster_system/departments/departments_rm.dart';
 export 'package:roster_system/departments/ui/department_page.dart';
 export 'package:flutter/foundation.dart';
 export 'package:manager/manager.dart';
+export 'package:roster_system/settings/settings_rm.dart';
+export 'package:roster_system/departments/ui/departments_page.dart';
 
 void main() {
   runApp(App());
@@ -33,7 +34,7 @@ class App extends TopUI {
   }
 
   @override
-  Widget? splashScreen() => CircularProgressIndicator().pad();
+  Widget? splashScreen() => CircularProgressIndicator().center().pad();
 
   @override
   Widget build(BuildContext context) {
@@ -43,18 +44,18 @@ class App extends TopUI {
         debugShowCheckedModeBanner: false,
         theme: ThemeData.light().copyWith(
           colorScheme: ColorScheme.fromSwatch(
-            primarySwatch: settingsRM.state.materialColor,
+            primarySwatch: settings.materialColor,
           ),
         ),
         darkTheme: ThemeData.dark().copyWith(
           colorScheme: ColorScheme.fromSwatch(
-            primarySwatch: settingsRM.state.materialColor,
+            primarySwatch: settings.materialColor,
             brightness: Brightness.dark,
           ),
           inputDecorationTheme: InputDecorationTheme(),
         ),
-        themeMode: settingsRM.state.themeMode,
-        home: SettingsPage(),
+        themeMode: settings.themeMode,
+        home: DashboardPage(),
       ),
     );
   }

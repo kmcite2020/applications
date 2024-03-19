@@ -1,17 +1,19 @@
 import 'package:roster_system/main.dart';
 import 'package:roster_system/settings/settings.dart';
 
-final settingsRM = SettingsRM();
+final settingsRM = RM.inject(
+  () => Settings(),
+  persist: () => PersistState(
+    key: 'settings',
+    toJson: (state) => jsonEncode(state.toJson()),
+    fromJson: (json) => Settings.fromJson(jsonDecode(json)),
+  ),
+);
+Settings get settings => settingsRM.state;
+void setSettings(Settings settings) => settingsRM.state = settings;
 
-class SettingsRM {
-  final settingsRM = RM.inject(
-    () => Settings(),
-    persist: () => PersistState(
-      key: 'settings',
-      toJson: (state) => jsonEncode(state.toJson()),
-      fromJson: (json) => Settings.fromJson(jsonDecode(json)),
-    ),
-  );
-  Settings get state => settingsRM.state;
-  set state(Settings value) => settingsRM.state = value;
-}
+void setMaterialColor(materialColor) =>
+    setSettings(settings.copyWith(materialColor: materialColor));
+
+void setThemeMode(themeMode) =>
+    setSettings(settings.copyWith(themeMode: themeMode));

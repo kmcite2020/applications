@@ -23,5 +23,5 @@ abstract class Page extends UI {
   }
 }
 
-typedef TopUI = TopStatelessWidget;
 typedef UI = ReactiveStatelessWidget;
+typedef TopUI = TopStatelessWidget;
