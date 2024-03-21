@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="21815b96-f851-4168-9e4f-8aabdee08f47" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/lib/extensions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/manager/lib/extensions.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/manager/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/lib/ui.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/manager/lib/ui.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/notes/lib/drawer/drawer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/notes/lib/drawer/drawer.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/notes/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/notes/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/notes/lib/notes/notes_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/notes/lib/notes/notes_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/notes/lib/settings/settings.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/notes/lib/settings/settings.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/opthalmology/lib/features/app.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/opthalmology/lib/features/app.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/opthalmology/lib/features/core/navigator.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/opthalmology/lib/features/core/navigator.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/opthalmology/lib/features/flash_cards/flashes.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/opthalmology/lib/features/flash_cards/flashes.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/opthalmology/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/opthalmology/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/prescription_er/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/apps/prescription_er/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/prescription_er/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/apps/prescription_er/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/prescription_er/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/prescription_er/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/prescription_er/lib/prescriptions/prescription.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/prescription_er/lib/prescriptions/prescription.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/prescription_er/lib/prescriptions/prescription.freezed.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/prescription_er/lib/prescriptions/prescription.freezed.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/prescription_er/lib/prescriptions/prescription.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/prescription_er/lib/prescriptions/prescription.g.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/prescription_er/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/apps/prescription_er/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/melos.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/melos.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/melos_applications.iml" beforeDir="false" afterPath="$PROJECT_DIR$/melos_applications.iml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectId" id="2e0QrEP14EdVc1FsqUTmD29qmHt" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "main",
+    "io.flutter.reload.alreadyRun": "true",
+    "last_opened_file_path": "D:/FLUTTER/applications",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "settings.editor.splitter.proportion": "0.32983193",
+    "show.migrate.to.gradle.popup": "false"
+  }
+}]]></component>
+  <component name="RunManager" selected="Flutter.Flutter Run -&gt; 'opthalmology'" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="21815b96-f851-4168-9e4f-8aabdee08f47" name="Changes" comment="" />
+      <created>1711039212618</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1711039212618</updated>
+    </task>
+    <servers />
+  </component>
+</project>

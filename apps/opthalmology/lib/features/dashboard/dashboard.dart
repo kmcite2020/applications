@@ -1,4 +1,4 @@
-import 'package:opthalmology/features/flash_cards/folders_page.dart';
+import 'package:opthalmology/features/flash_groups/flash_groups_page.dart';
 import 'package:opthalmology/features/stats/stats_page.dart';
 import 'package:opthalmology/features/study_timer/study_timer.dart';
 import 'package:opthalmology/main.dart';
@@ -29,7 +29,7 @@ class DashboardPage extends Page {
   @override
   Widget body() {
     return [
-      FoldersPage(),
+      FlashGroupsPage(),
       StudyTimerPage(),
       StatsPage(),
     ][dashboardIndex()];

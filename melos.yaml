@@ -3,9 +3,9 @@ name: applications
 packages:
   - apps/**
 scripts:
-  build apps:
+  build all apps:
     exec: flutter build apk
-  install all apps:
+  install all apks:
     exec: adb install build\app\outputs\flutter-apk\app-release.apk
 command:
   bootstrap:

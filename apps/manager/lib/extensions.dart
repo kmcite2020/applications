@@ -35,7 +35,7 @@ extension WidgetExtensions on Widget {
 
 extension DateTimeExtensions on DateTime {
   String humane() {
-    return "$day-$month-$year";
+    return "$day/$month/$year";
   }
 
   Widget human() => humane().text();

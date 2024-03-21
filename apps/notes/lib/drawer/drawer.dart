@@ -5,22 +5,20 @@ class DrawerPage extends UI {
 
   @override
   Widget build(BuildContext context) {
-    return Drawer(
-      child: NavigationDrawer(
-        selectedIndex: navigation,
-        onDestinationSelected: setNavigation,
-        children: [
-          'NOTES'.text(textScaleFactor: 3).pad(),
-          NavigationDrawerDestination(
-            icon: const Icon(Icons.notes),
-            label: 'Notes'.text(),
-          ),
-          NavigationDrawerDestination(
-            icon: const Icon(Icons.settings),
-            label: 'Settings'.text(),
-          ),
-        ],
-      ),
+    return NavigationDrawer(
+      selectedIndex: navigation,
+      onDestinationSelected: setNavigation,
+      children: [
+        'NOTES'.text(textScaleFactor: 3).pad(),
+        NavigationDrawerDestination(
+          icon: const Icon(Icons.notes),
+          label: 'Notes'.text(),
+        ),
+        NavigationDrawerDestination(
+          icon: const Icon(Icons.settings),
+          label: 'Settings'.text(),
+        ),
+      ],
     );
   }
 }
@@ -32,4 +30,5 @@ final navigationRM = RM.inject<int>(
   sideEffects: SideEffects(
     onSetState: (_) => RM.navigate.back(),
   ),
+  autoDisposeWhenNotUsed: false,
 );

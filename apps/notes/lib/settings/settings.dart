@@ -45,8 +45,9 @@ class SettingsPage extends UI {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const DrawerPage(),
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: 'Settings'.text(),
+      ),
       body: ListView(
         children: [
           DropdownButtonFormField(

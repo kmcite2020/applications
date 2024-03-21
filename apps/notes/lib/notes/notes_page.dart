@@ -6,19 +6,17 @@ class NotesPage extends UI {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const DrawerPage(),
       appBar: AppBar(
+        title: 'NOTES'.text(),
         actions: [
           IconButton(
-            onPressed: () {
-              switch (settings.viewMode) {
-                case ViewMode.grid:
-                  setViewMode(ViewMode.list);
-                  break;
-                case ViewMode.list:
-                  setViewMode(ViewMode.grid);
-                  break;
-              }
+            onPressed: () => RM.navigate.to(SettingsPage()),
+            icon: Icon(Icons.settings),
+          ),
+          IconButton(
+            onPressed: () => switch (settings.viewMode) {
+              ViewMode.grid => setViewMode(ViewMode.list),
+              ViewMode.list => setViewMode(ViewMode.grid),
             },
             icon: Icon(
               switch (settings.viewMode) {

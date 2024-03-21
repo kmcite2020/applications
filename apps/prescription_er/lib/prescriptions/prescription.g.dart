@@ -6,48 +6,79 @@ part of 'prescription.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+_$PatientsImpl _$$PatientsImplFromJson(Map<String, dynamic> json) =>
+    _$PatientsImpl(
+      cache: (json['cache'] as Map<String, dynamic>?)?.map(
+            (k, e) => MapEntry(k, Patient.fromJson(e)),
+          ) ??
+          const {},
+    );
+
+Map<String, dynamic> _$$PatientsImplToJson(_$PatientsImpl instance) =>
+    <String, dynamic>{
+      'cache': instance.cache,
+    };
+
 _$PatientImpl _$$PatientImplFromJson(Map<String, dynamic> json) =>
     _$PatientImpl(
-      id: json['id'] as String,
-      name: json['name'] as String,
-      cnic: CNIC.fromJson(json['cnic']),
-      age: Duration(microseconds: json['age'] as int),
-      gender: $enumDecode(_$GenderEnumMap, json['gender']),
-      isAttended: json['isAttended'] as bool,
       arrivalAt: DateTime.parse(json['arrivalAt'] as String),
-      address: Address.fromJson(json['address']),
-      patientStatus: $enumDecode(_$PatientStatusEnumMap, json['patientStatus']),
-      classification:
-          $enumDecode(_$ClassificationEnumMap, json['classification']),
-      triage: $enumDecode(_$TriageEnumMap, json['triage']),
-      presentingComplaints: (json['presentingComplaints'] as List<dynamic>)
-          .map(Complaint.fromJson)
-          .toList(),
-      vitals: Vitals.fromJson(json['vitals']),
-      examinations: Examinations.fromJson(json['examinations']),
-      investigations: (json['investigations'] as List<dynamic>)
-          .map(Investigation.fromJson)
-          .toList(),
-      managements: (json['managements'] as List<dynamic>)
-          .map(Management.fromJson)
-          .toList(),
-      provisionalDiagnosis: json['provisionalDiagnosis'] as String,
-      diagnosis: json['diagnosis'] as String,
+      id: json['id'] as String? ?? "",
+      name: json['name'] as String? ?? "",
+      fatherName: json['fatherName'] as String? ?? "",
+      cnic: json['cnic'] == null ? const CNIC() : CNIC.fromJson(json['cnic']),
+      age: json['age'] == null
+          ? Duration.zero
+          : Duration(microseconds: json['age'] as int),
+      address: json['address'] == null
+          ? const Address()
+          : Address.fromJson(json['address']),
+      gender:
+          $enumDecodeNullable(_$GenderEnumMap, json['gender']) ?? Gender.male,
+      patientStatus:
+          $enumDecodeNullable(_$PatientStatusEnumMap, json['patientStatus']) ??
+              PatientStatus.emergency,
+      classification: $enumDecodeNullable(
+              _$ClassificationEnumMap, json['classification']) ??
+          Classification.medical,
+      triage:
+          $enumDecodeNullable(_$TriageEnumMap, json['triage']) ?? Triage.green,
+      isAttended: json['isAttended'] as bool? ?? false,
+      presentingComplaints: json['presentingComplaints'] == null
+          ? const PresentingComplaints()
+          : PresentingComplaints.fromJson(
+              json['presentingComplaints'] as Map<String, dynamic>),
+      vitals: json['vitals'] == null
+          ? const Vitals()
+          : Vitals.fromJson(json['vitals']),
+      examinations: json['examinations'] == null
+          ? const Examinations()
+          : Examinations.fromJson(json['examinations']),
+      investigations: (json['investigations'] as List<dynamic>?)
+              ?.map(Investigation.fromJson)
+              .toList() ??
+          const [],
+      managements: (json['managements'] as List<dynamic>?)
+              ?.map(Management.fromJson)
+              .toList() ??
+          const [],
+      provisionalDiagnosis: json['provisionalDiagnosis'] as String? ?? "",
+      diagnosis: json['diagnosis'] as String? ?? "",
     );
 
 Map<String, dynamic> _$$PatientImplToJson(_$PatientImpl instance) =>
     <String, dynamic>{
+      'arrivalAt': instance.arrivalAt.toIso8601String(),
       'id': instance.id,
       'name': instance.name,
+      'fatherName': instance.fatherName,
       'cnic': instance.cnic,
       'age': instance.age.inMicroseconds,
-      'gender': _$GenderEnumMap[instance.gender]!,
-      'isAttended': instance.isAttended,
-      'arrivalAt': instance.arrivalAt.toIso8601String(),
       'address': instance.address,
+      'gender': _$GenderEnumMap[instance.gender]!,
       'patientStatus': _$PatientStatusEnumMap[instance.patientStatus]!,
       'classification': _$ClassificationEnumMap[instance.classification]!,
       'triage': _$TriageEnumMap[instance.triage]!,
+      'isAttended': instance.isAttended,
       'presentingComplaints': instance.presentingComplaints,
       'vitals': instance.vitals,
       'examinations': instance.examinations,
@@ -84,16 +115,31 @@ const _$TriageEnumMap = {
   Triage.white: 'white',
 };
 
+_$PresentingComplaintsImpl _$$PresentingComplaintsImplFromJson(
+        Map<String, dynamic> json) =>
+    _$PresentingComplaintsImpl(
+      cache: (json['cache'] as Map<String, dynamic>?)?.map(
+            (k, e) => MapEntry(k, Complaint.fromJson(e)),
+          ) ??
+          const <String, Complaint>{},
+    );
+
+Map<String, dynamic> _$$PresentingComplaintsImplToJson(
+        _$PresentingComplaintsImpl instance) =>
+    <String, dynamic>{
+      'cache': instance.cache,
+    };
+
 _$ExaminationsImpl _$$ExaminationsImplFromJson(Map<String, dynamic> json) =>
     _$ExaminationsImpl(
-      eye: json['eye'] as String,
-      ent: json['ent'] as String,
-      cvs: json['cvs'] as String,
-      cns: json['cns'] as String,
-      pulmo: json['pulmo'] as String,
-      skin: json['skin'] as String,
-      gi: json['gi'] as String,
-      gu: json['gu'] as String,
+      eye: json['eye'] as String? ?? "",
+      ent: json['ent'] as String? ?? "",
+      cvs: json['cvs'] as String? ?? "",
+      cns: json['cns'] as String? ?? "",
+      pulmo: json['pulmo'] as String? ?? "",
+      skin: json['skin'] as String? ?? "",
+      gi: json['gi'] as String? ?? "",
+      gu: json['gu'] as String? ?? "",
     );
 
 Map<String, dynamic> _$$ExaminationsImplToJson(_$ExaminationsImpl instance) =>
@@ -110,22 +156,26 @@ Map<String, dynamic> _$$ExaminationsImplToJson(_$ExaminationsImpl instance) =>
 
 _$ComplaintImpl _$$ComplaintImplFromJson(Map<String, dynamic> json) =>
     _$ComplaintImpl(
-      complaint: json['complaint'] as String,
-      history: json['history'] as String,
-      duration: Duration(microseconds: json['duration'] as int),
+      id: json['id'] as String? ?? '',
+      complaint: json['complaint'] as String? ?? '',
+      history: json['history'] as String? ?? '',
+      duration: json['duration'] == null
+          ? Duration.zero
+          : Duration(microseconds: json['duration'] as int),
     );
 
 Map<String, dynamic> _$$ComplaintImplToJson(_$ComplaintImpl instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'complaint': instance.complaint,
       'history': instance.history,
       'duration': instance.duration.inMicroseconds,
     };
 
 _$CNICImpl _$$CNICImplFromJson(Map<String, dynamic> json) => _$CNICImpl(
-      a: json['a'] as String,
-      b: json['b'] as String,
-      c: json['c'] as String,
+      a: json['a'] as String? ?? '00000',
+      b: json['b'] as String? ?? '0000002',
+      c: json['c'] as String? ?? '1',
     );
 
 Map<String, dynamic> _$$CNICImplToJson(_$CNICImpl instance) =>
@@ -137,10 +187,10 @@ Map<String, dynamic> _$$CNICImplToJson(_$CNICImpl instance) =>
 
 _$AddressImpl _$$AddressImplFromJson(Map<String, dynamic> json) =>
     _$AddressImpl(
-      country: json['country'] as String,
-      province: json['province'] as String,
-      city: json['city'] as String,
-      area: json['area'] as String,
+      country: json['country'] as String? ?? 'PK',
+      province: json['province'] as String? ?? 'KPK',
+      city: json['city'] as String? ?? 'SWABI',
+      area: json['area'] as String? ?? 'SHAH MANSOOR',
     );
 
 Map<String, dynamic> _$$AddressImplToJson(_$AddressImpl instance) =>
@@ -153,8 +203,8 @@ Map<String, dynamic> _$$AddressImplToJson(_$AddressImpl instance) =>
 
 _$InvestigationImpl _$$InvestigationImplFromJson(Map<String, dynamic> json) =>
     _$InvestigationImpl(
-      name: json['name'] as String,
-      value: json['value'] as String,
+      name: json['name'] as String? ?? '',
+      value: json['value'] as String? ?? '',
       time: DateTime.parse(json['time'] as String),
     );
 
@@ -167,7 +217,7 @@ Map<String, dynamic> _$$InvestigationImplToJson(_$InvestigationImpl instance) =>
 
 _$ManagementImpl _$$ManagementImplFromJson(Map<String, dynamic> json) =>
     _$ManagementImpl(
-      description: json['description'] as String,
+      description: json['description'] as String? ?? '',
       time: DateTime.parse(json['time'] as String),
     );
 
@@ -198,11 +248,11 @@ const _$OutcomeStatusEnumMap = {
 };
 
 _$VitalsImpl _$$VitalsImplFromJson(Map<String, dynamic> json) => _$VitalsImpl(
-      systolic: json['systolic'] as int,
-      diastolic: json['diastolic'] as int,
-      pulse: json['pulse'] as int,
-      oxygen: json['oxygen'] as int,
-      temperature: (json['temperature'] as num).toDouble(),
+      systolic: json['systolic'] as int? ?? 120,
+      diastolic: json['diastolic'] as int? ?? 80,
+      pulse: json['pulse'] as int? ?? 72,
+      oxygen: json['oxygen'] as int? ?? 98,
+      temperature: (json['temperature'] as num?)?.toDouble() ?? 98.4,
     );
 
 Map<String, dynamic> _$$VitalsImplToJson(_$VitalsImpl instance) =>

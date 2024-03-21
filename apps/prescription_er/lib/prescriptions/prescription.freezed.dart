@@ -14,24 +14,168 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
+Patients _$PatientsFromJson(Map<String, dynamic> json) {
+  return _Patients.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Patients {
+  Map<String, Patient> get cache => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $PatientsCopyWith<Patients> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PatientsCopyWith<$Res> {
+  factory $PatientsCopyWith(Patients value, $Res Function(Patients) then) =
+      _$PatientsCopyWithImpl<$Res, Patients>;
+  @useResult
+  $Res call({Map<String, Patient> cache});
+}
+
+/// @nodoc
+class _$PatientsCopyWithImpl<$Res, $Val extends Patients>
+    implements $PatientsCopyWith<$Res> {
+  _$PatientsCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? cache = null,
+  }) {
+    return _then(_value.copyWith(
+      cache: null == cache
+          ? _value.cache
+          : cache // ignore: cast_nullable_to_non_nullable
+              as Map<String, Patient>,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$PatientsImplCopyWith<$Res>
+    implements $PatientsCopyWith<$Res> {
+  factory _$$PatientsImplCopyWith(
+          _$PatientsImpl value, $Res Function(_$PatientsImpl) then) =
+      __$$PatientsImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({Map<String, Patient> cache});
+}
+
+/// @nodoc
+class __$$PatientsImplCopyWithImpl<$Res>
+    extends _$PatientsCopyWithImpl<$Res, _$PatientsImpl>
+    implements _$$PatientsImplCopyWith<$Res> {
+  __$$PatientsImplCopyWithImpl(
+      _$PatientsImpl _value, $Res Function(_$PatientsImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? cache = null,
+  }) {
+    return _then(_$PatientsImpl(
+      cache: null == cache
+          ? _value._cache
+          : cache // ignore: cast_nullable_to_non_nullable
+              as Map<String, Patient>,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$PatientsImpl implements _Patients {
+  const _$PatientsImpl({final Map<String, Patient> cache = const {}})
+      : _cache = cache;
+
+  factory _$PatientsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PatientsImplFromJson(json);
+
+  final Map<String, Patient> _cache;
+  @override
+  @JsonKey()
+  Map<String, Patient> get cache {
+    if (_cache is EqualUnmodifiableMapView) return _cache;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_cache);
+  }
+
+  @override
+  String toString() {
+    return 'Patients(cache: $cache)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PatientsImpl &&
+            const DeepCollectionEquality().equals(other._cache, _cache));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_cache));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PatientsImplCopyWith<_$PatientsImpl> get copyWith =>
+      __$$PatientsImplCopyWithImpl<_$PatientsImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$PatientsImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Patients implements Patients {
+  const factory _Patients({final Map<String, Patient> cache}) = _$PatientsImpl;
+
+  factory _Patients.fromJson(Map<String, dynamic> json) =
+      _$PatientsImpl.fromJson;
+
+  @override
+  Map<String, Patient> get cache;
+  @override
+  @JsonKey(ignore: true)
+  _$$PatientsImplCopyWith<_$PatientsImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
 Patient _$PatientFromJson(Map<String, dynamic> json) {
   return _Patient.fromJson(json);
 }
 
 /// @nodoc
 mixin _$Patient {
+  DateTime get arrivalAt => throw _privateConstructorUsedError;
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
+  String get fatherName => throw _privateConstructorUsedError;
   CNIC get cnic => throw _privateConstructorUsedError;
   Duration get age => throw _privateConstructorUsedError;
-  Gender get gender => throw _privateConstructorUsedError;
-  bool get isAttended => throw _privateConstructorUsedError;
-  DateTime get arrivalAt => throw _privateConstructorUsedError;
   Address get address => throw _privateConstructorUsedError;
+  Gender get gender => throw _privateConstructorUsedError;
   PatientStatus get patientStatus => throw _privateConstructorUsedError;
   Classification get classification => throw _privateConstructorUsedError;
   Triage get triage => throw _privateConstructorUsedError;
-  List<Complaint> get presentingComplaints =>
+  bool get isAttended => throw _privateConstructorUsedError;
+  PresentingComplaints get presentingComplaints =>
       throw _privateConstructorUsedError;
   Vitals get vitals => throw _privateConstructorUsedError;
   Examinations get examinations => throw _privateConstructorUsedError;
@@ -51,18 +195,19 @@ abstract class $PatientCopyWith<$Res> {
       _$PatientCopyWithImpl<$Res, Patient>;
   @useResult
   $Res call(
-      {String id,
+      {DateTime arrivalAt,
+      String id,
       String name,
+      String fatherName,
       CNIC cnic,
       Duration age,
-      Gender gender,
-      bool isAttended,
-      DateTime arrivalAt,
       Address address,
+      Gender gender,
       PatientStatus patientStatus,
       Classification classification,
       Triage triage,
-      List<Complaint> presentingComplaints,
+      bool isAttended,
+      PresentingComplaints presentingComplaints,
       Vitals vitals,
       Examinations examinations,
       List<Investigation> investigations,
@@ -72,6 +217,7 @@ abstract class $PatientCopyWith<$Res> {
 
   $CNICCopyWith<$Res> get cnic;
   $AddressCopyWith<$Res> get address;
+  $PresentingComplaintsCopyWith<$Res> get presentingComplaints;
   $VitalsCopyWith<$Res> get vitals;
   $ExaminationsCopyWith<$Res> get examinations;
 }
@@ -89,17 +235,18 @@ class _$PatientCopyWithImpl<$Res, $Val extends Patient>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? arrivalAt = null,
     Object? id = null,
     Object? name = null,
+    Object? fatherName = null,
     Object? cnic = null,
     Object? age = null,
-    Object? gender = null,
-    Object? isAttended = null,
-    Object? arrivalAt = null,
     Object? address = null,
+    Object? gender = null,
     Object? patientStatus = null,
     Object? classification = null,
     Object? triage = null,
+    Object? isAttended = null,
     Object? presentingComplaints = null,
     Object? vitals = null,
     Object? examinations = null,
@@ -109,6 +256,10 @@ class _$PatientCopyWithImpl<$Res, $Val extends Patient>
     Object? diagnosis = null,
   }) {
     return _then(_value.copyWith(
+      arrivalAt: null == arrivalAt
+          ? _value.arrivalAt
+          : arrivalAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -116,6 +267,10 @@ class _$PatientCopyWithImpl<$Res, $Val extends Patient>
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      fatherName: null == fatherName
+          ? _value.fatherName
+          : fatherName // ignore: cast_nullable_to_non_nullable
               as String,
       cnic: null == cnic
           ? _value.cnic
@@ -125,22 +280,14 @@ class _$PatientCopyWithImpl<$Res, $Val extends Patient>
           ? _value.age
           : age // ignore: cast_nullable_to_non_nullable
               as Duration,
-      gender: null == gender
-          ? _value.gender
-          : gender // ignore: cast_nullable_to_non_nullable
-              as Gender,
-      isAttended: null == isAttended
-          ? _value.isAttended
-          : isAttended // ignore: cast_nullable_to_non_nullable
-              as bool,
-      arrivalAt: null == arrivalAt
-          ? _value.arrivalAt
-          : arrivalAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
       address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as Address,
+      gender: null == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as Gender,
       patientStatus: null == patientStatus
           ? _value.patientStatus
           : patientStatus // ignore: cast_nullable_to_non_nullable
@@ -153,10 +300,14 @@ class _$PatientCopyWithImpl<$Res, $Val extends Patient>
           ? _value.triage
           : triage // ignore: cast_nullable_to_non_nullable
               as Triage,
+      isAttended: null == isAttended
+          ? _value.isAttended
+          : isAttended // ignore: cast_nullable_to_non_nullable
+              as bool,
       presentingComplaints: null == presentingComplaints
           ? _value.presentingComplaints
           : presentingComplaints // ignore: cast_nullable_to_non_nullable
-              as List<Complaint>,
+              as PresentingComplaints,
       vitals: null == vitals
           ? _value.vitals
           : vitals // ignore: cast_nullable_to_non_nullable
@@ -202,6 +353,15 @@ class _$PatientCopyWithImpl<$Res, $Val extends Patient>
 
   @override
   @pragma('vm:prefer-inline')
+  $PresentingComplaintsCopyWith<$Res> get presentingComplaints {
+    return $PresentingComplaintsCopyWith<$Res>(_value.presentingComplaints,
+        (value) {
+      return _then(_value.copyWith(presentingComplaints: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
   $VitalsCopyWith<$Res> get vitals {
     return $VitalsCopyWith<$Res>(_value.vitals, (value) {
       return _then(_value.copyWith(vitals: value) as $Val);
@@ -225,18 +385,19 @@ abstract class _$$PatientImplCopyWith<$Res> implements $PatientCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String id,
+      {DateTime arrivalAt,
+      String id,
       String name,
+      String fatherName,
       CNIC cnic,
       Duration age,
-      Gender gender,
-      bool isAttended,
-      DateTime arrivalAt,
       Address address,
+      Gender gender,
       PatientStatus patientStatus,
       Classification classification,
       Triage triage,
-      List<Complaint> presentingComplaints,
+      bool isAttended,
+      PresentingComplaints presentingComplaints,
       Vitals vitals,
       Examinations examinations,
       List<Investigation> investigations,
@@ -248,6 +409,8 @@ abstract class _$$PatientImplCopyWith<$Res> implements $PatientCopyWith<$Res> {
   $CNICCopyWith<$Res> get cnic;
   @override
   $AddressCopyWith<$Res> get address;
+  @override
+  $PresentingComplaintsCopyWith<$Res> get presentingComplaints;
   @override
   $VitalsCopyWith<$Res> get vitals;
   @override
@@ -265,17 +428,18 @@ class __$$PatientImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? arrivalAt = null,
     Object? id = null,
     Object? name = null,
+    Object? fatherName = null,
     Object? cnic = null,
     Object? age = null,
-    Object? gender = null,
-    Object? isAttended = null,
-    Object? arrivalAt = null,
     Object? address = null,
+    Object? gender = null,
     Object? patientStatus = null,
     Object? classification = null,
     Object? triage = null,
+    Object? isAttended = null,
     Object? presentingComplaints = null,
     Object? vitals = null,
     Object? examinations = null,
@@ -285,6 +449,10 @@ class __$$PatientImplCopyWithImpl<$Res>
     Object? diagnosis = null,
   }) {
     return _then(_$PatientImpl(
+      arrivalAt: null == arrivalAt
+          ? _value.arrivalAt
+          : arrivalAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -292,6 +460,10 @@ class __$$PatientImplCopyWithImpl<$Res>
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      fatherName: null == fatherName
+          ? _value.fatherName
+          : fatherName // ignore: cast_nullable_to_non_nullable
               as String,
       cnic: null == cnic
           ? _value.cnic
@@ -301,22 +473,14 @@ class __$$PatientImplCopyWithImpl<$Res>
           ? _value.age
           : age // ignore: cast_nullable_to_non_nullable
               as Duration,
-      gender: null == gender
-          ? _value.gender
-          : gender // ignore: cast_nullable_to_non_nullable
-              as Gender,
-      isAttended: null == isAttended
-          ? _value.isAttended
-          : isAttended // ignore: cast_nullable_to_non_nullable
-              as bool,
-      arrivalAt: null == arrivalAt
-          ? _value.arrivalAt
-          : arrivalAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
       address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as Address,
+      gender: null == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as Gender,
       patientStatus: null == patientStatus
           ? _value.patientStatus
           : patientStatus // ignore: cast_nullable_to_non_nullable
@@ -329,10 +493,14 @@ class __$$PatientImplCopyWithImpl<$Res>
           ? _value.triage
           : triage // ignore: cast_nullable_to_non_nullable
               as Triage,
+      isAttended: null == isAttended
+          ? _value.isAttended
+          : isAttended // ignore: cast_nullable_to_non_nullable
+              as bool,
       presentingComplaints: null == presentingComplaints
-          ? _value._presentingComplaints
+          ? _value.presentingComplaints
           : presentingComplaints // ignore: cast_nullable_to_non_nullable
-              as List<Complaint>,
+              as PresentingComplaints,
       vitals: null == vitals
           ? _value.vitals
           : vitals // ignore: cast_nullable_to_non_nullable
@@ -365,68 +533,78 @@ class __$$PatientImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$PatientImpl implements _Patient {
   const _$PatientImpl(
-      {required this.id,
-      required this.name,
-      required this.cnic,
-      required this.age,
-      required this.gender,
-      required this.isAttended,
-      required this.arrivalAt,
-      required this.address,
-      required this.patientStatus,
-      required this.classification,
-      required this.triage,
-      required final List<Complaint> presentingComplaints,
-      required this.vitals,
-      required this.examinations,
-      required final List<Investigation> investigations,
-      required final List<Management> managements,
-      required this.provisionalDiagnosis,
-      required this.diagnosis})
-      : _presentingComplaints = presentingComplaints,
-        _investigations = investigations,
+      {required this.arrivalAt,
+      this.id = "",
+      this.name = "",
+      this.fatherName = "",
+      this.cnic = const CNIC(),
+      this.age = Duration.zero,
+      this.address = const Address(),
+      this.gender = Gender.male,
+      this.patientStatus = PatientStatus.emergency,
+      this.classification = Classification.medical,
+      this.triage = Triage.green,
+      this.isAttended = false,
+      this.presentingComplaints = const PresentingComplaints(),
+      this.vitals = const Vitals(),
+      this.examinations = const Examinations(),
+      final List<Investigation> investigations = const [],
+      final List<Management> managements = const [],
+      this.provisionalDiagnosis = "",
+      this.diagnosis = ""})
+      : _investigations = investigations,
         _managements = managements;
 
   factory _$PatientImpl.fromJson(Map<String, dynamic> json) =>
       _$$PatientImplFromJson(json);
 
   @override
-  final String id;
-  @override
-  final String name;
-  @override
-  final CNIC cnic;
-  @override
-  final Duration age;
-  @override
-  final Gender gender;
-  @override
-  final bool isAttended;
-  @override
   final DateTime arrivalAt;
   @override
+  @JsonKey()
+  final String id;
+  @override
+  @JsonKey()
+  final String name;
+  @override
+  @JsonKey()
+  final String fatherName;
+  @override
+  @JsonKey()
+  final CNIC cnic;
+  @override
+  @JsonKey()
+  final Duration age;
+  @override
+  @JsonKey()
   final Address address;
   @override
+  @JsonKey()
+  final Gender gender;
+  @override
+  @JsonKey()
   final PatientStatus patientStatus;
   @override
+  @JsonKey()
   final Classification classification;
   @override
+  @JsonKey()
   final Triage triage;
-  final List<Complaint> _presentingComplaints;
   @override
-  List<Complaint> get presentingComplaints {
-    if (_presentingComplaints is EqualUnmodifiableListView)
-      return _presentingComplaints;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_presentingComplaints);
-  }
-
+  @JsonKey()
+  final bool isAttended;
   @override
+  @JsonKey()
+  final PresentingComplaints presentingComplaints;
+  @override
+  @JsonKey()
   final Vitals vitals;
   @override
+  @JsonKey()
   final Examinations examinations;
   final List<Investigation> _investigations;
   @override
+  @JsonKey()
   List<Investigation> get investigations {
     if (_investigations is EqualUnmodifiableListView) return _investigations;
     // ignore: implicit_dynamic_type
@@ -435,6 +613,7 @@ class _$PatientImpl implements _Patient {
 
   final List<Management> _managements;
   @override
+  @JsonKey()
   List<Management> get managements {
     if (_managements is EqualUnmodifiableListView) return _managements;
     // ignore: implicit_dynamic_type
@@ -442,13 +621,15 @@ class _$PatientImpl implements _Patient {
   }
 
   @override
+  @JsonKey()
   final String provisionalDiagnosis;
   @override
+  @JsonKey()
   final String diagnosis;
 
   @override
   String toString() {
-    return 'Patient(id: $id, name: $name, cnic: $cnic, age: $age, gender: $gender, isAttended: $isAttended, arrivalAt: $arrivalAt, address: $address, patientStatus: $patientStatus, classification: $classification, triage: $triage, presentingComplaints: $presentingComplaints, vitals: $vitals, examinations: $examinations, investigations: $investigations, managements: $managements, provisionalDiagnosis: $provisionalDiagnosis, diagnosis: $diagnosis)';
+    return 'Patient(arrivalAt: $arrivalAt, id: $id, name: $name, fatherName: $fatherName, cnic: $cnic, age: $age, address: $address, gender: $gender, patientStatus: $patientStatus, classification: $classification, triage: $triage, isAttended: $isAttended, presentingComplaints: $presentingComplaints, vitals: $vitals, examinations: $examinations, investigations: $investigations, managements: $managements, provisionalDiagnosis: $provisionalDiagnosis, diagnosis: $diagnosis)';
   }
 
   @override
@@ -456,23 +637,25 @@ class _$PatientImpl implements _Patient {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PatientImpl &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.cnic, cnic) || other.cnic == cnic) &&
-            (identical(other.age, age) || other.age == age) &&
-            (identical(other.gender, gender) || other.gender == gender) &&
-            (identical(other.isAttended, isAttended) ||
-                other.isAttended == isAttended) &&
             (identical(other.arrivalAt, arrivalAt) ||
                 other.arrivalAt == arrivalAt) &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.fatherName, fatherName) ||
+                other.fatherName == fatherName) &&
+            (identical(other.cnic, cnic) || other.cnic == cnic) &&
+            (identical(other.age, age) || other.age == age) &&
             (identical(other.address, address) || other.address == address) &&
+            (identical(other.gender, gender) || other.gender == gender) &&
             (identical(other.patientStatus, patientStatus) ||
                 other.patientStatus == patientStatus) &&
             (identical(other.classification, classification) ||
                 other.classification == classification) &&
             (identical(other.triage, triage) || other.triage == triage) &&
-            const DeepCollectionEquality()
-                .equals(other._presentingComplaints, _presentingComplaints) &&
+            (identical(other.isAttended, isAttended) ||
+                other.isAttended == isAttended) &&
+            (identical(other.presentingComplaints, presentingComplaints) ||
+                other.presentingComplaints == presentingComplaints) &&
             (identical(other.vitals, vitals) || other.vitals == vitals) &&
             (identical(other.examinations, examinations) ||
                 other.examinations == examinations) &&
@@ -488,26 +671,28 @@ class _$PatientImpl implements _Patient {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      name,
-      cnic,
-      age,
-      gender,
-      isAttended,
-      arrivalAt,
-      address,
-      patientStatus,
-      classification,
-      triage,
-      const DeepCollectionEquality().hash(_presentingComplaints),
-      vitals,
-      examinations,
-      const DeepCollectionEquality().hash(_investigations),
-      const DeepCollectionEquality().hash(_managements),
-      provisionalDiagnosis,
-      diagnosis);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        arrivalAt,
+        id,
+        name,
+        fatherName,
+        cnic,
+        age,
+        address,
+        gender,
+        patientStatus,
+        classification,
+        triage,
+        isAttended,
+        presentingComplaints,
+        vitals,
+        examinations,
+        const DeepCollectionEquality().hash(_investigations),
+        const DeepCollectionEquality().hash(_managements),
+        provisionalDiagnosis,
+        diagnosis
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -525,43 +710,44 @@ class _$PatientImpl implements _Patient {
 
 abstract class _Patient implements Patient {
   const factory _Patient(
-      {required final String id,
-      required final String name,
-      required final CNIC cnic,
-      required final Duration age,
-      required final Gender gender,
-      required final bool isAttended,
-      required final DateTime arrivalAt,
-      required final Address address,
-      required final PatientStatus patientStatus,
-      required final Classification classification,
-      required final Triage triage,
-      required final List<Complaint> presentingComplaints,
-      required final Vitals vitals,
-      required final Examinations examinations,
-      required final List<Investigation> investigations,
-      required final List<Management> managements,
-      required final String provisionalDiagnosis,
-      required final String diagnosis}) = _$PatientImpl;
+      {required final DateTime arrivalAt,
+      final String id,
+      final String name,
+      final String fatherName,
+      final CNIC cnic,
+      final Duration age,
+      final Address address,
+      final Gender gender,
+      final PatientStatus patientStatus,
+      final Classification classification,
+      final Triage triage,
+      final bool isAttended,
+      final PresentingComplaints presentingComplaints,
+      final Vitals vitals,
+      final Examinations examinations,
+      final List<Investigation> investigations,
+      final List<Management> managements,
+      final String provisionalDiagnosis,
+      final String diagnosis}) = _$PatientImpl;
 
   factory _Patient.fromJson(Map<String, dynamic> json) = _$PatientImpl.fromJson;
 
+  @override
+  DateTime get arrivalAt;
   @override
   String get id;
   @override
   String get name;
   @override
+  String get fatherName;
+  @override
   CNIC get cnic;
   @override
   Duration get age;
   @override
-  Gender get gender;
-  @override
-  bool get isAttended;
-  @override
-  DateTime get arrivalAt;
-  @override
   Address get address;
+  @override
+  Gender get gender;
   @override
   PatientStatus get patientStatus;
   @override
@@ -569,7 +755,9 @@ abstract class _Patient implements Patient {
   @override
   Triage get triage;
   @override
-  List<Complaint> get presentingComplaints;
+  bool get isAttended;
+  @override
+  PresentingComplaints get presentingComplaints;
   @override
   Vitals get vitals;
   @override
@@ -586,6 +774,155 @@ abstract class _Patient implements Patient {
   @JsonKey(ignore: true)
   _$$PatientImplCopyWith<_$PatientImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+PresentingComplaints _$PresentingComplaintsFromJson(Map<String, dynamic> json) {
+  return _PresentingComplaints.fromJson(json);
+}
+
+/// @nodoc
+mixin _$PresentingComplaints {
+  Map<String, Complaint> get cache => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $PresentingComplaintsCopyWith<PresentingComplaints> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PresentingComplaintsCopyWith<$Res> {
+  factory $PresentingComplaintsCopyWith(PresentingComplaints value,
+          $Res Function(PresentingComplaints) then) =
+      _$PresentingComplaintsCopyWithImpl<$Res, PresentingComplaints>;
+  @useResult
+  $Res call({Map<String, Complaint> cache});
+}
+
+/// @nodoc
+class _$PresentingComplaintsCopyWithImpl<$Res,
+        $Val extends PresentingComplaints>
+    implements $PresentingComplaintsCopyWith<$Res> {
+  _$PresentingComplaintsCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? cache = null,
+  }) {
+    return _then(_value.copyWith(
+      cache: null == cache
+          ? _value.cache
+          : cache // ignore: cast_nullable_to_non_nullable
+              as Map<String, Complaint>,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$PresentingComplaintsImplCopyWith<$Res>
+    implements $PresentingComplaintsCopyWith<$Res> {
+  factory _$$PresentingComplaintsImplCopyWith(_$PresentingComplaintsImpl value,
+          $Res Function(_$PresentingComplaintsImpl) then) =
+      __$$PresentingComplaintsImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({Map<String, Complaint> cache});
+}
+
+/// @nodoc
+class __$$PresentingComplaintsImplCopyWithImpl<$Res>
+    extends _$PresentingComplaintsCopyWithImpl<$Res, _$PresentingComplaintsImpl>
+    implements _$$PresentingComplaintsImplCopyWith<$Res> {
+  __$$PresentingComplaintsImplCopyWithImpl(_$PresentingComplaintsImpl _value,
+      $Res Function(_$PresentingComplaintsImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? cache = null,
+  }) {
+    return _then(_$PresentingComplaintsImpl(
+      cache: null == cache
+          ? _value._cache
+          : cache // ignore: cast_nullable_to_non_nullable
+              as Map<String, Complaint>,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$PresentingComplaintsImpl implements _PresentingComplaints {
+  const _$PresentingComplaintsImpl(
+      {final Map<String, Complaint> cache = const <String, Complaint>{}})
+      : _cache = cache;
+
+  factory _$PresentingComplaintsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PresentingComplaintsImplFromJson(json);
+
+  final Map<String, Complaint> _cache;
+  @override
+  @JsonKey()
+  Map<String, Complaint> get cache {
+    if (_cache is EqualUnmodifiableMapView) return _cache;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_cache);
+  }
+
+  @override
+  String toString() {
+    return 'PresentingComplaints(cache: $cache)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PresentingComplaintsImpl &&
+            const DeepCollectionEquality().equals(other._cache, _cache));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_cache));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PresentingComplaintsImplCopyWith<_$PresentingComplaintsImpl>
+      get copyWith =>
+          __$$PresentingComplaintsImplCopyWithImpl<_$PresentingComplaintsImpl>(
+              this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$PresentingComplaintsImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _PresentingComplaints implements PresentingComplaints {
+  const factory _PresentingComplaints({final Map<String, Complaint> cache}) =
+      _$PresentingComplaintsImpl;
+
+  factory _PresentingComplaints.fromJson(Map<String, dynamic> json) =
+      _$PresentingComplaintsImpl.fromJson;
+
+  @override
+  Map<String, Complaint> get cache;
+  @override
+  @JsonKey(ignore: true)
+  _$$PresentingComplaintsImplCopyWith<_$PresentingComplaintsImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 Examinations _$ExaminationsFromJson(Map<String, dynamic> json) {
@@ -765,33 +1102,41 @@ class __$$ExaminationsImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ExaminationsImpl implements _Examinations {
   const _$ExaminationsImpl(
-      {required this.eye,
-      required this.ent,
-      required this.cvs,
-      required this.cns,
-      required this.pulmo,
-      required this.skin,
-      required this.gi,
-      required this.gu});
+      {this.eye = "",
+      this.ent = "",
+      this.cvs = "",
+      this.cns = "",
+      this.pulmo = "",
+      this.skin = "",
+      this.gi = "",
+      this.gu = ""});
 
   factory _$ExaminationsImpl.fromJson(Map<String, dynamic> json) =>
       _$$ExaminationsImplFromJson(json);
 
   @override
+  @JsonKey()
   final String eye;
   @override
+  @JsonKey()
   final String ent;
   @override
+  @JsonKey()
   final String cvs;
   @override
+  @JsonKey()
   final String cns;
   @override
+  @JsonKey()
   final String pulmo;
   @override
+  @JsonKey()
   final String skin;
   @override
+  @JsonKey()
   final String gi;
   @override
+  @JsonKey()
   final String gu;
 
   @override
@@ -835,14 +1180,14 @@ class _$ExaminationsImpl implements _Examinations {
 
 abstract class _Examinations implements Examinations {
   const factory _Examinations(
-      {required final String eye,
-      required final String ent,
-      required final String cvs,
-      required final String cns,
-      required final String pulmo,
-      required final String skin,
-      required final String gi,
-      required final String gu}) = _$ExaminationsImpl;
+      {final String eye,
+      final String ent,
+      final String cvs,
+      final String cns,
+      final String pulmo,
+      final String skin,
+      final String gi,
+      final String gu}) = _$ExaminationsImpl;
 
   factory _Examinations.fromJson(Map<String, dynamic> json) =
       _$ExaminationsImpl.fromJson;
@@ -875,6 +1220,7 @@ Complaint _$ComplaintFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Complaint {
+  String get id => throw _privateConstructorUsedError;
   String get complaint => throw _privateConstructorUsedError;
   String get history => throw _privateConstructorUsedError;
   Duration get duration => throw _privateConstructorUsedError;
@@ -890,7 +1236,7 @@ abstract class $ComplaintCopyWith<$Res> {
   factory $ComplaintCopyWith(Complaint value, $Res Function(Complaint) then) =
       _$ComplaintCopyWithImpl<$Res, Complaint>;
   @useResult
-  $Res call({String complaint, String history, Duration duration});
+  $Res call({String id, String complaint, String history, Duration duration});
 }
 
 /// @nodoc
@@ -906,11 +1252,16 @@ class _$ComplaintCopyWithImpl<$Res, $Val extends Complaint>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? complaint = null,
     Object? history = null,
     Object? duration = null,
   }) {
     return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       complaint: null == complaint
           ? _value.complaint
           : complaint // ignore: cast_nullable_to_non_nullable
@@ -935,7 +1286,7 @@ abstract class _$$ComplaintImplCopyWith<$Res>
       __$$ComplaintImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String complaint, String history, Duration duration});
+  $Res call({String id, String complaint, String history, Duration duration});
 }
 
 /// @nodoc
@@ -949,11 +1300,16 @@ class __$$ComplaintImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? complaint = null,
     Object? history = null,
     Object? duration = null,
   }) {
     return _then(_$ComplaintImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       complaint: null == complaint
           ? _value.complaint
           : complaint // ignore: cast_nullable_to_non_nullable
@@ -974,21 +1330,30 @@ class __$$ComplaintImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ComplaintImpl implements _Complaint {
   const _$ComplaintImpl(
-      {required this.complaint, required this.history, required this.duration});
+      {this.id = '',
+      this.complaint = '',
+      this.history = '',
+      this.duration = Duration.zero});
 
   factory _$ComplaintImpl.fromJson(Map<String, dynamic> json) =>
       _$$ComplaintImplFromJson(json);
 
   @override
+  @JsonKey()
+  final String id;
+  @override
+  @JsonKey()
   final String complaint;
   @override
+  @JsonKey()
   final String history;
   @override
+  @JsonKey()
   final Duration duration;
 
   @override
   String toString() {
-    return 'Complaint(complaint: $complaint, history: $history, duration: $duration)';
+    return 'Complaint(id: $id, complaint: $complaint, history: $history, duration: $duration)';
   }
 
   @override
@@ -996,6 +1361,7 @@ class _$ComplaintImpl implements _Complaint {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ComplaintImpl &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.complaint, complaint) ||
                 other.complaint == complaint) &&
             (identical(other.history, history) || other.history == history) &&
@@ -1005,7 +1371,8 @@ class _$ComplaintImpl implements _Complaint {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, complaint, history, duration);
+  int get hashCode =>
+      Object.hash(runtimeType, id, complaint, history, duration);
 
   @JsonKey(ignore: true)
   @override
@@ -1023,13 +1390,16 @@ class _$ComplaintImpl implements _Complaint {
 
 abstract class _Complaint implements Complaint {
   const factory _Complaint(
-      {required final String complaint,
-      required final String history,
-      required final Duration duration}) = _$ComplaintImpl;
+      {final String id,
+      final String complaint,
+      final String history,
+      final Duration duration}) = _$ComplaintImpl;
 
   factory _Complaint.fromJson(Map<String, dynamic> json) =
       _$ComplaintImpl.fromJson;
 
+  @override
+  String get id;
   @override
   String get complaint;
   @override
@@ -1143,16 +1513,19 @@ class __$$CNICImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$CNICImpl implements _CNIC {
-  const _$CNICImpl({required this.a, required this.b, required this.c});
+  const _$CNICImpl({this.a = '00000', this.b = '0000002', this.c = '1'});
 
   factory _$CNICImpl.fromJson(Map<String, dynamic> json) =>
       _$$CNICImplFromJson(json);
 
   @override
+  @JsonKey()
   final String a;
   @override
+  @JsonKey()
   final String b;
   @override
+  @JsonKey()
   final String c;
 
   @override
@@ -1189,10 +1562,8 @@ class _$CNICImpl implements _CNIC {
 }
 
 abstract class _CNIC implements CNIC {
-  const factory _CNIC(
-      {required final String a,
-      required final String b,
-      required final String c}) = _$CNICImpl;
+  const factory _CNIC({final String a, final String b, final String c}) =
+      _$CNICImpl;
 
   factory _CNIC.fromJson(Map<String, dynamic> json) = _$CNICImpl.fromJson;
 
@@ -1322,21 +1693,25 @@ class __$$AddressImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$AddressImpl implements _Address {
   const _$AddressImpl(
-      {required this.country,
-      required this.province,
-      required this.city,
-      required this.area});
+      {this.country = 'PK',
+      this.province = 'KPK',
+      this.city = 'SWABI',
+      this.area = 'SHAH MANSOOR'});
 
   factory _$AddressImpl.fromJson(Map<String, dynamic> json) =>
       _$$AddressImplFromJson(json);
 
   @override
+  @JsonKey()
   final String country;
   @override
+  @JsonKey()
   final String province;
   @override
+  @JsonKey()
   final String city;
   @override
+  @JsonKey()
   final String area;
 
   @override
@@ -1376,10 +1751,10 @@ class _$AddressImpl implements _Address {
 
 abstract class _Address implements Address {
   const factory _Address(
-      {required final String country,
-      required final String province,
-      required final String city,
-      required final String area}) = _$AddressImpl;
+      {final String country,
+      final String province,
+      final String city,
+      final String area}) = _$AddressImpl;
 
   factory _Address.fromJson(Map<String, dynamic> json) = _$AddressImpl.fromJson;
 
@@ -1503,14 +1878,16 @@ class __$$InvestigationImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$InvestigationImpl implements _Investigation {
   const _$InvestigationImpl(
-      {required this.name, required this.value, required this.time});
+      {this.name = '', this.value = '', required this.time});
 
   factory _$InvestigationImpl.fromJson(Map<String, dynamic> json) =>
       _$$InvestigationImplFromJson(json);
 
   @override
+  @JsonKey()
   final String name;
   @override
+  @JsonKey()
   final String value;
   @override
   final DateTime time;
@@ -1550,8 +1927,8 @@ class _$InvestigationImpl implements _Investigation {
 
 abstract class _Investigation implements Investigation {
   const factory _Investigation(
-      {required final String name,
-      required final String value,
+      {final String name,
+      final String value,
       required final DateTime time}) = _$InvestigationImpl;
 
   factory _Investigation.fromJson(Map<String, dynamic> json) =
@@ -1663,12 +2040,13 @@ class __$$ManagementImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$ManagementImpl implements _Management {
-  const _$ManagementImpl({required this.description, required this.time});
+  const _$ManagementImpl({this.description = '', required this.time});
 
   factory _$ManagementImpl.fromJson(Map<String, dynamic> json) =>
       _$$ManagementImplFromJson(json);
 
   @override
+  @JsonKey()
   final String description;
   @override
   final DateTime time;
@@ -1708,7 +2086,7 @@ class _$ManagementImpl implements _Management {
 
 abstract class _Management implements Management {
   const factory _Management(
-      {required final String description,
+      {final String description,
       required final DateTime time}) = _$ManagementImpl;
 
   factory _Management.fromJson(Map<String, dynamic> json) =
@@ -2003,24 +2381,29 @@ class __$$VitalsImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$VitalsImpl implements _Vitals {
   const _$VitalsImpl(
-      {required this.systolic,
-      required this.diastolic,
-      required this.pulse,
-      required this.oxygen,
-      required this.temperature});
+      {this.systolic = 120,
+      this.diastolic = 80,
+      this.pulse = 72,
+      this.oxygen = 98,
+      this.temperature = 98.4});
 
   factory _$VitalsImpl.fromJson(Map<String, dynamic> json) =>
       _$$VitalsImplFromJson(json);
 
   @override
+  @JsonKey()
   final int systolic;
   @override
+  @JsonKey()
   final int diastolic;
   @override
+  @JsonKey()
   final int pulse;
   @override
+  @JsonKey()
   final int oxygen;
   @override
+  @JsonKey()
   final double temperature;
 
   @override
@@ -2064,11 +2447,11 @@ class _$VitalsImpl implements _Vitals {
 
 abstract class _Vitals implements Vitals {
   const factory _Vitals(
-      {required final int systolic,
-      required final int diastolic,
-      required final int pulse,
-      required final int oxygen,
-      required final double temperature}) = _$VitalsImpl;
+      {final int systolic,
+      final int diastolic,
+      final int pulse,
+      final int oxygen,
+      final double temperature}) = _$VitalsImpl;
 
   factory _Vitals.fromJson(Map<String, dynamic> json) = _$VitalsImpl.fromJson;
 

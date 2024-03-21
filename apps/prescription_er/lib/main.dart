@@ -1,4 +1,6 @@
+import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/foundation.dart';
+import 'package:prescription_er/patients_list.dart';
 
 import 'main.dart';
 
@@ -12,26 +14,35 @@ class App extends TopUI {
   @override
   List<FutureOr<void>>? ensureInitialization() {
     return [
-      SynchronousFuture(WidgetsFlutterBinding.ensureInitialized()),
-      RM.storageInitializer(HiveStorage()),
+      SynchronousFuture(
+        () => FlutterNativeSplash.preserve(
+          widgetsBinding: WidgetsFlutterBinding.ensureInitialized(),
+        ),
+      ),
+      Future.delayed(
+        1000.milliseconds,
+        () => RM.storageInitializer(
+          HiveStorage(),
+        ),
+      ),
     ];
   }
 
   @override
-  Widget? splashScreen() {
-    return CircularProgressIndicator().center();
-  }
+  Widget? splashScreen() => CircularProgressIndicator().center();
 
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: 'Prescriptions'.text(),
+    return OnReactive(
+      () => MaterialApp(
+        navigatorKey: RM.navigate.navigatorKey,
+        debugShowCheckedModeBanner: false,
+        theme: FlexThemeData.light(
+          subThemesData: FlexSubThemesData(defaultRadius: 20),
         ),
-        body: ListView(
-          children: [],
-        ),
+        home: PatientsListPage(),
+      ),
+      sideEffects: SideEffects(
+        initState: () => FlutterNativeSplash.remove(),
       ),
     );
   }

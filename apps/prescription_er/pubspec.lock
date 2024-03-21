@@ -427,8 +427,8 @@ packages:
   manager:
     dependency: "direct main"
     description:
-      path: "D://FLUTTER//applications//apps//manager"
-      relative: false
+      path: "../manager"
+      relative: true
     source: path
     version: "1.0.0+1"
   matcher:

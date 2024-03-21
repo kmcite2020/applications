@@ -25,3 +25,11 @@ abstract class Page extends UI {
 
 typedef UI = ReactiveStatelessWidget;
 typedef TopUI = TopStatelessWidget;
+
+abstract class DialogUI extends Dialog {
+  Widget get ui;
+  @override
+  Widget build(BuildContext context) {
+    return ui;
+  }
+}

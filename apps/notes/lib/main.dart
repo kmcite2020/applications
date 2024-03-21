@@ -9,38 +9,47 @@ export 'package:notes/notes/note_page/note_page.dart';
 export 'package:notes/notes/notes.dart';
 export 'package:states_rebuilder/states_rebuilder.dart';
 
-void main() async {
-  await RM.storageInitializer(HiveStorage());
-  runApp(const MyApp());
-}
+void main() => runApp(const MyApp());
 
-class MyApp extends UI {
+class MyApp extends TopUI {
   const MyApp({super.key});
 
   @override
+  List<FutureOr<void>>? ensureInitialization() {
+    return [
+      RM.storageInitializer(HiveStorage()),
+    ];
+  }
+
+  @override
+  Widget? splashScreen() => CircularProgressIndicator().center();
+
+  @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      navigatorKey: RM.navigate.navigatorKey,
-      debugShowCheckedModeBanner: false,
-      theme: FlexThemeData.light(
-        useMaterial3: true,
-        lightIsWhite: true,
-        subThemesData: FlexSubThemesData(
-          defaultRadius: settings.borderRadius,
+    return OnReactive(
+      () => MaterialApp(
+        navigatorKey: RM.navigate.navigatorKey,
+        debugShowCheckedModeBanner: false,
+        theme: FlexThemeData.light(
+          useMaterial3: true,
+          lightIsWhite: true,
+          subThemesData: FlexSubThemesData(
+            defaultRadius: settings.borderRadius,
+          ),
         ),
-      ),
-      darkTheme: FlexThemeData.dark(
-        useMaterial3: true,
-        darkIsTrueBlack: true,
-        subThemesData: FlexSubThemesData(
-          defaultRadius: settings.borderRadius,
+        darkTheme: FlexThemeData.dark(
+          useMaterial3: true,
+          darkIsTrueBlack: true,
+          subThemesData: FlexSubThemesData(
+            defaultRadius: settings.borderRadius,
+          ),
         ),
+        themeMode: settings.themeMode,
+        home: switch (navigation) {
+          0 => const NotesPage(),
+          _ => const SettingsPage(),
+        },
       ),
-      themeMode: settings.themeMode,
-      home: switch (navigation) {
-        0 => const NotesPage(),
-        _ => const SettingsPage(),
-      },
     );
   }
 }
