@@ -1,5 +1,9 @@
-import 'package:opthalmology/features/flash_groups/flash_groups.dart';
-import 'package:opthalmology/main.dart';
+import 'package:opthalmology/features/flash_groups/flash_cards/flash_cards_page.dart';
+
+import '../../main.dart';
+import 'flash_cards/create_new_flash_card.dart';
+import 'create_new_flash_group.dart';
+import 'flash_groups.dart';
 
 class FlashGroupsPage extends Page {
   const FlashGroupsPage({super.key});
@@ -7,43 +11,69 @@ class FlashGroupsPage extends Page {
   @override
   PreferredSizeWidget? appBar() {
     return AppBar(
-      title: 'Folders'.text(),
+      title: 'FlashGroups'.text(),
       actions: [
         IconButton(
-          onPressed: () {
-            saveFlashCard(
-              FlashCard(
-                flashGroup: FlashGroup(),
-              ),
-            );
-          },
+          tooltip: 'FlashCard',
+          onPressed: createNewFlashCard,
           icon: Icon(Icons.create),
         ),
-        // IconButton(
-        //   onPressed: toCreateNewGroupDialog,
-        //   icon: Icon(Icons.create_new_folder),
-        // ).pad(),
+        IconButton(
+          tooltip: 'FlashGroup',
+          onPressed: createNewFlashGroup,
+          icon: Icon(Icons.create_new_folder),
+        ).pad(),
       ],
     );
   }
 
-  @override
   Widget body() {
-    return GridView.count(
-      crossAxisCount: 3,
-      children: flashGroups().values.map(
-        (folder) {
-          return Card.outlined(
-            color: Colors.primaries[folder.colorIndex],
-            child: ElevatedButton(
-              onPressed: () {
-                // toFolder(folder.id);
+    return ListView(
+      children: [
+        ...flashGroups().values.map(
+          (eachFlashGroup) {
+            return ListTile(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+              onTap: () {
+                RM.navigate.to(
+                  FlashCardsPage(
+                    flashGroupId: eachFlashGroup.id,
+                  ),
+                );
               },
-              child: folder.name.text().center(),
-            ).pad(),
-          );
-        },
-      ).toList(),
+              title: eachFlashGroup.name.text(),
+              subtitle: flashCards()
+                  .values
+                  .where(
+                    (eachFlashCard) =>
+                        eachFlashCard.flashGroupId == eachFlashGroup.id,
+                  )
+                  .length
+                  .text(),
+              tileColor: Colors.primaries[eachFlashGroup.colorIndex],
+            ).pad();
+          },
+        ).toList(),
+        ListTile(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+          tileColor: Color.fromARGB(64, 189, 175, 73),
+          onTap: () {
+            RM.navigate.to(FlashCardsPage(flashGroupId: ''));
+          },
+          title: 'Ungrouped'.text(),
+          subtitle: flashCards()
+              .values
+              .where(
+                (card) => card.flashGroupId == '',
+              )
+              .length
+              .text(),
+        ).pad(),
+      ],
     );
   }
 }

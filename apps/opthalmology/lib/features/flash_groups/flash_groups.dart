@@ -9,6 +9,8 @@ class FlashGroup with _$FlashGroup {
     @Default('') final String name,
     @Default(0) final int colorIndex,
   }) = _FlashGroup;
+  const FlashGroup._();
+  MaterialColor get color => Colors.primaries[colorIndex];
 
   factory FlashGroup.fromJson(Map<String, dynamic> json) =>
       _$FlashGroupFromJson(json);
@@ -26,3 +28,7 @@ final saveFlashGroup = (FlashGroup folder) {
 final deleteFlashGroup = (FlashGroup folder) {
   flashGroups(Map.of(flashGroups())..remove(folder.id));
 };
+
+extension IndexOnColor on MaterialColor {
+  int get index => Colors.primaries.indexOf(this);
+}

@@ -20,7 +20,7 @@ FlashCard _$FlashCardFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FlashCard {
-  FlashGroup get flashGroup => throw _privateConstructorUsedError;
+  String get flashGroupId => throw _privateConstructorUsedError;
   String get id => throw _privateConstructorUsedError;
   String get question => throw _privateConstructorUsedError;
   String get answer => throw _privateConstructorUsedError;
@@ -38,13 +38,11 @@ abstract class $FlashCardCopyWith<$Res> {
       _$FlashCardCopyWithImpl<$Res, FlashCard>;
   @useResult
   $Res call(
-      {FlashGroup flashGroup,
+      {String flashGroupId,
       String id,
       String question,
       String answer,
       String explaination});
-
-  $FlashGroupCopyWith<$Res> get flashGroup;
 }
 
 /// @nodoc
@@ -60,17 +58,17 @@ class _$FlashCardCopyWithImpl<$Res, $Val extends FlashCard>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? flashGroup = null,
+    Object? flashGroupId = null,
     Object? id = null,
     Object? question = null,
     Object? answer = null,
     Object? explaination = null,
   }) {
     return _then(_value.copyWith(
-      flashGroup: null == flashGroup
-          ? _value.flashGroup
-          : flashGroup // ignore: cast_nullable_to_non_nullable
-              as FlashGroup,
+      flashGroupId: null == flashGroupId
+          ? _value.flashGroupId
+          : flashGroupId // ignore: cast_nullable_to_non_nullable
+              as String,
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -89,14 +87,6 @@ class _$FlashCardCopyWithImpl<$Res, $Val extends FlashCard>
               as String,
     ) as $Val);
   }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $FlashGroupCopyWith<$Res> get flashGroup {
-    return $FlashGroupCopyWith<$Res>(_value.flashGroup, (value) {
-      return _then(_value.copyWith(flashGroup: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
@@ -108,14 +98,11 @@ abstract class _$$FlashCardImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {FlashGroup flashGroup,
+      {String flashGroupId,
       String id,
       String question,
       String answer,
       String explaination});
-
-  @override
-  $FlashGroupCopyWith<$Res> get flashGroup;
 }
 
 /// @nodoc
@@ -129,17 +116,17 @@ class __$$FlashCardImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? flashGroup = null,
+    Object? flashGroupId = null,
     Object? id = null,
     Object? question = null,
     Object? answer = null,
     Object? explaination = null,
   }) {
     return _then(_$FlashCardImpl(
-      flashGroup: null == flashGroup
-          ? _value.flashGroup
-          : flashGroup // ignore: cast_nullable_to_non_nullable
-              as FlashGroup,
+      flashGroupId: null == flashGroupId
+          ? _value.flashGroupId
+          : flashGroupId // ignore: cast_nullable_to_non_nullable
+              as String,
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -162,20 +149,21 @@ class __$$FlashCardImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$FlashCardImpl implements _FlashCard {
+class _$FlashCardImpl extends _FlashCard {
   const _$FlashCardImpl(
-      {this.flashGroup = const FlashGroup(),
+      {this.flashGroupId = '',
       this.id = '',
       this.question = '',
       this.answer = '',
-      this.explaination = ''});
+      this.explaination = ''})
+      : super._();
 
   factory _$FlashCardImpl.fromJson(Map<String, dynamic> json) =>
       _$$FlashCardImplFromJson(json);
 
   @override
   @JsonKey()
-  final FlashGroup flashGroup;
+  final String flashGroupId;
   @override
   @JsonKey()
   final String id;
@@ -191,7 +179,7 @@ class _$FlashCardImpl implements _FlashCard {
 
   @override
   String toString() {
-    return 'FlashCard(flashGroup: $flashGroup, id: $id, question: $question, answer: $answer, explaination: $explaination)';
+    return 'FlashCard(flashGroupId: $flashGroupId, id: $id, question: $question, answer: $answer, explaination: $explaination)';
   }
 
   @override
@@ -199,8 +187,8 @@ class _$FlashCardImpl implements _FlashCard {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FlashCardImpl &&
-            (identical(other.flashGroup, flashGroup) ||
-                other.flashGroup == flashGroup) &&
+            (identical(other.flashGroupId, flashGroupId) ||
+                other.flashGroupId == flashGroupId) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.question, question) ||
                 other.question == question) &&
@@ -211,8 +199,8 @@ class _$FlashCardImpl implements _FlashCard {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, flashGroup, id, question, answer, explaination);
+  int get hashCode => Object.hash(
+      runtimeType, flashGroupId, id, question, answer, explaination);
 
   @JsonKey(ignore: true)
   @override
@@ -228,19 +216,20 @@ class _$FlashCardImpl implements _FlashCard {
   }
 }
 
-abstract class _FlashCard implements FlashCard {
+abstract class _FlashCard extends FlashCard {
   const factory _FlashCard(
-      {final FlashGroup flashGroup,
+      {final String flashGroupId,
       final String id,
       final String question,
       final String answer,
       final String explaination}) = _$FlashCardImpl;
+  const _FlashCard._() : super._();
 
   factory _FlashCard.fromJson(Map<String, dynamic> json) =
       _$FlashCardImpl.fromJson;
 
   @override
-  FlashGroup get flashGroup;
+  String get flashGroupId;
   @override
   String get id;
   @override

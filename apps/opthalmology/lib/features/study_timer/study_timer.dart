@@ -1,89 +1,99 @@
 import 'package:opthalmology/main.dart';
 
-// part 'study_timer.g.dart';
-// part 'study_timer.freezed.dart';
-
-final timerLIVE = RM.injectAnimation(
-  duration: 1.seconds,
-  shouldAutoStart: true,
-);
-
-final startedRM = DateTime.now().inj();
-
-// final lengthOfSessionRM = RM.injectStream(
-//   () => Stream.periodic(
-//     17.milliseconds,
-//     (_) {
-//       return DateTime.now().difference(startedRM.state);
-//     },
-//   ),
-// );
-
-late Timer timer;
+import 'sessions.dart';
 
 class StudyTimerPage extends UI {
   @override
-  void didMountWidget(BuildContext context) {
-    timer = Timer.periodic(
-      1.seconds,
-      (timer) {
-        timerLIVE.refresh();
-      },
-    );
-    super.didMountWidget(context);
-  }
-
-  @override
-  void didUnmountWidget() {
-    timer.cancel();
-    timerLIVE.dispose();
-    super.didUnmountWidget();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
+      appBar: AppBar(
+        title: "StudyTimer".text(),
+      ),
+      body: Stack(
         children: [
-          Column(
-            children: [
-              ElevatedButton(
-                onPressed: onStart,
-                child: 'Start'.text(textScaleFactor: 2),
-              ).pad(),
-              ElevatedButton(
-                onPressed: onCancel,
-                child: 'Cancel'.text(textScaleFactor: 2),
-              ).pad(),
-              timer.tick.text(),
-              timerLIVE.snapState.text(),
-              // ElevatedButton(
-              //   onPressed: onPause,
-              //   child: 'Pause'.text(textScaleFactor: 2),
-              // ).pad(),
-              // ElevatedButton(
-              //   onPressed: onSave,
-              //   child: 'Save'.text(textScaleFactor: 2),
-              // ).pad(),
-            ],
+          Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Color.fromARGB(255, 72, 0, 255),
+                  Color.fromARGB(255, 255, 39, 158),
+                ],
+              ),
+            ),
           ),
-          // currentDuration.text(),
-          '00:00:00'.text(textScaleFactor: 4),
-          Spacer(),
-          'Your Records'.text(textScaleFactor: 4),
-
-          ElevatedButton(
-            onPressed: () {},
-            child: 'add'.text(),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: 100.0),
+                child: Center(child: TimerText()),
+              ),
+              switch (session.sessionStatus) {
+                SessionStatus.isInitial => FloatingActionButton(
+                    child: const Icon(Icons.play_arrow),
+                    onPressed: start,
+                  ),
+                SessionStatus.isPaused => Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      FloatingActionButton(
+                        child: const Icon(Icons.play_arrow),
+                        onPressed: resume,
+                      ),
+                      FloatingActionButton(
+                        child: const Icon(Icons.replay),
+                        onPressed: reset,
+                      ),
+                    ],
+                  ),
+                SessionStatus.isRunning => Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      FloatingActionButton(
+                        child: const Icon(Icons.pause),
+                        onPressed: pause,
+                      ),
+                      FloatingActionButton(
+                        child: const Icon(Icons.replay),
+                        onPressed: reset,
+                      ),
+                    ],
+                  ),
+                SessionStatus.isCompleted => FloatingActionButton(
+                    child: const Icon(Icons.replay),
+                    onPressed: reset,
+                  ),
+                _ => FloatingActionButton(
+                    child: const Icon(Icons.play_arrow),
+                    onPressed: start,
+                  ),
+              },
+              Container(
+                height: 300,
+                child: ListView.builder(
+                  itemCount: sessions().length,
+                  itemBuilder: (context, index) {
+                    final eachSession = sessions().values.toList()[index];
+                    return ListTile(
+                      title: eachSession.duration.text(),
+                      subtitle: eachSession.startedOn.humane().text(),
+                      trailing: IconButton(
+                        onPressed: () {
+                          removeSession(eachSession);
+                        },
+                        icon: Icon(Icons.delete_forever),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ],
           ),
         ],
       ),
     );
   }
-
-  void onStart() {}
-
-  void onPause() {}
-
-  void onCancel() {}
 }

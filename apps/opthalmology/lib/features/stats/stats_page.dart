@@ -18,5 +18,7 @@ class StatsPage extends Page {
   }
 
   @override
-  Widget? body() => 'Statistics'.text(textScaleFactor: 4).center();
+  Widget? body() {
+    return appState().text().center();
+  }
 }

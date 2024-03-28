@@ -17,6 +17,10 @@ _$AppStateImpl _$$AppStateImplFromJson(Map<String, dynamic> json) =>
             (k, e) => MapEntry(k, Study.fromJson(e as Map<String, dynamic>)),
           ) ??
           const <String, Study>{},
+      sessions: (json['sessions'] as Map<String, dynamic>?)?.map(
+            (k, e) => MapEntry(k, Session.fromJson(e as Map<String, dynamic>)),
+          ) ??
+          const <String, Session>{},
       flashCards: (json['flashCards'] as Map<String, dynamic>?)?.map(
             (k, e) =>
                 MapEntry(k, FlashCard.fromJson(e as Map<String, dynamic>)),
@@ -28,5 +32,6 @@ Map<String, dynamic> _$$AppStateImplToJson(_$AppStateImpl instance) =>
     <String, dynamic>{
       'flashGroups': instance.flashGroups,
       'studies': instance.studies,
+      'sessions': instance.sessions,
       'flashCards': instance.flashCards,
     };

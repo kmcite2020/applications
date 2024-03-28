@@ -8,9 +8,7 @@ part of 'flash_cards.dart';
 
 _$FlashCardImpl _$$FlashCardImplFromJson(Map<String, dynamic> json) =>
     _$FlashCardImpl(
-      flashGroup: json['flashGroup'] == null
-          ? const FlashGroup()
-          : FlashGroup.fromJson(json['flashGroup'] as Map<String, dynamic>),
+      flashGroupId: json['flashGroupId'] as String? ?? '',
       id: json['id'] as String? ?? '',
       question: json['question'] as String? ?? '',
       answer: json['answer'] as String? ?? '',
@@ -19,7 +17,7 @@ _$FlashCardImpl _$$FlashCardImplFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$FlashCardImplToJson(_$FlashCardImpl instance) =>
     <String, dynamic>{
-      'flashGroup': instance.flashGroup,
+      'flashGroupId': instance.flashGroupId,
       'id': instance.id,
       'question': instance.question,
       'answer': instance.answer,

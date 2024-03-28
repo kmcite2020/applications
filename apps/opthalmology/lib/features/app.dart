@@ -1,4 +1,5 @@
 import 'package:opthalmology/features/dashboard/dashboard.dart';
+import 'package:opthalmology/features/study_timer/sessions.dart';
 import 'package:opthalmology/features/study_timer/studies.dart';
 
 import '../main.dart';
@@ -14,10 +15,12 @@ class App extends TopUI {
   Widget? splashScreen() => CircularProgressIndicator().center();
 
   @override
-  List<FutureOr<void>>? ensureInitialization() => [
-        WidgetsFlutterBinding.ensureInitialized(),
-        RM.storageInitializer(HiveStorage()),
-      ];
+  List<FutureOr<void>>? ensureInitialization() {
+    return [
+      WidgetsFlutterBinding.ensureInitialized(),
+      RM.storageInitializer(HiveStorage()),
+    ];
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +42,7 @@ class AppState with _$AppState {
   const factory AppState({
     @Default(<String, FlashGroup>{}) final Map<String, FlashGroup> flashGroups,
     @Default(<String, Study>{}) final Map<String, Study> studies,
+    @Default(<String, Session>{}) final Map<String, Session> sessions,
     @Default(<String, FlashCard>{}) final Map<String, FlashCard> flashCards,
   }) = _AppState;
 

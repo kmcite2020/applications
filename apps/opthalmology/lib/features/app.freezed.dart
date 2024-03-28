@@ -22,6 +22,7 @@ AppState _$AppStateFromJson(Map<String, dynamic> json) {
 mixin _$AppState {
   Map<String, FlashGroup> get flashGroups => throw _privateConstructorUsedError;
   Map<String, Study> get studies => throw _privateConstructorUsedError;
+  Map<String, Session> get sessions => throw _privateConstructorUsedError;
   Map<String, FlashCard> get flashCards => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -38,6 +39,7 @@ abstract class $AppStateCopyWith<$Res> {
   $Res call(
       {Map<String, FlashGroup> flashGroups,
       Map<String, Study> studies,
+      Map<String, Session> sessions,
       Map<String, FlashCard> flashCards});
 }
 
@@ -56,6 +58,7 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
   $Res call({
     Object? flashGroups = null,
     Object? studies = null,
+    Object? sessions = null,
     Object? flashCards = null,
   }) {
     return _then(_value.copyWith(
@@ -67,6 +70,10 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
           ? _value.studies
           : studies // ignore: cast_nullable_to_non_nullable
               as Map<String, Study>,
+      sessions: null == sessions
+          ? _value.sessions
+          : sessions // ignore: cast_nullable_to_non_nullable
+              as Map<String, Session>,
       flashCards: null == flashCards
           ? _value.flashCards
           : flashCards // ignore: cast_nullable_to_non_nullable
@@ -86,6 +93,7 @@ abstract class _$$AppStateImplCopyWith<$Res>
   $Res call(
       {Map<String, FlashGroup> flashGroups,
       Map<String, Study> studies,
+      Map<String, Session> sessions,
       Map<String, FlashCard> flashCards});
 }
 
@@ -102,6 +110,7 @@ class __$$AppStateImplCopyWithImpl<$Res>
   $Res call({
     Object? flashGroups = null,
     Object? studies = null,
+    Object? sessions = null,
     Object? flashCards = null,
   }) {
     return _then(_$AppStateImpl(
@@ -113,6 +122,10 @@ class __$$AppStateImplCopyWithImpl<$Res>
           ? _value._studies
           : studies // ignore: cast_nullable_to_non_nullable
               as Map<String, Study>,
+      sessions: null == sessions
+          ? _value._sessions
+          : sessions // ignore: cast_nullable_to_non_nullable
+              as Map<String, Session>,
       flashCards: null == flashCards
           ? _value._flashCards
           : flashCards // ignore: cast_nullable_to_non_nullable
@@ -127,9 +140,11 @@ class _$AppStateImpl implements _AppState {
   const _$AppStateImpl(
       {final Map<String, FlashGroup> flashGroups = const <String, FlashGroup>{},
       final Map<String, Study> studies = const <String, Study>{},
+      final Map<String, Session> sessions = const <String, Session>{},
       final Map<String, FlashCard> flashCards = const <String, FlashCard>{}})
       : _flashGroups = flashGroups,
         _studies = studies,
+        _sessions = sessions,
         _flashCards = flashCards;
 
   factory _$AppStateImpl.fromJson(Map<String, dynamic> json) =>
@@ -153,6 +168,15 @@ class _$AppStateImpl implements _AppState {
     return EqualUnmodifiableMapView(_studies);
   }
 
+  final Map<String, Session> _sessions;
+  @override
+  @JsonKey()
+  Map<String, Session> get sessions {
+    if (_sessions is EqualUnmodifiableMapView) return _sessions;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_sessions);
+  }
+
   final Map<String, FlashCard> _flashCards;
   @override
   @JsonKey()
@@ -164,7 +188,7 @@ class _$AppStateImpl implements _AppState {
 
   @override
   String toString() {
-    return 'AppState(flashGroups: $flashGroups, studies: $studies, flashCards: $flashCards)';
+    return 'AppState(flashGroups: $flashGroups, studies: $studies, sessions: $sessions, flashCards: $flashCards)';
   }
 
   @override
@@ -175,6 +199,7 @@ class _$AppStateImpl implements _AppState {
             const DeepCollectionEquality()
                 .equals(other._flashGroups, _flashGroups) &&
             const DeepCollectionEquality().equals(other._studies, _studies) &&
+            const DeepCollectionEquality().equals(other._sessions, _sessions) &&
             const DeepCollectionEquality()
                 .equals(other._flashCards, _flashCards));
   }
@@ -185,6 +210,7 @@ class _$AppStateImpl implements _AppState {
       runtimeType,
       const DeepCollectionEquality().hash(_flashGroups),
       const DeepCollectionEquality().hash(_studies),
+      const DeepCollectionEquality().hash(_sessions),
       const DeepCollectionEquality().hash(_flashCards));
 
   @JsonKey(ignore: true)
@@ -205,6 +231,7 @@ abstract class _AppState implements AppState {
   const factory _AppState(
       {final Map<String, FlashGroup> flashGroups,
       final Map<String, Study> studies,
+      final Map<String, Session> sessions,
       final Map<String, FlashCard> flashCards}) = _$AppStateImpl;
 
   factory _AppState.fromJson(Map<String, dynamic> json) =
@@ -214,6 +241,8 @@ abstract class _AppState implements AppState {
   Map<String, FlashGroup> get flashGroups;
   @override
   Map<String, Study> get studies;
+  @override
+  Map<String, Session> get sessions;
   @override
   Map<String, FlashCard> get flashCards;
   @override

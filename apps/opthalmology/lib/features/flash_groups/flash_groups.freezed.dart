@@ -118,8 +118,9 @@ class __$$FlashGroupImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$FlashGroupImpl implements _FlashGroup {
-  const _$FlashGroupImpl({this.id = '', this.name = '', this.colorIndex = 0});
+class _$FlashGroupImpl extends _FlashGroup {
+  const _$FlashGroupImpl({this.id = '', this.name = '', this.colorIndex = 0})
+      : super._();
 
   factory _$FlashGroupImpl.fromJson(Map<String, dynamic> json) =>
       _$$FlashGroupImplFromJson(json);
@@ -168,11 +169,12 @@ class _$FlashGroupImpl implements _FlashGroup {
   }
 }
 
-abstract class _FlashGroup implements FlashGroup {
+abstract class _FlashGroup extends FlashGroup {
   const factory _FlashGroup(
       {final String id,
       final String name,
       final int colorIndex}) = _$FlashGroupImpl;
+  const _FlashGroup._() : super._();
 
   factory _FlashGroup.fromJson(Map<String, dynamic> json) =
       _$FlashGroupImpl.fromJson;
