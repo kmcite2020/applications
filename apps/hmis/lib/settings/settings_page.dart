@@ -2,6 +2,10 @@ import 'package:hmis/main.dart';
 
 import '../investigations/investigations_data.dart';
 
+final themeModeRM = RM.inject(() => <ThemeMode>{ThemeMode.system});
+
+ThemeMode get themeMode => themeModeRM.state.first;
+
 class SettingsPage extends UI {
   const SettingsPage({super.key});
 
@@ -14,35 +18,38 @@ class SettingsPage extends UI {
       body: ListView(
         physics: const BouncingScrollPhysics(),
         children: [
-          DropdownButtonFormField(
-            value: settings.themeMode,
-            items: ThemeMode.values
+          SegmentedButton(
+            style: ButtonStyle(
+              shape: MaterialStatePropertyAll(
+                RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+            ),
+            showSelectedIcon: false,
+            segments: ThemeMode.values
                 .map(
-                  (e) => DropdownMenuItem(
+                  (e) => ButtonSegment(
                     value: e,
-                    child: e.name.toUpperCase().text(),
+                    label: e.name.toUpperCase().text(),
                   ),
                 )
                 .toList(),
-            onChanged: setThemeMode,
+            selected: themeModeRM.state,
+            onSelectionChanged: (selections) => themeModeRM.state = selections,
           ).pad(),
-          Card(
-            child: Center(child: 'HOSPITAL'.text().pad()),
-          ),
-          TextFormField(
-            initialValue: settings.hospitalName,
-            onChanged: setHospitalName,
-            maxLength: 4,
-          ).pad(),
+          // Card(
+          //   child: Center(child: 'HOSPITAL'.text().pad()),
+          // ),
+          // TextFormField(
+          //   initialValue: settings.hospitalName,
+          //   onChanged: setHospitalName,
+          //   maxLength: 4,
+          // ).pad(),
           FilledButton(
             onPressed: null,
             child: settingsRM.state.hospitalName.text(),
           ).pad(),
-          Card(
-            child: Center(
-              child: 'DELETE ALL PATIENTS'.text().pad(),
-            ),
-          ),
           FilledButton(
             onPressed: patients == const Patients()
                 ? null

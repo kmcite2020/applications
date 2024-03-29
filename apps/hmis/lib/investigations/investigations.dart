@@ -33,22 +33,24 @@ final investigationsRM = RM.inject(
     toJson: (state) => jsonEncode(state.toJson()),
     fromJson: (json) => Investigations.fromJson(jsonDecode(json)),
   ),
+  autoDisposeWhenNotUsed: false,
 );
-void setInvestigations(Investigations investigations) =>
-    investigationsRM.state = investigations;
+final setInvestigations = (Investigations investigations) {
+  return investigationsRM.state = investigations;
+};
 
-void addInvestigation(Investigation investigation) {
-  setInvestigations(
+final addInvestigation = (Investigation investigation) {
+  return setInvestigations(
     investigations.copyWith(
       cache: Map.of(investigations.cache)..[investigation.id] = investigation,
     ),
   );
-}
+};
 
-void removeInvestigation(Investigation investigation) {
-  setInvestigations(
+final removeInvestigation = (Investigation investigation) {
+  return setInvestigations(
     investigations.copyWith(
       cache: Map.of(investigations.cache)..remove(investigation.id),
     ),
   );
-}
+};
