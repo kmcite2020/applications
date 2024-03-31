@@ -1,56 +1,71 @@
-// part of '../manager.dart';
+import 'package:manager/manager.dart';
 
-// class Simple<T> {
-//   final Persistor<T>? persistor;
-//   final T initialState;
-//   final bool autoDispose;
+abstract class StateGetter<T> {
+  T get state;
+}
 
-//   final Transition<T>? onTransition;
-//   final int undoStackLength;
-//   Simple(
-//     this.initialState, {
-//     this.persistor,
-//     this.autoDispose = false,
-//     this.onTransition,
-//     this.undoStackLength = 0,
-//   }) {
-//     inj = Injected(
-//       creator: () => initialState,
-//       autoDisposeWhenNotUsed: autoDispose,
-//       persist: persistable
-//           ? () => PersistState(
-//                 key: persistor!.key,
-//                 toJson: (state) => jsonEncode(persistor!.toJson(state)),
-//                 fromJson: (json) => persistor!.fromJson(jsonDecode(json)),
-//               )
-//           : null,
-//       undoStackLength: undoStackLength,
-//     );
-//   }
+abstract class StateSetter<T> {
+  set state(T newState);
+}
 
-//   T get state => inj.state;
-//   set state(T newState) {
-//     // print('old before change: ${state}');
-//     // print('new before change: ${newState}');
-//     inj.state = newState;
-//     // print('old after change: ${state}');
-//     // print('new after change: ${newState}');
-//   }
+abstract class InitialState<T> {
+  T get initialState;
+}
 
-//   bool get persistable => persistor != null;
-//   bool get canRedo => inj.canRedoState;
-//   bool get canUndo => inj.canUndoState;
-//   void undo() => inj.undoState();
-//   void redo() => inj.redoState();
-//   T call([T? newState]) {
-//     if (newState != null) {
-//       onTransition?.call(state, newState);
-//       state = newState;
-//     }
-//     return state;
-//   }
+abstract class Callable<T> {
+  T call([T? newState]);
+}
 
-//   late Injected<T> inj;
+abstract class _R_M_<T> {
+  Injected<T> get injected;
+}
+
+abstract class Manager<T>
+    implements
+        _R_M_<T>,
+        InitialState<T>,
+        StateGetter<T>,
+        StateSetter<T>,
+        Callable<T> {
+  @override
+  late Injected<T> injected = RM.inject(() => initialState);
+
+  T get initialState;
+
+  @override
+  T get state => injected.state;
+  @override
+  set state(T newState) {
+    injected
+      ..notify()
+      ..setState((_) => newState);
+  }
+
+  @override
+  T call([T? newState]) {
+    if (newState != null) state = newState;
+    return state;
+  }
+}
+
+class _ManagerImpl<T> extends Manager<T> {
+  final T value;
+
+  _ManagerImpl(this.value) {
+    initialState = value;
+  }
+
+  @override
+  late final T initialState;
+}
+
+Manager<T> manager<T>(T value) => _ManagerImpl(value);
+
+final countRM = manager(0);
+
+// class CountRM extends Manager<int> {
 //   @override
-//   String toString() => "$state";
+//   final int initialState = 0;
+//   void inc() => state++;
+//   void dec() => state--;
 // }

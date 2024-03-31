@@ -27,4 +27,4 @@ part 'state_manager/manager.dart';
 // part 'state_manager/simple.dart';
 
 part 'ui.dart';
-// part 'manager.freezed.dart';
+part 'manager.freezed.dart';
