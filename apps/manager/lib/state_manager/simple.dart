@@ -1,71 +1,17 @@
-import 'package:manager/manager.dart';
+import 'package:manager/state_manager/base.dart';
 
-abstract class StateGetter<T> {
-  T get state;
-}
+import '../manager.dart';
 
-abstract class StateSetter<T> {
-  set state(T newState);
-}
-
-abstract class InitialState<T> {
-  T get initialState;
-}
-
-abstract class Callable<T> {
-  T call([T? newState]);
-}
-
-abstract class _R_M_<T> {
-  Injected<T> get injected;
-}
-
-abstract class Manager<T>
-    implements
-        _R_M_<T>,
-        InitialState<T>,
-        StateGetter<T>,
-        StateSetter<T>,
-        Callable<T> {
+class Simplicity<State> extends Base<State>
+    implements CallableForStateOnly<State> {
+  Simplicity(this.initialState);
   @override
-  late Injected<T> injected = RM.inject(() => initialState);
-
-  T get initialState;
-
+  final State initialState;
   @override
-  T get state => injected.state;
-  @override
-  set state(T newState) {
-    injected
-      ..notify()
-      ..setState((_) => newState);
-  }
-
-  @override
-  T call([T? newState]) {
-    if (newState != null) state = newState;
+  State call([State? newState]) {
+    if (newState != null) {
+      state = newState;
+    }
     return state;
   }
 }
-
-class _ManagerImpl<T> extends Manager<T> {
-  final T value;
-
-  _ManagerImpl(this.value) {
-    initialState = value;
-  }
-
-  @override
-  late final T initialState;
-}
-
-Manager<T> manager<T>(T value) => _ManagerImpl(value);
-
-final countRM = manager(0);
-
-// class CountRM extends Manager<int> {
-//   @override
-//   final int initialState = 0;
-//   void inc() => state++;
-//   void dec() => state--;
-// }

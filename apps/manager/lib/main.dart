@@ -1,6 +1,5 @@
 import 'package:manager/manager.dart';
-
-import 'state_manager/complex.dart';
+import 'package:manager/state_manager/complex.dart';
 
 void main() {
   runApp(App());
@@ -8,7 +7,6 @@ void main() {
 
 class App extends UI {
   const App({super.key});
-  static CountRM countRM = CountRM();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -36,22 +34,28 @@ class App extends UI {
     Other APIs:
     randomID
     HiveStorage()
-    ${countRM.state.call()}
     """
                 .text()
                 .center(),
+            countRM().text(textScaleFactor: 5),
             ElevatedButton(
-              onPressed: () => countRM(DecrementEvent()),
-              child: '--'.text(),
+              onPressed: () {
+                countRM(DecrementEvent());
+              },
+              child: '--'.text(textScaleFactor: 3),
             ).pad(),
             ElevatedButton(
-              onPressed: () => countRM(IncrementEvent()),
-              child: '++'.text(),
+              onPressed: () {
+                countRM(IncrementEvent());
+              },
+              child: '++'.text(textScaleFactor: 2),
             ).pad(),
           ],
         ),
       ),
-      theme: ThemeData.dark(useMaterial3: false),
+      theme: ThemeData.dark(useMaterial3: true),
     );
   }
 }
+
+final countRM = CountRM();

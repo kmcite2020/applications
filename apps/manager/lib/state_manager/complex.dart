@@ -1,35 +1,58 @@
+import 'package:manager/state_manager/base.dart';
+
 import '../manager.dart';
 
-typedef Emitter<T> = void Function(T newState);
-typedef EventRegistrar<Event, State> = FutureOr<void> Function(
-  Event event,
-  Emitter<State> updater,
-);
+abstract class AdderOf<Event> {
+  void add(Event newEvent);
+}
 
-abstract class Complex<E, T> {
-  final _handlers = <Handler>[];
-  late final Injected<T> injected = Injected(
-    creator: () => initialState,
-    autoDisposeWhenNotUsed: autoDispose,
-    persist: persistable
-        ? () => PersistState(
-              key: persistor!.key,
-              toJson: (state) => jsonEncode(persistor!.toJson(state)),
-              fromJson: (json) => persistor!.fromJson(jsonDecode(json)),
-            )
-        : null,
-    undoStackLength: undoStackLength,
-  );
+abstract class CallableForComplexState<Event, State> {
+  State call([Event? newEvent]);
+}
 
+abstract class HandlersListOfComplex {
+  List<Handler> get handlers;
+}
+
+abstract class RegistrarOfEvents<State> {
+  void register<Event>(EventRegistrarV2<Event, State> eventRegistrar);
+}
+
+abstract class Complex<E, T> extends Base<T>
+    implements
+        HandlersListOfComplex,
+        CallableForComplexState<E, T>,
+        AdderOf<E>,
+        RegistrarOfEvents<T> {
+  @override
+  final List<Handler> handlers = [];
+
+  @override
   T get initialState;
 
-  void register<E>(EventRegistrar<E, T> eventRegistrar) {
-    final registered = _handlers.any((handler) => handler.type == E);
+  @override
+  T call([E? newEvent]) {
+    if (newEvent != null) add(newEvent);
+    return state;
+  }
+
+  @override
+  void add(E newEvent) {
+    final index = handlers.indexWhere(
+      (e) => e.isType(newEvent),
+    );
+    handlers[index].function(newEvent) as FutureOr<void>;
+    log("${newEvent.runtimeType} called");
+  }
+
+  @override
+  void register<E>(EventRegistrarV2<E, T> eventRegistrar) {
+    final registered = handlers.any((handler) => handler.type == E);
     assert(
       !registered,
       'register<$E> was called multiple times.',
     );
-    _handlers.add(
+    handlers.add(
       Handler(
         isType: (e) => e is E,
         type: E,
@@ -38,129 +61,33 @@ abstract class Complex<E, T> {
     );
     log('$E registered.');
   }
-
-  T call([E? event]) {
-    if (event != null) {
-      final index = _handlers.indexWhere(
-        (e) => e.isType(event),
-      );
-      _handlers[index].function(
-        event,
-        (newState) {
-          return state = newState;
-        },
-      ) as FutureOr<void>;
-      log("${event.runtimeType} called");
-    }
-    return state;
-  }
-
-  T get state => injected.state;
-  @visibleForTesting
-  set state(T newState) => injected.state = newState;
-  bool get canRedo => injected.canRedoState;
-  bool get canUndo => injected.canUndoState;
-  void undo() => injected.undoState();
-  void redo() => injected.redoState();
-  bool get persistable => persistor != null;
-  Persistor<T>? get persistor => null;
-  int get undoStackLength => 0;
-  bool get autoDispose => true;
 }
 
-// import 'dart:developer';
+typedef Emitter<T> = void Function(T newState);
+typedef EventRegistrar<Event, State> = FutureOr<void> Function(
+  Event event,
+  Emitter<State> updater,
+);
+typedef EventRegistrarV2<E, T> = FutureOr<void> Function(Event event);
 
-// abstract class EventRegistrar<E> {
-//   register<E>(Eventer<E> eventHandler);
-// }
-
-// abstract class StateComplex<T> {
-//   T get state;
-//   T get initialState;
-//   set state(T n);
-// }
-
-// abstract class EventAdder<E> {
-//   void add<E>(E e);
-// }
-
-// class EventHandlerSelen<E> {
-//   final bool Function(E) isType;
-//   final Type type;
-//   final Eventer<E> invoker;
-//   const EventHandlerSelen(this.isType, this.type, this.invoker);
-// }
-
-// typedef Eventer<E> = void Function(E event);
-
-// abstract class Complex<T, E>
-//     implements EventRegistrar<E>, StateComplex<T>, EventAdder<E> {
-//   final eventsWithHandlers = <Type, void Function()>{};
-//   final events = <Type, EventHandlerSelen<E>>{};
-//   late T _state = initialState;
-//   @override
-//   T get state => _state;
-//   @override
-//   set state(T newState) {
-//     _state = newState;
-//   }
-
-//   Complex() {}
-
-//   @override
-//   void register<Ev>(Eventer<Ev> eventer) {
-//     if (events.containsKey(Ev)) {
-//       throw StateError('$Ev already registered');
-//     }
-//     events[Ev] = EventHandlerSelen(
-//       (event) => event is Ev,
-//       Ev,
-//       eventer as Eventer<E>,
-//     );
-//     log('$Ev registered');
-//   }
-
-//   @override
-//   void add<Ev>(Ev event) {
-//     final updateRunner = events[Ev];
-//     if (updateRunner != null) {
-//       updateRunner.invoker(event as E);
-//     }
-//   }
-// }
-
-class CountRM extends Complex<Event, State> {
+class CountRM extends Complex<Event, int> {
   CountRM() {
     register<IncrementEvent>(
-      (_, o) {
-        o(IncrementedState(state() + 1));
+      (_) {
+        state = state += 1;
       },
     );
     register<DecrementEvent>(
-      (_, o) {
-        o(DecrementedState(state() - 1));
+      (
+        _,
+      ) {
+        state = state -= 1;
       },
     );
   }
 
   @override
-  State get initialState => IncrementedState(0);
-}
-
-abstract class State {
-  call();
-}
-
-class IncrementedState extends State {
-  final int count;
-  IncrementedState(this.count);
-  int call() => count;
-}
-
-class DecrementedState extends State {
-  final int count;
-  DecrementedState(this.count);
-  int call() => count;
+  int get initialState => 0;
 }
 
 class Event {}
