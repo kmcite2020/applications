@@ -10,7 +10,3 @@ class Handler with _$Handler {
     required final Function function,
   }) = _Handler;
 }
-
-
-
-class 
