@@ -1,6 +1,9 @@
 import 'package:manager/manager.dart';
 import 'package:manager/state_manager/capsule.dart';
 
+typedef ToJson<T> = Map<String, dynamic> Function(T state);
+typedef FromJson<T> = T Function(Map<String, dynamic> json);
+
 abstract class InitialOf<State> {
   State get initialState;
 }
@@ -17,17 +20,28 @@ abstract class SetterOf<State> {
   set state(State newState);
 }
 
+abstract class Disposable {
+  bool get autoDispose;
+  dispose();
+}
+
 abstract class Base<State>
     implements
         InitialOf<State>,
         ReactivityIntegrated,
+        Disposable,
         GetterOf<State>,
         SetterOf<State> {
   Base() {
     injected = Capsule(initialState).inj(
-      autoDisposeWhenNotUsed: false,
+      autoDisposeWhenNotUsed: autoDispose,
     );
   }
+  @override
+  bool get autoDispose => true;
+  @override
+  dispose() => injected.dispose();
+
   @override
   State get initialState;
 

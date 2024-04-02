@@ -70,8 +70,8 @@ typedef EventRegistrar<Event, State> = FutureOr<void> Function(
 );
 typedef EventRegistrarV2<E, T> = FutureOr<void> Function(Event event);
 
-class CountRM extends Complex<Event, int> {
-  CountRM() {
+class CountComplex extends Complex<Event, int> {
+  CountComplex() {
     register<IncrementEvent>(
       (_) {
         state = state += 1;

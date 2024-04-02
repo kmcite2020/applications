@@ -1,17 +1,6 @@
 part of 'manager.dart';
 
-typedef ToJson<T> = Map<String, dynamic> Function(T state);
-typedef FromJson<T> = T Function(Map<String, dynamic> json);
 typedef TypeChecker = bool Function(dynamic);
-
-@freezed
-class Persistor<T> with _$Persistor<T> {
-  const factory Persistor({
-    required final String key,
-    required final ToJson<T> toJson,
-    required final FromJson<T> fromJson,
-  }) = _Persistor<T>;
-}
 
 @freezed
 class Handler with _$Handler {
@@ -21,3 +10,7 @@ class Handler with _$Handler {
     required final Function function,
   }) = _Handler;
 }
+
+
+
+class 
