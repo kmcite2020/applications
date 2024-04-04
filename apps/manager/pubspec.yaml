@@ -1,7 +1,7 @@
 name: manager
-description: "A new Flutter project."
+description: "A new State Management Project"
 publish_to: 'none' 
-version: 1.0.0+1
+version: 2.0.0+0
 environment:
   sdk: ">=3.2.0 <4.0.0"
 dependencies:
@@ -10,9 +10,6 @@ dependencies:
   cupertino_icons: ^1.0.6
   states_rebuilder: ^6.4.0
   package_info_plus: ^5.0.1
-  hive: ^4.0.0-dev.2
-  # isar: ^4.0.0-dev.13
-  # isar_flutter_libs: ^4.0.0-dev.13
   freezed: any
   freezed_annotation: ^2.4.1
   build_runner: any
@@ -21,6 +18,7 @@ dependencies:
   path_provider: ^2.1.2
   uuid: ^4.3.3
   dynamic_color: ^1.7.0
+  hive_flutter: ^1.1.0
 
 dev_dependencies:
   very_good_analysis: ^5.1.0

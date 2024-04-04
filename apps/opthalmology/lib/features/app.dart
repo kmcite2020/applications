@@ -24,15 +24,13 @@ class App extends TopUI {
 
   @override
   Widget build(BuildContext context) {
-    return OnReactive(
-      () => MaterialApp(
-        navigatorKey: RM.navigate.navigatorKey,
-        debugShowCheckedModeBanner: false,
-        theme: themes.theme(),
-        darkTheme: themes.darkTheme(),
-        themeMode: themes.themeMode(),
-        home: DashboardPage(),
-      ),
+    return MaterialApp(
+      navigatorKey: RM.navigate.navigatorKey,
+      debugShowCheckedModeBanner: false,
+      theme: themes.theme(),
+      darkTheme: themes.darkTheme(),
+      themeMode: themes.themeMode(),
+      home: DashboardPage(),
     );
   }
 }

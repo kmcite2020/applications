@@ -1,6 +1,4 @@
-import 'package:dynamic_color/dynamic_color.dart';
 import 'package:manager/manager.dart';
-import 'package:manager/state_manager/complex.dart';
 
 void main() {
   runApp(App());
@@ -13,6 +11,7 @@ class App extends UI {
     return DynamicColorBuilder(
       builder: (light, dark) {
         return MaterialApp(
+          navigatorKey: RM.navigate.navigatorKey,
           debugShowCheckedModeBanner: false,
           themeMode: ThemeMode.system,
           darkTheme: ThemeData(colorScheme: dark),
@@ -21,40 +20,35 @@ class App extends UI {
               title: 'Manager'.text(textScaleFactor: 1.3),
             ),
             body: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                //         """
-                // version: 1.0.0+1
-                // Avaialble APIs:
-                // 1. TopUI
-                // 2. UI
-                // 3. Page
-                // 4. RM, Injected, and others from states_rebuilder
-                // Extensions:
-                // .text()
-                // .pad()
-                // .humane()
-                // .human()
-                // .isNull
-                // .isNotNull
-                // Other APIs:
-                // randomID
-                // HiveStorage()
-                // """
-                //             .text()
-                //             .center(),
-                countRM().text(textScaleFactor: 5),
+                'State Management APIs'.text(textScaleFactor: 1.5).pad().card(),
                 ElevatedButton(
-                  onPressed: () {
-                    countRM(DecrementEvent());
-                  },
-                  child: '--'.text(textScaleFactor: 3),
-                ).pad(),
+                  onPressed: () => RM.navigate.to(ComplexUI()),
+                  child: 'Complex'.text().pad(),
+                ).pad(), //         """
                 ElevatedButton(
-                  onPressed: () {
-                    countRM(IncrementEvent());
-                  },
-                  child: '++'.text(textScaleFactor: 2),
-                ).pad(),
+                  onPressed: () => RM.navigate.to(ManagerUI()),
+                  child: 'Manager'.text().pad(),
+                ).pad(), //         """
+                ElevatedButton(
+                  onPressed: () => RM.navigate.to(SimplicityUI()),
+                  child: 'Simplicity'.text().pad(),
+                ).pad(), //         """
+                'UI APIs'.text(textScaleFactor: 1.5).pad().card(),
+                Wrap(
+                  children: [
+                    Chip(
+                      label: 'UI'.text(),
+                    ).pad(),
+                    Chip(
+                      label: 'TopUI'.text(),
+                    ).pad(),
+                    Chip(
+                      label: 'Page'.text(),
+                    ).pad(),
+                  ],
+                ).pad().card(),
               ],
             ),
           ),
@@ -64,5 +58,3 @@ class App extends UI {
     );
   }
 }
-
-final countRM = CountComplex();

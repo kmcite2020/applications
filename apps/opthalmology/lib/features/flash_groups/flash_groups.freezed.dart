@@ -190,3 +190,381 @@ abstract class _FlashGroup extends FlashGroup {
   _$$FlashGroupImplCopyWith<_$FlashGroupImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+/// @nodoc
+mixin _$FlashGroupsEvent {
+  FlashGroup get group => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(FlashGroup group) update,
+    required TResult Function(FlashGroup group) delete,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(FlashGroup group)? update,
+    TResult? Function(FlashGroup group)? delete,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(FlashGroup group)? update,
+    TResult Function(FlashGroup group)? delete,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_FlashGroupsEventUpdate value) update,
+    required TResult Function(_FlashGroupsEventDelete value) delete,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_FlashGroupsEventUpdate value)? update,
+    TResult? Function(_FlashGroupsEventDelete value)? delete,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_FlashGroupsEventUpdate value)? update,
+    TResult Function(_FlashGroupsEventDelete value)? delete,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $FlashGroupsEventCopyWith<FlashGroupsEvent> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $FlashGroupsEventCopyWith<$Res> {
+  factory $FlashGroupsEventCopyWith(
+          FlashGroupsEvent value, $Res Function(FlashGroupsEvent) then) =
+      _$FlashGroupsEventCopyWithImpl<$Res, FlashGroupsEvent>;
+  @useResult
+  $Res call({FlashGroup group});
+
+  $FlashGroupCopyWith<$Res> get group;
+}
+
+/// @nodoc
+class _$FlashGroupsEventCopyWithImpl<$Res, $Val extends FlashGroupsEvent>
+    implements $FlashGroupsEventCopyWith<$Res> {
+  _$FlashGroupsEventCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? group = null,
+  }) {
+    return _then(_value.copyWith(
+      group: null == group
+          ? _value.group
+          : group // ignore: cast_nullable_to_non_nullable
+              as FlashGroup,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FlashGroupCopyWith<$Res> get group {
+    return $FlashGroupCopyWith<$Res>(_value.group, (value) {
+      return _then(_value.copyWith(group: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$FlashGroupsEventUpdateImplCopyWith<$Res>
+    implements $FlashGroupsEventCopyWith<$Res> {
+  factory _$$FlashGroupsEventUpdateImplCopyWith(
+          _$FlashGroupsEventUpdateImpl value,
+          $Res Function(_$FlashGroupsEventUpdateImpl) then) =
+      __$$FlashGroupsEventUpdateImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({FlashGroup group});
+
+  @override
+  $FlashGroupCopyWith<$Res> get group;
+}
+
+/// @nodoc
+class __$$FlashGroupsEventUpdateImplCopyWithImpl<$Res>
+    extends _$FlashGroupsEventCopyWithImpl<$Res, _$FlashGroupsEventUpdateImpl>
+    implements _$$FlashGroupsEventUpdateImplCopyWith<$Res> {
+  __$$FlashGroupsEventUpdateImplCopyWithImpl(
+      _$FlashGroupsEventUpdateImpl _value,
+      $Res Function(_$FlashGroupsEventUpdateImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? group = null,
+  }) {
+    return _then(_$FlashGroupsEventUpdateImpl(
+      null == group
+          ? _value.group
+          : group // ignore: cast_nullable_to_non_nullable
+              as FlashGroup,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FlashGroupsEventUpdateImpl implements _FlashGroupsEventUpdate {
+  const _$FlashGroupsEventUpdateImpl(this.group);
+
+  @override
+  final FlashGroup group;
+
+  @override
+  String toString() {
+    return 'FlashGroupsEvent.update(group: $group)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FlashGroupsEventUpdateImpl &&
+            (identical(other.group, group) || other.group == group));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, group);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FlashGroupsEventUpdateImplCopyWith<_$FlashGroupsEventUpdateImpl>
+      get copyWith => __$$FlashGroupsEventUpdateImplCopyWithImpl<
+          _$FlashGroupsEventUpdateImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(FlashGroup group) update,
+    required TResult Function(FlashGroup group) delete,
+  }) {
+    return update(group);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(FlashGroup group)? update,
+    TResult? Function(FlashGroup group)? delete,
+  }) {
+    return update?.call(group);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(FlashGroup group)? update,
+    TResult Function(FlashGroup group)? delete,
+    required TResult orElse(),
+  }) {
+    if (update != null) {
+      return update(group);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_FlashGroupsEventUpdate value) update,
+    required TResult Function(_FlashGroupsEventDelete value) delete,
+  }) {
+    return update(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_FlashGroupsEventUpdate value)? update,
+    TResult? Function(_FlashGroupsEventDelete value)? delete,
+  }) {
+    return update?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_FlashGroupsEventUpdate value)? update,
+    TResult Function(_FlashGroupsEventDelete value)? delete,
+    required TResult orElse(),
+  }) {
+    if (update != null) {
+      return update(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FlashGroupsEventUpdate implements FlashGroupsEvent {
+  const factory _FlashGroupsEventUpdate(final FlashGroup group) =
+      _$FlashGroupsEventUpdateImpl;
+
+  @override
+  FlashGroup get group;
+  @override
+  @JsonKey(ignore: true)
+  _$$FlashGroupsEventUpdateImplCopyWith<_$FlashGroupsEventUpdateImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FlashGroupsEventDeleteImplCopyWith<$Res>
+    implements $FlashGroupsEventCopyWith<$Res> {
+  factory _$$FlashGroupsEventDeleteImplCopyWith(
+          _$FlashGroupsEventDeleteImpl value,
+          $Res Function(_$FlashGroupsEventDeleteImpl) then) =
+      __$$FlashGroupsEventDeleteImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({FlashGroup group});
+
+  @override
+  $FlashGroupCopyWith<$Res> get group;
+}
+
+/// @nodoc
+class __$$FlashGroupsEventDeleteImplCopyWithImpl<$Res>
+    extends _$FlashGroupsEventCopyWithImpl<$Res, _$FlashGroupsEventDeleteImpl>
+    implements _$$FlashGroupsEventDeleteImplCopyWith<$Res> {
+  __$$FlashGroupsEventDeleteImplCopyWithImpl(
+      _$FlashGroupsEventDeleteImpl _value,
+      $Res Function(_$FlashGroupsEventDeleteImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? group = null,
+  }) {
+    return _then(_$FlashGroupsEventDeleteImpl(
+      null == group
+          ? _value.group
+          : group // ignore: cast_nullable_to_non_nullable
+              as FlashGroup,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FlashGroupsEventDeleteImpl implements _FlashGroupsEventDelete {
+  const _$FlashGroupsEventDeleteImpl(this.group);
+
+  @override
+  final FlashGroup group;
+
+  @override
+  String toString() {
+    return 'FlashGroupsEvent.delete(group: $group)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FlashGroupsEventDeleteImpl &&
+            (identical(other.group, group) || other.group == group));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, group);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FlashGroupsEventDeleteImplCopyWith<_$FlashGroupsEventDeleteImpl>
+      get copyWith => __$$FlashGroupsEventDeleteImplCopyWithImpl<
+          _$FlashGroupsEventDeleteImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(FlashGroup group) update,
+    required TResult Function(FlashGroup group) delete,
+  }) {
+    return delete(group);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(FlashGroup group)? update,
+    TResult? Function(FlashGroup group)? delete,
+  }) {
+    return delete?.call(group);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(FlashGroup group)? update,
+    TResult Function(FlashGroup group)? delete,
+    required TResult orElse(),
+  }) {
+    if (delete != null) {
+      return delete(group);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_FlashGroupsEventUpdate value) update,
+    required TResult Function(_FlashGroupsEventDelete value) delete,
+  }) {
+    return delete(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_FlashGroupsEventUpdate value)? update,
+    TResult? Function(_FlashGroupsEventDelete value)? delete,
+  }) {
+    return delete?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_FlashGroupsEventUpdate value)? update,
+    TResult Function(_FlashGroupsEventDelete value)? delete,
+    required TResult orElse(),
+  }) {
+    if (delete != null) {
+      return delete(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FlashGroupsEventDelete implements FlashGroupsEvent {
+  const factory _FlashGroupsEventDelete(final FlashGroup group) =
+      _$FlashGroupsEventDeleteImpl;
+
+  @override
+  FlashGroup get group;
+  @override
+  @JsonKey(ignore: true)
+  _$$FlashGroupsEventDeleteImplCopyWith<_$FlashGroupsEventDeleteImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}

@@ -22,7 +22,7 @@ abstract class SetterOf<State> {
 
 abstract class Disposable {
   bool get autoDispose;
-  dispose();
+  void dispose();
 }
 
 abstract class Base<State>

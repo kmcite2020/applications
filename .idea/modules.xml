@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/apps/batteries/melos_batteries.iml" filepath="$PROJECT_DIR$/apps/batteries/melos_batteries.iml" />
+      <module fileurl="file://$PROJECT_DIR$/apps/beseech/melos_beseech.iml" filepath="$PROJECT_DIR$/apps/beseech/melos_beseech.iml" />
       <module fileurl="file://$PROJECT_DIR$/apps/hmis/melos_hmis.iml" filepath="$PROJECT_DIR$/apps/hmis/melos_hmis.iml" />
       <module fileurl="file://$PROJECT_DIR$/apps/manager/melos_manager.iml" filepath="$PROJECT_DIR$/apps/manager/melos_manager.iml" />
       <module fileurl="file://$PROJECT_DIR$/apps/notes/melos_notes.iml" filepath="$PROJECT_DIR$/apps/notes/melos_notes.iml" />

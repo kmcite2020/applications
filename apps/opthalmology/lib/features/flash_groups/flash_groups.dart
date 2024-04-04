@@ -32,3 +32,28 @@ final deleteFlashGroup = (FlashGroup folder) {
 extension IndexOnColor on MaterialColor {
   int get index => Colors.primaries.indexOf(this);
 }
+
+class FlashGroupsRM extends Complex<FlashGroupsEvent, Map<String, FlashGroup>> {
+  FlashGroupsRM() {
+    register<_FlashGroupsEventDelete>(
+      (event) => flashGroups(
+        Map.of(flashGroups())..remove(event.group.id),
+      ),
+    );
+    register<_FlashGroupsEventUpdate>(
+      (event) => flashGroups(
+        Map.of(flashGroups())..[event.group.id] = event.group,
+      ),
+    );
+  }
+  @override
+  Map<String, FlashGroup> get initialState => flashGroups();
+}
+
+@freezed
+class FlashGroupsEvent with _$FlashGroupsEvent {
+  const factory FlashGroupsEvent.update(FlashGroup group) =
+      _FlashGroupsEventUpdate;
+  const factory FlashGroupsEvent.delete(FlashGroup group) =
+      _FlashGroupsEventDelete;
+}

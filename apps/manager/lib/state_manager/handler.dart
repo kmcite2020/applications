@@ -1,4 +1,6 @@
-part of 'manager.dart';
+import '../manager.dart';
+
+part 'handler.freezed.dart';
 
 typedef TypeChecker = bool Function(dynamic);
 

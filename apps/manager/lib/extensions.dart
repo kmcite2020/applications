@@ -31,6 +31,7 @@ extension WidgetExtensions on Widget {
   }
 
   Widget center() => Center(child: this);
+  Widget card() => Card(child: this);
 }
 
 extension DateTimeExtensions on DateTime {

@@ -1,6 +1,7 @@
 import 'package:manager/state_manager/base.dart';
 
 import '../manager.dart';
+import 'handler.dart';
 
 abstract class AdderOf<Event> {
   void add(Event newEvent);
@@ -15,7 +16,7 @@ abstract class HandlersListOfComplex {
 }
 
 abstract class RegistrarOfEvents<State> {
-  void register<Event>(EventRegistrarV2<Event, State> eventRegistrar);
+  void register<Event>(EventRegistrar<Event, State> eventRegistrar);
 }
 
 abstract class Complex<E, T> extends Base<T>
@@ -46,7 +47,7 @@ abstract class Complex<E, T> extends Base<T>
   }
 
   @override
-  void register<E>(EventRegistrarV2<E, T> eventRegistrar) {
+  void register<E>(EventRegistrar<E, T> eventRegistrar) {
     final registered = handlers.any((handler) => handler.type == E);
     assert(
       !registered,
@@ -59,39 +60,18 @@ abstract class Complex<E, T> extends Base<T>
         function: eventRegistrar,
       ),
     );
-    log('$E registered.');
+    addLog('$E registered.');
   }
 }
 
 typedef Emitter<T> = void Function(T newState);
-typedef EventRegistrar<Event, State> = FutureOr<void> Function(
-  Event event,
-  Emitter<State> updater,
-);
-typedef EventRegistrarV2<E, T> = FutureOr<void> Function(Event event);
+typedef EventRegistrar<E, T> = FutureOr<void> Function(E event);
 
-class CountComplex extends Complex<Event, int> {
-  CountComplex() {
-    register<IncrementEvent>(
-      (_) {
-        state = state += 1;
-      },
-    );
-    register<DecrementEvent>(
-      (
-        _,
-      ) {
-        state = state -= 1;
-      },
-    );
-  }
+final _logs = <String>[];
 
-  @override
-  int get initialState => 0;
+List<String> get logs => _logs.take(5).toList();
+
+addLog(String _log) {
+  log(_log);
+  _logs.add(_log);
 }
-
-class Event {}
-
-class IncrementEvent extends Event {}
-
-class DecrementEvent extends Event {}
