@@ -5,6 +5,10 @@ packages:
 scripts:
   build all apps:
     exec: flutter build apk
+  clean all apps:
+    exec: flutter clean
+  pub get:
+    exec: flutter packages get
   install all apks:
     exec: adb install build\app\outputs\flutter-apk\app-release.apk
 command:

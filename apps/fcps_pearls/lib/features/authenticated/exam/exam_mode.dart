@@ -1,5 +1,3 @@
-import 'package:manager/manager.dart';
-
 import '../../../main.dart';
 import '../authenticated.dart';
 

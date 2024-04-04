@@ -1,6 +1,5 @@
 import 'package:fcps_pearls/features/auth_state.dart';
 import 'package:manager/manager.dart';
-import 'package:manager/state_manager/management/simple.dart';
 
 import '../un_athenticated.dart';
 
@@ -36,7 +35,7 @@ class RegisterPage extends UI {
             autovalidateMode: AutovalidateMode.always,
           ).pad(),
           ElevatedButton(
-            onPressed: () => register(
+            onPressed: () => authStateRM.register(
               registerEmailRM(),
               registerPasswordRM(),
               registerUserIDRM(),
@@ -53,9 +52,9 @@ class RegisterPage extends UI {
   }
 }
 
-final registerEmailRM = Simple('');
-final registerUserIDRM = Simple('');
-final registerPasswordRM = Simple('');
+final registerEmailRM = Simplicity('');
+final registerUserIDRM = Simplicity('');
+final registerPasswordRM = Simplicity('');
 
 String? validatePassword(String? password) {
   if (password!.isEmpty) {

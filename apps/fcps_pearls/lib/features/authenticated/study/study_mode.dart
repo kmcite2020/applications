@@ -1,5 +1,3 @@
-import 'package:manager/manager.dart';
-
 import '../../../main.dart';
 import '../authenticated.dart';
 
@@ -22,9 +20,9 @@ class StudyModePage extends UI {
           bottom: TabBar(
             indicatorColor: settingsRM().materialColor.shade900,
             labelColor: settingsRM().materialColor.shade100,
-            tabs: pearlsRM().map(
+            tabs: pearlsRM().pearlsCache.values.map(
               (pearl) {
-                final i = pearlsRM().indexOf(pearl);
+                final i = pearlsRM().pearlsCache.values.toList().indexOf(pearl);
                 return Tab(
                   text: (i + 1).toString(),
                 );
@@ -34,7 +32,7 @@ class StudyModePage extends UI {
           ),
         ),
         body: TabBarView(
-          children: pearlsRM().map(
+          children: pearlsRM().pearlsCache.values.map(
             (pearl) {
               return Scaffold(
                 body: ListView(

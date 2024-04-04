@@ -1,4 +1,3 @@
-import 'package:manager/manager.dart';
 import '../../../main.dart';
 
 class EditPearlPage extends UI {
@@ -8,15 +7,15 @@ class EditPearlPage extends UI {
     required this.id,
   });
 
-  static final dynamic pearlRM;
+  static final dynamic pearlRM = 0;
   // RM.inject<Pearl>(() => throw UnimplementedError());
   @override
   void didMountWidget(BuildContext context) {
     super.didMountWidget(context);
-    pearlRM.state = pearlsRM.getPearl(id);
+    pearlRM.state = pearlsRM.getByID(id);
   }
 
-  static final updater = pearlsRM.updatePearl;
+  static final updater = (Pearl pearl) => pearlsRM(PearlsEvent.save(pearl));
 
   @override
   Widget build(BuildContext context) {
@@ -73,12 +72,12 @@ class EditPearlPage extends UI {
             minLines: 2,
           ).pad(),
           ElevatedButton(
-            onPressed: pearlsRM.loading
+            onPressed: pearlsRM.injected.isWaiting
                 ? null
                 : () {
                     updater(pearl);
                   },
-            child: pearlsRM.loading
+            child: pearlsRM.injected.isWaiting
                 ? CircularProgressIndicator().pad()
                 : 'Update'.text(textScaleFactor: 2).pad(),
           ).pad(),

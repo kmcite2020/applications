@@ -1,5 +1,3 @@
-import 'package:manager/manager.dart';
-
 import '../../../main.dart';
 import '../authenticated.dart';
 
@@ -23,9 +21,12 @@ class StudioModePage extends UI {
             isScrollable: true,
             labelColor: settingsRM().materialColor.shade200,
             tabs: pearlsRM()
+                .pearlsCache
+                .values
                 .map(
                   (pearl) => Tab(
-                    text: '${pearlsRM().indexOf(pearl) + 1}',
+                    text:
+                        '${pearlsRM().pearlsCache.values.toList().indexOf(pearl) + 1}',
                   ),
                 )
                 .toList(),
@@ -44,7 +45,7 @@ class TabBarViewOfPearls extends UI {
   @override
   Widget build(BuildContext context) {
     return TabBarView(
-      children: pearlsRM().map<Widget>(
+      children: pearlsRM().pearlsCache.values.map<Widget>(
         (_pearl) {
           return _pearlRM.inherited(
             stateOverride: () => _pearl,
@@ -92,16 +93,16 @@ class TabBarViewOfPearls extends UI {
                       minLines: 2,
                     ).pad(),
                     ElevatedButton.icon(
-                      onPressed: pearlsRM.loading || pearl == _pearl
+                      onPressed: pearlsRM.injected.isWaiting || pearl == _pearl
                           ? null
                           : () {
-                              pearlsRM.updatePearl(pearl);
+                              pearlsRM(PearlsEvent.save(pearl));
                             },
                       label: Row(
                         children: [
                           pearl == _pearl
                               ? "Updated".text(textScaleFactor: 2).pad()
-                              : pearlsRM.loading
+                              : pearlsRM.injected.isWaiting
                                   ? 'Updating'.text(textScaleFactor: 2).pad()
                                   : 'Update'.text(textScaleFactor: 2).pad(),
                         ],
@@ -110,7 +111,7 @@ class TabBarViewOfPearls extends UI {
                         children: [
                           pearl == _pearl
                               ? Icon(Icons.done)
-                              : pearlsRM.loading
+                              : pearlsRM.injected.isWaiting
                                   ? CircularProgressIndicator()
                                   : Icon(Icons.update),
                         ],

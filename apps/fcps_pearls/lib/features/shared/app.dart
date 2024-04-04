@@ -2,9 +2,6 @@ import 'package:fcps_pearls/features/authenticated/exam/exam_mode.dart';
 import 'package:fcps_pearls/features/un_authenticated/login/login_page.dart';
 import 'package:fcps_pearls/features/un_authenticated/register/register_page.dart';
 import 'package:fcps_pearls/features/authenticated/studio/studio_mode.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:manager/manager.dart';
-import 'package:states_rebuilder/scr/state_management/extensions/type_extensions.dart';
 
 import '../../main.dart';
 import '../auth_error/login_error_ui.dart';
@@ -12,34 +9,11 @@ import '../auth_state.dart';
 import '../authenticated/authenticated.dart';
 import '../un_authenticated/un_athenticated.dart';
 
-final client = Client()
-  ..setEndpoint('https://cloud.appwrite.io/v1')
-  ..setProject('65b64b10d921fc9e7826')
-  ..setSelfSigned(status: true);
-
-void initialize() async {
-  FlutterNativeSplash.preserve(
-    widgetsBinding: WidgetsFlutterBinding.ensureInitialized(),
-  );
-  await directoryRM.initializeState();
-  // await RM.storageInitializer(HiveStorage());
-
-  runApp(const App());
-}
-
-class App extends UI {
-  const App({super.key});
-
+class App extends TopUI {
   @override
-  void didMountWidget(BuildContext context) {
-    super.didMountWidget(context);
-    FlutterNativeSplash.remove();
-  }
-
-  @override
-  Widget build(BuildContext context) {
+  Widget buildApp(BuildContext context) {
     return MaterialApp(
-      navigatorKey: RM.navigatorKey,
+      navigatorKey: RM.navigate.navigatorKey,
       debugShowCheckedModeBanner: false,
       theme: FlexThemeData.light(
         useMaterial3: true,

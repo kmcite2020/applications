@@ -32,21 +32,21 @@ bool get isItGoodToLogin =>
         ) ==
         null;
 
-final loginEmailRM = RM(
-  () => '',
-  persistor: Persistor(
-    key: 'loginEmail',
-    toJson: (email) => {'data': email},
-    fromJson: (json) => json['data'],
-  ),
+final loginEmailRM = Simplicity(
+  '',
+  // persistor: Persistor(
+  //   key: 'loginEmail',
+  //   toJson: (email) => {'data': email},
+  //   fromJson: (json) => json['data'],
+  // ),
 );
-final loginPasswordRM = RM(
-  () => '',
-  persistor: Persistor(
-    key: 'loginPassword',
-    toJson: (password) => {'data': password},
-    fromJson: (json) => json['data'],
-  ),
+final loginPasswordRM = Simplicity(
+  '',
+  // persistor: Persistor(
+  //   key: 'loginPassword',
+  //   toJson: (password) => {'data': password},
+  //   fromJson: (json) => json['data'],
+  // ),
 );
 
 class LoginPage extends UI {
@@ -77,7 +77,7 @@ class LoginPage extends UI {
           ).pad(),
           ElevatedButton(
             onPressed: isItGoodToLogin
-                ? () => login(
+                ? () => authStateRM.login(
                       loginEmailRM(),
                       loginPasswordRM(),
                     )

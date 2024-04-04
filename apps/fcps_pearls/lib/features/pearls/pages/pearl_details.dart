@@ -1,5 +1,3 @@
-import 'package:manager/manager.dart';
-
 import '../../../main.dart';
 
 class PearlDetailsPage extends UI {
@@ -44,7 +42,8 @@ class PearlDetailsPage extends UI {
                 pearl.statement.text(textScaleFactor: 2).pad(),
                 SizedBox(height: 8),
                 ElevatedButton.icon(
-                  onPressed: pearl.answer.isEmpty ? null : answerRM.toggle,
+                  onPressed:
+                      pearl.answer.isEmpty ? null : () => answerRM(!answerRM()),
                   icon: Icon(
                     answerRM() ? Icons.visibility_off : Icons.visibility,
                   ),
@@ -54,12 +53,15 @@ class PearlDetailsPage extends UI {
                     ],
                   ),
                 ).pad(
-                  custom: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                  customPad: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 ),
                 if (answerRM()) pearl.answer.text(textScaleFactor: 2).pad(),
                 ElevatedButton.icon(
-                  onPressed:
-                      pearl.explanation.isEmpty ? null : explanationRM.toggle,
+                  onPressed: pearl.explanation.isEmpty
+                      ? null
+                      : () => explanationRM(
+                            !explanationRM(),
+                          ),
                   icon: Icon(
                     explanationRM() ? Icons.visibility_off : Icons.visibility,
                   ),
@@ -71,7 +73,7 @@ class PearlDetailsPage extends UI {
                     ],
                   ),
                 ).pad(
-                  custom: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                  customPad: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 ),
                 if (explanationRM())
                   pearl.explanation.text(textScaleFactor: 2).pad(),
@@ -81,8 +83,8 @@ class PearlDetailsPage extends UI {
         });
   }
 
-  static final answerRM = RM(() => false);
-  static final explanationRM = RM(() => false);
+  static final answerRM = Simplicity(false);
+  static final explanationRM = Simplicity(false);
 }
 
 class PearlBuilder extends UI {
@@ -95,7 +97,8 @@ class PearlBuilder extends UI {
   final Widget Function(Pearl pearl) builder;
   @override
   Widget build(BuildContext context) {
-    final pearl = pearlsRM().firstWhere((element) => element.id == id);
+    final pearl =
+        pearlsRM().pearlsCache.values.firstWhere((element) => element.id == id);
     return builder(pearl);
   }
 }

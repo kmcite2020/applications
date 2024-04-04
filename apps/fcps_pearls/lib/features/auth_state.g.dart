@@ -15,8 +15,6 @@ _$AuthStateImpl _$$AuthStateImplFromJson(Map<String, dynamic> json) =>
       password: json['password'] as String? ?? '',
       error: json['error'] as String? ?? '',
       stackTrace: json['stackTrace'] as String? ?? '',
-      session: Session.fromMap(json['session'] as Map<String, dynamic>),
-      user: User.fromMap(json['user'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$AuthStateImplToJson(_$AuthStateImpl instance) =>
@@ -27,8 +25,6 @@ Map<String, dynamic> _$$AuthStateImplToJson(_$AuthStateImpl instance) =>
       'password': instance.password,
       'error': instance.error,
       'stackTrace': instance.stackTrace,
-      'session': toJsonAny(instance.session),
-      'user': toJsonAny(instance.user),
     };
 
 const _$AuthStatusEnumMap = {

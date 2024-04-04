@@ -1,7 +1,6 @@
-import 'package:manager/manager.dart';
+import 'package:fcps_pearls/features/auth_state.dart';
 
 import '../../../main.dart';
-import '../../auth_state.dart';
 import '../authenticated.dart';
 
 class SettingsPage extends UI {
@@ -54,7 +53,7 @@ class SettingsPage extends UI {
             ),
           ).pad(),
           ElevatedButton(
-            onPressed: () => logout(),
+            onPressed: () => authStateRM.logout(),
             child: 'Log Out'.text(textScaleFactor: 2).pad(),
           ).pad(),
         ],

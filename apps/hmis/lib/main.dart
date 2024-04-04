@@ -17,11 +17,8 @@ export 'package:hmis/patients/ui/patients_page.dart';
 export 'package:hmis/settings/settings.dart';
 export 'package:hmis/settings/settings_page.dart';
 export 'package:hmis/settings/settings_rm.dart';
-export 'package:isar/isar.dart';
 export 'package:manager/manager.dart';
 export 'package:states_rebuilder/states_rebuilder.dart';
-
-late final Isar isar;
 
 void main() => runApp(MyApp());
 

@@ -12,7 +12,7 @@ part of 'auth_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 AuthState _$AuthStateFromJson(Map<String, dynamic> json) {
   return _AuthState.fromJson(json);
@@ -26,10 +26,6 @@ mixin _$AuthState {
   String get password => throw _privateConstructorUsedError;
   String get error => throw _privateConstructorUsedError;
   String get stackTrace => throw _privateConstructorUsedError;
-  @JsonKey(toJson: toJsonAny, fromJson: Session.fromMap)
-  Session? get session => throw _privateConstructorUsedError;
-  @JsonKey(toJson: toJsonAny, fromJson: User.fromMap)
-  User? get user => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -48,9 +44,7 @@ abstract class $AuthStateCopyWith<$Res> {
       String email,
       String password,
       String error,
-      String stackTrace,
-      @JsonKey(toJson: toJsonAny, fromJson: Session.fromMap) Session? session,
-      @JsonKey(toJson: toJsonAny, fromJson: User.fromMap) User? user});
+      String stackTrace});
 }
 
 /// @nodoc
@@ -72,8 +66,6 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
     Object? password = null,
     Object? error = null,
     Object? stackTrace = null,
-    Object? session = freezed,
-    Object? user = freezed,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -100,14 +92,6 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
           ? _value.stackTrace
           : stackTrace // ignore: cast_nullable_to_non_nullable
               as String,
-      session: freezed == session
-          ? _value.session
-          : session // ignore: cast_nullable_to_non_nullable
-              as Session?,
-      user: freezed == user
-          ? _value.user
-          : user // ignore: cast_nullable_to_non_nullable
-              as User?,
     ) as $Val);
   }
 }
@@ -126,9 +110,7 @@ abstract class _$$AuthStateImplCopyWith<$Res>
       String email,
       String password,
       String error,
-      String stackTrace,
-      @JsonKey(toJson: toJsonAny, fromJson: Session.fromMap) Session? session,
-      @JsonKey(toJson: toJsonAny, fromJson: User.fromMap) User? user});
+      String stackTrace});
 }
 
 /// @nodoc
@@ -148,8 +130,6 @@ class __$$AuthStateImplCopyWithImpl<$Res>
     Object? password = null,
     Object? error = null,
     Object? stackTrace = null,
-    Object? session = freezed,
-    Object? user = freezed,
   }) {
     return _then(_$AuthStateImpl(
       status: null == status
@@ -176,14 +156,6 @@ class __$$AuthStateImplCopyWithImpl<$Res>
           ? _value.stackTrace
           : stackTrace // ignore: cast_nullable_to_non_nullable
               as String,
-      session: freezed == session
-          ? _value.session
-          : session // ignore: cast_nullable_to_non_nullable
-              as Session?,
-      user: freezed == user
-          ? _value.user
-          : user // ignore: cast_nullable_to_non_nullable
-              as User?,
     ));
   }
 }
@@ -197,9 +169,7 @@ class _$AuthStateImpl implements _AuthState {
       this.email = '',
       this.password = '',
       this.error = '',
-      this.stackTrace = '',
-      @JsonKey(toJson: toJsonAny, fromJson: Session.fromMap) this.session,
-      @JsonKey(toJson: toJsonAny, fromJson: User.fromMap) this.user});
+      this.stackTrace = ''});
 
   factory _$AuthStateImpl.fromJson(Map<String, dynamic> json) =>
       _$$AuthStateImplFromJson(json);
@@ -222,20 +192,14 @@ class _$AuthStateImpl implements _AuthState {
   @override
   @JsonKey()
   final String stackTrace;
-  @override
-  @JsonKey(toJson: toJsonAny, fromJson: Session.fromMap)
-  final Session? session;
-  @override
-  @JsonKey(toJson: toJsonAny, fromJson: User.fromMap)
-  final User? user;
 
   @override
   String toString() {
-    return 'AuthState(status: $status, userID: $userID, email: $email, password: $password, error: $error, stackTrace: $stackTrace, session: $session, user: $user)';
+    return 'AuthState(status: $status, userID: $userID, email: $email, password: $password, error: $error, stackTrace: $stackTrace)';
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AuthStateImpl &&
@@ -246,15 +210,13 @@ class _$AuthStateImpl implements _AuthState {
                 other.password == password) &&
             (identical(other.error, error) || other.error == error) &&
             (identical(other.stackTrace, stackTrace) ||
-                other.stackTrace == stackTrace) &&
-            (identical(other.session, session) || other.session == session) &&
-            (identical(other.user, user) || other.user == user));
+                other.stackTrace == stackTrace));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, status, userID, email, password,
-      error, stackTrace, session, user);
+  int get hashCode => Object.hash(
+      runtimeType, status, userID, email, password, error, stackTrace);
 
   @JsonKey(ignore: true)
   @override
@@ -277,11 +239,7 @@ abstract class _AuthState implements AuthState {
       final String email,
       final String password,
       final String error,
-      final String stackTrace,
-      @JsonKey(toJson: toJsonAny, fromJson: Session.fromMap)
-      final Session? session,
-      @JsonKey(toJson: toJsonAny, fromJson: User.fromMap)
-      final User? user}) = _$AuthStateImpl;
+      final String stackTrace}) = _$AuthStateImpl;
 
   factory _AuthState.fromJson(Map<String, dynamic> json) =
       _$AuthStateImpl.fromJson;
@@ -298,12 +256,6 @@ abstract class _AuthState implements AuthState {
   String get error;
   @override
   String get stackTrace;
-  @override
-  @JsonKey(toJson: toJsonAny, fromJson: Session.fromMap)
-  Session? get session;
-  @override
-  @JsonKey(toJson: toJsonAny, fromJson: User.fromMap)
-  User? get user;
   @override
   @JsonKey(ignore: true)
   _$$AuthStateImplCopyWith<_$AuthStateImpl> get copyWith =>

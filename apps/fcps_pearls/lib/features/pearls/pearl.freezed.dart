@@ -12,7 +12,172 @@ part of 'pearl.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+
+Pearls _$PearlsFromJson(Map<String, dynamic> json) {
+  return _Pearls.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Pearls {
+  Map<String, Pearl> get pearlsCache => throw _privateConstructorUsedError;
+  bool get loading => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $PearlsCopyWith<Pearls> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PearlsCopyWith<$Res> {
+  factory $PearlsCopyWith(Pearls value, $Res Function(Pearls) then) =
+      _$PearlsCopyWithImpl<$Res, Pearls>;
+  @useResult
+  $Res call({Map<String, Pearl> pearlsCache, bool loading});
+}
+
+/// @nodoc
+class _$PearlsCopyWithImpl<$Res, $Val extends Pearls>
+    implements $PearlsCopyWith<$Res> {
+  _$PearlsCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? pearlsCache = null,
+    Object? loading = null,
+  }) {
+    return _then(_value.copyWith(
+      pearlsCache: null == pearlsCache
+          ? _value.pearlsCache
+          : pearlsCache // ignore: cast_nullable_to_non_nullable
+              as Map<String, Pearl>,
+      loading: null == loading
+          ? _value.loading
+          : loading // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$PearlsImplCopyWith<$Res> implements $PearlsCopyWith<$Res> {
+  factory _$$PearlsImplCopyWith(
+          _$PearlsImpl value, $Res Function(_$PearlsImpl) then) =
+      __$$PearlsImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({Map<String, Pearl> pearlsCache, bool loading});
+}
+
+/// @nodoc
+class __$$PearlsImplCopyWithImpl<$Res>
+    extends _$PearlsCopyWithImpl<$Res, _$PearlsImpl>
+    implements _$$PearlsImplCopyWith<$Res> {
+  __$$PearlsImplCopyWithImpl(
+      _$PearlsImpl _value, $Res Function(_$PearlsImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? pearlsCache = null,
+    Object? loading = null,
+  }) {
+    return _then(_$PearlsImpl(
+      pearlsCache: null == pearlsCache
+          ? _value._pearlsCache
+          : pearlsCache // ignore: cast_nullable_to_non_nullable
+              as Map<String, Pearl>,
+      loading: null == loading
+          ? _value.loading
+          : loading // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$PearlsImpl extends _Pearls {
+  const _$PearlsImpl(
+      {final Map<String, Pearl> pearlsCache = const <String, Pearl>{},
+      this.loading = false})
+      : _pearlsCache = pearlsCache,
+        super._();
+
+  factory _$PearlsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PearlsImplFromJson(json);
+
+  final Map<String, Pearl> _pearlsCache;
+  @override
+  @JsonKey()
+  Map<String, Pearl> get pearlsCache {
+    if (_pearlsCache is EqualUnmodifiableMapView) return _pearlsCache;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_pearlsCache);
+  }
+
+  @override
+  @JsonKey()
+  final bool loading;
+
+  @override
+  String toString() {
+    return 'Pearls(pearlsCache: $pearlsCache, loading: $loading)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PearlsImpl &&
+            const DeepCollectionEquality()
+                .equals(other._pearlsCache, _pearlsCache) &&
+            (identical(other.loading, loading) || other.loading == loading));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_pearlsCache), loading);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PearlsImplCopyWith<_$PearlsImpl> get copyWith =>
+      __$$PearlsImplCopyWithImpl<_$PearlsImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$PearlsImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Pearls extends Pearls {
+  const factory _Pearls(
+      {final Map<String, Pearl> pearlsCache,
+      final bool loading}) = _$PearlsImpl;
+  const _Pearls._() : super._();
+
+  factory _Pearls.fromJson(Map<String, dynamic> json) = _$PearlsImpl.fromJson;
+
+  @override
+  Map<String, Pearl> get pearlsCache;
+  @override
+  bool get loading;
+  @override
+  @JsonKey(ignore: true)
+  _$$PearlsImplCopyWith<_$PearlsImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
 
 Pearl _$PearlFromJson(Map<String, dynamic> json) {
   return _Pearl.fromJson(json);
@@ -155,7 +320,7 @@ class _$PearlImpl implements _Pearl {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PearlImpl &&
@@ -209,32 +374,68 @@ abstract class _Pearl implements Pearl {
       throw _privateConstructorUsedError;
 }
 
-Pearls _$PearlsFromJson(Map<String, dynamic> json) {
-  return _Pearls.fromJson(json);
-}
-
 /// @nodoc
-mixin _$Pearls {
-  Map<String, Pearl> get pearlsCache => throw _privateConstructorUsedError;
-  bool get loading => throw _privateConstructorUsedError;
+mixin _$PearlsEvent {
+  Pearl get pearl => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Pearl pearl) save,
+    required TResult Function(Pearl pearl) delete,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Pearl pearl)? save,
+    TResult? Function(Pearl pearl)? delete,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Pearl pearl)? save,
+    TResult Function(Pearl pearl)? delete,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_PearlsEventSave value) save,
+    required TResult Function(_PearlsEventDelete value) delete,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_PearlsEventSave value)? save,
+    TResult? Function(_PearlsEventDelete value)? delete,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PearlsEventSave value)? save,
+    TResult Function(_PearlsEventDelete value)? delete,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $PearlsCopyWith<Pearls> get copyWith => throw _privateConstructorUsedError;
+  $PearlsEventCopyWith<PearlsEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $PearlsCopyWith<$Res> {
-  factory $PearlsCopyWith(Pearls value, $Res Function(Pearls) then) =
-      _$PearlsCopyWithImpl<$Res, Pearls>;
+abstract class $PearlsEventCopyWith<$Res> {
+  factory $PearlsEventCopyWith(
+          PearlsEvent value, $Res Function(PearlsEvent) then) =
+      _$PearlsEventCopyWithImpl<$Res, PearlsEvent>;
   @useResult
-  $Res call({Map<String, Pearl> pearlsCache, bool loading});
+  $Res call({Pearl pearl});
+
+  $PearlCopyWith<$Res> get pearl;
 }
 
 /// @nodoc
-class _$PearlsCopyWithImpl<$Res, $Val extends Pearls>
-    implements $PearlsCopyWith<$Res> {
-  _$PearlsCopyWithImpl(this._value, this._then);
+class _$PearlsEventCopyWithImpl<$Res, $Val extends PearlsEvent>
+    implements $PearlsEventCopyWith<$Res> {
+  _$PearlsEventCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -244,132 +445,303 @@ class _$PearlsCopyWithImpl<$Res, $Val extends Pearls>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? pearlsCache = null,
-    Object? loading = null,
+    Object? pearl = null,
   }) {
     return _then(_value.copyWith(
-      pearlsCache: null == pearlsCache
-          ? _value.pearlsCache
-          : pearlsCache // ignore: cast_nullable_to_non_nullable
-              as Map<String, Pearl>,
-      loading: null == loading
-          ? _value.loading
-          : loading // ignore: cast_nullable_to_non_nullable
-              as bool,
+      pearl: null == pearl
+          ? _value.pearl
+          : pearl // ignore: cast_nullable_to_non_nullable
+              as Pearl,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PearlCopyWith<$Res> get pearl {
+    return $PearlCopyWith<$Res>(_value.pearl, (value) {
+      return _then(_value.copyWith(pearl: value) as $Val);
+    });
   }
 }
 
 /// @nodoc
-abstract class _$$PearlsImplCopyWith<$Res> implements $PearlsCopyWith<$Res> {
-  factory _$$PearlsImplCopyWith(
-          _$PearlsImpl value, $Res Function(_$PearlsImpl) then) =
-      __$$PearlsImplCopyWithImpl<$Res>;
+abstract class _$$PearlsEventSaveImplCopyWith<$Res>
+    implements $PearlsEventCopyWith<$Res> {
+  factory _$$PearlsEventSaveImplCopyWith(_$PearlsEventSaveImpl value,
+          $Res Function(_$PearlsEventSaveImpl) then) =
+      __$$PearlsEventSaveImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Map<String, Pearl> pearlsCache, bool loading});
+  $Res call({Pearl pearl});
+
+  @override
+  $PearlCopyWith<$Res> get pearl;
 }
 
 /// @nodoc
-class __$$PearlsImplCopyWithImpl<$Res>
-    extends _$PearlsCopyWithImpl<$Res, _$PearlsImpl>
-    implements _$$PearlsImplCopyWith<$Res> {
-  __$$PearlsImplCopyWithImpl(
-      _$PearlsImpl _value, $Res Function(_$PearlsImpl) _then)
+class __$$PearlsEventSaveImplCopyWithImpl<$Res>
+    extends _$PearlsEventCopyWithImpl<$Res, _$PearlsEventSaveImpl>
+    implements _$$PearlsEventSaveImplCopyWith<$Res> {
+  __$$PearlsEventSaveImplCopyWithImpl(
+      _$PearlsEventSaveImpl _value, $Res Function(_$PearlsEventSaveImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? pearlsCache = null,
-    Object? loading = null,
+    Object? pearl = null,
   }) {
-    return _then(_$PearlsImpl(
-      pearlsCache: null == pearlsCache
-          ? _value._pearlsCache
-          : pearlsCache // ignore: cast_nullable_to_non_nullable
-              as Map<String, Pearl>,
-      loading: null == loading
-          ? _value.loading
-          : loading // ignore: cast_nullable_to_non_nullable
-              as bool,
+    return _then(_$PearlsEventSaveImpl(
+      null == pearl
+          ? _value.pearl
+          : pearl // ignore: cast_nullable_to_non_nullable
+              as Pearl,
     ));
   }
 }
 
 /// @nodoc
-@JsonSerializable()
-class _$PearlsImpl extends _Pearls {
-  const _$PearlsImpl(
-      {final Map<String, Pearl> pearlsCache = const <String, Pearl>{},
-      this.loading = false})
-      : _pearlsCache = pearlsCache,
-        super._();
 
-  factory _$PearlsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PearlsImplFromJson(json);
-
-  final Map<String, Pearl> _pearlsCache;
-  @override
-  @JsonKey()
-  Map<String, Pearl> get pearlsCache {
-    if (_pearlsCache is EqualUnmodifiableMapView) return _pearlsCache;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_pearlsCache);
-  }
+class _$PearlsEventSaveImpl implements _PearlsEventSave {
+  const _$PearlsEventSaveImpl(this.pearl);
 
   @override
-  @JsonKey()
-  final bool loading;
+  final Pearl pearl;
 
   @override
   String toString() {
-    return 'Pearls(pearlsCache: $pearlsCache, loading: $loading)';
+    return 'PearlsEvent.save(pearl: $pearl)';
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PearlsImpl &&
-            const DeepCollectionEquality()
-                .equals(other._pearlsCache, _pearlsCache) &&
-            (identical(other.loading, loading) || other.loading == loading));
+            other is _$PearlsEventSaveImpl &&
+            (identical(other.pearl, pearl) || other.pearl == pearl));
   }
 
-  @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_pearlsCache), loading);
+  int get hashCode => Object.hash(runtimeType, pearl);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PearlsImplCopyWith<_$PearlsImpl> get copyWith =>
-      __$$PearlsImplCopyWithImpl<_$PearlsImpl>(this, _$identity);
+  _$$PearlsEventSaveImplCopyWith<_$PearlsEventSaveImpl> get copyWith =>
+      __$$PearlsEventSaveImplCopyWithImpl<_$PearlsEventSaveImpl>(
+          this, _$identity);
 
   @override
-  Map<String, dynamic> toJson() {
-    return _$$PearlsImplToJson(
-      this,
-    );
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Pearl pearl) save,
+    required TResult Function(Pearl pearl) delete,
+  }) {
+    return save(pearl);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Pearl pearl)? save,
+    TResult? Function(Pearl pearl)? delete,
+  }) {
+    return save?.call(pearl);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Pearl pearl)? save,
+    TResult Function(Pearl pearl)? delete,
+    required TResult orElse(),
+  }) {
+    if (save != null) {
+      return save(pearl);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_PearlsEventSave value) save,
+    required TResult Function(_PearlsEventDelete value) delete,
+  }) {
+    return save(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_PearlsEventSave value)? save,
+    TResult? Function(_PearlsEventDelete value)? delete,
+  }) {
+    return save?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PearlsEventSave value)? save,
+    TResult Function(_PearlsEventDelete value)? delete,
+    required TResult orElse(),
+  }) {
+    if (save != null) {
+      return save(this);
+    }
+    return orElse();
   }
 }
 
-abstract class _Pearls extends Pearls {
-  const factory _Pearls(
-      {final Map<String, Pearl> pearlsCache,
-      final bool loading}) = _$PearlsImpl;
-  const _Pearls._() : super._();
-
-  factory _Pearls.fromJson(Map<String, dynamic> json) = _$PearlsImpl.fromJson;
+abstract class _PearlsEventSave implements PearlsEvent {
+  const factory _PearlsEventSave(final Pearl pearl) = _$PearlsEventSaveImpl;
 
   @override
-  Map<String, Pearl> get pearlsCache;
-  @override
-  bool get loading;
+  Pearl get pearl;
   @override
   @JsonKey(ignore: true)
-  _$$PearlsImplCopyWith<_$PearlsImpl> get copyWith =>
+  _$$PearlsEventSaveImplCopyWith<_$PearlsEventSaveImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$PearlsEventDeleteImplCopyWith<$Res>
+    implements $PearlsEventCopyWith<$Res> {
+  factory _$$PearlsEventDeleteImplCopyWith(_$PearlsEventDeleteImpl value,
+          $Res Function(_$PearlsEventDeleteImpl) then) =
+      __$$PearlsEventDeleteImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({Pearl pearl});
+
+  @override
+  $PearlCopyWith<$Res> get pearl;
+}
+
+/// @nodoc
+class __$$PearlsEventDeleteImplCopyWithImpl<$Res>
+    extends _$PearlsEventCopyWithImpl<$Res, _$PearlsEventDeleteImpl>
+    implements _$$PearlsEventDeleteImplCopyWith<$Res> {
+  __$$PearlsEventDeleteImplCopyWithImpl(_$PearlsEventDeleteImpl _value,
+      $Res Function(_$PearlsEventDeleteImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? pearl = null,
+  }) {
+    return _then(_$PearlsEventDeleteImpl(
+      null == pearl
+          ? _value.pearl
+          : pearl // ignore: cast_nullable_to_non_nullable
+              as Pearl,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$PearlsEventDeleteImpl implements _PearlsEventDelete {
+  const _$PearlsEventDeleteImpl(this.pearl);
+
+  @override
+  final Pearl pearl;
+
+  @override
+  String toString() {
+    return 'PearlsEvent.delete(pearl: $pearl)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PearlsEventDeleteImpl &&
+            (identical(other.pearl, pearl) || other.pearl == pearl));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, pearl);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PearlsEventDeleteImplCopyWith<_$PearlsEventDeleteImpl> get copyWith =>
+      __$$PearlsEventDeleteImplCopyWithImpl<_$PearlsEventDeleteImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Pearl pearl) save,
+    required TResult Function(Pearl pearl) delete,
+  }) {
+    return delete(pearl);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Pearl pearl)? save,
+    TResult? Function(Pearl pearl)? delete,
+  }) {
+    return delete?.call(pearl);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Pearl pearl)? save,
+    TResult Function(Pearl pearl)? delete,
+    required TResult orElse(),
+  }) {
+    if (delete != null) {
+      return delete(pearl);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_PearlsEventSave value) save,
+    required TResult Function(_PearlsEventDelete value) delete,
+  }) {
+    return delete(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_PearlsEventSave value)? save,
+    TResult? Function(_PearlsEventDelete value)? delete,
+  }) {
+    return delete?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PearlsEventSave value)? save,
+    TResult Function(_PearlsEventDelete value)? delete,
+    required TResult orElse(),
+  }) {
+    if (delete != null) {
+      return delete(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PearlsEventDelete implements PearlsEvent {
+  const factory _PearlsEventDelete(final Pearl pearl) = _$PearlsEventDeleteImpl;
+
+  @override
+  Pearl get pearl;
+  @override
+  @JsonKey(ignore: true)
+  _$$PearlsEventDeleteImplCopyWith<_$PearlsEventDeleteImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

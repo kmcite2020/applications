@@ -1,4 +1,3 @@
-import 'package:fcps_pearls/main.dart';
 import 'package:manager/manager.dart';
 
 part 'settings.freezed.dart';
@@ -32,14 +31,12 @@ final class MaterialColorConverter
   int toJson(MaterialColor object) => Colors.primaries.indexOf(object);
 }
 
-final settingsRM = RM(
-  () => Settings(),
-  persistor: Persistor(
-    key: 'settings',
-    toJson: (s) => s.toJson(),
-    fromJson: Settings.fromJson,
-  ),
-);
+final settingsRM = SettingsRM();
+
+class SettingsRM extends Manager<Settings> {
+  @override
+  final initialState = Settings();
+}
 
 // final themeModeRM = ThemeMode.system.obs(
 //   persistor: (

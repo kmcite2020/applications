@@ -1,6 +1,4 @@
-import 'package:manager/state_manager/ui/ui.dart';
-
-import '../../../main.dart';
+import 'package:manager/manager.dart';
 
 class BackupPage extends UI {
   const BackupPage({super.key});

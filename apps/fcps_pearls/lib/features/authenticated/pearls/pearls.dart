@@ -1,5 +1,4 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:manager/manager.dart';
 
 import '../../../main.dart';
 import '../authenticated.dart';
@@ -22,17 +21,17 @@ class PearlsPage extends UI {
         title: Text('Pearls'),
       ),
       body: RefreshIndicator(
-        onRefresh: pearlsRM.getPearlsAsync,
+        onRefresh: () async {},
         child: ListView.builder(
           controller: ScrollController(),
           itemCount: pearlsRM().length,
           itemBuilder: (context, index) {
-            final pearl = pearlsRM()[index];
+            final pearl = pearlsRM().pearlsCache.values.toList()[index];
             return ListTile(
               leading: CircleAvatar(
                 child: (index + 1).text(),
               ),
-              onTap: pearlsRM.loading
+              onTap: pearlsRM.injected.isWaiting
                   ? null
                   : () {
                       // navigator.to(
@@ -56,7 +55,7 @@ class PearlsPage extends UI {
 
 enum PearlPage { pearls, editPearl, pearlDetails }
 
-final pearlsPageRM = RM(() => PearlPageState(page: PearlPage.pearls));
+final pearlsPageRM = Simplicity(PearlPageState(page: PearlPage.pearls));
 
 @freezed
 class PearlPageState with _$PearlPageState {

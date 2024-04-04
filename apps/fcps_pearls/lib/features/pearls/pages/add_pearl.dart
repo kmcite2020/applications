@@ -1,14 +1,12 @@
-import 'package:manager/manager.dart';
-
 import '../../../main.dart';
 
 class AddPearlPage extends UI {
-  static final dynamic pearlRM;
+  final pearlRM = Simplicity(Pearl());
   // RM.inject(Pearl.new);
-  static Pearl get pearl => pearlRM.state;
-  static void setPearl(Pearl _) => pearlRM.state = _;
+  Pearl get pearl => pearlRM.state;
+  void setPearl(Pearl _) => pearlRM.state = _;
 
-  const AddPearlPage({super.key});
+  AddPearlPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -52,12 +50,12 @@ class AddPearlPage extends UI {
           ).pad(),
           ElevatedButton(
             onPressed: () {
-              navigator.back(
-                () async {
-                  await pearlsRM.createPearl(pearl.copyWith(id: randomID));
-                  return 0;
-                }(),
-              );
+              // navigator.back(
+              //   () async {
+              //     await pearlsRM.createPearl(pearl.copyWith(id: randomID));
+              //     return 0;
+              //   }(),
+              // );
             },
             child: 'Save Pearl'.text(textScaleFactor: 2).pad(),
           ).pad(),

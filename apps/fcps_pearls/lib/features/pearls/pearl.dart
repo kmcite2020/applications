@@ -1,7 +1,4 @@
-import 'package:fcps_pearls/features/auth_state.dart';
-import 'package:fcps_pearls/features/pearls/repository.dart';
-
-import '../../main.dart';
+import 'package:manager/manager.dart';
 
 part 'pearl.freezed.dart';
 part 'pearl.g.dart';
@@ -44,43 +41,27 @@ final pearlsRM = PearlsRM();
 
 class PearlsRM extends Complex<PearlsEvent, Pearls> {
   PearlsRM() {
-    register(email, password, userID);
+    register<_PearlsEventSave>(
+      (e) {
+        state = state.copyWith(
+            pearlsCache: Map.of(state.pearlsCache)..[e.pearl.id] = e.pearl);
+      },
+    );
+    register<_PearlsEventDelete>(
+      (e) {
+        state = state.copyWith(
+            pearlsCache: Map.of(state.pearlsCache)..remove(e.pearl));
+      },
+    );
   }
+
+  Pearl? getByID(String id) => state.pearlsCache[id];
+
   final initialState = Pearls();
-  // final pearlsRM = RM.injectFuture<List<Pearl>>(
-  //   () => pearlsRepository.getPearls(),
-  //   initialState: <Pearl>[],
-  //   autoDisposeWhenNotUsed: false,
-  //   persist: () => PersistState(
-  //     key: 'pearls',
-  //     toJson: Pearl.toListJson,
-  //     fromJson: Pearl.fromListJson,
-  //   ),
-  // );
-
-  // bool get loading => pearlsRM.isWaiting;
-  // List<Pearl> call() => pearlsRM.state;
-  Future<List<Pearl>> getPearlsAsync() {
-    pearlsRM.stateAsync = pearlsRepository.getPearls();
-    return pearlsRM.stateAsync;
-  }
-
-  Pearl getPearl(String id) => this().firstWhere((element) => element.id == id);
-  Future<void> createPearl(Pearl pearl) async => await pearlsRM.setState(
-        (_) async {
-          await pearlsRepository.createPearl(pearl);
-          return this()..add(pearl);
-        },
-      );
-  Future<void> deletePearl(Pearl pearl) async => await pearlsRM.setState(
-        (_) async {
-          await pearlsRepository.deletePearl(pearl.id);
-          return this()..remove(pearl);
-        },
-      );
 }
 
 @freezed
 class PearlsEvent with _$PearlsEvent {
-  const factory PearlsEvent() = _PearlsEvent;
+  const factory PearlsEvent.save(Pearl pearl) = _PearlsEventSave;
+  const factory PearlsEvent.delete(Pearl pearl) = _PearlsEventDelete;
 }
