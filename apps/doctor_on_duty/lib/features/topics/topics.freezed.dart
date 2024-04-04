@@ -12,7 +12,7 @@ part of 'topics.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 Topics _$TopicsFromJson(Map<String, dynamic> json) {
   return _Topics.fromJson(json);
@@ -113,7 +113,7 @@ class _$TopicsImpl implements _Topics {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TopicsImpl &&
@@ -571,7 +571,7 @@ class _$TopicImpl implements _Topic {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TopicImpl &&
@@ -918,7 +918,7 @@ class _$SignsImpl implements _Signs {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SignsImpl &&
@@ -1159,7 +1159,7 @@ class _$VitalsSignsImpl implements _VitalsSigns {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$VitalsSignsImpl &&
@@ -1326,7 +1326,7 @@ class _$BloodPressureImpl implements _BloodPressure {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BloodPressureImpl &&
@@ -1469,7 +1469,7 @@ class _$TemperatureImpl extends _Temperature {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TemperatureImpl &&
@@ -1635,7 +1635,7 @@ class _$ManagementImpl implements _Management {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ManagementImpl &&
@@ -1805,7 +1805,7 @@ class _$ContentImpl extends _Content {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ContentImpl &&
@@ -1971,7 +1971,7 @@ class _$DiagnosisImpl implements _Diagnosis {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DiagnosisImpl &&

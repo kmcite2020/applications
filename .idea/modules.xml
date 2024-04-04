@@ -4,11 +4,20 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/apps/batteries/melos_batteries.iml" filepath="$PROJECT_DIR$/apps/batteries/melos_batteries.iml" />
       <module fileurl="file://$PROJECT_DIR$/apps/beseech/melos_beseech.iml" filepath="$PROJECT_DIR$/apps/beseech/melos_beseech.iml" />
+      <module fileurl="file://$PROJECT_DIR$/apps/chat_gpt/melos_chat_gpt.iml" filepath="$PROJECT_DIR$/apps/chat_gpt/melos_chat_gpt.iml" />
+      <module fileurl="file://$PROJECT_DIR$/apps/derma_handbook/melos_derma_handbook.iml" filepath="$PROJECT_DIR$/apps/derma_handbook/melos_derma_handbook.iml" />
+      <module fileurl="file://$PROJECT_DIR$/apps/doctor_on_duty/melos_doctor_on_duty.iml" filepath="$PROJECT_DIR$/apps/doctor_on_duty/melos_doctor_on_duty.iml" />
+      <module fileurl="file://$PROJECT_DIR$/apps/fcps_pearls/melos_fcps_pearls.iml" filepath="$PROJECT_DIR$/apps/fcps_pearls/melos_fcps_pearls.iml" />
       <module fileurl="file://$PROJECT_DIR$/apps/hmis/melos_hmis.iml" filepath="$PROJECT_DIR$/apps/hmis/melos_hmis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/apps/ideal_store/melos_ideal_store.iml" filepath="$PROJECT_DIR$/apps/ideal_store/melos_ideal_store.iml" />
       <module fileurl="file://$PROJECT_DIR$/apps/manager/melos_manager.iml" filepath="$PROJECT_DIR$/apps/manager/melos_manager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/apps/money/melos_money.iml" filepath="$PROJECT_DIR$/apps/money/melos_money.iml" />
       <module fileurl="file://$PROJECT_DIR$/apps/notes/melos_notes.iml" filepath="$PROJECT_DIR$/apps/notes/melos_notes.iml" />
       <module fileurl="file://$PROJECT_DIR$/apps/opthalmology/melos_opthalmology.iml" filepath="$PROJECT_DIR$/apps/opthalmology/melos_opthalmology.iml" />
+      <module fileurl="file://$PROJECT_DIR$/apps/patients/melos_patients.iml" filepath="$PROJECT_DIR$/apps/patients/melos_patients.iml" />
       <module fileurl="file://$PROJECT_DIR$/apps/prescription_er/melos_prescription_er.iml" filepath="$PROJECT_DIR$/apps/prescription_er/melos_prescription_er.iml" />
+      <module fileurl="file://$PROJECT_DIR$/apps/project_dermatosis/melos_project_dermatosis.iml" filepath="$PROJECT_DIR$/apps/project_dermatosis/melos_project_dermatosis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/apps/rebuilder_docs/melos_rebuilder_docs.iml" filepath="$PROJECT_DIR$/apps/rebuilder_docs/melos_rebuilder_docs.iml" />
       <module fileurl="file://$PROJECT_DIR$/apps/roster_system/melos_roster_system.iml" filepath="$PROJECT_DIR$/apps/roster_system/melos_roster_system.iml" />
       <module fileurl="file://$PROJECT_DIR$/apps/smc/melos_smc.iml" filepath="$PROJECT_DIR$/apps/smc/melos_smc.iml" />
       <module fileurl="file://$PROJECT_DIR$/melos_applications.iml" filepath="$PROJECT_DIR$/melos_applications.iml" />

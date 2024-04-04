@@ -57,9 +57,9 @@
     },
     {
       "name": "file",
-      "rootUri": "file:///C:/Users/Adn/AppData/Local/Pub/Cache/hosted/pub.dev/file-6.1.4",
+      "rootUri": "file:///C:/Users/Adn/AppData/Local/Pub/Cache/hosted/pub.dev/file-7.0.0",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "3.0"
     },
     {
       "name": "glob",
@@ -105,9 +105,9 @@
     },
     {
       "name": "melos",
-      "rootUri": "file:///C:/Users/Adn/AppData/Local/Pub/Cache/hosted/pub.dev/melos-3.4.0",
+      "rootUri": "file:///C:/Users/Adn/AppData/Local/Pub/Cache/hosted/pub.dev/melos-5.3.0",
       "packageUri": "lib/",
-      "languageVersion": "2.18"
+      "languageVersion": "3.0"
     },
     {
       "name": "meta",
@@ -141,9 +141,9 @@
     },
     {
       "name": "process",
-      "rootUri": "file:///C:/Users/Adn/AppData/Local/Pub/Cache/hosted/pub.dev/process-4.2.4",
+      "rootUri": "file:///C:/Users/Adn/AppData/Local/Pub/Cache/hosted/pub.dev/process-5.0.2",
       "packageUri": "lib/",
-      "languageVersion": "2.14"
+      "languageVersion": "3.0"
     },
     {
       "name": "prompts",
@@ -159,7 +159,7 @@
     },
     {
       "name": "pub_updater",
-      "rootUri": "file:///C:/Users/Adn/AppData/Local/Pub/Cache/hosted/pub.dev/pub_updater-0.3.1",
+      "rootUri": "file:///C:/Users/Adn/AppData/Local/Pub/Cache/hosted/pub.dev/pub_updater-0.4.0",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
@@ -248,7 +248,7 @@
       "languageVersion": "3.2"
     }
   ],
-  "generated": "2024-03-18T09:53:01.664421Z",
+  "generated": "2024-04-04T23:27:35.156487Z",
   "generator": "pub",
-  "generatorVersion": "3.3.0"
+  "generatorVersion": "3.3.3"
 }

@@ -2,4 +2,4 @@ name: applications
 environment:
   sdk: '^3.2.0'
 dev_dependencies:
-  melos: ^3.1.0
+  melos: ^5.3.0

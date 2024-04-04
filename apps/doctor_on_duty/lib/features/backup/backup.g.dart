@@ -8,8 +8,12 @@ part of 'backup.dart';
 
 _$BackupModelImpl _$$BackupModelImplFromJson(Map<String, dynamic> json) =>
     _$BackupModelImpl(
-      paths: (json['paths'] as List<dynamic>).map((e) => e as String).toList(),
-      backupStatus: $enumDecode(_$BackupStatusEnumMap, json['backupStatus']),
+      paths:
+          (json['paths'] as List<dynamic>?)?.map((e) => e as String).toList() ??
+              const [],
+      backupStatus:
+          $enumDecodeNullable(_$BackupStatusEnumMap, json['backupStatus']) ??
+              BackupStatus.idle,
     );
 
 Map<String, dynamic> _$$BackupModelImplToJson(_$BackupModelImpl instance) =>

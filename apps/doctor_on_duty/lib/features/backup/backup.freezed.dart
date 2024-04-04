@@ -12,7 +12,7 @@ part of 'backup.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 BackupModel _$BackupModelFromJson(Map<String, dynamic> json) {
   return _BackupModel.fromJson(json);
@@ -109,7 +109,8 @@ class __$$BackupModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$BackupModelImpl implements _BackupModel {
   const _$BackupModelImpl(
-      {required final List<String> paths, required this.backupStatus})
+      {final List<String> paths = const [],
+      this.backupStatus = BackupStatus.idle})
       : _paths = paths;
 
   factory _$BackupModelImpl.fromJson(Map<String, dynamic> json) =>
@@ -117,6 +118,7 @@ class _$BackupModelImpl implements _BackupModel {
 
   final List<String> _paths;
   @override
+  @JsonKey()
   List<String> get paths {
     if (_paths is EqualUnmodifiableListView) return _paths;
     // ignore: implicit_dynamic_type
@@ -124,6 +126,7 @@ class _$BackupModelImpl implements _BackupModel {
   }
 
   @override
+  @JsonKey()
   final BackupStatus backupStatus;
 
   @override
@@ -132,7 +135,7 @@ class _$BackupModelImpl implements _BackupModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BackupModelImpl &&
@@ -162,8 +165,8 @@ class _$BackupModelImpl implements _BackupModel {
 
 abstract class _BackupModel implements BackupModel {
   const factory _BackupModel(
-      {required final List<String> paths,
-      required final BackupStatus backupStatus}) = _$BackupModelImpl;
+      {final List<String> paths,
+      final BackupStatus backupStatus}) = _$BackupModelImpl;
 
   factory _BackupModel.fromJson(Map<String, dynamic> json) =
       _$BackupModelImpl.fromJson;

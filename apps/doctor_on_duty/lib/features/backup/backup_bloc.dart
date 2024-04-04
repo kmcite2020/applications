@@ -12,7 +12,7 @@ final BackupBloc backupsBloc = BackupBloc();
 
 class BackupBloc {
   final backupModelRM = RM.inject(
-    () => BackupModel.init(),
+    () => BackupModel(),
   );
   BackupModel get backupModel => backupModelRM.state;
   setBackupModel(BackupModel Function(BackupModel backupModel) modifier) =>

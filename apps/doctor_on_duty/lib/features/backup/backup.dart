@@ -5,12 +5,10 @@ part 'backup.g.dart';
 @freezed
 class BackupModel with _$BackupModel {
   const factory BackupModel({
-    required final List<String> paths,
-    required final BackupStatus backupStatus,
+    @Default([]) final List<String> paths,
+    @Default(BackupStatus.idle) final BackupStatus backupStatus,
   }) = _BackupModel;
   factory BackupModel.fromJson(json) => _$BackupModelFromJson(json);
-  factory BackupModel.init() =>
-      BackupModel(paths: [], backupStatus: BackupStatus.idle);
 }
 
 enum BackupStatus {

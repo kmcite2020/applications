@@ -9,29 +9,21 @@ class App extends TopUI {
 
   @override
   final dependencies = [
-    Future.delayed(
-      336.milliseconds,
-      () => RM.storageInitializer(
-        HiveStorage(),
+    RM.storageInitializer(
+        HiveStorage()
       ),
-    )
   ];
 
   @override
   Widget buildApp(BuildContext context) {
-    return OnReactive(
-      sideEffects: SideEffects(
-        initState: () => FlutterNativeSplash.remove(),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      navigatorKey: RM.navigate.navigatorKey,
+      theme: ThemeData(
+        primarySwatch: Colors.deepPurple,
+        useMaterial3: true,
       ),
-      () => MaterialApp(
-        debugShowCheckedModeBanner: false,
-        navigatorKey: RM.navigate.navigatorKey,
-        theme: ThemeData(
-          primarySwatch: Colors.deepPurple,
-          useMaterial3: true,
-        ),
-        home: const BatteriesStockPage(),
-      ),
+      home: const BatteriesStockPage(),
     );
   }
 }

@@ -3,13 +3,13 @@ name: applications
 packages:
   - apps/**
 scripts:
-  build all apps:
+  flutter build all apks:
     exec: flutter build apk
-  clean all apps:
+  flutter clean all apps:
     exec: flutter clean
-  pub get:
+  flutter packages get:
     exec: flutter packages get
-  install all apks:
+  flutter install all apks:
     exec: adb install build\app\outputs\flutter-apk\app-release.apk
 command:
   bootstrap:
@@ -37,3 +37,4 @@ command:
       flutter_launcher_icons: ^0.13.1
       freezed: ^2.4.7
       json_serializable: ^6.7.1
+      analyzer: ^6.4.1
