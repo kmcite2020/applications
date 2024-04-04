@@ -1,23 +1,19 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:copy_with_extension/copy_with_extension.dart';
-import 'package:json_annotation/json_annotation.dart';
-import 'package:states_rebuilder/states_rebuilder.dart';
+import '../../main.dart';
+
 part 'password_model.g.dart';
+part 'password_model.freezed.dart';
 
-@CopyWith()
-@JsonSerializable()
-class Password {
-  final String password;
-  final bool isPasswordVisible;
-  final bool isAddDiseaseVisible;
-  Password({
-    this.password = '123456',
-    this.isPasswordVisible = false,
-    this.isAddDiseaseVisible = false,
-  });
+@freezed
+@freezed
+class Password with _$Password {
+  const factory Password({
+    @Default('false') final String password,
+    @Default(false) final bool isPasswordVisible,
+    @Default(false) final bool isAddDiseaseVisible,
+  }) = _Password;
 
-  factory Password.fromJson(json) => _$PasswordFromJson(json);
-  toJson() => _$PasswordToJson(this);
+  factory Password.fromJson(Map<String, dynamic> json) =>
+      _$PasswordFromJson(json);
 }
 
 final passwordBloc = PasswordManager();

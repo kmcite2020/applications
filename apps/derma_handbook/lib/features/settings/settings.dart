@@ -1,39 +1,26 @@
-import 'package:copy_with_extension/copy_with_extension.dart';
-import 'package:flutter/material.dart';
-import 'package:json_annotation/json_annotation.dart';
-import 'package:states_rebuilder/states_rebuilder.dart';
+import 'package:derma_handbook/main.dart';
 
 part 'settings.g.dart';
+part 'settings.freezed.dart';
 
-@JsonSerializable()
-@CopyWith()
-class Settings {
-  final ThemeMode themeMode;
-  @MaterialColorConverter()
-  final MaterialColor materialColor;
-  final double padding;
-  final double elevation;
-  final double height;
-  final bool areMoreColors;
-  final bool isFirstStart;
-  final double borderRadius;
-  final double textScaleFactor;
-  final double headlineTextSize;
-  final int pageIndex;
-  const Settings({
-    this.themeMode = ThemeMode.system,
-    this.materialColor = Colors.amber,
-    this.padding = 8,
-    this.elevation = 8,
-    this.height = 80,
-    this.areMoreColors = false,
-    this.isFirstStart = false,
-    this.borderRadius = 8,
-    this.textScaleFactor = 1,
-    this.headlineTextSize = 1.2,
-    this.pageIndex = 0,
-  });
-  toJson() => _$SettingsToJson(this);
+@freezed
+class Settings with _$Settings {
+  const factory Settings({
+    @Default(ThemeMode.system) final ThemeMode themeMode,
+    @Default(Colors.blue)
+    @MaterialColorConverter()
+    final MaterialColor materialColor,
+    @Default(8.0) final double padding,
+    @Default(8.0) final double elevation,
+    @Default(8.0) final double height,
+    @Default(false) final bool areMoreColors,
+    @Default(false) final bool isFirstStart,
+    @Default(8.0) final double borderRadius,
+    @Default(1.0) final double textScaleFactor,
+    @Default(1.0) final double headlineTextSize,
+    @Default(0) final int pageIndex,
+  }) = _Settings;
+
   factory Settings.fromJson(Map<String, dynamic> json) =>
       _$SettingsFromJson(json);
 }
@@ -48,6 +35,16 @@ class MaterialColorConverter implements JsonConverter<MaterialColor, int> {
   int toJson(MaterialColor object) => Colors.primaries.indexOf(object);
 }
 
+class Uint8ListConverter implements JsonConverter<Uint8List, int> {
+  const Uint8ListConverter();
+
+  @override
+  Uint8List fromJson(int json) => throw UnimplementedError();
+
+  @override
+  int toJson(Uint8List object) => throw UnimplementedError();
+}
+
 final settingsManager = SettingsManager();
 
 class SettingsManager {
@@ -56,11 +53,11 @@ class SettingsManager {
   Settings get settings => settingsRM.state;
 
   void headlinTextSize(double? value) {
-    settings = settings.copyWith(headlineTextSize: value);
+    settings = settings.copyWith(headlineTextSize: value!);
   }
 
   void themeMode(ThemeMode? value) {
-    settings = settings.copyWith(themeMode: value);
+    settings = settings.copyWith(themeMode: value!);
   }
 
   void padding(double value) {
@@ -72,7 +69,7 @@ class SettingsManager {
   }
 
   void materialColor(MaterialColor? value) {
-    settings = settings.copyWith(materialColor: value);
+    settings = settings.copyWith(materialColor: value!);
   }
 
   void elevation(double value) {
@@ -92,6 +89,6 @@ class SettingsManager {
   }
 
   void areMoreColorsAvailable(bool? value) {
-    settings = settings.copyWith(areMoreColors: value);
+    settings = settings.copyWith(areMoreColors: value!);
   }
 }

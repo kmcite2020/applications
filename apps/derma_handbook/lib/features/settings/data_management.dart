@@ -1,12 +1,8 @@
-import 'package:derma_handbook/features/core/extensions.dart';
-import 'package:flutter/material.dart';
-import 'package:states_rebuilder/states_rebuilder.dart';
-
-import '../diseases/diseases_providers.dart';
+import 'package:derma_handbook/main.dart';
 import 'backup_model.dart';
 import 'settings.dart';
 
-class DataManagementWidget extends ReactiveStatelessWidget {
+class DataManagementWidget extends UI {
   const DataManagementWidget({super.key});
 
   @override
@@ -34,8 +30,9 @@ class DataManagementWidget extends ReactiveStatelessWidget {
         // ).toPad,context
         ,
         ElevatedButton.icon(
-          onPressed:
-              diseases.isEmpty ? null : DiseasesMutations.removeAllDiseases,
+          onPressed: () {
+            // diseases.isEmpty ? null : DiseasesMutations.removeAllDiseases;
+          },
           label: "DELETE ALL DATA".text(),
           icon: const Icon(Icons.delete),
         ).pad(),
@@ -54,7 +51,7 @@ class BackupManagerWidget extends ReactiveStatelessWidget {
     return Column(
       children: [
         Card(
-          child: switch (backupBloc.backupState.backupStatus) {
+          child: switch (backupBloc().backupStatus) {
             BackupStatus.idle => Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(
@@ -62,9 +59,9 @@ class BackupManagerWidget extends ReactiveStatelessWidget {
                   ),
                   color: Colors.amber,
                 ),
-                child: backupBloc.backupState.text().pad(),
+                child: backupBloc().text().pad(),
               ),
-            BackupStatus.running => backupBloc.backupState.text(),
+            BackupStatus.running => backupBloc().text(),
             BackupStatus.error => Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
@@ -73,7 +70,7 @@ class BackupManagerWidget extends ReactiveStatelessWidget {
                 ),
                 child: Column(
                   children: [
-                    backupBloc.backupState.text(),
+                    backupBloc().text(),
                   ],
                 ),
               ),
@@ -90,7 +87,7 @@ class BackupManagerWidget extends ReactiveStatelessWidget {
                   ],
                 ),
               ),
-            BackupStatus.sharing => backupBloc.backupState.text(),
+            BackupStatus.sharing => backupBloc().text(),
           }
               .pad(),
         ),
@@ -114,7 +111,7 @@ class BackupManagerWidget extends ReactiveStatelessWidget {
         ).pad(),
         ElevatedButton(
           onPressed: () {
-            backupBloc.shareFiles(backupBloc.backupState.files);
+            backupBloc.shareFiles(backupBloc().files);
           },
           child: 'shareFiles'.text(),
         ).pad(),

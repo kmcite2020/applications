@@ -1,12 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:derma_handbook/main.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-import 'package:states_rebuilder/states_rebuilder.dart';
 
-import 'package:derma_handbook/features/core/extensions.dart';
-
-import '../../core/constants.dart';
 import '../../core/router.dart';
 import '../components/disease_builder.dart';
 import '../disease.dart';
@@ -14,10 +10,10 @@ import '../edit_disease_ui/edit_disease_bloc.dart';
 
 class EditDiseasePage extends ReactiveStatelessWidget {
   const EditDiseasePage({
-    this.id = -1,
+    required this.id,
   });
 
-  final int id;
+  final String id;
   @override
   Widget build(BuildContext context) {
     return DiseaseBuilder(
@@ -28,7 +24,7 @@ class EditDiseasePage extends ReactiveStatelessWidget {
             leading: const SizedBox(),
             title: editDiseaseBloc.name.text(),
             actions: [
-              (diseaseModel.id).text(2).pad(),
+              (diseaseModel.id).text(textScaleFactor: 2).pad(),
               const IconButton(
                 onPressed: clearEditModel,
                 tooltip: 'clear',
@@ -38,7 +34,7 @@ class EditDiseasePage extends ReactiveStatelessWidget {
           ),
           body: ListView(
             children: [
-              'Name'.text(2).pad(),
+              'Name'.text(textScaleFactor: 2).pad(),
               TextFormField(
                 controller: nameRM.controller,
                 onChanged: editDiseaseBloc.onNameChanged,
@@ -47,7 +43,7 @@ class EditDiseasePage extends ReactiveStatelessWidget {
                   .text()
                   .pad()
                   .center(),
-              'Descriptions'.text(2).pad(),
+              'Descriptions'.text(textScaleFactor: 2).pad(),
               Wrap(
                 children: editDiseaseBloc.descriptions.map(
                   (e) {
@@ -72,7 +68,7 @@ class EditDiseasePage extends ReactiveStatelessWidget {
                   descriptionRM.focusNode.requestFocus();
                 },
               ).pad(),
-              'Instructions'.text(2).pad(),
+              'Instructions'.text(textScaleFactor: 2).pad(),
               Wrap(
                 children: editDiseaseBloc.instructions.map<Widget>(
                   (e) {
@@ -97,7 +93,7 @@ class EditDiseasePage extends ReactiveStatelessWidget {
                   instructionRM.focusNode.requestFocus();
                 },
               ).pad(),
-              'Managements'.text(2).pad(),
+              'Managements'.text(textScaleFactor: 2).pad(),
               Wrap(
                 children: editDiseaseBloc.managements.map(
                   (e) {
@@ -132,7 +128,7 @@ class EditDiseasePage extends ReactiveStatelessWidget {
                   width: 250,
                   height: 250,
                 ),
-              'Thanks'.text(4).center().pad()
+              'Thanks'.text(textScaleFactor: 4).center().pad()
             ],
           ),
           floatingActionButton: ButtonBar(
@@ -158,7 +154,7 @@ class EditDiseasePage extends ReactiveStatelessWidget {
                         // diseasesBloc.addDisease(disease);
 
                         editDiseaseBloc.setEditModel(
-                            editDiseaseBloc.editModel.copyWith(editId: -1));
+                            editDiseaseBloc.editModel.copyWith(editId: '-1'));
                       },
                       child: const Icon(Icons.done_outline_outlined),
                     ),
@@ -192,7 +188,7 @@ void clearEditModel() {
 }
 
 void cancelEditingDisease() {
-  editDiseaseBloc.setEditModel(EditModel().copyWith(editId: -1));
+  editDiseaseBloc.setEditModel(EditModel().copyWith(editId: '-1'));
   navigator.back();
 }
 

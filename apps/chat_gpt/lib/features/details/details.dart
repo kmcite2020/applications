@@ -1,6 +1,4 @@
-import 'package:chat_gpt/core/core.dart';
-import 'package:flutter/material.dart';
-import 'package:states_rebuilder/states_rebuilder.dart';
+import 'package:chat_gpt/main.dart';
 
 class DetailsPage extends ReactiveStatelessWidget {
   const DetailsPage({super.key});

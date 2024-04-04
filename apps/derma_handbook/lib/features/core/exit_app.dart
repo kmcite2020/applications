@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
+import 'package:derma_handbook/main.dart';
 
 import '../settings/settings.dart';
-import '/features/core/extensions.dart';
 
 Future<bool> exitHandler(context) async {
   return await showDialog(
@@ -16,7 +15,7 @@ Future<bool> exitHandler(context) async {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              'Dou you want to Exit?'.text(2).pad().pad(),
+              'Dou you want to Exit?'.text(textScaleFactor: 2).pad().pad(),
               ElevatedButton(
                 onPressed: () {
                   Navigator.pop(context, true);

@@ -1,10 +1,4 @@
-import 'package:colornames/colornames.dart';
-import 'package:derma_handbook/features/core/extensions.dart';
-import 'package:derma_handbook/features/diseases/diseases_providers.dart';
-import 'package:flutter/material.dart';
-import 'package:states_rebuilder/states_rebuilder.dart';
-
-import '../../assets/data.dart';
+import 'package:derma_handbook/main.dart';
 import 'settings.dart';
 import 'data_management.dart';
 import 'components/utilities_widget.dart';
@@ -27,9 +21,9 @@ class SettingsPage extends ReactiveStatelessWidget {
           const UtilitiesWidget(),
           ElevatedButton(
             onPressed: () async {
-              for (final x in await initial()) {
-                DiseasesMutations.addDisease(x);
-              }
+              // for (final x in await initial()) {
+              //   DiseasesMutations.addDisease(x);
+              // }
             },
             child: 'Add Built-in Diseases to List'.text(),
           ).pad(),

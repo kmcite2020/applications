@@ -25,6 +25,9 @@ dependencies:
   json_annotation: ^4.8.1
   built_value: ^8.8.0
   built_collection: ^5.1.1
+  manager:
+    path: D://FLUTTER//applications//apps//manager
+  
 dev_dependencies:
   flutter_launcher_icons: ^0.13.1
   flutter_test:

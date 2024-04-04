@@ -1,3 +1,4 @@
+import 'package:derma_handbook/main.dart';
 import 'package:flutter/services.dart';
 
 import '../features/diseases/disease.dart';
@@ -7,7 +8,7 @@ Future<List<Disease>> initial() async {
   for (final eachFile in _diseasesNames) {
     final now = DateTime.now();
     final disease = Disease(
-      id: cachedDiseases.length,
+      id: randomID,
       image: await _getImage('$_dir/$eachFile.png'),
       name: eachFile,
       createdAt: now,

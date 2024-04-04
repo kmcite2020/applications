@@ -1,6 +1,4 @@
-import 'package:derma_handbook/features/core/extensions.dart';
-import 'package:flutter/material.dart';
-import 'package:states_rebuilder/states_rebuilder.dart';
+import 'package:derma_handbook/main.dart';
 
 import '../../core/router.dart';
 import '../password_model.dart';

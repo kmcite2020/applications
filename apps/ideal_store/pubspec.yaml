@@ -20,8 +20,8 @@ dependencies:
   json_annotation: ^4.8.1
   package_info_plus: ^5.0.1
   states_rebuilder: ^6.4.0
-  # manager:
-    # git: https://github.com/kmcite2020/manager.git
+  manager:
+    path: D://FLUTTER//applications//apps//manager
 dev_dependencies:
   build_runner: ^2.4.8
   freezed: ^2.4.7

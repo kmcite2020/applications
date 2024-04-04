@@ -1,8 +1,5 @@
-import 'package:derma_handbook/features/core/extensions.dart';
-import 'package:flutter/material.dart';
-import 'package:states_rebuilder/states_rebuilder.dart';
-
-import '../settings.dart';
+import 'package:derma_handbook/main.dart';
+import 'package:derma_handbook/features/settings/settings.dart';
 
 class BorderRadiusWidget extends ReactiveStatelessWidget {
   const BorderRadiusWidget({super.key});

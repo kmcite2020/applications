@@ -1,32 +1,22 @@
-import 'dart:convert';
-import 'dart:io';
+// ignore_for_file: unused_local_variable
 
-import 'package:copy_with_extension/copy_with_extension.dart';
-import 'package:derma_handbook/features/core/extensions.dart';
 import 'package:file_picker/file_picker.dart';
-import 'package:isar/isar.dart';
-import 'package:json_annotation/json_annotation.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:states_rebuilder/states_rebuilder.dart';
 import 'package:share_plus/share_plus.dart';
 
+import '../../main.dart';
+
 part 'backup_model.g.dart';
+part 'backup_model.freezed.dart';
 
-@JsonSerializable()
-@CopyWith()
-class Backup {
-  final List<String> files;
-  final BackupStatus backupStatus;
-  final bool isShowHistory;
-  const Backup({
-    this.files = const [],
-    this.backupStatus = BackupStatus.idle,
-    this.isShowHistory = false,
-  });
-
-  @ignore
+@freezed
+class Backup with _$Backup {
+  const factory Backup({
+    @Default(<String>[]) final List<String> files,
+    @Default(BackupStatus.idle) final BackupStatus backupStatus,
+    @Default(true) final bool isShowHistory,
+  }) = _Backup;
+  const Backup._();
   bool get isAbleToShare => files.isNotEmpty;
-  @ignore
   String? get pathWhereLastBackupSaved {
     if (files.isEmpty) {
       return null;
@@ -35,10 +25,9 @@ class Backup {
     }
   }
 
-  @ignore
   bool get isBackupHappened => files.isNotEmpty;
-  toJson() => _$BackupToJson(this);
-  factory Backup.fromJson(json) => _$BackupFromJson(json);
+
+  factory Backup.fromJson(Map<String, dynamic> json) => _$BackupFromJson(json);
 }
 
 enum BackupStatus {
@@ -51,32 +40,28 @@ enum BackupStatus {
 
 final backupBloc = BackupBloc();
 
-class BackupBloc {
-  final backupRM = RM.inject(() => const Backup());
-  Backup get backupState => backupRM.state;
-  set backupState(Backup value) => backupRM.state = value;
-
+class BackupBloc extends Manager<Backup> {
   void onFilesChanged(List<String> files) {
-    backupState = backupState.copyWith(files: files);
+    state = state.copyWith(files: files);
   }
 
   void onBackupStatusChanged(BackupStatus backupStatus) {
-    backupState = backupState.copyWith(backupStatus: backupStatus);
+    state = state.copyWith(backupStatus: backupStatus);
   }
 
   void onIsShowingHistoryChanged(bool isShowHistory) {
-    backupState = backupState.copyWith(isShowHistory: isShowHistory);
+    state = state.copyWith(isShowHistory: isShowHistory);
   }
 
   void addFileToFiles(String file) {
     onBackupStatusChanged(BackupStatus.running);
-    onFilesChanged([...backupState.files, file]);
+    onFilesChanged([...state.files, file]);
     onBackupStatusChanged(BackupStatus.idle);
   }
 
   void clearFile(String file) {
     onBackupStatusChanged(BackupStatus.running);
-    onFilesChanged([...backupState.files]..remove(file));
+    onFilesChanged([...state.files]..remove(file));
     onBackupStatusChanged(BackupStatus.idle);
   }
 
@@ -104,7 +89,6 @@ class BackupBloc {
     } catch (e) {
       onBackupStatusChanged(BackupStatus.error);
     }
-    // TODO - WILL HAVE TO WORK ON THESE METHODS
   }
 
   backupToFile() async {
@@ -121,15 +105,16 @@ class BackupBloc {
 
   void shareFile(String file) async {
     final x = await Share.shareXFiles([XFile.fromData(base64Decode(file))]);
-    x.log();
   }
 
   void shareFiles(List<String> files) async {
     final x = await Share.shareXFiles(
       files.map<XFile>((e) => XFile.fromData(base64Decode(e))).toList(),
     );
-    x.log();
   }
+
+  @override
+  Backup get initialState => Backup();
 }
 
   // void startBackup() async {

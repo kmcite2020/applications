@@ -1,14 +1,9 @@
-import 'dart:typed_data';
-
+import 'package:derma_handbook/main.dart';
 import 'package:file_picker/file_picker.dart';
-import 'package:flutter/material.dart';
-import 'package:states_rebuilder/states_rebuilder.dart';
 
-import '../../core/extensions.dart';
+import '../disease.dart';
 
-import '../diseases_providers.dart';
-
-class AddDiseaseWidget extends ReactiveStatelessWidget {
+class AddDiseaseWidget extends UI {
   AddDiseaseWidget({super.key});
   final InjectedTextEditing nameFormField = RM.injectTextEditing();
   final imageFormField = RM.injectFormField<Uint8List?>(null);
@@ -24,7 +19,8 @@ class AddDiseaseWidget extends ReactiveStatelessWidget {
     }
   }
 
-  bool exists(String name) => diseases.any((element) => element.name == name);
+  bool exists(String name) =>
+      diseasesRM().diseases.values.any((element) => element.name == name);
 
   @override
   Widget build(BuildContext context) {

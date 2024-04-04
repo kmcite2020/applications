@@ -1,6 +1,4 @@
-import 'package:derma_handbook/features/core/extensions.dart';
-import 'package:flutter/material.dart';
-import 'package:states_rebuilder/states_rebuilder.dart';
+import 'package:derma_handbook/main.dart';
 
 import '../settings.dart';
 import '../password_model.dart';
@@ -12,7 +10,8 @@ class UtilitiesWidget extends ReactiveStatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: 'Utilities'.text(settingsManager.settings.headlineTextSize),
+      title: 'Utilities'
+          .text(textScaleFactor: settingsManager.settings.headlineTextSize),
       subtitle: Column(
         children: [
           GestureDetector(

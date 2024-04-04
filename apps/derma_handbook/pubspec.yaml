@@ -17,19 +17,18 @@ dependencies:
   flutter_native_splash: ^2.3.10
   states_rebuilder: ^6.4.0
   uuid: ^4.3.3
-  isar: ^4.0.0-dev.13
-  isar_flutter_libs: ^4.0.0-dev.13
-  hive: ^4.0.0-dev.2
-  copy_with_extension: ^5.0.4
+  hive_flutter:
   json_annotation: ^4.8.1
+  freezed_annotation: 
+  manager:
+    path: D://FLUTTER//applications//apps//manager
+    
+
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
   build_runner: ^2.4.8
-  flutter_lints: ^3.0.0
   flutter_launcher_icons: ^0.13.1
-  copy_with_extension_gen: ^5.0.4
   json_serializable: ^6.7.1
+  freezed: 
 flutter:
   uses-material-design: true
   assets:

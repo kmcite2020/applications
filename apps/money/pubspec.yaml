@@ -19,6 +19,9 @@ dependencies:
   freezed_annotation: ^2.4.1
   json_annotation: ^4.8.1
   flutter_native_splash: ^2.3.10
+  manager:
+    path: D://FLUTTER//applications//apps//manager
+  
 dev_dependencies:
   flutter_launcher_icons: ^0.13.1
   build_runner: ^2.4.8

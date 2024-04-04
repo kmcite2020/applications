@@ -1,10 +1,8 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:copy_with_extension/copy_with_extension.dart';
-import 'package:isar/isar.dart';
-import 'package:json_annotation/json_annotation.dart';
-import 'package:states_rebuilder/states_rebuilder.dart';
+import 'package:derma_handbook/features/settings/settings.dart';
+import 'package:derma_handbook/main.dart';
 
 part 'edit_disease_bloc.g.dart';
+part 'edit_disease_bloc.freezed.dart';
 
 class EditDiseaseBloc {
   final editModelRM = RM.inject(() => EditModel());
@@ -12,8 +10,8 @@ class EditDiseaseBloc {
   void setEditModel(EditModel editModel) => editModelRM.state = editModel;
 
   /// Image
-  List<int>? get image => editModel.image;
-  set image(List<int>? image) => setEditModel(editModel.copyWith(image: image));
+  Uint8List? get image => editModel.image;
+  set image(Uint8List? image) => setEditModel(editModel.copyWith(image: image));
 
   /// Name
   String get name => editModel.name;
@@ -60,23 +58,17 @@ class EditDiseaseBloc {
   }
 }
 
-@CopyWith()
-@JsonSerializable()
-class EditModel {
-  final int editId;
-  final String name;
-  final List<String> descriptions;
-  final List<String> instructions;
-  final List<String> managements;
-  final List<byte>? image;
-  EditModel({
-    this.editId = -1,
-    this.name = '',
-    this.descriptions = const [],
-    this.instructions = const [],
-    this.managements = const [],
-    this.image,
-  });
-  toJson() => _$EditModelToJson(this);
-  static EditModel fromJson(json) => _$EditModelFromJson(json);
+@freezed
+class EditModel with _$EditModel {
+  const factory EditModel({
+    @Default('<String>[]') final String editId,
+    @Default('<String>[]') final String name,
+    @Default(<String>[]) final List<String> descriptions,
+    @Default(<String>[]) final List<String> instructions,
+    @Default(<String>[]) final List<String> managements,
+    @Uint8ListConverter() final Uint8List? image,
+  }) = _EditModel;
+
+  factory EditModel.fromJson(Map<String, dynamic> json) =>
+      _$EditModelFromJson(json);
 }

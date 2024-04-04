@@ -1,9 +1,7 @@
-import 'package:derma_handbook/features/core/extensions.dart';
 import 'package:derma_handbook/features/core/router.dart';
 import 'package:derma_handbook/features/diseases/components/disease_builder.dart';
 import 'package:derma_handbook/features/diseases/pages/disease.dart';
-import 'package:flutter/material.dart';
-import 'package:states_rebuilder/states_rebuilder.dart';
+import 'package:derma_handbook/main.dart';
 
 import '../search.dart';
 
@@ -23,13 +21,13 @@ class SearchedDiseasesList extends ReactiveStatelessWidget {
   }
 }
 
-Widget searchedDiseaseTile(int id) {
+Widget searchedDiseaseTile(String id) {
   return DiseaseBuilder(
     id: id,
     builder: (context, disease) => Card(
       child: ListTile(
-        title: disease.id.text(1),
-        subtitle: disease.name.text(1.5),
+        title: disease.id.text(),
+        subtitle: disease.name.text(textScaleFactor: 1.5),
         onTap: () {
           navigator.to(DiseasePage(id: id));
         },

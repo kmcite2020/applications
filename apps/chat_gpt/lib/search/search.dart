@@ -1,9 +1,6 @@
-import 'package:flutter/material.dart';
-import '../core/core.dart';
-import '../chats/drawer.dart';
-import 'package:states_rebuilder/states_rebuilder.dart';
+import 'package:chat_gpt/main.dart';
 
-class SearchPage extends ReactiveStatelessWidget {
+class SearchPage extends UI {
   const SearchPage({super.key});
 
   @override

@@ -1,10 +1,5 @@
-import 'dart:typed_data';
-
-import 'package:derma_handbook/features/core/extensions.dart';
 import 'package:derma_handbook/features/diseases/components/disease_builder.dart';
-import 'package:flutter/material.dart';
-import 'package:states_rebuilder/states_rebuilder.dart';
-
+import 'package:derma_handbook/main.dart';
 import '../../core/router.dart';
 import '../../settings/settings.dart';
 import '../disease.dart';
@@ -17,7 +12,7 @@ class DiseasePage extends ReactiveStatelessWidget {
     super.key,
     required this.id,
   });
-  final int id;
+  final String id;
 
   @override
   Widget build(BuildContext context) {
@@ -48,20 +43,20 @@ class DiseasePage extends ReactiveStatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      disease.name.text(2).pad(),
-                      'Descriptions'.text(1.2).pad(),
+                      disease.name.text(textScaleFactor: 2).pad(),
+                      'Descriptions'.text(textScaleFactor: 1.2).pad(),
                       ...disease.descriptions.map(
                         (e) => Chip(
                           label: e.text(),
                         ).pad(),
                       ),
-                      'Instructions'.text(1.2).pad(),
+                      'Instructions'.text(textScaleFactor: 1.2).pad(),
                       ...disease.instructions.map(
                         (e) => Chip(
                           label: e.text(),
                         ).pad(),
                       ),
-                      'Managements'.text(1.2).pad(),
+                      'Managements'.text(textScaleFactor: 1.2).pad(),
                       ...disease.managements.map(
                         (e) => Chip(
                           label: e.text(),
@@ -74,7 +69,9 @@ class DiseasePage extends ReactiveStatelessWidget {
             ),
             floatingActionButton: FloatingActionButton(
               onPressed: () {
-                navigator.to(EditDiseasePage());
+                navigator.to(EditDiseasePage(
+                  id: '',
+                ));
               },
               child: const Icon(Icons.edit),
             ),

@@ -1,12 +1,10 @@
-import 'package:derma_handbook/features/core/extensions.dart';
-import 'package:flutter/material.dart';
-import 'package:states_rebuilder/states_rebuilder.dart';
+import 'package:derma_handbook/main.dart';
 import '../core/router.dart';
 import '../diseases/pages/diseases.dart';
 import '../search/pages/search.dart';
 import '../settings/settings_page.dart';
 
-class HomePage extends ReactiveStatelessWidget {
+class HomePage extends UI {
   const HomePage({super.key});
   @override
   Widget build(BuildContext context) {
@@ -25,7 +23,7 @@ class HomePage extends ReactiveStatelessWidget {
   }
 }
 
-class MyDrawer extends ReactiveStatelessWidget {
+class MyDrawer extends UI {
   const MyDrawer({super.key});
 
   @override
@@ -38,7 +36,7 @@ class MyDrawer extends ReactiveStatelessWidget {
           navigator.back();
         },
         children: [
-          'DERMA - HANDBOOK'.text(1.5).pad().pad(),
+          'DERMA - HANDBOOK'.text(textScaleFactor: 1.5).pad().pad(),
           SizedBox(height: 5),
           NavigationDrawerDestination(
             icon: Icon(Icons.search),

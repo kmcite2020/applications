@@ -1,8 +1,6 @@
-import 'package:derma_handbook/features/core/extensions.dart';
 import 'package:derma_handbook/features/search/components/search_mode_icon.dart';
 import 'package:derma_handbook/features/search/search.dart';
-import 'package:flutter/material.dart';
-import 'package:states_rebuilder/states_rebuilder.dart';
+import 'package:derma_handbook/main.dart';
 
 class SearchModeButton extends ReactiveStatelessWidget {
   const SearchModeButton({super.key});

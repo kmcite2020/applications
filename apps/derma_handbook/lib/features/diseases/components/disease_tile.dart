@@ -1,14 +1,10 @@
-import 'dart:typed_data';
-import 'package:derma_handbook/features/core/extensions.dart';
 import 'package:derma_handbook/features/diseases/components/disease_builder.dart';
-import 'package:flutter/material.dart';
-
+import 'package:derma_handbook/main.dart';
 import '../../core/router.dart';
 import '../../settings/settings.dart';
-import '../diseases_providers.dart';
 import '../pages/disease.dart';
 
-Widget diseaseTile(int id) {
+Widget diseaseTile(String id) {
   return DiseaseBuilder(
     id: id,
     builder: (context, disease) => Card(
@@ -28,7 +24,9 @@ Widget diseaseTile(int id) {
                 ),
         ),
         trailing: IconButton(
-          onPressed: () => DiseasesMutations.removeDisease(disease),
+          onPressed: () {
+            // DiseasesMutations.removeDisease(disease);
+          },
           icon: const Icon(Icons.delete_forever),
         ),
         title: disease.name.text(),

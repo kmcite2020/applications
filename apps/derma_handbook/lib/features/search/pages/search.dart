@@ -1,12 +1,10 @@
-import 'package:derma_handbook/features/core/extensions.dart';
-import 'package:flutter/material.dart';
-import 'package:states_rebuilder/states_rebuilder.dart';
+import 'package:derma_handbook/main.dart';
 import '../../core/constants.dart';
 import '../../settings/settings.dart';
 import '../components/search_bar.dart';
 import '../components/searched_diseases_list.dart';
 
-class SearchPage extends ReactiveStatelessWidget {
+class SearchPage extends UI {
   const SearchPage({super.key});
 
   @override
@@ -14,7 +12,8 @@ class SearchPage extends ReactiveStatelessWidget {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: appTitle.text(settingsManager.settings.headlineTextSize),
+        title: appTitle.text(
+            textScaleFactor: settingsManager.settings.headlineTextSize),
         actions: [],
       ),
       body: ListView(

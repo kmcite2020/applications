@@ -1,13 +1,11 @@
-import 'package:derma_handbook/features/core/extensions.dart';
-import 'package:flutter/material.dart';
-import 'package:states_rebuilder/states_rebuilder.dart';
+import 'package:derma_handbook/main.dart';
 
 import '../../settings/settings.dart';
 import '../search.dart';
 
 final searchTextRM = RM.injectTextEditing(text: searchModel.search);
 
-class SearchBarWidget extends ReactiveStatelessWidget {
+class SearchBarWidget extends UI {
   const SearchBarWidget({super.key});
 
   @override
@@ -18,7 +16,7 @@ class SearchBarWidget extends ReactiveStatelessWidget {
       hintText: 'Enter name to search',
       controller: searchTextRM.controller,
       onChanged: (String search) => setSearchModel(
-        searchModel.copyWith.search(search.toLowerCase()),
+        searchModel.copyWith(search: search.toLowerCase()),
       ),
       shape: MaterialStatePropertyAll(
         RoundedRectangleBorder(
