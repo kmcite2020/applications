@@ -1,11 +1,3 @@
-import 'dart:async';
-import 'dart:convert';
-
-import 'package:flutter/material.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:states_rebuilder/states_rebuilder.dart';
-
 import 'package:project_dermatosis/main.dart';
 
 import 'patient.dart';

@@ -24,13 +24,14 @@ class MaterialColorsUI extends UI {
                   foregroundColor: eachColor[100],
                   backgroundColor: eachColor[900],
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(borderRadius),
+                    borderRadius:
+                        BorderRadius.circular(settingsRM().borderRadius),
                   ),
                 ),
-                onPressed: materialColor == eachColor
+                onPressed: settingsRM().materialColor == eachColor
                     ? null
                     : () {
-                        materialColor = eachColor;
+                        settingsRM.materialColor = eachColor;
                       },
                 child: eachColor.colorName.text(textScaleFactor: .8),
               ).pad(),

@@ -1,13 +1,13 @@
-import 'package:states_rebuilder/states_rebuilder.dart';
+export 'package:manager/manager.dart';
+
+import 'package:ideal_store/features/shared/utils.dart';
 
 import 'main.dart';
 
 export 'dart:convert';
-export 'dart:math';
 export 'package:colornames/colornames.dart';
 export 'package:file_picker/file_picker.dart';
 export 'package:flex_color_scheme/flex_color_scheme.dart';
-export 'package:flutter/material.dart';
 export 'package:flutter/services.dart';
 export 'package:freezed_annotation/freezed_annotation.dart';
 export 'package:google_fonts/google_fonts.dart';
@@ -35,12 +35,8 @@ export 'package:ideal_store/features/shared/cities.dart';
 export 'package:ideal_store/features/shared/extensions.dart';
 export 'package:ideal_store/features/shared/router.dart';
 export 'package:ideal_store/features/shared/theme_manager.dart';
-export 'package:ideal_store/features/shared/utils.dart';
-export 'package:ideal_store/main.dart';
 export 'package:path_provider/path_provider.dart';
 export 'package:uuid/uuid.dart';
-
-typedef UI = ReactiveStatelessWidget;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -52,20 +48,16 @@ void main() async {
   runApp(App());
 }
 
-class App extends UI {
-  const App({super.key});
-
+class App extends TopUI {
   @override
-  Widget build(BuildContext context) {
+  Widget buildApp(BuildContext context) {
     return MaterialApp(
       navigatorKey: RM.navigate.navigatorKey,
-      // routeInformationParser: navigator.routeInformationParser,
-      // routerDelegate: navigator.routerDelegate,
       home: DashboardPage(),
       debugShowCheckedModeBanner: false,
       theme: theme,
       darkTheme: darkTheme,
-      themeMode: themeMode,
+      themeMode: settingsRM().themeMode,
     );
   }
 }

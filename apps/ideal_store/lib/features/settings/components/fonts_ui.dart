@@ -1,3 +1,4 @@
+import 'package:ideal_store/features/shared/utils.dart';
 import 'package:ideal_store/main.dart';
 
 class FontsUI extends UI {
@@ -16,19 +17,20 @@ class FontsUI extends UI {
           physics: const BouncingScrollPhysics(),
           shrinkWrap: true,
           children: [
-            for (final Font eachFont in fonts)
+            for (final String eachFont in fonts)
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   foregroundColor: randomGolor[100],
                   backgroundColor: randomGolor[900],
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(borderRadius),
+                    borderRadius:
+                        BorderRadius.circular(settingsRM().borderRadius),
                   ),
                 ),
-                onPressed: font == eachFont
+                onPressed: settingsRM().font == eachFont
                     ? null
                     : () {
-                        font = eachFont;
+                        settingsRM.font = eachFont;
                       },
                 child: eachFont.text(),
               ).pad(),

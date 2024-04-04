@@ -18,20 +18,20 @@ class CustomerTile extends UI {
             children: [
               IconButton.filledTonal(
                 onPressed: () {
-                  setCustomer(customer.copyWith(editing: true));
+                  customersRM.saveCustomer(customer.copyWith(editing: true));
                 },
                 icon: Icon(Icons.edit_document),
               ).pad(),
               IconButton.filledTonal(
                 icon: const Icon(Icons.delete_forever),
                 onPressed: () {
-                  removeCustomer(customerID);
+                  customersRM.deleteCustomer(customerID);
                 },
               ).pad(),
               IconButton.filled(
                 icon: customer.name.toUpperCase().text(),
                 onPressed: () =>
-                    navigator.to(CustomerPage(customerID: customerID)),
+                    RM.navigate.to(CustomerPage(customerID: customerID)),
               ).pad(),
               IconButton.filled(
                 icon: customer.city.toUpperCase().text(),
@@ -51,14 +51,14 @@ class CustomerTile extends UI {
             children: [
               IconButton.filledTonal(
                 onPressed: () {
-                  setCustomer(customer.copyWith(editing: false));
+                  customersRM.saveCustomer(customer.copyWith(editing: false));
                 },
                 icon: Icon(Icons.edit),
               ).pad(),
               TextFormField(
                 initialValue: customer.name,
                 onChanged: (value) {
-                  setCustomer(customer.copyWith(name: value));
+                  customersRM.saveCustomer(customer.copyWith(name: value));
                 },
                 decoration: InputDecoration(labelText: 'NAME'),
               ).pad(),
@@ -73,7 +73,7 @@ class CustomerTile extends UI {
                     )
                     .toList(),
                 onChanged: (city) {
-                  setCustomer(customer.copyWith(city: city!));
+                  customersRM.saveCustomer(customer.copyWith(city: city!));
                 },
                 decoration: InputDecoration(labelText: 'CITY'),
               ).pad(),
@@ -93,7 +93,7 @@ class CustomerTile extends UI {
                       (eachProduct) => SizedBox(
                         child: ActionChip.elevated(
                           onPressed: () {
-                            setCustomer(
+                            customersRM.saveCustomer(
                               customer.copyWith(
                                 products: List.of(customer.products)
                                   ..remove(eachProduct.productID),
@@ -109,9 +109,8 @@ class CustomerTile extends UI {
               SubmenuButton(
                 style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(
-                    settingsState.borderRadius,
-                  ),
+                  borderRadius:
+                      BorderRadius.circular(settingsRM().borderRadius),
                 )),
                 menuChildren: possibleProducts
                     .map(
@@ -119,11 +118,11 @@ class CustomerTile extends UI {
                         style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(
-                            settingsState.borderRadius,
+                            settingsRM().borderRadius,
                           ),
                         )),
                         onPressed: () {
-                          setCustomer(
+                          customersRM.saveCustomer(
                             customer.copyWith(
                               products: List.of(customer.products)
                                 ..add(
@@ -139,8 +138,8 @@ class CustomerTile extends UI {
                 child: Row(
                   children: [
                     Icon(Icons.store).pad(
-                      EdgeInsets.symmetric(
-                        horizontal: settingsState.padding,
+                      customPad: EdgeInsets.symmetric(
+                        horizontal: settingsRM().padding,
                       ),
                     ),
                     possibleProducts.isEmpty

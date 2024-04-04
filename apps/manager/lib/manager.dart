@@ -32,3 +32,5 @@ part 'hive_storage.dart';
 part 'state_manager/manager.dart';
 
 part 'ui.dart';
+
+const serializable = JsonSerializable();

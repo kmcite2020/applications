@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:project_dermatosis/features/core/shared.dart';
 import 'package:project_dermatosis/features/patients/patient.dart';
-import 'package:states_rebuilder/states_rebuilder.dart';
+import 'package:project_dermatosis/main.dart';
 
 import '../../pictures/pictures.dart';
 import '../patients.dart';

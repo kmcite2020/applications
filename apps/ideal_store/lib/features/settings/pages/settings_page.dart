@@ -21,29 +21,25 @@ class SettingsPage extends UI {
           'Customers'.text(textScaleFactor: 4).pad(),
           ElevatedButton(
             onPressed: () {
-              RM.resetStates();
+              // RM.resetStates();
             },
             child: 'Reset All States'.text(),
           ).pad(),
           ElevatedButton(
-            onPressed: customers.isEmpty
+            onPressed: customersRM().cache.isEmpty
                 ? null
-                : () {
-                    clearCustomers();
-                  },
+                : () => customersRM.deleteAllCustomers(),
             child: 'Delete All Customers'.text(),
           ).pad(),
           'Products'.text(textScaleFactor: 4).pad(),
-          productsRM.build(
-            (state) => ElevatedButton(
-              onPressed: state.products.isEmpty
-                  ? null
-                  : () {
-                      state.clearAll();
-                    },
-              child: 'Delete All Products'.text(),
-            ).pad(),
-          ),
+          ElevatedButton(
+            onPressed: productsRM().products.isEmpty
+                ? null
+                : () {
+                    productsRM(Products());
+                  },
+            child: 'Delete All Products'.text(),
+          ).pad(),
           const ThemeModesUI(),
           const MaterialColorsUI(),
           const FontsUI(),

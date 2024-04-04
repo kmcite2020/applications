@@ -1,5 +1,7 @@
 import 'package:ideal_store/main.dart';
 
+import '../../shared/utils.dart';
+
 class ProductsPage extends UI {
   static const path = '/products';
   @override
@@ -21,12 +23,12 @@ class ProductsPage extends UI {
           ).pad(),
           IconButton(
             tooltip: 'Back to Dashboard',
-            onPressed: () => navigator.to(DashboardPage()),
+            onPressed: () => RM.navigate.to(DashboardPage()),
             icon: Icon(
               Icons.arrow_back,
             ),
           ).pad(
-            EdgeInsets.only(right: padding),
+            customPad: EdgeInsets.only(right: settingsRM().padding),
           ),
         ],
       ),

@@ -1,3 +1,4 @@
+import 'package:ideal_store/features/shared/utils.dart';
 import 'package:ideal_store/main.dart';
 
 class CustomersPage extends UI {
@@ -15,20 +16,23 @@ class CustomersPage extends UI {
             tooltip: 'add customer',
             icon: const Icon(Icons.add_reaction),
             onPressed: () {
-              setCustomer(Customer());
+              customersRM.saveCustomer(Customer());
             },
           ).pad(),
           SizedBox(width: 5),
         ],
       ),
       body: SafeArea(
-        child: customers.isEmpty
+        child: customersRM().cache.isEmpty
             ? emptyListInfoCustomer.text(textScaleFactor: 2.3).pad()
             : ListView.builder(
                 physics: const BouncingScrollPhysics(),
-                itemCount: customers.length,
+                itemCount: customersRM().cache.length,
                 itemBuilder: (_, i) {
-                  return CustomerTile(customerID: customers[i].customerID);
+                  return CustomerTile(
+                    customerID:
+                        customersRM().cache.values.toList()[i].customerID,
+                  );
                 },
               ),
       ),

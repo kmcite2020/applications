@@ -26,7 +26,8 @@ class ProductPage extends UI {
                     Container(
                       decoration: BoxDecoration(
                         color: product.materialColor,
-                        borderRadius: BorderRadius.circular(borderRadius),
+                        borderRadius:
+                            BorderRadius.circular(settingsRM().borderRadius),
                       ),
                       child: const Text("PRODUCT DETAILS").pad(),
                     ),
@@ -36,7 +37,8 @@ class ProductPage extends UI {
               Container(
                 decoration: BoxDecoration(
                   color: product.materialColor,
-                  borderRadius: BorderRadius.circular(borderRadius),
+                  borderRadius:
+                      BorderRadius.circular(settingsRM().borderRadius),
                 ),
                 child: product.productID.text().center().pad(),
               ).pad(),

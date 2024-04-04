@@ -106,7 +106,7 @@ packages:
     source: hosted
     version: "7.2.11"
   built_collection:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: built_collection
       sha256: "376e3dd27b51ea877c28d525560790aee2e6fbb5f20e2f85d5081027d94e2100"
@@ -114,18 +114,10 @@ packages:
     source: hosted
     version: "5.1.1"
   built_value:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: built_value
       sha256: "69acb7007eb2a31dc901512bfe0f7b767168be34cb734835d54c070bfa74c1b2"
-      url: "https://pub.dev"
-    source: hosted
-    version: "8.8.0"
-  built_value_generator:
-    dependency: "direct dev"
-    description:
-      name: built_value_generator
-      sha256: "78680d78a6cab222fc5725ffa21065a05bba951452ae84d08b3c0e150fd3f9f6"
       url: "https://pub.dev"
     source: hosted
     version: "8.8.0"
@@ -310,14 +302,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.13.1"
-  flutter_lints:
-    dependency: "direct dev"
-    description:
-      name: flutter_lints
-      sha256: e2a421b7e59244faef694ba7b30562e489c2b489866e505074eb005cd7060db7
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.0.1"
   flutter_localizations:
     dependency: transitive
     description: flutter
@@ -340,7 +324,7 @@ packages:
     source: hosted
     version: "2.0.17"
   flutter_test:
-    dependency: "direct dev"
+    dependency: transitive
     description: flutter
     source: sdk
     version: "0.0.0"
@@ -525,14 +509,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.1"
-  lints:
-    dependency: "direct dev"
-    description:
-      name: lints
-      sha256: cbf8d4b858bb0134ef3ef87841abdf8d63bfc255c266b7bf6b39daa1085c4290
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.0.0"
   logging:
     dependency: transitive
     description:

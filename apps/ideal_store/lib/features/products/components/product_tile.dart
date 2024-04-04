@@ -81,7 +81,7 @@ class ProductTile extends UI {
                 //         fit: BoxFit.fill,
                 //       ).clipRadius().pad(),
               ],
-            ).card(materialColor: product.materialColor);
+            ).card();
         Widget Edit() => Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisAlignment: MainAxisAlignment.start,
@@ -187,7 +187,8 @@ class ProductTile extends UI {
                 Stack(
                   children: [
                     ClipRRect(
-                      borderRadius: BorderRadius.circular(borderRadius),
+                      borderRadius:
+                          BorderRadius.circular(settingsRM().borderRadius),
                       child: LinearProgressIndicator(
                         minHeight: 40,
                         value: product.stock / 500,
@@ -197,7 +198,7 @@ class ProductTile extends UI {
                       child: "${product.stock}/500".text(
                         textScaleFactor: 2,
                         style: TextStyle(
-                          color: materialColor.shade800,
+                          color: settingsRM().materialColor.shade800,
                         ),
                       ),
                     )
@@ -214,7 +215,7 @@ class ProductTile extends UI {
                   max: 500,
                 )
               ],
-            ).card(materialColor: product.materialColor);
+            ).card();
         if (product.editing)
           return Edit();
         else

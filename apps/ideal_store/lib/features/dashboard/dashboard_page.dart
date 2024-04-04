@@ -9,7 +9,7 @@ class DashboardPage extends UI {
         automaticallyImplyLeading: false,
         actions: [
           IconButton(
-            onPressed: () => navigator.to(SettingsPage()),
+            onPressed: () => RM.navigate.to(SettingsPage()),
             icon: Icon(Icons.settings),
           ),
           SizedBox(width: 5)
@@ -25,7 +25,7 @@ class DashboardPage extends UI {
               title: 'PRODUCTS'.text(textScaleFactor: 2),
               trailing: IconButton(
                 tooltip: 'Go to Products Screen',
-                onPressed: () => navigator.to(ProductsPage()),
+                onPressed: () => RM.navigate.to(ProductsPage()),
                 icon: const Icon(Icons.store),
               ),
             ).pad(),
@@ -34,7 +34,7 @@ class DashboardPage extends UI {
               trailing: IconButton(
                 tooltip: 'Go to Customer Screen',
                 onPressed: () {
-                  navigator.to(CustomersPage());
+                  RM.navigate.to(CustomersPage());
                 },
                 icon: const Icon(Icons.people),
               ),
@@ -43,7 +43,7 @@ class DashboardPage extends UI {
               title: 'ORDERS'.text(textScaleFactor: 2),
               trailing: IconButton(
                 tooltip: 'Go to Orders Screen',
-                onPressed: () => navigator.to(OrdersPage()),
+                onPressed: () => RM.navigate.to(OrdersPage()),
                 icon: const Icon(
                   Icons.storm,
                 ),

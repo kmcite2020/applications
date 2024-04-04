@@ -1,7 +1,3 @@
-import 'package:flutter/material.dart';
-import 'package:project_dermatosis/features/core/shared.dart';
-import 'package:states_rebuilder/states_rebuilder.dart';
-
 import '../../../main.dart';
 import 'settings.dart';
 

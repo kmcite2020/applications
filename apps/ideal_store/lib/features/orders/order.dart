@@ -46,8 +46,8 @@ class Order with _$Order {
   factory Order.fromJson(Map<String, dynamic> json) => _$OrderFromJson(json);
 }
 
-final ordersRM = RM.simple(
-  () => Orders(),
+final ordersRM = Simplicity(
+  Orders(),
   // key: 'ordersNEW',
   // fromJson: Orders.fromJson,
 );

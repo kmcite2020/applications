@@ -1,12 +1,10 @@
-import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:project_dermatosis/features/core/router.dart';
 import 'package:project_dermatosis/features/patients/pages/patients_page.dart';
 import 'package:project_dermatosis/features/pictures/pictures_page.dart';
 import 'package:project_dermatosis/features/settings/settings_page/settings_page.dart';
-import 'package:states_rebuilder/states_rebuilder.dart';
+import 'package:project_dermatosis/main.dart';
 
-class DashboardPage extends ReactiveStatelessWidget {
+class DashboardPage extends UI {
   const DashboardPage({super.key});
   static const name = '/';
   @override
@@ -53,6 +51,6 @@ class LeadingBackButton extends ReactiveStatelessWidget {
   const LeadingBackButton({super.key});
   @override
   Widget build(BuildContext context) {
-    return const BackButton().pad(8);
+    return const BackButton().pad();
   }
 }

@@ -1,10 +1,9 @@
-import 'package:states_rebuilder/states_rebuilder.dart';
-
 import '../../main.dart';
 
 part 'customer.freezed.dart';
 part 'customer.g.dart';
 
+@serializable
 @freezed
 class Customer with _$Customer {
   const factory Customer.raw({
@@ -15,8 +14,7 @@ class Customer with _$Customer {
     @Default(<String>[]) final List<String> products,
   }) = _Customer;
 
-  factory Customer.fromJson(Map<String, dynamic> json) =>
-      _$CustomerFromJson(json);
+  static final fromJson = _$CustomerFromJson;
 
   factory Customer.id(String custmerID) => customersRM().cache[custmerID]!;
   factory Customer() {
@@ -27,72 +25,34 @@ class Customer with _$Customer {
   }
 }
 
-extension InjectedExtensions<T> on Injected<T> {
-  T get([T? _state]) => _state != null ? state = _state : state;
-}
-
+@serializable
 @freezed
 class Customers with _$Customers {
   const factory Customers({
     @Default(<String, Customer>{}) final Map<String, Customer> cache,
   }) = _Customers;
-  $CustomersCopyWith<Customers> get call => copyWith;
   static final fromJson = _$CustomersFromJson;
 }
 
 final customersRM = CustomersRM();
 
-class CustomersRM {
-  final customersRM = RM.inject<Customers>(
-    () => const Customers(),
-    persist: () => PersistState(
-      key: 'customers',
-      fromJson: (json) => Customers.fromJson(jsonDecode(json)),
-      toJson: (s) => jsonEncode(s.toJson()),
-    ),
-  );
-  late final call = customersRM.get;
-}
+class CustomersRM extends Manager<Customers> {
+  @override
+  final initialState = Customers();
 
-class CustomersList {
-  final call = customersRM.call().cache.values.toList();
-  final addCustomer = (Customer customer) {
-    customersRM.call(
-      customersRM.call().call(),
+  void saveCustomer(Customer customer) {
+    state = state.copyWith(
+      cache: Map.of(state.cache)..[customer.customerID] = customer,
     );
-    return themeMode;
-  };
-}
-
-List<Customer> get customers => customersRM().cache.values.toList();
-
-set customersState(Customers _) => customersRM(_);
-Customer getCustomerByID(String id) => customersRM().cache[id]!;
-
-void setCustomer(Customer customer) {
-  customersRM(
-    customersRM().copyWith(
-      cache: Map.of(customersRM().cache)..[customer.customerID] = customer,
-    ),
-  );
-}
-
-void removeCustomer(String customerID) {
-  customersRM(
-    customersRM().copyWith(
-      cache: Map.of(customersRM().cache)..remove(customerID),
-    ),
-  );
-}
-
-mixin RemoveCustomerRM on CustomersRM {
-  void removeCustomer(Customer customer) {
-    this.call;
   }
-}
 
-final clearAllCustomersRM = ClearAllCustomersRM();
+  void deleteCustomer(String customerID) {
+    state = state.copyWith(
+      cache: Map.of(state.cache)..remove(customerID),
+    );
+  }
 
-class ClearAllCustomersRM {
-  void call() => customersState = Customers();
+  void deleteAllCustomers() => state = initialState;
+
+  Customer? getByID(String customerID) => state.cache[customerID];
 }

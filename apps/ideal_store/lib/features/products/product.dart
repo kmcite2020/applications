@@ -1,3 +1,5 @@
+import 'package:ideal_store/features/shared/utils.dart';
+
 import '../../main.dart';
 part 'product.freezed.dart';
 part 'product.g.dart';
@@ -59,11 +61,7 @@ class Products with _$Products {
   factory Products.fromJson(json) => _$ProductsFromJson(json);
 }
 
-final productsRM = RM.persistent(
-  () => Products(),
-  key: 'products',
-  fromJson: Products.fromJson,
-);
+final productsRM = Simplicity(Products());
 
 
 // Product

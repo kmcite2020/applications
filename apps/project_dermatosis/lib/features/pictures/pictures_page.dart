@@ -1,9 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:project_dermatosis/features/core/router.dart';
-import 'package:project_dermatosis/features/core/shared.dart';
 import 'package:project_dermatosis/features/pictures/pictures_bloc.dart';
 import 'package:project_dermatosis/features/settings/settings_page/settings.dart';
-import 'package:states_rebuilder/states_rebuilder.dart';
+import 'package:project_dermatosis/main.dart';
 
 import 'pictures_view_mode.dart';
 

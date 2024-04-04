@@ -14,7 +14,7 @@ class OrdersPage extends UI {
         actions: [
           IconButton(
             tooltip: 'Back to Dashboard',
-            onPressed: () => navigator.back(),
+            onPressed: () => RM.navigate.back(),
             icon: Icon(
               Icons.dashboard,
             ),

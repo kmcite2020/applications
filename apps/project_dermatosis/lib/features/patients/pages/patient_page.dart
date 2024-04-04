@@ -1,11 +1,9 @@
-import 'package:flutter/material.dart';
 import 'package:project_dermatosis/features/core/shared.dart';
 import 'package:project_dermatosis/features/pictures/pictures.dart';
 import 'package:project_dermatosis/features/pictures/pictures_bloc.dart';
 import 'package:project_dermatosis/features/settings/settings_page/settings.dart';
-import 'package:states_rebuilder/states_rebuilder.dart';
 
-import '../../dashboard/dashboard_page.dart';
+import '../../../main.dart';
 import '../gender_widget.dart';
 import '../patient.dart';
 
@@ -25,7 +23,7 @@ class PatientPage extends ReactiveStatelessWidget {
             title: patient.name.text(),
             leading: const LeadingBackButton(),
             actions: [
-              patient.dateOfBirth.year.text(1.2),
+              patient.dateOfBirth.year.text(textScaleFactor: 1.2),
               const SizedBox(width: 8),
             ],
           ),
@@ -204,7 +202,7 @@ class ContactUI extends StatelessWidget {
                     ),
                   ],
                 )
-              : patient.contact.text(1.5).pad();
+              : patient.contact.text(textScaleFactor: 1.5).pad();
         });
   }
 }

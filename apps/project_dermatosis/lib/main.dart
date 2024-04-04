@@ -1,15 +1,11 @@
-import 'dart:io';
+import 'main.dart';
 
-import 'package:flutter/material.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:project_dermatosis/features/core/hive_storage.dart';
-import 'package:project_dermatosis/features/core/router.dart';
-import 'package:project_dermatosis/features/dashboard/dashboard_page.dart';
-import 'package:states_rebuilder/states_rebuilder.dart';
+export 'package:manager/manager.dart';
+export 'package:hive_flutter/hive_flutter.dart';
+export 'package:project_dermatosis/features/core/router.dart';
+export 'package:project_dermatosis/features/dashboard/dashboard_page.dart';
 
-import 'features/settings/settings_page/themes.dart';
+export 'features/settings/settings_page/themes.dart';
 
 part 'features/core/constants.dart';
 
@@ -26,23 +22,18 @@ Box get patientsBox => patientsBoxRM.state;
 Directory get directory => directoryRM.state;
 
 void main() async {
-  FlutterNativeSplash.preserve(
-    widgetsBinding: WidgetsFlutterBinding.ensureInitialized(),
-  );
-  await patientsBoxRM.initializeState();
-  await RM.storageInitializer(HiveStorage());
-  await directoryRM.initializeState();
-  runApp(
-    const MyApp(),
-  );
+  runApp(MyApp());
 }
 
-class MyApp extends ReactiveStatelessWidget {
-  const MyApp({super.key});
-
+class MyApp extends TopUI {
   @override
-  Widget build(BuildContext context) {
-    FlutterNativeSplash.remove();
+  final dependencies = [
+    RM.storageInitializer(HiveStorage()),
+    directoryRM.initializeState(),
+    patientsBoxRM.initializeState(),
+  ];
+  @override
+  Widget buildApp(BuildContext context) {
     return MaterialApp(
       navigatorKey: navigator.navigatorKey,
       debugShowCheckedModeBanner: false,

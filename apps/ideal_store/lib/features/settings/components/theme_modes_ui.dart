@@ -2,7 +2,8 @@ import '../../../main.dart';
 
 class ThemeModesUI extends UI {
   const ThemeModesUI({super.key});
-  bool isThemeModeSelected(ThemeMode eachMode) => themeMode == eachMode;
+  bool isThemeModeSelected(ThemeMode eachMode) =>
+      settingsRM().themeMode == eachMode;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -20,7 +21,7 @@ class ThemeModesUI extends UI {
                 onPressed: isThemeModeSelected(eachMode)
                     ? null
                     : () {
-                        themeMode = eachMode;
+                        settingsRM.themeMode = eachMode;
                       },
                 child: const Icon(
                   Icons.dark_mode,
@@ -34,7 +35,7 @@ class ThemeModesUI extends UI {
                 onPressed: isThemeModeSelected(eachMode)
                     ? null
                     : () {
-                        themeMode = eachMode;
+                        settingsRM.themeMode = eachMode;
                       },
                 child: const Icon(Icons.light_mode, size: 80),
               ).pad();
