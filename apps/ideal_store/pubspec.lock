@@ -121,6 +121,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.3"
+  clock:
+    dependency: transitive
+    description:
+      name: clock
+      sha256: cb6d7f03e1de671e34607e909a7213e31d7752be4fb66a86d29fe1eb14bfb5cf
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.1"
   code_builder:
     dependency: transitive
     description:
@@ -222,6 +230,11 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_localizations:
+    dependency: transitive
+    description: flutter
+    source: sdk
+    version: "0.0.0"
   flutter_plugin_android_lifecycle:
     dependency: transitive
     description:
@@ -271,10 +284,10 @@ packages:
     dependency: "direct main"
     description:
       name: google_fonts
-      sha256: f0b8d115a13ecf827013ec9fc883390ccc0e87a96ed5347a3114cac177ef18e8
+      sha256: e20ff62b158b96f392bfc8afe29dee1503c94fbea2cbe8186fd59b756b8ae982
       url: "https://pub.dev"
     source: hosted
-    version: "6.1.0"
+    version: "5.1.0"
   graphs:
     dependency: transitive
     description:
@@ -323,6 +336,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.2"
+  intl:
+    dependency: transitive
+    description:
+      name: intl
+      sha256: "3bc132a9dbce73a7e4a21a17d06e1878839ffbf975568bc875c60537824b0c4d"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.18.1"
   io:
     dependency: transitive
     description:
@@ -375,18 +396,18 @@ packages:
     dependency: transitive
     description:
       name: material_color_utilities
-      sha256: "9528f2f296073ff54cb9fee677df673ace1218163c3bc7628093e7eed5203d41"
+      sha256: "0e0a020085b65b6083975e499759762399b4475f766c21668c4ecca34ea74e5a"
       url: "https://pub.dev"
     source: hosted
-    version: "0.5.0"
+    version: "0.8.0"
   meta:
     dependency: transitive
     description:
       name: meta
-      sha256: a6e590c838b18133bb482a2745ad77c5bb7715fb0451209e1a7567d416678b8e
+      sha256: d584fa6707a52763a52446f02cc621b077888fb63b93bbcb1143a7be5a0c0c04
       url: "https://pub.dev"
     source: hosted
-    version: "1.10.0"
+    version: "1.11.0"
   mime:
     dependency: transitive
     description:
@@ -395,6 +416,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.5"
+  navigation_builder:
+    dependency: transitive
+    description:
+      name: navigation_builder
+      sha256: d1b145dde5869849613d9b93ecd8f5a3ae929471ef81d1ba017f476b70bd7c39
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.4"
   package_config:
     dependency: transitive
     description:
@@ -580,10 +609,10 @@ packages:
     dependency: "direct main"
     description:
       name: states_rebuilder
-      sha256: e2debaf1378edf623bc9943fd74de268d9cf76b2f2734b6d1b3b3ac372e2c05c
+      sha256: f760498bb7adbe12d0d6da67f23c07e6c41de6261052ba8794356222fe27ddf3
       url: "https://pub.dev"
     source: hosted
-    version: "4.4.0"
+    version: "6.4.0"
   stream_channel:
     dependency: transitive
     description:

@@ -1,23 +1,17 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:chat_gpt/chats/chats.dart';
-import 'package:copy_with_extension/copy_with_extension.dart';
-import 'package:flutter/material.dart';
-import 'package:isar/isar.dart';
-import 'package:json_annotation/json_annotation.dart';
-import 'package:states_rebuilder/states_rebuilder.dart';
+import 'package:manager/manager.dart';
 
-import 'package:chat_gpt/core/core.dart';
+part 'chat_page.freezed.dart';
+part 'chat_page.g.dart';
 
-part 'home.g.dart';
-
-class ChatPage extends ReactiveStatelessWidget {
+class ChatPage extends UI {
   const ChatPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     ChatModel? getChat(id) {
       try {
-        return ChatsManager.to.id(chatManager.currentID);
+        return chatsRM.chatByID(chatManager.currentID);
       } catch (e) {
         return null;
       }
@@ -71,7 +65,7 @@ class ChatPage extends ReactiveStatelessWidget {
   }
 }
 
-class QueryInputBar extends ReactiveStatelessWidget {
+class QueryInputBar extends UI {
   static final queryController = RM.injectTextEditing();
   const QueryInputBar({super.key});
 
@@ -103,7 +97,7 @@ class QueryInputBar extends ReactiveStatelessWidget {
   }
 }
 
-class VoiceChatIcon extends ReactiveStatelessWidget {
+class VoiceChatIcon extends UI {
   const VoiceChatIcon({super.key});
 
   @override
@@ -114,7 +108,7 @@ class VoiceChatIcon extends ReactiveStatelessWidget {
   }
 }
 
-class ResponseCard extends ReactiveStatelessWidget {
+class ResponseCard extends UI {
   const ResponseCard({super.key, required this.qrModel});
   final QueryResponseModel qrModel;
 
@@ -137,7 +131,7 @@ class ResponseCard extends ReactiveStatelessWidget {
   }
 }
 
-class ResponseCardTopRow extends ReactiveStatelessWidget {
+class ResponseCardTopRow extends UI {
   const ResponseCardTopRow({
     super.key,
   });
@@ -156,7 +150,7 @@ class ResponseCardTopRow extends ReactiveStatelessWidget {
   }
 }
 
-class QueryCard extends ReactiveStatelessWidget {
+class QueryCard extends UI {
   const QueryCard({super.key, required this.qrModel});
   final QueryResponseModel qrModel;
 
@@ -185,7 +179,7 @@ class QueryCard extends ReactiveStatelessWidget {
   }
 }
 
-class HeadphonesButton extends ReactiveStatelessWidget {
+class HeadphonesButton extends UI {
   const HeadphonesButton({super.key});
 
   @override
@@ -199,37 +193,26 @@ class HeadphonesButton extends ReactiveStatelessWidget {
 
 enum CardType { query, response }
 
-@CopyWith()
-@Embedded()
-@JsonSerializable()
-class QueryResponseModel {
-  final CardType cardType;
-  final String content;
-  final DateTime dateTime;
-  QueryResponseModel({
-    required this.cardType,
-    required this.content,
-    required this.dateTime,
-  });
+@freezed
+class QueryResponseModel with _$QueryResponseModel {
+  const factory QueryResponseModel({
+    required final CardType cardType,
+    required final String content,
+    required final DateTime dateTime,
+  }) = _QueryResponseModel;
 
-  toJson() => _$QueryResponseModelToJson(this);
-  factory QueryResponseModel.fromJson(json) =>
+  factory QueryResponseModel.fromJson(Map<String, dynamic> json) =>
       _$QueryResponseModelFromJson(json);
 }
 
-@CopyWith()
-@Collection()
-@JsonSerializable()
-class ChatModel {
-  @Id()
-  final String id;
-  final String title;
-  final List<QueryResponseModel> cards;
-  ChatModel({
-    this.cards = const [],
-    required this.id,
-    required this.title,
-  });
-  factory ChatModel.fromJson(json) => _$ChatModelFromJson(json);
-  toJson(json) => _$ChatModelToJson(this);
+@freezed
+class ChatModel with _$ChatModel {
+  const factory ChatModel({
+    required final String id,
+    required final String title,
+    required final List<QueryResponseModel> cards,
+  }) = _ChatModel;
+
+  factory ChatModel.fromJson(Map<String, dynamic> json) =>
+      _$ChatModelFromJson(json);
 }

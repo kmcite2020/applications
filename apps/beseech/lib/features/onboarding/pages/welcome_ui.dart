@@ -131,7 +131,7 @@ class DateOfBirthUI extends StatelessWidget {
     return ListView(
       children: [
         'When were you born?'.text(textScaleFactor: titleTextSize).pad(),
-        appUser.dateOfBirth.humanReadable.text().pad().card().pad(),
+        appUser.dateOfBirth.humane().text().pad().card().pad(),
         ElevatedButton(
           onPressed: () => OnboardingPage.updateDateOfBirth(context: context),
           child: 'Update your Date Of Birth'.text().pad(),
@@ -191,7 +191,7 @@ class DateOfPubertyUI extends StatelessWidget {
           child: 'Update your Date Of Puberty'.text().pad(),
         ).pad(),
         'Date Of Puberty'.text(textScaleFactor: 2).pad(),
-        appUser.dateOfBirth.humanReadable.text().pad().card().pad(),
+        appUser.dateOfBirth.humane().text().pad().card().pad(),
       ],
     );
   }
@@ -214,14 +214,14 @@ class GetStartedUI extends StatelessWidget {
         '${appUser.isUserNameValid ? '✅' : '❎'} Your name is ${appUser.userName}'
             .text()
             .pad(),
-        '${appUser.isUserAdult ? '✅ Adult.' : '❎ Not an adult.'} ${appUser.dateOfBirth.humanReadable}'
+        '${appUser.isUserAdult ? '✅ Adult.' : '❎ Not an adult.'} ${appUser.dateOfBirth.humane()}'
             .text()
             .pad(),
         ('Your age is ${(appUser.age.inDays / 365).toStringAsFixed(0)} years')
             .text()
             .pad()
             .card(),
-        'Your date of birth is ${appUser.dateOfBirth.humanReadable}'
+        'Your date of birth is ${appUser.dateOfBirth.humane()}'
             .text()
             .pad()
             .card(),

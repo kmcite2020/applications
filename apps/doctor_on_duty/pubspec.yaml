@@ -1,38 +1,37 @@
 name: doctor_on_duty
 
-description: 
+description: new app
 publish_to: 'none'
 version: 2.0.0+1
-homepage: https://github.com/kmcite2020/doctor_on_duty
 environment:
-  sdk: '>=3.0.0'
+  sdk: ">=3.2.0 <4.0.0"
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons:
-  hive_flutter:
-  uuid:
-  file_picker: ^6.0.0
-  material_design_icons_flutter: 
-  font_awesome_flutter: ^10.5.0
+  cupertino_icons: ^1.0.6
+  hive_flutter: ^1.1.0
+  uuid: ^4.3.3
+  file_picker: any
+  material_design_icons_flutter: any
+  font_awesome_flutter: ^10.7.0
   colornames: 
   intl:
-  path_provider: ^2.1.1
+  path_provider: ^2.1.2
   collection:
   flex_color_scheme: ^7.3.1 
-  percent_indicator: ^4.2.3
-  english_words:
+  percent_indicator: any
+  english_words: any
   google_fonts: ^5.1.0
-  states_rebuilder: ^6.3.0
-  flutter_native_splash: ^2.3.2
+  states_rebuilder: ^6.4.0
+  flutter_native_splash: ^2.3.10
   freezed_annotation: ^2.4.1
   json_annotation: ^4.8.1
   
 dev_dependencies:
   flutter_launcher_icons: ^0.13.1
-  build_runner: ^2.4.6
+  build_runner: ^2.4.8
   json_serializable: ^6.7.1
-  freezed: ^2.4.5
+  freezed: ^2.4.7
   
 flutter:
   uses-material-design: true

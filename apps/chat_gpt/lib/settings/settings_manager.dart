@@ -1,9 +1,12 @@
-import 'package:flutter/material.dart';
-import 'package:states_rebuilder/states_rebuilder.dart';
+import '../main.dart';
 
 final ThemeModeRM themeModeRM = ThemeModeRM();
 
-class ThemeModeRM {
-  final themeModeRM = RM.inject(() => ThemeMode.system);
-  Injected<ThemeMode> call() => themeModeRM;
+class ThemeModeRM extends Complex<ThemeMode, ThemeMode> {
+  ThemeModeRM() {
+    register<ThemeMode>((event) => state = event);
+  }
+
+  @override
+  ThemeMode get initialState => ThemeMode.system;
 }

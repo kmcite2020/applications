@@ -25,7 +25,7 @@ class DateOfPubertyUI extends UI {
               'DATE OF PUBERTY - became adult on'.text().pad(),
             ],
           ),
-          appUser.dateOfPuberty.humanReadable.text().pad().card().pad(),
+          appUser.dateOfPuberty.humane().text().pad().card().pad(),
           ElevatedButton(
             onPressed: () => updateDateOfPuberty(context: context),
             child: 'What is your puberty date?'.text(),

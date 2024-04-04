@@ -34,25 +34,23 @@ class App extends TopUI {
 
   @override
   Widget buildApp(BuildContext context) {
-    return OnReactive(
-      () => MaterialApp(
-        navigatorKey: RM.navigate.navigatorKey,
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData.light().copyWith(
-          colorScheme: ColorScheme.fromSwatch(
-            primarySwatch: settings.materialColor,
-          ),
+    return MaterialApp(
+      navigatorKey: RM.navigate.navigatorKey,
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData.light().copyWith(
+        colorScheme: ColorScheme.fromSwatch(
+          primarySwatch: settings.materialColor,
         ),
-        darkTheme: ThemeData.dark().copyWith(
-          colorScheme: ColorScheme.fromSwatch(
-            primarySwatch: settings.materialColor,
-            brightness: Brightness.dark,
-          ),
-          inputDecorationTheme: InputDecorationTheme(),
-        ),
-        themeMode: settings.themeMode,
-        home: DashboardPage(),
       ),
+      darkTheme: ThemeData.dark().copyWith(
+        colorScheme: ColorScheme.fromSwatch(
+          primarySwatch: settings.materialColor,
+          brightness: Brightness.dark,
+        ),
+        inputDecorationTheme: InputDecorationTheme(),
+      ),
+      themeMode: settings.themeMode,
+      home: DashboardPage(),
     );
   }
 }

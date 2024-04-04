@@ -1,9 +1,6 @@
-import 'package:flutter/material.dart';
-import '../core/core.dart';
-import 'settings_manager.dart';
-import 'package:states_rebuilder/scr/state_management/rm.dart';
+import 'package:chat_gpt/main.dart';
 
-class SettingsPage extends ReactiveStatelessWidget {
+class SettingsPage extends UI {
   const SettingsPage({super.key});
 
   @override
@@ -31,7 +28,7 @@ class SettingsPage extends ReactiveStatelessWidget {
   }
 }
 
-class UserCard extends ReactiveStatelessWidget {
+class UserCard extends UI {
   const UserCard({super.key});
 
   @override
@@ -50,7 +47,7 @@ class UserCard extends ReactiveStatelessWidget {
   }
 }
 
-class AccountSection extends ReactiveStatelessWidget {
+class AccountSection extends UI {
   const AccountSection({super.key});
 
   @override
@@ -82,7 +79,7 @@ class AccountSection extends ReactiveStatelessWidget {
   }
 }
 
-class AppSection extends ReactiveStatelessWidget {
+class AppSection extends UI {
   const AppSection({super.key});
 
   @override
@@ -94,7 +91,7 @@ class AppSection extends ReactiveStatelessWidget {
           child: 'App'.text(textScaleFactor: .8).pad(),
         ).pad(),
         DropdownButtonFormField(
-          value: themeModeRM().data(),
+          value: themeModeRM(),
           items: ThemeMode.values.map(
             (themeMode) {
               return DropdownMenuItem(
@@ -103,7 +100,7 @@ class AppSection extends ReactiveStatelessWidget {
               );
             },
           ).toList(),
-          onChanged: themeModeRM().data,
+          onChanged: themeModeRM.call,
           decoration: const InputDecoration(
             labelText: 'COLOR SCHEME',
             prefixIcon: Icon(Icons.color_lens),
@@ -114,7 +111,7 @@ class AppSection extends ReactiveStatelessWidget {
   }
 }
 
-class SpeechSection extends ReactiveStatelessWidget {
+class SpeechSection extends UI {
   const SpeechSection({super.key});
 
   @override

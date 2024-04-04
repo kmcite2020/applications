@@ -1,14 +1,6 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:flutter/material.dart';
-
-import 'package:chat_gpt/core/core.dart';
-import 'package:states_rebuilder/states_rebuilder.dart';
-
-import '../chat/chat_page.dart';
 import '../main.dart';
-import 'chats.dart';
 
-class LeftChatsPage extends ReactiveStatelessWidget {
+class LeftChatsPage extends UI {
   const LeftChatsPage({super.key});
 
   @override
@@ -38,7 +30,7 @@ class LeftChatsPage extends ReactiveStatelessWidget {
   }
 }
 
-class HistoryListView extends ReactiveStatelessWidget {
+class HistoryListView extends UI {
   const HistoryListView({
     super.key,
   });
@@ -47,9 +39,9 @@ class HistoryListView extends ReactiveStatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView.separated(
-        itemCount: ChatsManager.to.listOfChats.length,
+        itemCount: chatsRM().chats.length,
         itemBuilder: (context, index) {
-          final chat = ChatsManager.to.listOfChats[index];
+          final chat = chatsRM().chats[index]!;
           return ListTile(
             onTap: () {
               chatManager.loadChat(chat.id);
@@ -75,8 +67,12 @@ class NewChatAddTile extends ReactiveStatelessWidget {
     return ListTile(
       leading: const Icon(Icons.edit_square),
       onTap: () {
-        ChatsManager.to.createNewChatModel(
-          ChatModel(id: randomID, title: 'title'),
+        chatsRM.saveChat(
+          ChatModel(
+            id: randomID,
+            title: 'title',
+            cards: [],
+          ),
         );
         navigator.back();
       },

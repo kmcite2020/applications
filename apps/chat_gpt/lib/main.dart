@@ -1,47 +1,33 @@
-import 'dart:io';
+import 'package:chat_gpt/search/search.dart';
 
-import 'package:chat_gpt/chats/chats.dart';
-import 'package:chat_gpt/features/details/details.dart';
-import 'package:chat_gpt/settings/themes.dart';
-import 'package:flutter/material.dart';
-import 'package:isar/isar.dart';
-import 'package:path_provider/path_provider.dart';
-import 'chat/chat_page.dart';
-import 'core/core.dart';
-import 'chats/drawer.dart';
-import 'search/search.dart';
+import 'main.dart';
 import 'settings/settings.dart';
-import 'settings/settings_manager.dart';
-import 'package:states_rebuilder/states_rebuilder.dart';
+
+export 'package:chat_gpt/chats/chats.dart';
+export 'package:chat_gpt/core/core.dart';
+export 'package:chat_gpt/chats/drawer.dart';
+export 'package:chat_gpt/features/details/details.dart';
+export 'package:manager/manager.dart';
+export 'chat/chat_page.dart';
+export 'settings/settings_manager.dart';
+export 'settings/themes.dart';
+
+void main() => runApp(ChatGPT());
 
 final directoryRM = RM.injectFuture(getApplicationDocumentsDirectory);
-final isarRM = RM.inject(
-  () => Isar.open(
-    schemas: [
-      ChatModelSchema,
-    ],
-    directory: directory.path,
-  ),
-);
 
 Directory get directory => directoryRM.state;
-Isar get isar => isarRM.state;
-
-main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await directoryRM.initializeState();
-  await isarRM.initializeState();
-  runApp(const ChatGPT());
-}
 
 final navigator = RM.navigate;
 final scaffold = RM.scaffold;
 
-class ChatGPT extends ReactiveStatelessWidget {
-  const ChatGPT({super.key});
-
+class ChatGPT extends TopUI {
   @override
-  Widget build(BuildContext context) {
+  final List<FutureOr<void>> dependencies = [
+    directoryRM.initializeState(),
+  ];
+  @override
+  Widget buildApp(BuildContext context) {
     return SafeArea(
       child: MaterialApp(
         navigatorKey: navigator.navigatorKey,
@@ -53,13 +39,13 @@ class ChatGPT extends ReactiveStatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: Themes.theme(),
         darkTheme: Themes.darkTheme(),
-        themeMode: themeModeRM().data(),
+        themeMode: themeModeRM(),
       ),
     );
   }
 }
 
-class CurrentChatScreen extends ReactiveStatelessWidget {
+class CurrentChatScreen extends UI {
   const CurrentChatScreen({super.key});
   @override
   Widget build(BuildContext context) {
@@ -68,8 +54,12 @@ class CurrentChatScreen extends ReactiveStatelessWidget {
         actions: [
           IconButton(
             onPressed: () {
-              ChatsManager.to.createNewChatModel(
-                ChatModel(id: randomID, title: 'title'),
+              chatsRM.saveChat(
+                ChatModel(
+                  id: randomID,
+                  title: 'title',
+                  cards: [],
+                ),
               );
             },
             icon: const Icon(Icons.edit_square),
@@ -105,7 +95,7 @@ class CurrentChatScreen extends ReactiveStatelessWidget {
   }
 }
 
-class MenuButtonForCurrentChat extends ReactiveStatelessWidget {
+class MenuButtonForCurrentChat extends UI {
   const MenuButtonForCurrentChat({super.key});
 
   @override

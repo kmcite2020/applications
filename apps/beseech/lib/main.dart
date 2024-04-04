@@ -25,7 +25,6 @@ export 'package:beseech/features/shared/shared.dart';
 export 'package:clay_containers/clay_containers.dart';
 export 'package:dots_indicator/dots_indicator.dart';
 export 'package:flex_color_scheme/flex_color_scheme.dart';
-export 'package:flutter/material.dart';
 export 'package:freezed_annotation/freezed_annotation.dart';
 export 'package:google_fonts/google_fonts.dart';
 export 'package:intl/intl.dart' hide TextDirection;
@@ -33,8 +32,7 @@ export 'package:path_provider/path_provider.dart';
 export 'package:states_rebuilder/scr/state_management/common/logger.dart';
 export 'package:states_rebuilder/states_rebuilder.dart';
 export 'package:uuid/uuid.dart';
-
-typedef UI = ReactiveStatelessWidget;
+export 'package:manager/manager.dart';
 
 void main() {
   runApp(App());

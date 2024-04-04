@@ -20,15 +20,15 @@ class SettingsPage extends UI {
         children: [
           const SizedBox(height: 3),
           const ThemeModeUI(),
-          MySlider(
-            name: 'Border Radius',
+          Slider(
+            // name: 'Border Radius',
             value: settingsBloc.state.borderRadius,
             onChanged: (_) => settingsBloc.add(SettingsEvent.borderRadius(_)),
             min: 0,
             max: 30,
           ).pad(),
-          MySlider(
-            name: 'Padding',
+          Slider(
+            // name: 'Padding',
             value: settingsBloc.state.padding,
             onChanged: (_) => settingsBloc.add(SettingsEvent.padding(_)),
             min: 4,

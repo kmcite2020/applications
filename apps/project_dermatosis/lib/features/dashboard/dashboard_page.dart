@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:project_dermatosis/features/core/router.dart';
-import 'package:project_dermatosis/features/core/shared.dart';
 import 'package:project_dermatosis/features/patients/pages/patients_page.dart';
 import 'package:project_dermatosis/features/pictures/pictures_page.dart';
 import 'package:project_dermatosis/features/settings/settings_page/settings_page.dart';
