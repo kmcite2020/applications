@@ -13,14 +13,14 @@ dependencies:
     path: D://FLUTTER//applications//apps//manager
   flex_color_scheme: ^7.3.1
   font_awesome_flutter: ^10.7.0
-  isar: ^4.0.0-dev.13
-  isar_flutter_libs: ^4.0.0-dev.13
+  # isar: ^4.0.0-dev.13
+  # isar_flutter_libs: ^4.0.0-dev.13
   json_annotation: ^4.8.1
   states_rebuilder: ^6.4.0
   flutter_native_splash: ^2.3.10
 dev_dependencies:
   flutter_launcher_icons: ^0.13.1
-  very_good_analysis: ^5.1.0
+  # very_good_analysis: ^5.1.0
   json_serializable: ^6.7.1    
 flutter:
   assets:

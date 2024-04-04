@@ -9,9 +9,6 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.6
-  hive: ^4.0.0-dev.2
-  isar_flutter_libs: ^4.0.0-dev.13
-
   manager:
     path: D://FLUTTER//applications//apps//manager
   states_rebuilder: ^6.4.0

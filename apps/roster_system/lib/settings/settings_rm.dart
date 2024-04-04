@@ -12,8 +12,12 @@ final settingsRM = RM.inject(
 Settings get settings => settingsRM.state;
 void setSettings(Settings settings) => settingsRM.state = settings;
 
-void setMaterialColor(materialColor) =>
-    setSettings(settings.copyWith(materialColor: materialColor));
+void setMaterialColor(materialColor) {
+  setSettings(
+    settings.copyWith(materialColor: materialColor),
+  );
+}
 
-void setThemeMode(themeMode) =>
-    setSettings(settings.copyWith(themeMode: themeMode));
+void setThemeMode(themeMode) {
+  setSettings(settings.copyWith(themeMode: themeMode));
+}

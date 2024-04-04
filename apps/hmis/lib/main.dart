@@ -23,57 +23,52 @@ export 'package:states_rebuilder/states_rebuilder.dart';
 
 late final Isar isar;
 
-void main() => runApp(const MyApp());
+void main() => runApp(MyApp());
 
 class MyApp extends TopUI {
-  const MyApp({super.key});
-
   @override
-  List<FutureOr<void>>? ensureInitialization() => [
-        Future.delayed(
-          1.seconds,
-          () => FlutterNativeSplash.preserve(
-            widgetsBinding: WidgetsFlutterBinding.ensureInitialized(),
-          ),
-        ),
-        RM.storageInitializer(HiveStorage()),
-      ];
+  final dependencies = [
+    Future.delayed(
+      1.seconds,
+      () => FlutterNativeSplash.preserve(
+        widgetsBinding: WidgetsFlutterBinding.ensureInitialized(),
+      ),
+    ),
+    RM.storageInitializer(HiveStorage()),
+  ];
 
   @override
   Widget? splashScreen() => CircularProgressIndicator().center();
 
   @override
-  Widget build(BuildContext context) => OnReactive(
-        () => MaterialApp(
-          navigatorKey: RM.navigate.navigatorKey,
-          debugShowCheckedModeBanner: false,
-          themeAnimationDuration: animationDuration,
-          theme: FlexThemeData.light(
-            useMaterial3: true,
-            subThemesData: const FlexSubThemesData(defaultRadius: 5),
-          ),
-          darkTheme: FlexThemeData.dark(
-            useMaterial3: true,
-            subThemesData: const FlexSubThemesData(defaultRadius: 5),
-          ),
-          themeMode: themeMode,
-          home: PopScope(
-            canPop: false,
-            child: AnimatedContainer(
-              duration: animationDuration,
-              child: switch (mainPages) {
-                MainPages.home => const HomePage(),
-                MainPages.patients => const PatientsPage(),
-                MainPages.investigations => const InvestigationsPage(),
-                MainPages.settings => const SettingsPage(),
-              },
-            ),
-          ),
+  Widget buildApp(BuildContext context) {
+    return MaterialApp(
+      navigatorKey: RM.navigate.navigatorKey,
+      debugShowCheckedModeBanner: false,
+      themeAnimationDuration: animationDuration,
+      theme: FlexThemeData.light(
+        useMaterial3: true,
+        subThemesData: const FlexSubThemesData(defaultRadius: 5),
+      ),
+      darkTheme: FlexThemeData.dark(
+        useMaterial3: true,
+        subThemesData: const FlexSubThemesData(defaultRadius: 5),
+      ),
+      themeMode: themeMode,
+      home: PopScope(
+        canPop: false,
+        child: AnimatedContainer(
+          duration: animationDuration,
+          child: switch (mainPages) {
+            MainPages.home => const HomePage(),
+            MainPages.patients => const PatientsPage(),
+            MainPages.investigations => const InvestigationsPage(),
+            MainPages.settings => const SettingsPage(),
+          },
         ),
-        sideEffects: SideEffects(
-          initState: () => FlutterNativeSplash.remove(),
-        ),
-      );
+      ),
+    );
+  }
 }
 
 enum MainPages { home, patients, investigations, settings }

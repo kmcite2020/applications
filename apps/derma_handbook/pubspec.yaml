@@ -1,0 +1,61 @@
+name: derma_handbook
+description: A new Flutter project.
+publish_to: 'none'
+version: 2.0.0
+
+environment:
+  sdk: '>=3.0.0'
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.6
+  share_plus: ^7.1.0
+  flex_color_scheme: ^7.3.1
+  colornames: ^0.1.0
+  file_picker: ^5.5.0
+  path_provider: ^2.1.1
+  flutter_native_splash: ^2.3.2
+  states_rebuilder: ^6.3.0
+  uuid: ^3.0.7
+  isar: ^4.0.0-dev.13
+  isar_flutter_libs: ^4.0.0-dev.13
+  hive: ^4.0.0-dev.2
+  copy_with_extension: ^5.0.4
+  json_annotation: ^4.8.1
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  build_runner: ^2.4.6
+  flutter_lints: ^3.0.0
+  flutter_launcher_icons: ^0.13.1
+  copy_with_extension_gen: ^5.0.4
+  json_serializable: ^6.7.1
+flutter:
+  uses-material-design: true
+  assets:
+    - lib/assets/splash.jpg
+    - lib/assets/data/
+flutter_native_splash:
+  image: "lib/assets/icon.png"
+  color: "#000000"
+  background_image: "lib/assets/splash.jpg"
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  # ios: true
+  image_path: "lib/assets/icon.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  web:
+    generate: true
+    image_path: "lib/assets/icon.png"
+  #   background_color: "#hexcode"
+  #   theme_color: "#hexcode"
+  windows:
+    generate: true
+    image_path: "lib/assets/icon.png"
+    icon_size: 48 # min:48, max:256, default: 48
+  macos:
+    generate: true
+    image_path: "lib/assets/icon.png"
+# dart run flutter_native_splash:create
+# dart run flutter_launcher_icons

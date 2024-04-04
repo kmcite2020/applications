@@ -18,6 +18,7 @@ export 'package:hive/hive.dart';
 export 'package:path_provider/path_provider.dart';
 export 'package:states_rebuilder/states_rebuilder.dart';
 export 'package:package_info_plus/package_info_plus.dart';
+import 'package:flutter/foundation.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:manager/state_manager/base.dart';
 import 'manager.dart';

@@ -41,7 +41,7 @@ class OnboardingPage extends UI {
       appBar: AppBar(
         title: DotsIndicator(
           dotsCount: uiElements.length,
-          position: onboarding.onboardingPageIndex,
+          position: onboarding.onboardingPageIndex.toDouble(),
           onTap: (position) {
             setOnboardingPageIndex(position.toInt());
           },

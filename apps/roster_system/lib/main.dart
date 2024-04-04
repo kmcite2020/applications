@@ -16,28 +16,24 @@ void main() {
 }
 
 class App extends TopUI {
-  const App({super.key});
-
   @override
-  List<FutureOr<void>>? ensureInitialization() {
-    return [
-      SynchronousFuture(
-        WidgetsFlutterBinding.ensureInitialized(),
+  final dependencies = [
+    SynchronousFuture(
+      WidgetsFlutterBinding.ensureInitialized(),
+    ),
+    Future.delayed(
+      1000.milliseconds,
+      () => RM.storageInitializer(
+        HiveStorage(),
       ),
-      Future.delayed(
-        1000.milliseconds,
-        () => RM.storageInitializer(
-          HiveStorage(),
-        ),
-      ),
-    ];
-  }
+    ),
+  ];
 
   @override
   Widget? splashScreen() => CircularProgressIndicator().center().pad();
 
   @override
-  Widget build(BuildContext context) {
+  Widget buildApp(BuildContext context) {
     return OnReactive(
       () => MaterialApp(
         navigatorKey: RM.navigate.navigatorKey,

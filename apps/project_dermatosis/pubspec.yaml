@@ -1,0 +1,66 @@
+name: project_dermatosis
+description: A new Flutter project.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.6 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  file_picker: ^5.3.3
+  flex_color_scheme: ^7.2.0
+  path_provider: ^2.1.0
+  cupertino_icons: ^1.0.5
+  english_words: ^4.0.0
+  google_fonts: ^5.1.0
+  uuid: ^3.0.7
+  font_awesome_flutter: ^10.5.0
+  flutter_native_splash: ^2.3.1
+  states_rebuilder: ^6.3.0
+  colornames: ^0.1.0
+  hive_flutter: ^1.1.0
+  freezed_annotation: ^2.4.1
+  json_annotation: ^4.8.1
+  built_value: ^8.8.0
+  built_collection: ^5.1.1
+dev_dependencies:
+  flutter_launcher_icons: ^0.13.1
+  flutter_test:
+    sdk: flutter
+  json_serializable: ^6.7.1
+  freezed: ^2.4.5
+  build_runner: ^2.4.6
+  flutter_lints: ^3.0.1
+  lints: ^3.0.0
+  built_value_generator:
+flutter:
+  assets:
+    - assets/
+    # - shorebird.yaml
+  uses-material-design: true
+flutter_native_splash:
+  image: "assets/dermatosis.png"
+  color: "#000000"
+  background_image: "assets/hospital_bg.png"
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  # ios: true
+  image_path: "assets/dermatosis.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  web:
+    generate: true
+    image_path: "assets/dermatosis.png"
+    # background_color: "#hexcode"
+    # theme_color: "#hexcode"
+  windows:
+    generate: true
+    image_path: "assets/dermatosis.png"
+    icon_size: 72 # min:48, max:256, default: 48
+  macos:
+    generate: true
+    image_path: "assets/dermatosis.png"
+# dart run flutter_native_splash:create
+# dart run flutter_launcher_icons

@@ -37,17 +37,17 @@ export 'package:uuid/uuid.dart';
 typedef UI = ReactiveStatelessWidget;
 
 void main() {
-  runApp(const App());
+  runApp(App());
 }
 
 class App extends TopUI {
-  const App({super.key});
   @override
-  List<FutureOr<void>> ensureInitialization() =>
-      [RM.storageInitializer(HiveStorage())];
+  final dependencies = [
+    RM.storageInitializer(HiveStorage()),
+  ];
 
   @override
-  Widget build(context) {
+  Widget buildApp(context) {
     return MaterialApp(
       navigatorKey: navigator.navigatorKey,
       debugShowCheckedModeBanner: false,

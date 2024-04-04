@@ -13,8 +13,8 @@ dependencies:
   manager:
     path: D://FLUTTER//applications//apps//manager
   states_rebuilder: ^6.4.0
-  isar: ^4.0.0-dev.13
-  isar_flutter_libs: ^4.0.0-dev.13
+  # isar: ^4.0.0-dev.13
+  # isar_flutter_libs: ^4.0.0-dev.13
   flutter_launcher_icons: ^0.13.1
   json_serializable: ^6.7.1
   json_annotation: ^4.8.1

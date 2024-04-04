@@ -9,21 +9,17 @@ part 'app.freezed.dart';
 part 'app.g.dart';
 
 class App extends TopUI {
-  const App({super.key});
-
   @override
   Widget? splashScreen() => CircularProgressIndicator().center();
 
   @override
-  List<FutureOr<void>>? ensureInitialization() {
-    return [
-      WidgetsFlutterBinding.ensureInitialized(),
-      RM.storageInitializer(HiveStorage()),
-    ];
-  }
+  final dependencies = [
+    WidgetsFlutterBinding.ensureInitialized(),
+    RM.storageInitializer(HiveStorage()),
+  ];
 
   @override
-  Widget build(BuildContext context) {
+  Widget buildApp(BuildContext context) {
     return MaterialApp(
       navigatorKey: RM.navigate.navigatorKey,
       debugShowCheckedModeBanner: false,

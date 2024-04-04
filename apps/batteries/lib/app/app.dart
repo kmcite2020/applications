@@ -2,32 +2,23 @@ import 'package:batteries/batteries/pages/batteries_stock_page.dart';
 import 'package:batteries/main.dart';
 
 class App extends TopUI {
-  const App({super.key});
-
   @override
   Widget? splashScreen() => CircleAvatar(
         child: CircularProgressIndicator().pad(),
       ).pad().center();
 
   @override
-  List<FutureOr<void>>? ensureInitialization() {
-    return [
-      Future.value(
-        () => FlutterNativeSplash.preserve(
-          widgetsBinding: WidgetsFlutterBinding.ensureInitialized(),
-        ),
+  final dependencies = [
+    Future.delayed(
+      336.milliseconds,
+      () => RM.storageInitializer(
+        HiveStorage(),
       ),
-      Future.delayed(
-        336.milliseconds,
-        () => RM.storageInitializer(
-          HiveStorage(),
-        ),
-      )
-    ];
-  }
+    )
+  ];
 
   @override
-  Widget build(BuildContext context) {
+  Widget buildApp(BuildContext context) {
     return OnReactive(
       sideEffects: SideEffects(
         initState: () => FlutterNativeSplash.remove(),

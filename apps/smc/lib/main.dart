@@ -21,27 +21,22 @@ export 'package:smc/presentation/ui/admin/hospital_information_dialog.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends TopUI {
-  const MyApp({super.key});
+  final dependencies = [
+    Future.value(
+      () => FlutterNativeSplash.preserve(
+        widgetsBinding: WidgetsFlutterBinding.ensureInitialized(),
+      ),
+    ),
+    Future.delayed(
+      1000.milliseconds,
+      () => RM.storageInitializer(
+        HiveStorage(),
+      ),
+    ),
+  ];
 
   @override
-  List<FutureOr<void>>? ensureInitialization() {
-    return [
-      Future.value(
-        () => FlutterNativeSplash.preserve(
-          widgetsBinding: WidgetsFlutterBinding.ensureInitialized(),
-        ),
-      ),
-      Future.delayed(
-        1000.milliseconds,
-        () => RM.storageInitializer(
-          HiveStorage(),
-        ),
-      ),
-    ];
-  }
-
-  @override
-  Widget build(BuildContext context) {
+  Widget buildApp(BuildContext context) {
     return MaterialApp(
       navigatorKey: RM.navigate.navigatorKey,
       debugShowCheckedModeBanner: false,

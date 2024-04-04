@@ -12,26 +12,24 @@ void main() {
 
 class App extends TopUI {
   @override
-  List<FutureOr<void>>? ensureInitialization() {
-    return [
-      SynchronousFuture(
-        () => FlutterNativeSplash.preserve(
-          widgetsBinding: WidgetsFlutterBinding.ensureInitialized(),
-        ),
+  final dependencies = [
+    SynchronousFuture(
+      () => FlutterNativeSplash.preserve(
+        widgetsBinding: WidgetsFlutterBinding.ensureInitialized(),
       ),
-      Future.delayed(
-        1000.milliseconds,
-        () => RM.storageInitializer(
-          HiveStorage(),
-        ),
+    ),
+    Future.delayed(
+      1000.milliseconds,
+      () => RM.storageInitializer(
+        HiveStorage(),
       ),
-    ];
-  }
+    ),
+  ];
 
   @override
   Widget? splashScreen() => CircularProgressIndicator().center();
 
-  Widget build(BuildContext context) {
+  Widget buildApp(BuildContext context) {
     return OnReactive(
       () => MaterialApp(
         navigatorKey: RM.navigate.navigatorKey,

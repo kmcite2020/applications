@@ -1,0 +1,85 @@
+name: doctor_on_duty
+
+description: 
+publish_to: 'none'
+version: 2.0.0+1
+homepage: https://github.com/kmcite2020/doctor_on_duty
+environment:
+  sdk: '>=3.0.0'
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons:
+  hive_flutter:
+  uuid:
+  file_picker: ^6.0.0
+  material_design_icons_flutter: 
+  font_awesome_flutter: ^10.5.0
+  colornames: 
+  intl:
+  path_provider: ^2.1.1
+  collection:
+  flex_color_scheme: ^7.3.1 
+  percent_indicator: ^4.2.3
+  english_words:
+  google_fonts: ^5.1.0
+  states_rebuilder: ^6.3.0
+  flutter_native_splash: ^2.3.2
+  freezed_annotation: ^2.4.1
+  json_annotation: ^4.8.1
+  
+dev_dependencies:
+  flutter_launcher_icons: ^0.13.1
+  build_runner: ^2.4.6
+  json_serializable: ^6.7.1
+  freezed: ^2.4.5
+  
+flutter:
+  uses-material-design: true
+  fonts:
+    - family: Operator Mono
+      fonts:
+        - asset: assets/operator.otf
+    - family: Lotion
+      fonts:
+        - asset: assets/Lotion-Black.ttf
+        - asset: assets/Lotion-BlackItalic.ttf
+          style: italic
+        - asset: assets/Lotion-Bold.ttf
+        - asset: assets/Lotion-BoldItalic.ttf
+          style: italic
+        - asset: assets/Lotion-Regular.ttf
+        - asset: assets/Lotion-RegularItalic.ttf
+          style: italic
+        - asset: assets/Lotion-SemiBold.ttf
+        - asset: assets/Lotion-SemiBoldItalic.ttf
+          style: italic
+
+  assets:
+    - assets/
+    - assets/fonts/
+   
+
+flutter_native_splash:
+  image: "assets/book.png"
+  color: "#000000"
+  background_image: "assets/default.png"
+flutter_launcher_icons:
+  android: "launcher_icon"
+  # ios: true
+  image_path: "assets/book.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  web:
+    generate: true
+    image_path: "assets/book.png"
+    # background_color: "#hexcode"
+    # theme_color: "#hexcode"
+  windows:
+    generate: true
+    image_path: "assets/book.png"
+    icon_size: 72 # min:48, max:256, default: 48
+  macos:
+    generate: true
+    image_path: "assets/book.png"
+# dart run flutter_native_splash:create
+# dart run flutter_launcher_icons
