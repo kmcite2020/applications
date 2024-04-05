@@ -14,9 +14,9 @@ class OnboardingPage extends UI {
       lastDate: DateTime.now(),
     );
     if (value == null) {
-      setDateOfBirth(givenDate!);
+      appUserRM(AppUserEvent.setDateOfBirth(givenDate!));
     } else {
-      setDateOfBirth(value);
+      appUserRM(AppUserEvent.setDateOfBirth(value));
     }
   }
 
@@ -29,7 +29,7 @@ class OnboardingPage extends UI {
       NameSelectionUI(titleTextSize: titleTextSize),
       DateOfBirthUI(titleTextSize: titleTextSize),
       PubertyCalculationMethodUI(titleTextSize: titleTextSize),
-      if (!appUser.ageBasedOrExplicit)
+      if (!appUserRM().ageBasedOrExplicit)
         DateOfPubertyUI(
           titleTextSize: titleTextSize,
           updateDateOfPuberty: () => updateDateOfPuberty(context: context),
@@ -110,7 +110,7 @@ class NameSelectionUI extends StatelessWidget {
         'What is your name?'.text(textScaleFactor: titleTextSize).pad(),
         TextFormField(
           onChanged: (userName) {
-            appUser = (appUser.copyWith(userName: userName));
+            appUserRM(AppUserEvent.setUserName(userName));
           },
         ).pad(),
       ],
@@ -131,7 +131,7 @@ class DateOfBirthUI extends StatelessWidget {
     return ListView(
       children: [
         'When were you born?'.text(textScaleFactor: titleTextSize).pad(),
-        appUser.dateOfBirth.humane().text().pad().card().pad(),
+        appUserRM().dateOfBirth.humane().text().pad().card().pad(),
         ElevatedButton(
           onPressed: () => OnboardingPage.updateDateOfBirth(context: context),
           child: 'Update your Date Of Birth'.text().pad(),
@@ -160,11 +160,13 @@ class PubertyCalculationMethodUI extends StatelessWidget {
             .text()
             .pad(),
         SwitchListTile(
-          title: (appUser.ageBasedOrExplicit ? 'AGE-BASED' : 'EXPLICIT')
+          title: (appUserRM().ageBasedOrExplicit ? 'AGE-BASED' : 'EXPLICIT')
               .text()
               .pad(),
-          value: appUser.ageBasedOrExplicit,
-          onChanged: setAgeBasedOrExplicit,
+          value: appUserRM().ageBasedOrExplicit,
+          onChanged: (ageBasedOrExplicit) => appUserRM(
+            AppUserEvent.setAgeBasedOrExplicit(ageBasedOrExplicit),
+          ),
         ).card(),
       ],
     );
@@ -191,7 +193,7 @@ class DateOfPubertyUI extends StatelessWidget {
           child: 'Update your Date Of Puberty'.text().pad(),
         ).pad(),
         'Date Of Puberty'.text(textScaleFactor: 2).pad(),
-        appUser.dateOfBirth.humane().text().pad().card().pad(),
+        appUserRM().dateOfBirth.humane().text().pad().card().pad(),
       ],
     );
   }
@@ -211,23 +213,23 @@ class GetStartedUI extends StatelessWidget {
       children: [
         'All set.'.text(textScaleFactor: titleTextSize).pad(),
         'Let\'s go.'.text(textScaleFactor: 1).pad(),
-        '${appUser.isUserNameValid ? '✅' : '❎'} Your name is ${appUser.userName}'
+        '${appUserRM().isUserNameValid ? '✅' : '❎'} Your name is ${appUserRM().userName}'
             .text()
             .pad(),
-        '${appUser.isUserAdult ? '✅ Adult.' : '❎ Not an adult.'} ${appUser.dateOfBirth.humane()}'
+        '${appUserRM().isUserAdult ? '✅ Adult.' : '❎ Not an adult.'} ${appUserRM().dateOfBirth.humane()}'
             .text()
             .pad(),
-        ('Your age is ${(appUser.age.inDays / 365).toStringAsFixed(0)} years')
+        ('Your age is ${(appUserRM().age.inDays / 365).toStringAsFixed(0)} years')
             .text()
             .pad()
             .card(),
-        'Your date of birth is ${appUser.dateOfBirth.humane()}'
+        'Your date of birth is ${appUserRM().dateOfBirth.humane()}'
             .text()
             .pad()
             .card(),
         ElevatedButton(
           onPressed: () {
-            return appUser.isUserNameValid && appUser.isUserAdult;
+            return appUserRM().isUserNameValid && appUserRM().isUserAdult;
           }()
               ? () {
                   setOnboardingComplete(true);

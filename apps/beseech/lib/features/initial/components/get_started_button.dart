@@ -22,7 +22,7 @@ class GetStartedButton extends UI {
           ],
         ).pad(),
         ElevatedButton(
-          onPressed: appUser.isUserNameValid
+          onPressed: appUserRM().isUserNameValid
               ? () => setOnboardingComplete(true)
               : null,
           style: ElevatedButton.styleFrom(

@@ -47,3 +47,37 @@ abstract class Manager<State> extends Base<State>
     return state;
   }
 }
+
+/// its tricky
+/// because you maybe provided with a stream
+/// you can only read it.
+/// you can not provide side effects from here
+/// the stream provider shoud give a way to add events to the stream
+///
+///
+
+class StreamBase<T> extends Base<T?> {
+  final Stream<T> Function() creator;
+  StreamSubscription<T>? subscription;
+  StreamBase(
+    this.creator, {
+    this.initialState,
+  }) {
+    state = initialState;
+    subscription = creator().listen(
+      setState,
+      onDone: dispose,
+      onError: (_, __) => dispose(),
+    );
+  }
+  @override
+  void dispose() {
+    super.dispose();
+    subscription?.cancel();
+    subscription = null;
+  }
+
+  @override
+  final T? initialState;
+  T call() => state!;
+}

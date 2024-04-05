@@ -12,7 +12,7 @@ part of 'prayers.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 Prayers _$PrayersFromJson(Map<String, dynamic> json) {
   return _Prayers.fromJson(json);
@@ -197,7 +197,7 @@ class __$$PrayersImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PrayersImpl extends _Prayers {
+class _$PrayersImpl extends _Prayers with DiagnosticableTreeMixin {
   const _$PrayersImpl(
       {required this.fajr,
       required this.zuhr,
@@ -231,8 +231,21 @@ class _$PrayersImpl extends _Prayers {
   }
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Prayers.raw(fajr: $fajr, zuhr: $zuhr, asar: $asar, maghrib: $maghrib, isha: $isha, prayers: $prayers)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Prayers.raw'))
+      ..add(DiagnosticsProperty('fajr', fajr))
+      ..add(DiagnosticsProperty('zuhr', zuhr))
+      ..add(DiagnosticsProperty('asar', asar))
+      ..add(DiagnosticsProperty('maghrib', maghrib))
+      ..add(DiagnosticsProperty('isha', isha))
+      ..add(DiagnosticsProperty('prayers', prayers));
   }
 
   @override
@@ -449,7 +462,7 @@ class __$$PrayerImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PrayerImpl extends _Prayer {
+class _$PrayerImpl extends _Prayer with DiagnosticableTreeMixin {
   const _$PrayerImpl({this.name = '', this.count = 0}) : super._();
 
   factory _$PrayerImpl.fromJson(Map<String, dynamic> json) =>
@@ -463,8 +476,17 @@ class _$PrayerImpl extends _Prayer {
   final int count;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Prayer(name: $name, count: $count)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Prayer'))
+      ..add(DiagnosticsProperty('name', name))
+      ..add(DiagnosticsProperty('count', count));
   }
 
   @override

@@ -8,7 +8,7 @@ class RemainingPrayersUI extends UI {
     return Column(
       children: [
         'REMAINING PRAYERS'.text(textScaleFactor: 2),
-        prayers.all.text(textScaleFactor: 3),
+        prayersRM.all.text(textScaleFactor: 3),
       ],
     ).pad();
   }

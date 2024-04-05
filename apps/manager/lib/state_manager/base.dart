@@ -51,4 +51,5 @@ abstract class Base<State>
   State get state => injected.state.value;
   @override
   set state(State newState) => injected.state = Capsule(newState);
+  void setState(newState) => state = newState;
 }

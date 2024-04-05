@@ -9,7 +9,7 @@ class ThemeModeUI extends UI {
       children: [
         'THEME MODE'.text().pad(),
         DropdownButtonFormField(
-          value: settingsBloc.state.themeMode,
+          value: settingsRM.state.themeMode,
           items: ThemeMode.values
               .map(
                 (themeMode) => DropdownMenuItem(
@@ -18,7 +18,7 @@ class ThemeModeUI extends UI {
                 ),
               )
               .toList(),
-          onChanged: (_) => settingsBloc.add(SettingsEvent.themeMode(_!)),
+          onChanged: (_) => settingsRM.add(SettingsEvent.themeMode(_!)),
         ).pad(),
       ],
     ).card();

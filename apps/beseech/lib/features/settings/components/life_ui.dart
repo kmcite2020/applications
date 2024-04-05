@@ -10,7 +10,7 @@ class LifeUI extends UI {
       children: [
         'LIFE'.text().pad(),
         DropdownButtonFormField(
-          value: appUser.ageVysor,
+          value: appUserRM().ageVysor,
           items: AgeVysor.values
               .map(
                 (e) => DropdownMenuItem(
@@ -19,23 +19,23 @@ class LifeUI extends UI {
                 ),
               )
               .toList(),
-          onChanged: setAgeVysor,
-          padding: EdgeInsets.all(settingsBloc.state.padding),
+          onChanged: (ageVysor) => AppUserEvent.setAgeVysor(ageVysor),
+          padding: EdgeInsets.all(settingsRM.state.padding),
         ),
         () {
-          switch (appUser.ageVysor) {
+          switch (appUserRM().ageVysor) {
             case AgeVysor.years:
-              return "${age.inDays ~/ (30 * 12)} YEARS".text();
+              return "${appUserRM().age.inDays ~/ (30 * 12)} YEARS".text();
             case AgeVysor.months:
-              return "${age.inDays ~/ 30} MONTHS".text();
+              return "${appUserRM().age.inDays ~/ 30} MONTHS".text();
             case AgeVysor.days:
-              return "${age.inDays} DAYS".text();
+              return "${appUserRM().age.inDays} DAYS".text();
             case AgeVysor.hours:
-              return "${age.inHours} HOURS".text();
+              return "${appUserRM().age.inHours} HOURS".text();
             case AgeVysor.minutes:
-              return "${age.inMinutes} MINUTES".text();
+              return "${appUserRM().age.inMinutes} MINUTES".text();
             case AgeVysor.seconds:
-              return "${age.inSeconds} SECONDS".text();
+              return "${appUserRM().age.inSeconds} SECONDS".text();
           }
         }()
             .pad()

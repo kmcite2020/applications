@@ -12,7 +12,7 @@ part of 'app.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 Application _$ApplicationFromJson(Map<String, dynamic> json) {
   return _Application.fromJson(json);
@@ -220,7 +220,7 @@ class __$$ApplicationImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ApplicationImpl extends _Application {
+class _$ApplicationImpl extends _Application with DiagnosticableTreeMixin {
   const _$ApplicationImpl(
       {required this.settings,
       required this.prayers,
@@ -241,8 +241,19 @@ class _$ApplicationImpl extends _Application {
   final AppUser appUser;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Application.raw(settings: $settings, prayers: $prayers, onboarding: $onboarding, appUser: $appUser)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Application.raw'))
+      ..add(DiagnosticsProperty('settings', settings))
+      ..add(DiagnosticsProperty('prayers', prayers))
+      ..add(DiagnosticsProperty('onboarding', onboarding))
+      ..add(DiagnosticsProperty('appUser', appUser));
   }
 
   @override

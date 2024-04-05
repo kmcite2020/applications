@@ -12,7 +12,7 @@ part of 'onboarding.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 Onboarding _$OnboardingFromJson(Map<String, dynamic> json) {
   return _Onboarding.fromJson(json);
@@ -140,7 +140,7 @@ class __$$OnboardingImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$OnboardingImpl extends _Onboarding {
+class _$OnboardingImpl extends _Onboarding with DiagnosticableTreeMixin {
   _$OnboardingImpl(
       {required this.onboardingPageIndex, required this.isOnboardingComplete})
       : super._();
@@ -154,8 +154,17 @@ class _$OnboardingImpl extends _Onboarding {
   final bool isOnboardingComplete;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Onboarding.raw(onboardingPageIndex: $onboardingPageIndex, isOnboardingComplete: $isOnboardingComplete)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Onboarding.raw'))
+      ..add(DiagnosticsProperty('onboardingPageIndex', onboardingPageIndex))
+      ..add(DiagnosticsProperty('isOnboardingComplete', isOnboardingComplete));
   }
 
   @override

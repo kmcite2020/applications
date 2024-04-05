@@ -12,26 +12,7 @@ part of 'settings.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-SettingsEvent _$SettingsEventFromJson(Map<String, dynamic> json) {
-  switch (json['runtimeType']) {
-    case 'default':
-      return _SettingsEvent.fromJson(json);
-    case 'themeMode':
-      return _SettingsEventThemeMode.fromJson(json);
-    case 'materialColor':
-      return _SettingsEventMaterialColor.fromJson(json);
-    case 'borderRadius':
-      return _SettingsEventBorderRadius.fromJson(json);
-    case 'padding':
-      return _SettingsEventPadding.fromJson(json);
-
-    default:
-      throw CheckedFromJsonException(json, 'runtimeType', 'SettingsEvent',
-          'Invalid union type "${json['runtimeType']}"!');
-  }
-}
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$SettingsEvent {
@@ -95,7 +76,6 @@ mixin _$SettingsEvent {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -133,19 +113,21 @@ class __$$SettingsEventImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
-class _$SettingsEventImpl implements _SettingsEvent {
-  const _$SettingsEventImpl({final String? $type}) : $type = $type ?? 'default';
 
-  factory _$SettingsEventImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SettingsEventImplFromJson(json);
-
-  @JsonKey(name: 'runtimeType')
-  final String $type;
+class _$SettingsEventImpl
+    with DiagnosticableTreeMixin
+    implements _SettingsEvent {
+  const _$SettingsEventImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SettingsEvent()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'SettingsEvent'));
   }
 
   @override
@@ -154,7 +136,6 @@ class _$SettingsEventImpl implements _SettingsEvent {
         (other.runtimeType == runtimeType && other is _$SettingsEventImpl);
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => runtimeType.hashCode;
 
@@ -241,20 +222,10 @@ class _$SettingsEventImpl implements _SettingsEvent {
     }
     return orElse();
   }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SettingsEventImplToJson(
-      this,
-    );
-  }
 }
 
 abstract class _SettingsEvent implements SettingsEvent {
   const factory _SettingsEvent() = _$SettingsEventImpl;
-
-  factory _SettingsEvent.fromJson(Map<String, dynamic> json) =
-      _$SettingsEventImpl.fromJson;
 }
 
 /// @nodoc
@@ -291,23 +262,26 @@ class __$$SettingsEventThemeModeImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
-class _$SettingsEventThemeModeImpl implements _SettingsEventThemeMode {
-  const _$SettingsEventThemeModeImpl(this.themeMode, {final String? $type})
-      : $type = $type ?? 'themeMode';
 
-  factory _$SettingsEventThemeModeImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SettingsEventThemeModeImplFromJson(json);
+class _$SettingsEventThemeModeImpl
+    with DiagnosticableTreeMixin
+    implements _SettingsEventThemeMode {
+  const _$SettingsEventThemeModeImpl(this.themeMode);
 
   @override
   final ThemeMode themeMode;
 
-  @JsonKey(name: 'runtimeType')
-  final String $type;
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'SettingsEvent.themeMode(themeMode: $themeMode)';
+  }
 
   @override
-  String toString() {
-    return 'SettingsEvent.themeMode(themeMode: $themeMode)';
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SettingsEvent.themeMode'))
+      ..add(DiagnosticsProperty('themeMode', themeMode));
   }
 
   @override
@@ -319,7 +293,6 @@ class _$SettingsEventThemeModeImpl implements _SettingsEventThemeMode {
                 other.themeMode == themeMode));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, themeMode);
 
@@ -413,21 +386,11 @@ class _$SettingsEventThemeModeImpl implements _SettingsEventThemeMode {
     }
     return orElse();
   }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SettingsEventThemeModeImplToJson(
-      this,
-    );
-  }
 }
 
 abstract class _SettingsEventThemeMode implements SettingsEvent {
   const factory _SettingsEventThemeMode(final ThemeMode themeMode) =
       _$SettingsEventThemeModeImpl;
-
-  factory _SettingsEventThemeMode.fromJson(Map<String, dynamic> json) =
-      _$SettingsEventThemeModeImpl.fromJson;
 
   ThemeMode get themeMode;
   @JsonKey(ignore: true)
@@ -469,27 +432,28 @@ class __$$SettingsEventMaterialColorImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
-class _$SettingsEventMaterialColorImpl implements _SettingsEventMaterialColor {
-  const _$SettingsEventMaterialColorImpl(
-      @MaterialColorConverter() this.materialColor,
-      {final String? $type})
-      : $type = $type ?? 'materialColor';
 
-  factory _$SettingsEventMaterialColorImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$SettingsEventMaterialColorImplFromJson(json);
+class _$SettingsEventMaterialColorImpl
+    with DiagnosticableTreeMixin
+    implements _SettingsEventMaterialColor {
+  const _$SettingsEventMaterialColorImpl(
+      @MaterialColorConverter() this.materialColor);
 
   @override
   @MaterialColorConverter()
   final MaterialColor materialColor;
 
-  @JsonKey(name: 'runtimeType')
-  final String $type;
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'SettingsEvent.materialColor(materialColor: $materialColor)';
+  }
 
   @override
-  String toString() {
-    return 'SettingsEvent.materialColor(materialColor: $materialColor)';
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SettingsEvent.materialColor'))
+      ..add(DiagnosticsProperty('materialColor', materialColor));
   }
 
   @override
@@ -501,7 +465,6 @@ class _$SettingsEventMaterialColorImpl implements _SettingsEventMaterialColor {
                 other.materialColor == materialColor));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, materialColor);
 
@@ -595,22 +558,12 @@ class _$SettingsEventMaterialColorImpl implements _SettingsEventMaterialColor {
     }
     return orElse();
   }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SettingsEventMaterialColorImplToJson(
-      this,
-    );
-  }
 }
 
 abstract class _SettingsEventMaterialColor implements SettingsEvent {
   const factory _SettingsEventMaterialColor(
           @MaterialColorConverter() final MaterialColor materialColor) =
       _$SettingsEventMaterialColorImpl;
-
-  factory _SettingsEventMaterialColor.fromJson(Map<String, dynamic> json) =
-      _$SettingsEventMaterialColorImpl.fromJson;
 
   @MaterialColorConverter()
   MaterialColor get materialColor;
@@ -653,24 +606,26 @@ class __$$SettingsEventBorderRadiusImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
-class _$SettingsEventBorderRadiusImpl implements _SettingsEventBorderRadius {
-  const _$SettingsEventBorderRadiusImpl(this.borderRadius,
-      {final String? $type})
-      : $type = $type ?? 'borderRadius';
 
-  factory _$SettingsEventBorderRadiusImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SettingsEventBorderRadiusImplFromJson(json);
+class _$SettingsEventBorderRadiusImpl
+    with DiagnosticableTreeMixin
+    implements _SettingsEventBorderRadius {
+  const _$SettingsEventBorderRadiusImpl(this.borderRadius);
 
   @override
   final double borderRadius;
 
-  @JsonKey(name: 'runtimeType')
-  final String $type;
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'SettingsEvent.borderRadius(borderRadius: $borderRadius)';
+  }
 
   @override
-  String toString() {
-    return 'SettingsEvent.borderRadius(borderRadius: $borderRadius)';
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SettingsEvent.borderRadius'))
+      ..add(DiagnosticsProperty('borderRadius', borderRadius));
   }
 
   @override
@@ -682,7 +637,6 @@ class _$SettingsEventBorderRadiusImpl implements _SettingsEventBorderRadius {
                 other.borderRadius == borderRadius));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, borderRadius);
 
@@ -776,21 +730,11 @@ class _$SettingsEventBorderRadiusImpl implements _SettingsEventBorderRadius {
     }
     return orElse();
   }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SettingsEventBorderRadiusImplToJson(
-      this,
-    );
-  }
 }
 
 abstract class _SettingsEventBorderRadius implements SettingsEvent {
   const factory _SettingsEventBorderRadius(final double borderRadius) =
       _$SettingsEventBorderRadiusImpl;
-
-  factory _SettingsEventBorderRadius.fromJson(Map<String, dynamic> json) =
-      _$SettingsEventBorderRadiusImpl.fromJson;
 
   double get borderRadius;
   @JsonKey(ignore: true)
@@ -830,23 +774,26 @@ class __$$SettingsEventPaddingImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
-class _$SettingsEventPaddingImpl implements _SettingsEventPadding {
-  const _$SettingsEventPaddingImpl(this.padding, {final String? $type})
-      : $type = $type ?? 'padding';
 
-  factory _$SettingsEventPaddingImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SettingsEventPaddingImplFromJson(json);
+class _$SettingsEventPaddingImpl
+    with DiagnosticableTreeMixin
+    implements _SettingsEventPadding {
+  const _$SettingsEventPaddingImpl(this.padding);
 
   @override
   final double padding;
 
-  @JsonKey(name: 'runtimeType')
-  final String $type;
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'SettingsEvent.padding(padding: $padding)';
+  }
 
   @override
-  String toString() {
-    return 'SettingsEvent.padding(padding: $padding)';
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SettingsEvent.padding'))
+      ..add(DiagnosticsProperty('padding', padding));
   }
 
   @override
@@ -857,7 +804,6 @@ class _$SettingsEventPaddingImpl implements _SettingsEventPadding {
             (identical(other.padding, padding) || other.padding == padding));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, padding);
 
@@ -952,21 +898,11 @@ class _$SettingsEventPaddingImpl implements _SettingsEventPadding {
     }
     return orElse();
   }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SettingsEventPaddingImplToJson(
-      this,
-    );
-  }
 }
 
 abstract class _SettingsEventPadding implements SettingsEvent {
   const factory _SettingsEventPadding(final double padding) =
       _$SettingsEventPaddingImpl;
-
-  factory _SettingsEventPadding.fromJson(Map<String, dynamic> json) =
-      _$SettingsEventPaddingImpl.fromJson;
 
   double get padding;
   @JsonKey(ignore: true)
@@ -1098,7 +1034,9 @@ class __$$SettingsStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SettingsStateImpl implements _SettingsState {
+class _$SettingsStateImpl
+    with DiagnosticableTreeMixin
+    implements _SettingsState {
   const _$SettingsStateImpl(
       {this.borderRadius = 8,
       this.padding = 8,
@@ -1123,8 +1061,19 @@ class _$SettingsStateImpl implements _SettingsState {
   final MaterialColor materialColor;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SettingsState(borderRadius: $borderRadius, padding: $padding, themeMode: $themeMode, materialColor: $materialColor)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SettingsState'))
+      ..add(DiagnosticsProperty('borderRadius', borderRadius))
+      ..add(DiagnosticsProperty('padding', padding))
+      ..add(DiagnosticsProperty('themeMode', themeMode))
+      ..add(DiagnosticsProperty('materialColor', materialColor));
   }
 
   @override

@@ -32,15 +32,16 @@ class NameUI extends UI {
             ],
           ),
           if (isEditingName.state)
+            // CallableTextField(callable: nameRM.call)
             TextFormField(
-              initialValue: appUser.userName,
+              initialValue: appUserRM().userName,
               onChanged: (userName) {
-                appUser = (appUser.copyWith(userName: userName));
+                appUserRM(AppUserEvent.setUserName(userName));
               },
               onFieldSubmitted: (_) => isEditingName.toggle(),
             ).pad()
           else
-            appUser.userName.text().pad().card().pad(),
+            appUserRM().userName.text().pad().card().pad(),
         ],
       ),
     ).pad();
@@ -48,3 +49,26 @@ class NameUI extends UI {
 }
 
 final isEditingName = false.inj();
+
+final nameRM = Simplicity('initialState');
+
+class CallableTextField extends UI {
+  const CallableTextField({
+    super.key,
+    required this.callable,
+  });
+  final String Function([String? newValue]) callable;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        nameRM().text(),
+        TextFormField(
+          initialValue: callable(),
+          onChanged: callable,
+        ).pad(),
+      ],
+    );
+  }
+}

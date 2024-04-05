@@ -22,36 +22,39 @@ class UserInformationUI extends UI {
               children: [
                 const Divider(),
                 'NAME'.text().pad(),
-                if (appUser.editing)
+                if (appUserRM().editing)
                   TextFormField(
-                    initialValue: appUser.userName,
+                    initialValue: appUserRM().userName,
                     onChanged: (userName) {
-                      appUser = (appUser.copyWith(userName: userName));
+                      appUserRM(AppUserEvent.setUserName(userName));
                     },
-                    onFieldSubmitted: (_) =>
-                        appUser = appUser.copyWith(editing: false),
+                    onFieldSubmitted: (_) {
+                      appUserRM.state = appUserRM().copyWith(editing: false);
+                    },
                   ).pad()
                 else
-                  appUser.userName.text().pad().container(
-                        onTap: () => appUser = appUser.copyWith(editing: true),
+                  appUserRM().userName.text().pad().container(
+                        onTap: () => appUserRM.state = appUserRM().copyWith(
+                          editing: true,
+                        ),
                       ),
                 const Divider(),
                 'DATE OF BIRTH'.text().pad(),
-                appUser.dateOfBirth.time().text().pad().container(
+                appUserRM().dateOfBirth.time().text().pad().container(
                   onTap: () async {
                     final selectedDate = await showDatePicker(
                       context: context,
-                      initialDate: appUser.dateOfBirth,
+                      initialDate: appUserRM().dateOfBirth,
                       firstDate: DateTime(1950),
                       lastDate: DateTime.now(),
                     );
                     if (selectedDate != null)
-                      appUser = (appUser.copyWith(dateOfBirth: selectedDate));
+                      appUserRM(AppUserEvent.setDateOfBirth(selectedDate));
                   },
                 ),
                 const Divider(),
                 'DATE OF PUBERTY'.text().pad(),
-                (appUser.dateOfPuberty.time()).text().pad(),
+                (appUserRM().dateOfPuberty.time()).text().pad(),
                 const Divider(),
                 const LifeUI()
               ],

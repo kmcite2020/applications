@@ -3,14 +3,14 @@ import '../../main.dart';
 ThemeData theme() {
   return FlexThemeData.light(
     colorScheme:
-        ColorScheme.fromSwatch(primarySwatch: settingsBloc.state.materialColor),
+        ColorScheme.fromSwatch(primarySwatch: settingsRM.state.materialColor),
     fontFamily: GoogleFonts.getFont('Dosis').fontFamily!,
     useMaterial3: true,
     lightIsWhite: true,
     subThemesData: FlexSubThemesData(
-      defaultRadius: settingsBloc.state.borderRadius,
+      defaultRadius: settingsRM.state.borderRadius,
       cardElevation: kCardElevation,
-      cardRadius: settingsBloc.state.borderRadius,
+      cardRadius: settingsRM.state.borderRadius,
     ),
     appBarStyle: FlexAppBarStyle.primary,
   );
@@ -19,16 +19,16 @@ ThemeData theme() {
 ThemeData darkTheme() {
   return FlexThemeData.dark(
     colorScheme: ColorScheme.fromSwatch(
-      primarySwatch: settingsBloc.state.materialColor,
+      primarySwatch: settingsRM.state.materialColor,
       brightness: Brightness.dark,
     ),
     fontFamily: GoogleFonts.getFont('Dosis').fontFamily ?? 'Lotion',
     useMaterial3: true,
     darkIsTrueBlack: true,
     subThemesData: FlexSubThemesData(
-      defaultRadius: settingsBloc.state.borderRadius,
+      defaultRadius: settingsRM.state.borderRadius,
       cardElevation: kCardElevation,
-      cardRadius: settingsBloc.state.borderRadius,
+      cardRadius: settingsRM.state.borderRadius,
     ),
     appBarStyle: FlexAppBarStyle.primary,
   );

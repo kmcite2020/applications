@@ -87,8 +87,8 @@ void updateDateOfPuberty({
     lastDate: DateTime.now(),
   );
   if (value == null) {
-    setDateOfPubertyExplicit(givenDate!);
+    appUserRM(AppUserEvent.setDateOfPubertyExplicit(givenDate!));
   } else {
-    setDateOfPubertyExplicit(value);
+    appUserRM(AppUserEvent.setDateOfPubertyExplicit(value));
   }
 }

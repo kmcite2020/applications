@@ -10,15 +10,15 @@ class DateOfBirthUI extends UI {
       decoration: BoxDecoration(
         border: Border.all(
           width: 2,
-          color: settingsBloc.state.materialColor.withOpacity(.6),
+          color: settingsRM.state.materialColor.withOpacity(.6),
         ),
-        borderRadius: BorderRadius.circular(settingsBloc.state.borderRadius),
+        borderRadius: BorderRadius.circular(settingsRM.state.borderRadius),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           'DATE OF BIRTH - date of your coming to creation'.text().pad(),
-          appUser.dateOfBirth.humane().text().pad().card().pad(),
+          appUserRM().dateOfBirth.humane().text().pad().card().pad(),
           ElevatedButton(
             onPressed: () {
               OnboardingPage.updateDateOfBirth(context: context);

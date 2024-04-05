@@ -3,37 +3,22 @@ import 'package:manager/manager.dart';
 part 'settings.freezed.dart';
 part 'settings.g.dart';
 
-final settingsBloc = SettingsBloc();
+final settingsRM = SettingsRM();
 
-class SettingsBloc extends Complex<SettingsEvent, SettingsState> {
-  SettingsBloc() {
-    register<_SettingsEventThemeMode>(_OnSettingsEventThemeMode);
-    register<_SettingsEventMaterialColor>(_OnSettingsEventMaterialColor);
-    register<_SettingsEventBorderRadius>(_OnSettingsEventBorderRadius);
-    register<_SettingsEventPadding>(_OnSettingsEventPadding);
-  }
-
-  // @override
-  // SettingsState? fromJson(Map<String, dynamic> json) =>
-  //     SettingsState.fromJson(json);
-
-  // @override
-  // Map<String, dynamic>? toJson(SettingsState state) => state.toJson();
-
-  FutureOr<void> _OnSettingsEventThemeMode(event) {
-    state = (state.copyWith(themeMode: event.themeMode));
-  }
-
-  FutureOr<void> _OnSettingsEventMaterialColor(event) {
-    state = (state.copyWith(materialColor: event.materialColor));
-  }
-
-  FutureOr<void> _OnSettingsEventBorderRadius(event) {
-    state = (state.copyWith(borderRadius: event.borderRadius));
-  }
-
-  FutureOr<void> _OnSettingsEventPadding(event) {
-    state = (state.copyWith(padding: event.padding));
+class SettingsRM extends Complex<SettingsEvent, SettingsState> {
+  SettingsRM() {
+    register<_SettingsEventThemeMode>(
+      (_) => state = state.copyWith(themeMode: _.themeMode),
+    );
+    register<_SettingsEventMaterialColor>(
+      (_) => state = state.copyWith(materialColor: _.materialColor),
+    );
+    register<_SettingsEventBorderRadius>(
+      (_) => state = (state.copyWith(borderRadius: _.borderRadius)),
+    );
+    register<_SettingsEventPadding>(
+      (_) => state = (state.copyWith(padding: _.padding)),
+    );
   }
 
   @override
@@ -51,8 +36,6 @@ class SettingsEvent with _$SettingsEvent {
   const factory SettingsEvent.borderRadius(double borderRadius) =
       _SettingsEventBorderRadius;
   const factory SettingsEvent.padding(double padding) = _SettingsEventPadding;
-
-  factory SettingsEvent.fromJson(json) => _$SettingsEventFromJson(json);
 }
 
 @freezed

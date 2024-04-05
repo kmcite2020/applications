@@ -1,7 +1,4 @@
-import 'package:beseech/features/prayers/pages/fajr_bloc.dart';
-import 'package:beseech/features/prayers/pages/fajr_prayer.dart';
-
-import '../../../main.dart';
+import 'package:beseech/main.dart';
 
 class HomePage extends UI {
   static const page = MaterialPage(child: HomePage());
@@ -39,55 +36,35 @@ class HomePage extends UI {
       ),
       body: ListView(
         children: [
-          GestureDetector(
-            onTap: () => navigator.to(
-              FajrPage(),
-            ),
-            child: GenericPrayerCounterUI(
-              name: 'FAJAR',
-              value: fajrRM().count,
-              increment: () {
-                fajrRM(
-                  FajrEvent.prayerIncremented(),
-                );
-              },
-              decrement: () {
-                fajrRM(
-                  FajrEvent.prayerDecremented(),
-                );
-              },
-            ),
+          GenericPrayerCounterUI(
+            name: 'FAJR',
+            value: prayersRM.fajr,
+            increment: () => prayersRM.fajr++,
+            decrement: () => prayersRM.fajr--,
           ),
-          GestureDetector(
-            onTap: () {
-              navigator.to(
-                ZuhrPage(),
-              );
-            },
-            child: GenericPrayerCounterUI(
-              name: 'ZUHAR',
-              value: zuhr,
-              increment: incrementZuhr,
-              decrement: decrementZuhr,
-            ),
+          GenericPrayerCounterUI(
+            name: 'ZUHAR',
+            value: prayersRM.zuhr,
+            increment: () => prayersRM.zuhr++,
+            decrement: () => prayersRM.zuhr--,
           ),
           GenericPrayerCounterUI(
             name: 'ASAR',
-            value: asar,
-            increment: incrementAsar,
-            decrement: decrementAsar,
+            value: prayersRM.asar,
+            increment: () => prayersRM.asar++,
+            decrement: () => prayersRM.asar--,
           ),
           GenericPrayerCounterUI(
             name: 'MAGHRIB',
-            value: maghrib,
-            increment: incrementMaghrib,
-            decrement: decrementMaghrib,
+            value: prayersRM.maghrib,
+            increment: () => prayersRM.maghrib++,
+            decrement: () => prayersRM.maghrib--,
           ),
           GenericPrayerCounterUI(
             name: 'ISHA',
-            value: isha,
-            increment: incrementIsha,
-            decrement: decrementIsha,
+            value: prayersRM.isha,
+            increment: () => prayersRM.isha++,
+            decrement: () => prayersRM.isha--,
           ),
           const RemainingPrayersUI()
               .container(

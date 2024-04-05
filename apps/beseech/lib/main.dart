@@ -31,17 +31,16 @@ export 'package:states_rebuilder/states_rebuilder.dart';
 export 'package:uuid/uuid.dart';
 export 'package:manager/manager.dart';
 
-void main() {
-  runApp(App());
-}
+void main() => runApp(App());
 
 class App extends TopUI {
   @override
-  final dependencies = [
-    RM.storageInitializer(HiveStorage()),
-  ];
-
+  ThemeMode get themeMode => settingsRM().themeMode;
   @override
-  Widget homePage(context) =>
-      onboarding.isOnboardingComplete ? HomePage() : InitialPage();
+  Widget homePage(context) {
+    if (onboarding.isOnboardingComplete)
+      return HomePage();
+    else
+      return InitialPage();
+  }
 }
