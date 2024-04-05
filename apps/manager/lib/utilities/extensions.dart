@@ -1,4 +1,4 @@
-import 'manager.dart';
+import 'package:manager/manager.dart';
 
 extension CapitalizerX on String {
   String get capitalize {

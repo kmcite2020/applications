@@ -1,4 +1,4 @@
-part of 'manager.dart';
+import 'package:manager/manager.dart';
 
 class HiveStorage implements IPersistStore {
   late Box box;

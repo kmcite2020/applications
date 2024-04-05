@@ -1,5 +1,4 @@
 import 'package:manager/manager.dart';
-import 'package:manager/state_manager/capsule.dart';
 
 typedef ToJson<T> = Map<String, dynamic> Function(T state);
 typedef FromJson<T> = T Function(Map<String, dynamic> json);

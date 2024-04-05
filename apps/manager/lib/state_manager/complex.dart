@@ -1,7 +1,4 @@
-import 'package:manager/state_manager/base.dart';
-
-import '../manager.dart';
-import 'handler.dart';
+import 'package:manager/manager.dart';
 
 abstract class AdderOf<Event> {
   void add(Event newEvent);

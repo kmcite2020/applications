@@ -110,7 +110,7 @@ class __$$HandlerImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$HandlerImpl implements _Handler {
+class _$HandlerImpl with DiagnosticableTreeMixin implements _Handler {
   const _$HandlerImpl(
       {required this.isType, required this.type, required this.function});
 
@@ -122,8 +122,18 @@ class _$HandlerImpl implements _Handler {
   final Function function;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Handler(isType: $isType, type: $type, function: $function)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Handler'))
+      ..add(DiagnosticsProperty('isType', isType))
+      ..add(DiagnosticsProperty('type', type))
+      ..add(DiagnosticsProperty('function', function));
   }
 
   @override
@@ -162,5 +172,130 @@ abstract class _Handler implements Handler {
   @override
   @JsonKey(ignore: true)
   _$$HandlerImplCopyWith<_$HandlerImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$Capsule<T> {
+  T get value => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $CapsuleCopyWith<T, Capsule<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $CapsuleCopyWith<T, $Res> {
+  factory $CapsuleCopyWith(Capsule<T> value, $Res Function(Capsule<T>) then) =
+      _$CapsuleCopyWithImpl<T, $Res, Capsule<T>>;
+  @useResult
+  $Res call({T value});
+}
+
+/// @nodoc
+class _$CapsuleCopyWithImpl<T, $Res, $Val extends Capsule<T>>
+    implements $CapsuleCopyWith<T, $Res> {
+  _$CapsuleCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? value = freezed,
+  }) {
+    return _then(_value.copyWith(
+      value: freezed == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as T,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$CapsuleImplCopyWith<T, $Res>
+    implements $CapsuleCopyWith<T, $Res> {
+  factory _$$CapsuleImplCopyWith(
+          _$CapsuleImpl<T> value, $Res Function(_$CapsuleImpl<T>) then) =
+      __$$CapsuleImplCopyWithImpl<T, $Res>;
+  @override
+  @useResult
+  $Res call({T value});
+}
+
+/// @nodoc
+class __$$CapsuleImplCopyWithImpl<T, $Res>
+    extends _$CapsuleCopyWithImpl<T, $Res, _$CapsuleImpl<T>>
+    implements _$$CapsuleImplCopyWith<T, $Res> {
+  __$$CapsuleImplCopyWithImpl(
+      _$CapsuleImpl<T> _value, $Res Function(_$CapsuleImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? value = freezed,
+  }) {
+    return _then(_$CapsuleImpl<T>(
+      freezed == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CapsuleImpl<T> with DiagnosticableTreeMixin implements _Capsule<T> {
+  const _$CapsuleImpl(this.value);
+
+  @override
+  final T value;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'Capsule<$T>(value: $value)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Capsule<$T>'))
+      ..add(DiagnosticsProperty('value', value));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CapsuleImpl<T> &&
+            const DeepCollectionEquality().equals(other.value, value));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CapsuleImplCopyWith<T, _$CapsuleImpl<T>> get copyWith =>
+      __$$CapsuleImplCopyWithImpl<T, _$CapsuleImpl<T>>(this, _$identity);
+}
+
+abstract class _Capsule<T> implements Capsule<T> {
+  const factory _Capsule(final T value) = _$CapsuleImpl<T>;
+
+  @override
+  T get value;
+  @override
+  @JsonKey(ignore: true)
+  _$$CapsuleImplCopyWith<T, _$CapsuleImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

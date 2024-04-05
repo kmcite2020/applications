@@ -1,4 +1,4 @@
-part of '../manager.dart';
+import 'package:manager/manager.dart';
 
 abstract class Page extends UI {
   const Page({super.key});

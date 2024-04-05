@@ -1,4 +1,4 @@
-part of '../manager.dart';
+import 'package:manager/manager.dart';
 
 abstract class CallableForStateOnly<State> {
   State call([State? newState]);

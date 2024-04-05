@@ -1,6 +1,4 @@
-import 'package:manager/state_manager/base.dart';
-
-import '../manager.dart';
+import 'package:manager/manager.dart';
 
 class Simplicity<State> extends Base<State>
     implements CallableForStateOnly<State> {
