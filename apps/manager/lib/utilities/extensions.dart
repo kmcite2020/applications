@@ -66,3 +66,7 @@ class Uint8ListConvertor implements JsonConverter<Uint8List, String> {
   @override
   String toJson(Uint8List object) => base64Encode(object);
 }
+
+abstract class ID {
+  String get id;
+}

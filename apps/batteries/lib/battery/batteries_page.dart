@@ -8,13 +8,13 @@ class BatteryUI extends UI {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: batteries().cache.length.text(),
+        title: batteriesRM().length.text(),
       ),
       body: ListView(
         children: List.generate(
-          batteries().cache.length,
+          batteriesRM().length,
           (index) {
-            final battery = batteries().cache.values.toList()[index];
+            final battery = batteriesRM()[index];
             return ListTile(
               key: Key(battery.id),
               title: battery.text(),
@@ -23,11 +23,9 @@ class BatteryUI extends UI {
                   TextFormField(
                     initialValue: battery.brandName,
                     onChanged: (brandName) {
-                      batteries(
-                        batteries().add(
-                          battery.copyWith(
-                            brandName: brandName,
-                          ),
+                      batteriesRM(
+                        battery.copyWith(
+                          brandName: brandName,
                         ),
                       );
                     },
@@ -35,11 +33,9 @@ class BatteryUI extends UI {
                   TextFormField(
                     initialValue: battery.capacity,
                     onChanged: (capacity) {
-                      batteries(
-                        batteries().add(
-                          battery.copyWith(
-                            capacity: capacity,
-                          ),
+                      batteriesRM(
+                        battery.copyWith(
+                          capacity: capacity,
                         ),
                       );
                     },
@@ -48,9 +44,7 @@ class BatteryUI extends UI {
               ),
               trailing: IconButton.filledTonal(
                 onPressed: () {
-                  batteries(
-                    batteries().remove(battery),
-                  );
+                  batteriesRM.delete(battery);
                 },
                 icon: const Icon(Icons.delete_forever),
               ),
@@ -67,11 +61,10 @@ class BatteryUI extends UI {
           //     ),
           //   ),
           // );
-          batteries(
-            batteries().add(
-              Battery.create(
-                brandName: 'new',
-              ),
+          batteriesRM(
+            Battery(
+              id: randomID,
+              brandName: 'new',
             ),
           );
         },

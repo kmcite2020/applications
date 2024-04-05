@@ -1,8 +1,17 @@
-import 'package:manager/state_manager/base.dart';
+import 'package:manager/manager.dart';
 
 abstract class CollectionBase<V extends ID> extends Base<Map<String, V>> {
   void save(V value) => state = Map.of(state)..[value.id] = value;
-  void delete(V value) => state = Map.of(state)..remove(value.id);
+  V? delete(V value) {
+    Map<String, V> transitMap;
+    transitMap = Map.of(state);
+    print(state);
+    final result = transitMap.remove(value.id);
+    state = transitMap;
+    print(state);
+    return result;
+  }
+
   void deleteAll() => state = initialState;
   V get(String id) => state[id]!;
   V? tryGet(String id) => state[id];
@@ -22,10 +31,6 @@ abstract class CollectionBase<V extends ID> extends Base<Map<String, V>> {
     }
     return '${buffer.toString()}';
   }
-}
-
-abstract class ID {
-  String get id;
 }
 
 class ComplexCollection<V extends ID> extends CollectionBase<V> {

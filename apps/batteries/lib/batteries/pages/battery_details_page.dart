@@ -2,6 +2,8 @@ import 'package:batteries/battery/battery.dart';
 import 'package:batteries/main.dart';
 import 'package:manager/manager.dart';
 
+final deletedBatteryRM = Simplicity<Battery?>(null, autoDispose: false);
+
 class BatteryDetailsPage extends UI {
   const BatteryDetailsPage({super.key, required this.batteryID});
 
@@ -9,7 +11,7 @@ class BatteryDetailsPage extends UI {
 
   @override
   Widget build(BuildContext context) {
-    final battery = Battery.fromID(batteryID);
+    final battery = batteriesRM.tryGet(batteryID);
     if (battery != null) {
       return Scaffold(
         appBar: AppBar(
@@ -17,9 +19,7 @@ class BatteryDetailsPage extends UI {
           actions: [
             IconButton(
               onPressed: () {
-                batteries(
-                  batteries().remove(battery),
-                );
+                deletedBatteryRM.state = batteriesRM.delete(battery);
               },
               icon: Icon(Icons.delete_forever),
             ).pad(),
@@ -35,7 +35,7 @@ class BatteryDetailsPage extends UI {
         ),
       );
     } else {
-      final remBat = batteries().removedBattery;
+      final removedBattery = deletedBatteryRM();
 
       return Scaffold(
         appBar: AppBar(
@@ -50,12 +50,10 @@ class BatteryDetailsPage extends UI {
                 .text(textScaleFactor: 2)
                 .pad(),
             FilledButton.icon(
-              onPressed: remBat == null
+              onPressed: removedBattery == null
                   ? null
                   : () {
-                      batteries(
-                        batteries().restore(),
-                      );
+                      batteriesRM(removedBattery);
                     },
               icon: Icon(
                 Icons.restore,
@@ -79,11 +77,11 @@ class BatteryDetailsPage extends UI {
             showDetails
                 ? Column(
                     children: [
-                      remBat!.brandName.text(),
-                      remBat.capacity.text(),
-                      remBat.voltage.text(),
-                      remBat.technologyType.text(),
-                      remBat.price.text(),
+                      removedBattery!.brandName.text(),
+                      removedBattery.capacity.text(),
+                      removedBattery.voltage.text(),
+                      removedBattery.technologyType.text(),
+                      removedBattery.price.text(),
                     ],
                   )
                 : SizedBox(),

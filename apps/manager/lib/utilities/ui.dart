@@ -67,7 +67,7 @@ abstract class TopUI extends TopStatelessWidget {
 
   ColorScheme get lightScheme => ColorScheme.light();
   ColorScheme get darkScheme => ColorScheme.dark();
-  ThemeMode get themeMode;
+  ThemeMode get themeMode => ThemeMode.system;
 
   @override
   Widget build(BuildContext context) {

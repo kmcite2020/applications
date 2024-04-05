@@ -13,10 +13,9 @@ class BatteriesStockPage extends UI {
       ),
       body: ListView.separated(
         separatorBuilder: (context, index) => Divider(height: 0),
-        itemCount: batteries().cache.length,
+        itemCount: batteriesRM().length,
         itemBuilder: (context, index) {
-          final batteryEntry = batteries().cache.entries.elementAt(index);
-          final battery = batteryEntry.value;
+          final battery = batteriesRM().elementAt(index);
           return ListTile(
             title: battery.brandName.text(),
             subtitle: Column(
@@ -41,8 +40,8 @@ class BatteriesStockPage extends UI {
             AddBatteryDialog(),
           );
           if (batteryToAdd != null) {
-            batteries(
-              batteries().add(batteryToAdd),
+            batteriesRM(
+              (batteryToAdd),
             );
           }
         },
@@ -54,8 +53,8 @@ class BatteriesStockPage extends UI {
 }
 
 Battery get batteryToAdd => batteryToAddRM.state;
-final batteryToAddRM = RM.inject(() => Battery.create());
-setBatteryToAdd(Battery battery) => batteryToAddRM.state = battery;
+final batteryToAddRM = RM.inject(() => Battery());
+void setBatteryToAdd(Battery battery) => batteryToAddRM.state = battery;
 
 class AddBatteryDialog extends UI {
   @override

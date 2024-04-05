@@ -1,7 +1,6 @@
 import 'package:batteries/batteries/pages/settings_page.dart';
+import 'package:batteries/battery/battery.dart';
 import 'package:batteries/main.dart';
-
-import '../../battery/battery.dart';
 
 class BatteriesStorePage extends UI {
   const BatteriesStorePage({super.key});
@@ -24,9 +23,7 @@ class BatteriesStorePage extends UI {
       ),
       body: GridView.count(
         crossAxisCount: 2,
-        children: batteries()
-            .cache
-            .values
+        children: batteriesRM()
             .map(
               (e) => GridTile(
                 header: e.brandName.text(),
