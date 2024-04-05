@@ -1,4 +1,6 @@
-import 'package:manager/manager.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:package_info_plus/package_info_plus.dart';
+import 'package:states_rebuilder/states_rebuilder.dart';
 
 class HiveStorage implements IPersistStore {
   late Box box;

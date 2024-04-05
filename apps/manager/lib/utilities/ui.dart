@@ -26,6 +26,7 @@ abstract class Page extends UI {
 typedef UI = ReactiveStatelessWidget;
 
 abstract class TopUI extends TopStatelessWidget {
+  const TopUI();
   void initApp() {}
   void disposeApp() {}
   List<FutureOr<void>> get dependencies => [];
@@ -39,6 +40,7 @@ abstract class TopUI extends TopStatelessWidget {
             widgetsBinding: WidgetsFlutterBinding.ensureInitialized(),
           ),
         ),
+        RM.storageInitializer(HiveStorage()),
         ...dependencies,
       ];
 
@@ -50,24 +52,38 @@ abstract class TopUI extends TopStatelessWidget {
       errorUI(error, refresh);
 
   @override
-  void didMountWidget() {
-    initApp();
-  }
+  void didMountWidget() => initApp();
 
   @override
   void didUnmountWidget() => disposeApp();
 
   @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
-    super.didChangeAppLifecycleState(state);
-  }
+  void didChangeAppLifecycleState(AppLifecycleState state) =>
+      super.didChangeAppLifecycleState(state);
 
-  Widget buildApp(BuildContext context);
+  Widget homePage(
+    BuildContext context,
+  );
+
+  ColorScheme get lightScheme => ColorScheme.light();
+  ColorScheme get darkScheme => ColorScheme.dark();
+  ThemeMode get themeMode;
 
   @override
   Widget build(BuildContext context) {
     return OnReactive(
-      () => buildApp(context),
+      () => DynamicColorBuilder(
+        builder: (lightDynamic, darkDynamic) {
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            navigatorKey: navigator.navigatorKey,
+            home: homePage(context),
+            themeMode: themeMode,
+            theme: ThemeData(colorScheme: lightDynamic ?? lightScheme),
+            darkTheme: ThemeData(colorScheme: darkDynamic ?? darkScheme),
+          );
+        },
+      ),
       sideEffects: SideEffects(
         initState: () => FlutterNativeSplash.remove(),
       ),

@@ -11,21 +11,19 @@ extension DynamicExtensions on dynamic {
   Widget text({
     double? textScaleFactor,
     TextStyle? style,
-  }) =>
-      Text(
-        toString(),
-        style: style,
-        textScaler: TextScaler.linear(textScaleFactor ?? 1),
-      );
-
-  bool get isNull => this == null;
-  bool get isNotNull => !isNull;
+  }) {
+    return Text(
+      toString(),
+      style: style,
+      textScaler: TextScaler.linear(textScaleFactor ?? 1),
+    );
+  }
 }
 
 extension WidgetExtensions on Widget {
-  Widget pad({EdgeInsets? customPad}) {
+  Widget pad({EdgeInsets? custom}) {
     return Padding(
-      padding: customPad ?? const EdgeInsets.all(8.0),
+      padding: custom ?? const EdgeInsets.all(8.0),
       child: this,
     );
   }

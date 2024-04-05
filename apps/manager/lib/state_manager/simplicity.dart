@@ -1,5 +1,9 @@
 import 'package:manager/manager.dart';
 
+abstract class CallableForStateOnly<State> {
+  State call([State? newState]);
+}
+
 class Simplicity<State> extends Base<State>
     implements CallableForStateOnly<State> {
   Simplicity(
