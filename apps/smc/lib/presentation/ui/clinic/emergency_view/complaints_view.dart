@@ -1,3 +1,4 @@
+import 'package:smc/domain/models/models.dart';
 import 'package:smc/main.dart';
 
 class ComplaintsView extends UI {

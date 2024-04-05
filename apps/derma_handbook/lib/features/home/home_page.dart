@@ -1,5 +1,4 @@
 import 'package:derma_handbook/main.dart';
-import '../core/router.dart';
 import '../diseases/pages/diseases.dart';
 import '../search/pages/search.dart';
 import '../settings/settings_page.dart';

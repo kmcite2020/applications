@@ -1,3 +1,5 @@
+import 'package:fcps_pearls/features/settings/settings.dart';
+
 import '../../../main.dart';
 import '../authenticated.dart';
 

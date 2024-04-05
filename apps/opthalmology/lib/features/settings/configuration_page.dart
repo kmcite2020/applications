@@ -1,3 +1,5 @@
+import 'package:opthalmology/features/settings/settings.dart';
+
 import '../../main.dart';
 
 class SettingsPage extends UI {

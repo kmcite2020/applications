@@ -20,9 +20,9 @@ export 'package:hmis/settings/settings_rm.dart';
 export 'package:manager/manager.dart';
 export 'package:states_rebuilder/states_rebuilder.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(App());
 
-class MyApp extends TopUI {
+class App extends TopUI {
   @override
   final dependencies = [
     Future.delayed(
@@ -38,7 +38,7 @@ class MyApp extends TopUI {
   Widget? splashScreen() => CircularProgressIndicator().center();
 
   @override
-  Widget buildApp(BuildContext context) {
+  Widget homePage(BuildContext context) {
     return MaterialApp(
       navigatorKey: RM.navigate.navigatorKey,
       debugShowCheckedModeBanner: false,

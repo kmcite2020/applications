@@ -1,4 +1,3 @@
-import 'package:derma_handbook/features/core/router.dart';
 import 'package:derma_handbook/features/diseases/components/disease_builder.dart';
 import 'package:derma_handbook/features/diseases/pages/disease.dart';
 import 'package:derma_handbook/main.dart';

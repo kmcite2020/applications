@@ -1,4 +1,5 @@
 import 'package:fcps_pearls/features/authenticated/exam/exam_mode.dart';
+import 'package:fcps_pearls/features/settings/settings.dart';
 import 'package:fcps_pearls/features/un_authenticated/login/login_page.dart';
 import 'package:fcps_pearls/features/un_authenticated/register/register_page.dart';
 import 'package:fcps_pearls/features/authenticated/studio/studio_mode.dart';
@@ -11,7 +12,7 @@ import '../un_authenticated/un_athenticated.dart';
 
 class App extends TopUI {
   @override
-  Widget buildApp(BuildContext context) {
+  Widget homePage(BuildContext context) {
     return MaterialApp(
       navigatorKey: RM.navigate.navigatorKey,
       debugShowCheckedModeBanner: false,

@@ -94,7 +94,7 @@ class PatientPage extends UI {
                       );
                     },
                   ).pad(
-                    customPad: const EdgeInsets.all(2),
+                    custom: const EdgeInsets.all(2),
                   ),
                 )
                 .toList(),

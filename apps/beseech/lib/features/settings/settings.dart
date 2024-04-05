@@ -67,11 +67,3 @@ class SettingsState with _$SettingsState {
   }) = _SettingsState;
   factory SettingsState.fromJson(json) => _$SettingsStateFromJson(json);
 }
-
-class MaterialColorConverter implements JsonConverter<MaterialColor, int> {
-  const MaterialColorConverter();
-  @override
-  MaterialColor fromJson(int json) => Colors.primaries[json];
-  @override
-  int toJson(MaterialColor object) => Colors.primaries.indexOf(object);
-}

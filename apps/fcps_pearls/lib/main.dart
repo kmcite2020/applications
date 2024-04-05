@@ -16,7 +16,6 @@ export 'package:fcps_pearls/features/pearls/pages/pearl_details.dart';
 export 'package:fcps_pearls/features/authenticated/pearls/pearls.dart';
 export 'package:fcps_pearls/features/authenticated/study/study_mode.dart';
 export 'package:fcps_pearls/features/pearls/pearl.dart';
-export 'package:fcps_pearls/features/settings/settings.dart';
 export 'package:fcps_pearls/features/authenticated/settings/settings_page.dart';
 export 'package:flex_color_scheme/flex_color_scheme.dart';
 export 'package:flutter/material.dart' hide StatelessWidget, Locale, Page, Flow;

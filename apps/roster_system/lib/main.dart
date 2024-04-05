@@ -17,40 +17,7 @@ void main() {
 
 class App extends TopUI {
   @override
-  final dependencies = [
-    SynchronousFuture(
-      WidgetsFlutterBinding.ensureInitialized(),
-    ),
-    Future.delayed(
-      1000.milliseconds,
-      () => RM.storageInitializer(
-        HiveStorage(),
-      ),
-    ),
-  ];
-
+  ThemeMode get themeMode => settings.themeMode;
   @override
-  Widget? splashScreen() => CircularProgressIndicator().center().pad();
-
-  @override
-  Widget buildApp(BuildContext context) {
-    return MaterialApp(
-      navigatorKey: RM.navigate.navigatorKey,
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData.light().copyWith(
-        colorScheme: ColorScheme.fromSwatch(
-          primarySwatch: settings.materialColor,
-        ),
-      ),
-      darkTheme: ThemeData.dark().copyWith(
-        colorScheme: ColorScheme.fromSwatch(
-          primarySwatch: settings.materialColor,
-          brightness: Brightness.dark,
-        ),
-        inputDecorationTheme: InputDecorationTheme(),
-      ),
-      themeMode: settings.themeMode,
-      home: DashboardPage(),
-    );
-  }
+  Widget homePage(BuildContext context) => DashboardPage();
 }

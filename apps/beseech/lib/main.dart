@@ -18,7 +18,6 @@ export 'package:beseech/features/settings/components/user_information_ui.dart';
 export 'package:beseech/features/settings/pages/settings_page.dart';
 export 'package:beseech/features/settings/settings.dart';
 export 'package:beseech/features/shared/core.dart';
-export 'package:beseech/features/shared/router.dart';
 export 'package:beseech/features/shared/shared.dart';
 export 'package:clay_containers/clay_containers.dart';
 export 'package:dots_indicator/dots_indicator.dart';
@@ -43,14 +42,6 @@ class App extends TopUI {
   ];
 
   @override
-  Widget buildApp(context) {
-    return MaterialApp(
-      navigatorKey: navigator.navigatorKey,
-      debugShowCheckedModeBanner: false,
-      theme: theme(),
-      darkTheme: darkTheme(),
-      themeMode: settingsBloc().themeMode,
-      home: onboarding.isOnboardingComplete ? HomePage() : InitialPage(),
-    );
-  }
+  Widget homePage(context) =>
+      onboarding.isOnboardingComplete ? HomePage() : InitialPage();
 }

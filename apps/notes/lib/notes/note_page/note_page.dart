@@ -9,7 +9,7 @@ class NotePage extends UI {
   @override
   Widget build(BuildContext context) {
     final note = getNote(noteID);
-    if (note.isNull) {
+    if (note != null) {
       return Scaffold(
         appBar: AppBar(
           title: 'Deleted'.text(),

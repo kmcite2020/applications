@@ -1,7 +1,4 @@
-import 'package:chat_gpt/search/search.dart';
-
 import 'main.dart';
-import 'settings/settings.dart';
 
 export 'package:chat_gpt/chats/chats.dart';
 export 'package:chat_gpt/core/core.dart';
@@ -18,30 +15,14 @@ final directoryRM = RM.injectFuture(getApplicationDocumentsDirectory);
 
 Directory get directory => directoryRM.state;
 
-final navigator = RM.navigate;
-final scaffold = RM.scaffold;
-
 class ChatGPT extends TopUI {
   @override
   final List<FutureOr<void>> dependencies = [
     directoryRM.initializeState(),
   ];
   @override
-  Widget buildApp(BuildContext context) {
-    return SafeArea(
-      child: MaterialApp(
-        navigatorKey: navigator.navigatorKey,
-        routes: {
-          '/': (_) => const CurrentChatScreen(),
-          'Settings': (_) => const SettingsPage(),
-          'Search': (_) => const SearchPage(),
-        },
-        debugShowCheckedModeBanner: false,
-        theme: Themes.theme(),
-        darkTheme: Themes.darkTheme(),
-        themeMode: themeModeRM(),
-      ),
-    );
+  Widget homePage(BuildContext context) {
+    return SafeArea(child: CurrentChatScreen());
   }
 }
 

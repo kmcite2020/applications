@@ -138,7 +138,7 @@ class CustomerTile extends UI {
                 child: Row(
                   children: [
                     Icon(Icons.store).pad(
-                      customPad: EdgeInsets.symmetric(
+                      custom: EdgeInsets.symmetric(
                         horizontal: settingsRM().padding,
                       ),
                     ),

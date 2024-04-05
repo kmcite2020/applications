@@ -1,5 +1,6 @@
 // ignore_for_file: unused_element
 
+import 'package:smc/domain/models/models.dart';
 import 'package:smc/main.dart';
 
 class EmergencyPatientsPage extends UI {

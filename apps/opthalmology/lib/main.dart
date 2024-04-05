@@ -11,7 +11,6 @@ export 'package:opthalmology/features/app.dart';
 export 'package:opthalmology/features/questions/questions_page.dart';
 export 'package:opthalmology/features/quizzes/quizzes_page.dart';
 export 'package:opthalmology/features/settings/configuration_page.dart';
-export 'package:opthalmology/features/settings/settings.dart';
 export 'package:opthalmology/features/settings/themes.dart';
 export 'package:states_rebuilder/states_rebuilder.dart';
 export 'package:uuid/uuid.dart';

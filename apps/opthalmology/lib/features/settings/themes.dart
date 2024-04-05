@@ -1,3 +1,5 @@
+import 'package:opthalmology/features/settings/settings.dart';
+
 import '../../main.dart';
 
 final themes = Themes();

@@ -19,7 +19,7 @@ class App extends TopUI {
   ];
 
   @override
-  Widget buildApp(BuildContext context) {
+  Widget homePage(BuildContext context) {
     return MaterialApp(
       navigatorKey: RM.navigate.navigatorKey,
       debugShowCheckedModeBanner: false,

@@ -1,5 +1,4 @@
 import 'package:flex_color_scheme/flex_color_scheme.dart';
-import 'package:flutter/foundation.dart';
 import 'package:prescription_er/patients_list.dart';
 
 import 'main.dart';
@@ -29,7 +28,7 @@ class App extends TopUI {
   @override
   Widget? splashScreen() => CircularProgressIndicator().center();
 
-  Widget buildApp(BuildContext context) {
+  Widget homePage(BuildContext context) {
     return OnReactive(
       () => MaterialApp(
         navigatorKey: RM.navigate.navigatorKey,

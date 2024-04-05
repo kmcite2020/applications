@@ -21,7 +21,7 @@ class MyApp extends TopUI {
   Widget? splashScreen() => CircularProgressIndicator().center();
 
   @override
-  Widget buildApp(BuildContext context) {
+  Widget homePage(BuildContext context) {
     return MaterialApp(
       navigatorKey: RM.navigate.navigatorKey,
       debugShowCheckedModeBanner: false,

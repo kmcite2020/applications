@@ -28,7 +28,7 @@ class ProductsPage extends UI {
               Icons.arrow_back,
             ),
           ).pad(
-            customPad: EdgeInsets.only(right: settingsRM().padding),
+            custom: EdgeInsets.only(right: settingsRM().padding),
           ),
         ],
       ),

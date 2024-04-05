@@ -1,6 +1,4 @@
 import 'package:derma_handbook/main.dart';
-
-import '../../core/router.dart';
 import '../password_model.dart';
 import '../settings.dart';
 

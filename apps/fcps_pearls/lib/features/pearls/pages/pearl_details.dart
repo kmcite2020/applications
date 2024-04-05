@@ -53,8 +53,10 @@ class PearlDetailsPage extends UI {
                     ],
                   ),
                 ).pad(
-                  customPad: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                ),
+                    custom: EdgeInsets.symmetric(
+                  horizontal: 8,
+                  vertical: 4,
+                )),
                 if (answerRM()) pearl.answer.text(textScaleFactor: 2).pad(),
                 ElevatedButton.icon(
                   onPressed: pearl.explanation.isEmpty
@@ -73,7 +75,7 @@ class PearlDetailsPage extends UI {
                     ],
                   ),
                 ).pad(
-                  customPad: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                  custom: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 ),
                 if (explanationRM())
                   pearl.explanation.text(textScaleFactor: 2).pad(),
