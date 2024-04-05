@@ -14,6 +14,10 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
+Customer _$CustomerFromJson(Map<String, dynamic> json) {
+  return _Customer.fromJson(json);
+}
+
 /// @nodoc
 mixin _$Customer {
   String get customerID => throw _privateConstructorUsedError;
@@ -59,7 +63,7 @@ mixin _$Customer {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $CustomerCopyWith<Customer> get copyWith =>
       throw _privateConstructorUsedError;
@@ -181,7 +185,7 @@ class __$$CustomerImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$CustomerImpl implements _Customer {
   const _$CustomerImpl(
       {required this.customerID,
@@ -190,6 +194,9 @@ class _$CustomerImpl implements _Customer {
       this.editing = false,
       final List<String> products = const <String>[]})
       : _products = products;
+
+  factory _$CustomerImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CustomerImplFromJson(json);
 
   @override
   final String customerID;
@@ -228,6 +235,7 @@ class _$CustomerImpl implements _Customer {
             const DeepCollectionEquality().equals(other._products, _products));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, customerID, name, city, editing,
       const DeepCollectionEquality().hash(_products));
@@ -299,6 +307,13 @@ class _$CustomerImpl implements _Customer {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$CustomerImplToJson(
+      this,
+    );
+  }
 }
 
 abstract class _Customer implements Customer {
@@ -308,6 +323,9 @@ abstract class _Customer implements Customer {
       required final String city,
       final bool editing,
       final List<String> products}) = _$CustomerImpl;
+
+  factory _Customer.fromJson(Map<String, dynamic> json) =
+      _$CustomerImpl.fromJson;
 
   @override
   String get customerID;
@@ -325,10 +343,15 @@ abstract class _Customer implements Customer {
       throw _privateConstructorUsedError;
 }
 
+Customers _$CustomersFromJson(Map<String, dynamic> json) {
+  return _Customers.fromJson(json);
+}
+
 /// @nodoc
 mixin _$Customers {
   Map<String, Customer> get cache => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $CustomersCopyWith<Customers> get copyWith =>
       throw _privateConstructorUsedError;
@@ -400,11 +423,14 @@ class __$$CustomersImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$CustomersImpl implements _Customers {
   const _$CustomersImpl(
       {final Map<String, Customer> cache = const <String, Customer>{}})
       : _cache = cache;
+
+  factory _$CustomersImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CustomersImplFromJson(json);
 
   final Map<String, Customer> _cache;
   @override
@@ -428,6 +454,7 @@ class _$CustomersImpl implements _Customers {
             const DeepCollectionEquality().equals(other._cache, _cache));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_cache));
@@ -437,11 +464,21 @@ class _$CustomersImpl implements _Customers {
   @pragma('vm:prefer-inline')
   _$$CustomersImplCopyWith<_$CustomersImpl> get copyWith =>
       __$$CustomersImplCopyWithImpl<_$CustomersImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$CustomersImplToJson(
+      this,
+    );
+  }
 }
 
 abstract class _Customers implements Customers {
   const factory _Customers({final Map<String, Customer> cache}) =
       _$CustomersImpl;
+
+  factory _Customers.fromJson(Map<String, dynamic> json) =
+      _$CustomersImpl.fromJson;
 
   @override
   Map<String, Customer> get cache;

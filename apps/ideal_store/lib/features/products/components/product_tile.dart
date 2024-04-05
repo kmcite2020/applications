@@ -23,7 +23,7 @@ class ProductTile extends UI {
                 IconButton.filledTonal(
                   tooltip: 'edit product',
                   onPressed: () {
-                    productsRM().setProduct(product.copyWith(editing: true));
+                    productsRM.saveProduct(product.copyWith(editing: true));
                   },
                   icon: Icon(Icons.edit_document),
                 ).pad(),
@@ -54,7 +54,7 @@ class ProductTile extends UI {
                 ).pad(),
                 IconButton.filled(
                   tooltip: 'delete product',
-                  onPressed: () => productsRM().deleteProduct(productID),
+                  onPressed: () => productsRM.deleteProduct(productID),
                   icon: Icon(Icons.delete_forever),
                 ).pad(),
                 IconButton.filled(
@@ -89,7 +89,7 @@ class ProductTile extends UI {
                 IconButton.filledTonal(
                   tooltip: 'edit product',
                   onPressed: () {
-                    productsRM().setProduct(product.copyWith(editing: false));
+                    productsRM.saveProduct(product.copyWith(editing: false));
                   },
                   icon: Icon(Icons.done),
                 ).pad(),
@@ -99,7 +99,7 @@ class ProductTile extends UI {
                     labelText: 'Product Name',
                   ),
                   onChanged: (value) {
-                    productsRM().setProduct(
+                    productsRM.saveProduct(
                       product.copyWith(name: value),
                     );
                   },
@@ -118,7 +118,7 @@ class ProductTile extends UI {
                       )
                       .toList(),
                   onChanged: (_) {
-                    productsRM().setProduct(product.copyWith(brand: _!));
+                    productsRM.saveProduct(product.copyWith(brand: _!));
                   },
                 ).pad(),
                 DropdownButtonFormField(
@@ -132,8 +132,7 @@ class ProductTile extends UI {
                       )
                       .toList(),
                   onChanged: (_) {
-                    productsRM()
-                        .setProduct(product.copyWith(materialColor: _!));
+                    productsRM.saveProduct(product.copyWith(materialColor: _!));
                   },
                   decoration: InputDecoration(
                     labelText: 'Material Color',
@@ -142,7 +141,7 @@ class ProductTile extends UI {
                 TextFormField(
                   initialValue: product.model,
                   onChanged: (value) {
-                    productsRM().setProduct(product.copyWith(model: value));
+                    productsRM.saveProduct(product.copyWith(model: value));
                   },
                   decoration: InputDecoration(labelText: 'Model'),
                 ).pad(),
@@ -151,7 +150,7 @@ class ProductTile extends UI {
                   onChanged: (nullablePrice) {
                     final price = int.tryParse(nullablePrice);
                     if (price == null) return;
-                    productsRM().setProduct(product.copyWith(price: price));
+                    productsRM.saveProduct(product.copyWith(price: price));
                   },
                   decoration: InputDecoration(labelText: 'Price'),
                 ).pad(),
@@ -173,13 +172,14 @@ class ProductTile extends UI {
                       if (image.bytes == null) {
                         return;
                       }
-                      final str = base64Encode(image.bytes!);
-                      productsRM().setProduct(product.copyWith(image: str));
+                      productsRM.saveProduct(
+                        product.copyWith(image: image.bytes!),
+                      );
                     },
                     child: product.image == ''
                         ? 'Pick Image'.text()
                         : Image.memory(
-                            base64Decode(product.image),
+                            (product.image),
                             fit: BoxFit.cover,
                           ),
                   ).pad(),
@@ -207,7 +207,7 @@ class ProductTile extends UI {
                 Slider(
                   value: product.stock.toDouble(),
                   onChanged: (stock) {
-                    productsRM().setProduct(
+                    productsRM.saveProduct(
                       product.copyWith(stock: stock.toInt()),
                     );
                   },

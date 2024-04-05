@@ -48,3 +48,23 @@ extension DateTimeExtensions on DateTime {
 }
 
 String get randomID => const Uuid().v4();
+
+class MaterialColorConverter implements JsonConverter<MaterialColor, int> {
+  const MaterialColorConverter();
+
+  @override
+  MaterialColor fromJson(int json) => Colors.primaries[json];
+
+  @override
+  int toJson(MaterialColor object) => Colors.primaries.indexOf(object);
+}
+
+class Uint8ListConvertor implements JsonConverter<Uint8List, String> {
+  const Uint8ListConvertor();
+
+  @override
+  Uint8List fromJson(String json) => base64Decode(json);
+
+  @override
+  String toJson(Uint8List object) => base64Encode(object);
+}

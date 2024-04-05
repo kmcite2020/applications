@@ -31,6 +31,4 @@ export 'package:flutter/material.dart' hide Flow;
 part 'hive_storage.dart';
 part 'state_manager/manager.dart';
 
-part 'ui.dart';
-
-const serializable = JsonSerializable();
+part 'ui/ui.dart';

@@ -25,7 +25,8 @@ mixin _$Product {
   String get model => throw _privateConstructorUsedError;
   Brand get brand => throw _privateConstructorUsedError;
   int get stock => throw _privateConstructorUsedError;
-  String get image => throw _privateConstructorUsedError;
+  @Uint8ListConvertor()
+  Uint8List get image => throw _privateConstructorUsedError;
   bool get editing => throw _privateConstructorUsedError;
   @MaterialColorConverter()
   MaterialColor get materialColor => throw _privateConstructorUsedError;
@@ -38,7 +39,7 @@ mixin _$Product {
             String model,
             Brand brand,
             int stock,
-            String image,
+            @Uint8ListConvertor() Uint8List image,
             bool editing,
             @MaterialColorConverter() MaterialColor materialColor,
             int price)
@@ -53,7 +54,7 @@ mixin _$Product {
             String model,
             Brand brand,
             int stock,
-            String image,
+            @Uint8ListConvertor() Uint8List image,
             bool editing,
             @MaterialColorConverter() MaterialColor materialColor,
             int price)?
@@ -68,7 +69,7 @@ mixin _$Product {
             String model,
             Brand brand,
             int stock,
-            String image,
+            @Uint8ListConvertor() Uint8List image,
             bool editing,
             @MaterialColorConverter() MaterialColor materialColor,
             int price)?
@@ -108,7 +109,7 @@ abstract class $ProductCopyWith<$Res> {
       String model,
       Brand brand,
       int stock,
-      String image,
+      @Uint8ListConvertor() Uint8List image,
       bool editing,
       @MaterialColorConverter() MaterialColor materialColor,
       int price});
@@ -161,7 +162,7 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Uint8List,
       editing: null == editing
           ? _value.editing
           : editing // ignore: cast_nullable_to_non_nullable
@@ -191,7 +192,7 @@ abstract class _$$ProductImplCopyWith<$Res> implements $ProductCopyWith<$Res> {
       String model,
       Brand brand,
       int stock,
-      String image,
+      @Uint8ListConvertor() Uint8List image,
       bool editing,
       @MaterialColorConverter() MaterialColor materialColor,
       int price});
@@ -242,7 +243,7 @@ class __$$ProductImplCopyWithImpl<$Res>
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Uint8List,
       editing: null == editing
           ? _value.editing
           : editing // ignore: cast_nullable_to_non_nullable
@@ -268,7 +269,7 @@ class _$ProductImpl implements _Product {
       this.model = '',
       this.brand = Brand.pakistani,
       this.stock = 0,
-      required this.image,
+      @Uint8ListConvertor() required this.image,
       this.editing = false,
       @MaterialColorConverter() this.materialColor = Colors.blue,
       this.price = 0});
@@ -291,7 +292,8 @@ class _$ProductImpl implements _Product {
   @JsonKey()
   final int stock;
   @override
-  final String image;
+  @Uint8ListConvertor()
+  final Uint8List image;
   @override
   @JsonKey()
   final bool editing;
@@ -319,7 +321,7 @@ class _$ProductImpl implements _Product {
             (identical(other.model, model) || other.model == model) &&
             (identical(other.brand, brand) || other.brand == brand) &&
             (identical(other.stock, stock) || other.stock == stock) &&
-            (identical(other.image, image) || other.image == image) &&
+            const DeepCollectionEquality().equals(other.image, image) &&
             (identical(other.editing, editing) || other.editing == editing) &&
             (identical(other.materialColor, materialColor) ||
                 other.materialColor == materialColor) &&
@@ -328,8 +330,17 @@ class _$ProductImpl implements _Product {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, productID, name, model, brand,
-      stock, image, editing, materialColor, price);
+  int get hashCode => Object.hash(
+      runtimeType,
+      productID,
+      name,
+      model,
+      brand,
+      stock,
+      const DeepCollectionEquality().hash(image),
+      editing,
+      materialColor,
+      price);
 
   @JsonKey(ignore: true)
   @override
@@ -346,7 +357,7 @@ class _$ProductImpl implements _Product {
             String model,
             Brand brand,
             int stock,
-            String image,
+            @Uint8ListConvertor() Uint8List image,
             bool editing,
             @MaterialColorConverter() MaterialColor materialColor,
             int price)
@@ -365,7 +376,7 @@ class _$ProductImpl implements _Product {
             String model,
             Brand brand,
             int stock,
-            String image,
+            @Uint8ListConvertor() Uint8List image,
             bool editing,
             @MaterialColorConverter() MaterialColor materialColor,
             int price)?
@@ -384,7 +395,7 @@ class _$ProductImpl implements _Product {
             String model,
             Brand brand,
             int stock,
-            String image,
+            @Uint8ListConvertor() Uint8List image,
             bool editing,
             @MaterialColorConverter() MaterialColor materialColor,
             int price)?
@@ -441,7 +452,7 @@ abstract class _Product implements Product {
       final String model,
       final Brand brand,
       final int stock,
-      required final String image,
+      @Uint8ListConvertor() required final Uint8List image,
       final bool editing,
       @MaterialColorConverter() final MaterialColor materialColor,
       final int price}) = _$ProductImpl;
@@ -459,7 +470,8 @@ abstract class _Product implements Product {
   @override
   int get stock;
   @override
-  String get image;
+  @Uint8ListConvertor()
+  Uint8List get image;
   @override
   bool get editing;
   @override
@@ -554,11 +566,10 @@ class __$$ProductsImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ProductsImpl extends _Products {
+class _$ProductsImpl implements _Products {
   const _$ProductsImpl(
       {final Map<String, Product> cache = const <String, Product>{}})
-      : _cache = cache,
-        super._();
+      : _cache = cache;
 
   factory _$ProductsImpl.fromJson(Map<String, dynamic> json) =>
       _$$ProductsImplFromJson(json);
@@ -604,9 +615,8 @@ class _$ProductsImpl extends _Products {
   }
 }
 
-abstract class _Products extends Products {
+abstract class _Products implements Products {
   const factory _Products({final Map<String, Product> cache}) = _$ProductsImpl;
-  const _Products._() : super._();
 
   factory _Products.fromJson(Map<String, dynamic> json) =
       _$ProductsImpl.fromJson;

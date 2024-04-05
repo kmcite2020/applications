@@ -85,7 +85,8 @@ class OrderTile extends UI {
               ),
               DropdownButtonFormField(
                 items: productsRM()
-                    .products
+                    .cache
+                    .values
                     .map(
                       (e) => DropdownMenuItem(
                         child: e.name.text(),

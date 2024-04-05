@@ -1,6 +1,5 @@
 import 'package:manager/manager.dart';
 
-
 /// !!! -> COMPLEX
 /// define a class that extends a [Complex] class.
 /// its a convention that you suffix the name with [RM].
@@ -63,17 +62,29 @@ class ComplexUI extends UI {
           /// using the defined complex object you can use state.
           /// use the callable method will get you the current
           /// state of the [Complex]
-          countRM().text(textScaleFactor: 8).pad(),
-          IconButton.filled(
-            onPressed: () => countRM(IncrementEvent()),
-            icon: Icon(Icons.add),
-            iconSize: 150,
-          ).pad(),
-          IconButton.filled(
-            onPressed: () => countRM(DecrementEvent()),
-            icon: Icon(Icons.remove),
-            iconSize: 120,
-          ).pad(),
+          // countRM().text(textScaleFactor: 8).pad(),
+          countRM.build(
+            (state, update) {
+              return Column(
+                children: [
+                  state.text(),
+                  IconButton.filled(
+                    onPressed: () {
+                      countRM(IncrementEvent());
+                      update(5 + state);
+                    },
+                    icon: Icon(Icons.add),
+                    iconSize: 150,
+                  ).pad(),
+                  IconButton.filled(
+                    onPressed: () => countRM(DecrementEvent()),
+                    icon: Icon(Icons.remove),
+                    iconSize: 120,
+                  ).pad(),
+                ],
+              );
+            },
+          ),
         ],
       ),
     );

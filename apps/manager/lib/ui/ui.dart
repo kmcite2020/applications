@@ -1,4 +1,4 @@
-part of 'manager.dart';
+part of '../manager.dart';
 
 abstract class Page extends UI {
   const Page({super.key});
@@ -24,7 +24,6 @@ abstract class Page extends UI {
 }
 
 typedef UI = ReactiveStatelessWidget;
-// typedef TopUI = TopStatelessWidget;
 
 abstract class TopUI extends TopStatelessWidget {
   void initApp() {}
@@ -74,4 +73,18 @@ abstract class TopUI extends TopStatelessWidget {
       ),
     );
   }
+}
+
+extension BaseExtensions<T> on Base<T> {
+  Widget build(
+    Widget builder(T state, T Function(T newState) setState),
+  ) =>
+      builder(
+        state,
+        (T newState) => state = newState,
+      );
+}
+
+extension BaseExtensionsBool on Base<bool> {
+  void toggle() => state = !state;
 }

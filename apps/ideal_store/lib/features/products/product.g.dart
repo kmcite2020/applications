@@ -14,7 +14,7 @@ _$ProductImpl _$$ProductImplFromJson(Map<String, dynamic> json) =>
       brand:
           $enumDecodeNullable(_$BrandEnumMap, json['brand']) ?? Brand.pakistani,
       stock: json['stock'] as int? ?? 0,
-      image: json['image'] as String,
+      image: const Uint8ListConvertor().fromJson(json['image'] as String),
       editing: json['editing'] as bool? ?? false,
       materialColor: json['materialColor'] == null
           ? Colors.blue
@@ -30,7 +30,7 @@ Map<String, dynamic> _$$ProductImplToJson(_$ProductImpl instance) =>
       'model': instance.model,
       'brand': _$BrandEnumMap[instance.brand]!,
       'stock': instance.stock,
-      'image': instance.image,
+      'image': const Uint8ListConvertor().toJson(instance.image),
       'editing': instance.editing,
       'materialColor':
           const MaterialColorConverter().toJson(instance.materialColor),

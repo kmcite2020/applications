@@ -21,7 +21,7 @@ class Product with _$Product {
     @Default('') final String model,
     @Default(Brand.pakistani) final Brand brand,
     @Default(0) final int stock,
-    required final String image,
+    @Uint8ListConvertor() required final Uint8List image,
     @Default(false) final bool editing,
     @Default(Colors.blue)
     @MaterialColorConverter()
@@ -44,34 +44,25 @@ class Products with _$Products {
   const factory Products({
     @Default(<String, Product>{}) final Map<String, Product> cache,
   }) = _Products;
-  const Products._();
-  List<Product> get products => cache.values.toList();
-  void clearAll() => productsRM(Products());
-  void setProduct(Product product) => productsRM(
-        productsRM().copyWith(
-          cache: Map.of(productsRM().cache)..[product.productID] = product,
-        ),
-      );
-  void deleteProduct(String productID) => productsRM(
-        productsRM().copyWith(
-          cache: Map.of(productsRM().cache)..remove(productID),
-        ),
-      );
-
   factory Products.fromJson(json) => _$ProductsFromJson(json);
 }
 
-final productsRM = Simplicity(Products());
+final productsRM = ProductsRM();
 
+class ProductsRM extends Manager<Products> {
+  final initialState = Products();
+  Product? getByID(String id) => state.cache[id];
+  void saveProduct(Product product) {
+    state = state.copyWith(
+      cache: Map.of(state.cache)..[product.productID] = product,
+    );
+  }
 
-// Product
-// id
-// price
-// stock
-// rating
-// description
-// details
-// brand
-// updates to price & when
-// reviews
-// add to cart
+  void deleteProduct(String product) {
+    state = state.copyWith(
+      cache: Map.of(state.cache)..remove(product),
+    );
+  }
+
+  void deleteAllProducts(Product product) => state = initialState;
+}

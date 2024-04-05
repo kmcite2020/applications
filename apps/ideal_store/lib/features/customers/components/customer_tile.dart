@@ -42,7 +42,7 @@ class CustomerTile extends UI {
         }
 
         Widget Edit() {
-          final possibleProducts = productsRM().products.where(
+          final possibleProducts = productsRM().cache.values.where(
                 (element) => !customer.products.contains(element.productID),
               );
           return Column(

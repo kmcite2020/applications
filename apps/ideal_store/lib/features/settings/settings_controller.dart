@@ -3,6 +3,7 @@ import 'package:ideal_store/main.dart';
 final settingsRM = SettingsRM();
 
 class SettingsRM extends Manager<Settings> {
+  final bool autoDispose = false;
   final initialState = Settings();
   set materialColor(_) => state = state.copyWith(materialColor: _);
   set isAddCustomerVisible(_) {

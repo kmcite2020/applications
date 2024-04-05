@@ -33,7 +33,7 @@ class SettingsPage extends UI {
           ).pad(),
           'Products'.text(textScaleFactor: 4).pad(),
           ElevatedButton(
-            onPressed: productsRM().products.isEmpty
+            onPressed: productsRM().cache.values.isEmpty
                 ? null
                 : () {
                     productsRM(Products());

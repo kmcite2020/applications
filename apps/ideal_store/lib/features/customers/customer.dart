@@ -3,7 +3,6 @@ import '../../main.dart';
 part 'customer.freezed.dart';
 part 'customer.g.dart';
 
-@serializable
 @freezed
 class Customer with _$Customer {
   const factory Customer.raw({
@@ -14,7 +13,8 @@ class Customer with _$Customer {
     @Default(<String>[]) final List<String> products,
   }) = _Customer;
 
-  static final fromJson = _$CustomerFromJson;
+  factory Customer.fromJson(Map<String, dynamic> json) =>
+      _$CustomerFromJson(json);
 
   factory Customer.id(String custmerID) => customersRM().cache[custmerID]!;
   factory Customer() {
@@ -25,13 +25,13 @@ class Customer with _$Customer {
   }
 }
 
-@serializable
 @freezed
 class Customers with _$Customers {
   const factory Customers({
     @Default(<String, Customer>{}) final Map<String, Customer> cache,
   }) = _Customers;
-  static final fromJson = _$CustomersFromJson;
+  factory Customers.fromJson(Map<String, dynamic> json) =>
+      _$CustomersFromJson(json);
 }
 
 final customersRM = CustomersRM();

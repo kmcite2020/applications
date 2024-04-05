@@ -10,19 +10,18 @@ dependencies:
   cupertino_icons: ^1.0.6
   states_rebuilder: ^6.4.0
   package_info_plus: ^5.0.1
-  freezed: any
-  freezed_annotation: ^2.4.1
-  build_runner: any
-  colornames: any
-  flutter_native_splash: ^2.3.10
-  path_provider: ^2.1.2
-  uuid: ^4.3.3
+  freezed: 
+  freezed_annotation: 
+  build_runner: 
+  colornames: 
+  flutter_native_splash: 
+  path_provider: 
+  uuid: 
   dynamic_color: ^1.7.0
-  hive_flutter: ^1.1.0
+  hive_flutter: 
 
 dev_dependencies:
-  very_good_analysis: ^5.1.0
-  analyzer: ^6.4.1 
+  analyzer: 
 
 flutter:
   uses-material-design: true

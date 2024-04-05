@@ -22,13 +22,3 @@ class Settings with _$Settings {
   factory Settings.fromJson(Map<String, dynamic> json) =>
       _$SettingsFromJson(json);
 }
-
-class MaterialColorConverter implements JsonConverter<MaterialColor, int> {
-  const MaterialColorConverter();
-
-  @override
-  MaterialColor fromJson(int json) => Colors.primaries[json];
-
-  @override
-  int toJson(MaterialColor object) => Colors.primaries.indexOf(object);
-}
