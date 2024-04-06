@@ -4,23 +4,15 @@ void main() {
   runApp(App());
 }
 
-class App extends UI {
+class App extends TopUI {
   const App({super.key});
   @override
-  Widget build(BuildContext context) {
-    return DynamicColorBuilder(
-      builder: (light, dark) {
-        return MaterialApp(
-          navigatorKey: RM.navigate.navigatorKey,
-          debugShowCheckedModeBanner: false,
-          themeMode: ThemeMode.system,
-          darkTheme: ThemeData(colorScheme: dark),
-          home: Homepage(),
-          theme: ThemeData(colorScheme: light),
-        );
-      },
+  Widget homePage(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.deepPurple,
+      ),
+      backgroundColor: Colors.blue,
     );
   }
 }
-
-class Homepage extends Page {}

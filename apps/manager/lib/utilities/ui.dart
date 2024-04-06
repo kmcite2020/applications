@@ -26,7 +26,7 @@ abstract class Page extends UI {
 typedef UI = ReactiveStatelessWidget;
 
 abstract class TopUI extends TopStatelessWidget {
-  const TopUI();
+  const TopUI({super.key});
   void initApp() {}
   void disposeApp() {}
   List<FutureOr<void>> get dependencies => [];

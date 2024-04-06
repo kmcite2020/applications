@@ -6,15 +6,19 @@ part of 'chats.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ChatsImpl _$$ChatsImplFromJson(Map<String, dynamic> json) => _$ChatsImpl(
-      chats: (json['chats'] as Map<String, dynamic>?)?.map(
-            (k, e) =>
-                MapEntry(k, ChatModel.fromJson(e as Map<String, dynamic>)),
-          ) ??
-          const <String, ChatModel>{},
+_$ChatImpl _$$ChatImplFromJson(Map<String, dynamic> json) => _$ChatImpl(
+      id: json['id'] as String? ?? '',
+      title: json['title'] as String? ?? '',
+      cards: (json['cards'] as List<dynamic>?)
+              ?.map(
+                  (e) => QueryResponseModel.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const <QueryResponseModel>[],
     );
 
-Map<String, dynamic> _$$ChatsImplToJson(_$ChatsImpl instance) =>
+Map<String, dynamic> _$$ChatImplToJson(_$ChatImpl instance) =>
     <String, dynamic>{
-      'chats': instance.chats,
+      'id': instance.id,
+      'title': instance.title,
+      'cards': instance.cards,
     };

@@ -14,31 +14,33 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-Chats _$ChatsFromJson(Map<String, dynamic> json) {
-  return _Chats.fromJson(json);
+Chat _$ChatFromJson(Map<String, dynamic> json) {
+  return _Chat.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Chats {
-  Map<String, ChatModel> get chats => throw _privateConstructorUsedError;
+mixin _$Chat {
+  String get id => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
+  List<QueryResponseModel> get cards => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ChatsCopyWith<Chats> get copyWith => throw _privateConstructorUsedError;
+  $ChatCopyWith<Chat> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ChatsCopyWith<$Res> {
-  factory $ChatsCopyWith(Chats value, $Res Function(Chats) then) =
-      _$ChatsCopyWithImpl<$Res, Chats>;
+abstract class $ChatCopyWith<$Res> {
+  factory $ChatCopyWith(Chat value, $Res Function(Chat) then) =
+      _$ChatCopyWithImpl<$Res, Chat>;
   @useResult
-  $Res call({Map<String, ChatModel> chats});
+  $Res call({String id, String title, List<QueryResponseModel> cards});
 }
 
 /// @nodoc
-class _$ChatsCopyWithImpl<$Res, $Val extends Chats>
-    implements $ChatsCopyWith<$Res> {
-  _$ChatsCopyWithImpl(this._value, this._then);
+class _$ChatCopyWithImpl<$Res, $Val extends Chat>
+    implements $ChatCopyWith<$Res> {
+  _$ChatCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -48,109 +50,155 @@ class _$ChatsCopyWithImpl<$Res, $Val extends Chats>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? chats = null,
+    Object? id = null,
+    Object? title = null,
+    Object? cards = null,
   }) {
     return _then(_value.copyWith(
-      chats: null == chats
-          ? _value.chats
-          : chats // ignore: cast_nullable_to_non_nullable
-              as Map<String, ChatModel>,
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      cards: null == cards
+          ? _value.cards
+          : cards // ignore: cast_nullable_to_non_nullable
+              as List<QueryResponseModel>,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$ChatsImplCopyWith<$Res> implements $ChatsCopyWith<$Res> {
-  factory _$$ChatsImplCopyWith(
-          _$ChatsImpl value, $Res Function(_$ChatsImpl) then) =
-      __$$ChatsImplCopyWithImpl<$Res>;
+abstract class _$$ChatImplCopyWith<$Res> implements $ChatCopyWith<$Res> {
+  factory _$$ChatImplCopyWith(
+          _$ChatImpl value, $Res Function(_$ChatImpl) then) =
+      __$$ChatImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Map<String, ChatModel> chats});
+  $Res call({String id, String title, List<QueryResponseModel> cards});
 }
 
 /// @nodoc
-class __$$ChatsImplCopyWithImpl<$Res>
-    extends _$ChatsCopyWithImpl<$Res, _$ChatsImpl>
-    implements _$$ChatsImplCopyWith<$Res> {
-  __$$ChatsImplCopyWithImpl(
-      _$ChatsImpl _value, $Res Function(_$ChatsImpl) _then)
+class __$$ChatImplCopyWithImpl<$Res>
+    extends _$ChatCopyWithImpl<$Res, _$ChatImpl>
+    implements _$$ChatImplCopyWith<$Res> {
+  __$$ChatImplCopyWithImpl(_$ChatImpl _value, $Res Function(_$ChatImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? chats = null,
+    Object? id = null,
+    Object? title = null,
+    Object? cards = null,
   }) {
-    return _then(_$ChatsImpl(
-      chats: null == chats
-          ? _value._chats
-          : chats // ignore: cast_nullable_to_non_nullable
-              as Map<String, ChatModel>,
+    return _then(_$ChatImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      cards: null == cards
+          ? _value._cards
+          : cards // ignore: cast_nullable_to_non_nullable
+              as List<QueryResponseModel>,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$ChatsImpl implements _Chats {
-  const _$ChatsImpl(
-      {final Map<String, ChatModel> chats = const <String, ChatModel>{}})
-      : _chats = chats;
+class _$ChatImpl with DiagnosticableTreeMixin implements _Chat {
+  const _$ChatImpl(
+      {this.id = '',
+      this.title = '',
+      final List<QueryResponseModel> cards = const <QueryResponseModel>[]})
+      : _cards = cards;
 
-  factory _$ChatsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ChatsImplFromJson(json);
+  factory _$ChatImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ChatImplFromJson(json);
 
-  final Map<String, ChatModel> _chats;
   @override
   @JsonKey()
-  Map<String, ChatModel> get chats {
-    if (_chats is EqualUnmodifiableMapView) return _chats;
+  final String id;
+  @override
+  @JsonKey()
+  final String title;
+  final List<QueryResponseModel> _cards;
+  @override
+  @JsonKey()
+  List<QueryResponseModel> get cards {
+    if (_cards is EqualUnmodifiableListView) return _cards;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_chats);
+    return EqualUnmodifiableListView(_cards);
   }
 
   @override
-  String toString() {
-    return 'Chats(chats: $chats)';
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'Chat(id: $id, title: $title, cards: $cards)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Chat'))
+      ..add(DiagnosticsProperty('id', id))
+      ..add(DiagnosticsProperty('title', title))
+      ..add(DiagnosticsProperty('cards', cards));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ChatsImpl &&
-            const DeepCollectionEquality().equals(other._chats, _chats));
+            other is _$ChatImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.title, title) || other.title == title) &&
+            const DeepCollectionEquality().equals(other._cards, _cards));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_chats));
+  int get hashCode => Object.hash(
+      runtimeType, id, title, const DeepCollectionEquality().hash(_cards));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ChatsImplCopyWith<_$ChatsImpl> get copyWith =>
-      __$$ChatsImplCopyWithImpl<_$ChatsImpl>(this, _$identity);
+  _$$ChatImplCopyWith<_$ChatImpl> get copyWith =>
+      __$$ChatImplCopyWithImpl<_$ChatImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ChatsImplToJson(
+    return _$$ChatImplToJson(
       this,
     );
   }
 }
 
-abstract class _Chats implements Chats {
-  const factory _Chats({final Map<String, ChatModel> chats}) = _$ChatsImpl;
+abstract class _Chat implements Chat {
+  const factory _Chat(
+      {final String id,
+      final String title,
+      final List<QueryResponseModel> cards}) = _$ChatImpl;
 
-  factory _Chats.fromJson(Map<String, dynamic> json) = _$ChatsImpl.fromJson;
+  factory _Chat.fromJson(Map<String, dynamic> json) = _$ChatImpl.fromJson;
 
   @override
-  Map<String, ChatModel> get chats;
+  String get id;
+  @override
+  String get title;
+  @override
+  List<QueryResponseModel> get cards;
   @override
   @JsonKey(ignore: true)
-  _$$ChatsImplCopyWith<_$ChatsImpl> get copyWith =>
+  _$$ChatImplCopyWith<_$ChatImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

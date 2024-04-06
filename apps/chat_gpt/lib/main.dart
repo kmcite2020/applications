@@ -1,9 +1,10 @@
+import 'package:chat_gpt/chats/current_chat_rm.dart';
+
 import 'main.dart';
 
 export 'package:chat_gpt/chats/chats.dart';
-export 'package:chat_gpt/core/core.dart';
-export 'package:chat_gpt/chats/drawer.dart';
-export 'package:chat_gpt/features/details/details.dart';
+export 'package:chat_gpt/chats/left_chats_page.dart';
+export 'package:chat_gpt/details.dart';
 export 'package:manager/manager.dart';
 export 'chat/chat_page.dart';
 export 'settings/settings_manager.dart';
@@ -11,15 +12,35 @@ export 'settings/themes.dart';
 
 void main() => runApp(ChatGPT());
 
-final directoryRM = RM.injectFuture(getApplicationDocumentsDirectory);
+final directoryRM = ComplexFuture(getApplicationDocumentsDirectory);
 
-Directory get directory => directoryRM.state;
+Directory get directory => directoryRM();
 
 class ChatGPT extends TopUI {
   @override
   final List<FutureOr<void>> dependencies = [
     directoryRM.initializeState(),
   ];
+
+  @override
+  ThemeMode get themeMode => themeModeRM();
+  @override
+  ThemeData get theme => ThemeData(
+        brightness: Brightness.light,
+        inputDecorationTheme: InputDecorationTheme(
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+        ),
+      );
+  ThemeData get darkTheme => ThemeData(
+        brightness: Brightness.dark,
+        inputDecorationTheme: InputDecorationTheme(
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+        ),
+      );
   @override
   Widget homePage(BuildContext context) {
     return SafeArea(child: CurrentChatScreen());
@@ -35,8 +56,8 @@ class CurrentChatScreen extends UI {
         actions: [
           IconButton(
             onPressed: () {
-              chatsRM.saveChat(
-                ChatModel(
+              chatsRM.save(
+                Chat(
                   id: randomID,
                   title: 'title',
                   cards: [],
@@ -55,8 +76,8 @@ class CurrentChatScreen extends UI {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     TextField(
-                      onSubmitted: (x) {
-                        chatManager.setTitle(x);
+                      onSubmitted: (title) {
+                        currentChatRM.changeTitle(title);
                         navigator.back();
                       },
                     ).pad()
@@ -66,7 +87,7 @@ class CurrentChatScreen extends UI {
             );
           },
           child:
-              "${chatManager.currentID == '' ? 'ChatGPT $version' : '${chatManager.chatModel.title}'}"
+              "${currentChatRM()?.id == '' ? 'ChatGPT $version' : '${currentChatRM()?.title}'}"
                   .text(),
         ),
       ),
@@ -91,7 +112,7 @@ class MenuButtonForCurrentChat extends UI {
         ),
         PopupMenuItem(
           child: 'Share'.text(),
-          enabled: chatManager.currentID != '',
+          enabled: currentChatRM()?.id != '',
         ),
         PopupMenuItem(
           onTap: () {
@@ -101,8 +122,8 @@ class MenuButtonForCurrentChat extends UI {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     TextField(
-                      onSubmitted: (x) {
-                        chatManager.setTitle(x);
+                      onSubmitted: (title) {
+                        currentChatRM.changeTitle(title);
                         navigator.back();
                       },
                     ).pad()
@@ -112,16 +133,17 @@ class MenuButtonForCurrentChat extends UI {
             );
           },
           child: 'Rename'.text(),
-          enabled: chatManager.currentID != '',
+          enabled: currentChatRM()?.id != '',
         ),
         PopupMenuItem(
           child: 'Delete'.text(),
-          onTap: () {
-            chatManager.deleteChat();
-          },
-          enabled: chatManager.currentID != '',
+          onTap: currentChatRM.delete,
+          enabled: currentChatRM()?.id != '',
         ),
       ],
     ).pad();
   }
 }
+
+String get version => '0.1';
+String get userName => 'Adnan Farooq';

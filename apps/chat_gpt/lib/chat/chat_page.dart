@@ -1,4 +1,4 @@
-import 'package:chat_gpt/chats/chats.dart';
+import 'package:chat_gpt/chats/current_chat_rm.dart';
 import 'package:manager/manager.dart';
 
 part 'chat_page.freezed.dart';
@@ -9,24 +9,15 @@ class ChatPage extends UI {
 
   @override
   Widget build(BuildContext context) {
-    ChatModel? getChat(id) {
-      try {
-        return chatsRM.chatByID(chatManager.currentID);
-      } catch (e) {
-        return null;
-      }
-    }
-
-    final ChatModel? discussionModel = getChat(chatManager.currentID);
     return Column(
       children: [
         Expanded(
           child: SizedBox(
             height: MediaQuery.of(context).size.height,
             child: ListView.builder(
-              itemCount: discussionModel?.cards.length ?? 1,
+              itemCount: currentChatRM()?.cards.length ?? 1,
               itemBuilder: (context, i) {
-                final x = discussionModel?.cards[i];
+                final x = currentChatRM()?.cards[i];
                 switch (x?.cardType) {
                   case CardType.query:
                     return QueryCard(qrModel: x!);
@@ -82,7 +73,13 @@ class QueryInputBar extends UI {
               suffixIcon: queryController.focusNode.hasFocus
                   ? IconButton(
                       onPressed: () {
-                        chatManager.sendMessage(queryController.text);
+                        currentChatRM.createQuery(
+                          QueryResponseModel(
+                            cardType: CardType.query,
+                            content: queryController.text,
+                            dateTime: DateTime.now(),
+                          ),
+                        );
                         queryController.controller.clear();
                       },
                       icon: Icon(Icons.arrow_upward),
@@ -203,16 +200,4 @@ class QueryResponseModel with _$QueryResponseModel {
 
   factory QueryResponseModel.fromJson(Map<String, dynamic> json) =>
       _$QueryResponseModelFromJson(json);
-}
-
-@freezed
-class ChatModel with _$ChatModel {
-  const factory ChatModel({
-    required final String id,
-    required final String title,
-    required final List<QueryResponseModel> cards,
-  }) = _ChatModel;
-
-  factory ChatModel.fromJson(Map<String, dynamic> json) =>
-      _$ChatModelFromJson(json);
 }

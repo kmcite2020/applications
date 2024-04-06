@@ -26,19 +26,3 @@ const _$CardTypeEnumMap = {
   CardType.query: 'query',
   CardType.response: 'response',
 };
-
-_$ChatModelImpl _$$ChatModelImplFromJson(Map<String, dynamic> json) =>
-    _$ChatModelImpl(
-      id: json['id'] as String,
-      title: json['title'] as String,
-      cards: (json['cards'] as List<dynamic>)
-          .map((e) => QueryResponseModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
-    );
-
-Map<String, dynamic> _$$ChatModelImplToJson(_$ChatModelImpl instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'title': instance.title,
-      'cards': instance.cards,
-    };

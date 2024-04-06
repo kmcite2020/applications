@@ -35,6 +35,7 @@ export 'utilities/extensions.dart'
 export 'package:flutter/material.dart' hide Flow, Page;
 export 'utilities/hive_storage.dart' show HiveStorage;
 export 'utilities/ui.dart' show UI, TopUI, Page;
+
 import 'manager.dart';
 
 abstract class Manager<State> extends Base<State>
@@ -53,31 +54,36 @@ abstract class Manager<State> extends Base<State>
 /// you can only read it.
 /// you can not provide side effects from here
 /// the stream provider shoud give a way to add events to the stream
-///
-///
 
-class StreamBase<T> extends Base<T?> {
-  final Stream<T> Function() creator;
-  StreamSubscription<T>? subscription;
-  StreamBase(
+class ComplexStream<T> {
+  ComplexStream(
     this.creator, {
     this.initialState,
-  }) {
-    state = initialState;
-    subscription = creator().listen(
-      setState,
-      onDone: dispose,
-      onError: (_, __) => dispose(),
-    );
-  }
-  @override
-  void dispose() {
-    super.dispose();
-    subscription?.cancel();
-    subscription = null;
-  }
-
-  @override
+  });
   final T? initialState;
-  T call() => state!;
+  final Stream<T> Function() creator;
+  late final Injected<T> injected = RM.injectStream(
+    creator,
+    initialState: initialState,
+  );
+  bool get loading => injected.isWaiting;
+  T call() => injected.state;
+}
+
+/// these objects are not disposable by default
+
+class ComplexFuture<T> extends Base<T?> {
+  ComplexFuture(
+    this.creator, {
+    this.initialState,
+  });
+  final T? initialState;
+  final Future<T> Function() creator;
+  late final Injected<T> injected = RM.injectFuture(
+    creator,
+    initialState: initialState,
+    autoDisposeWhenNotUsed: false,
+  );
+  bool get loading => injected.isWaiting;
+  T call() => injected.state;
 }

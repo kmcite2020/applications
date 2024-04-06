@@ -1,6 +1,6 @@
 import 'package:chat_gpt/main.dart';
 
-class DetailsPage extends ReactiveStatelessWidget {
+class DetailsPage extends UI {
   const DetailsPage({super.key});
 
   @override

@@ -8,7 +8,7 @@ abstract class InitialOf<State> {
 }
 
 abstract class ReactivityIntegrated {
-  ReactiveModel get injected;
+  Injected get injected;
 }
 
 abstract class GetterOf<State> {
@@ -32,7 +32,8 @@ abstract class Base<State>
         GetterOf<State>,
         SetterOf<State> {
   Base() {
-    injected = Capsule(initialState).inj(
+    injected = Injected(
+      creator: () => Capsule(initialState),
       autoDisposeWhenNotUsed: autoDispose,
     );
   }
@@ -52,4 +53,5 @@ abstract class Base<State>
   @override
   set state(State newState) => injected.state = Capsule(newState);
   void setState(newState) => state = newState;
+  late final initializeState = injected.initializeState;
 }

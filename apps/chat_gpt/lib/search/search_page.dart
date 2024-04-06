@@ -1,5 +1,7 @@
 import 'package:chat_gpt/main.dart';
 
+import '../chats/history_list_ui.dart';
+
 class SearchPage extends UI {
   const SearchPage({super.key});
 
@@ -13,7 +15,7 @@ class SearchPage extends UI {
             leading: BackButton(),
             elevation: MaterialStatePropertyAll(1),
           ).pad(),
-          const HistoryListView(),
+          const HistoryListUI(),
         ],
       ),
     );
