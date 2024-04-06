@@ -1,6 +1,4 @@
-import 'package:beseech/features/prayers/prayers.dart';
-
-import '../../main.dart';
+import 'package:beseech/main.dart';
 
 part 'app.freezed.dart';
 part 'app.g.dart';
@@ -9,14 +7,12 @@ part 'app.g.dart';
 class Application with _$Application {
   const factory Application.raw({
     required final SettingsState settings,
-    required final Prayers prayers,
     required final Onboarding onboarding,
     required final AppUser appUser,
   }) = _Application;
 
   factory Application() => Application.raw(
         settings: SettingsState(),
-        prayers: Prayers(),
         onboarding: Onboarding(),
         appUser: AppUser(),
       );

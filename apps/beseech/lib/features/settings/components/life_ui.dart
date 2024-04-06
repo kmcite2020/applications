@@ -13,13 +13,15 @@ class LifeUI extends UI {
           value: appUserRM().ageVysor,
           items: AgeVysor.values
               .map(
-                (e) => DropdownMenuItem(
-                  value: e,
-                  child: e.name.toUpperCase().text(),
+                (eachAgeVysor) => DropdownMenuItem(
+                  value: eachAgeVysor,
+                  child: eachAgeVysor.name.toUpperCase().text(),
                 ),
               )
               .toList(),
-          onChanged: (ageVysor) => AppUserEvent.setAgeVysor(ageVysor),
+          onChanged: (ageVysor) {
+            appUserRM(AppUserEvent.setAgeVysor(ageVysor));
+          },
           padding: EdgeInsets.all(settingsRM.state.padding),
         ),
         () {

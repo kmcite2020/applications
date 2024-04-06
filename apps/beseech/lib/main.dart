@@ -10,8 +10,7 @@ export 'package:beseech/features/initial/pages/initial_page.dart';
 export 'package:beseech/features/onboarding/onboarding.dart';
 export 'package:beseech/features/onboarding/onboarding_bloc.dart';
 export 'package:beseech/features/onboarding/pages/welcome_ui.dart';
-export 'package:beseech/features/prayers/models.dart';
-export 'package:beseech/features/prayers/prayers_bloc.dart';
+export 'package:beseech/features/prayers/prayers_rm.dart';
 export 'package:beseech/features/settings/components/material_colors_ui.dart';
 export 'package:beseech/features/settings/components/theme_mode_ui.dart';
 export 'package:beseech/features/settings/components/user_information_ui.dart';
@@ -36,6 +35,10 @@ void main() => runApp(App());
 class App extends TopUI {
   @override
   ThemeMode get themeMode => settingsRM().themeMode;
+  @override
+  ThemeData get theme => ThemeData.light(useMaterial3: false);
+  @override
+  ThemeData get darkTheme => ThemeData.dark(useMaterial3: false);
   @override
   Widget homePage(context) {
     if (onboarding.isOnboardingComplete)

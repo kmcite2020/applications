@@ -24,7 +24,7 @@ class GenericPrayerCounterUI extends UI {
             )
             .pad()
             .container(
-              // customBorderRadiusValue: borderRadius,
+              customBorderRadiusValue: settingsRM().borderRadius,
               spread: 60,
               depth: 120,
               // color: materialColor.shade400,

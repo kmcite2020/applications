@@ -1,13 +1,6 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:beseech/main.dart';
 
 part 'common_ui.dart';
-
-extension A0001 on Object? {
-  String get str {
-    return toString();
-  }
-}
 
 // extension DateTimeExtensions on DateTime? {
 //   String get humanReadable {
@@ -38,24 +31,22 @@ extension A0003 on Widget {
     bool? emboss,
     void Function()? onTap,
   }) {
-    return Builder(builder: (context) {
-      return ClayContainer(
-        height: height,
-        width: width,
-        color: color ?? settingsRM.state.materialColor.shade800,
-        surfaceColor: surfaceColor,
-        parentColor: parentColor,
-        spread: spread,
-        borderRadius: customBorderRadiusValue ?? settingsRM.state.borderRadius,
-        customBorderRadius: customBorderRadius,
-        curveType: curveType,
-        depth: depth,
-        emboss: emboss ?? true,
-        child: GestureDetector(
-          onDoubleTap: onTap,
-          child: this,
-        ),
-      );
-    });
+    return ClayContainer(
+      height: height,
+      width: width,
+      color: color ?? settingsRM.state.materialColor.shade800,
+      surfaceColor: surfaceColor,
+      parentColor: parentColor,
+      spread: spread,
+      borderRadius: customBorderRadiusValue ?? settingsRM.state.borderRadius,
+      customBorderRadius: customBorderRadius,
+      curveType: curveType,
+      depth: depth,
+      emboss: emboss ?? true,
+      child: GestureDetector(
+        onDoubleTap: onTap,
+        child: this,
+      ),
+    );
   }
 }

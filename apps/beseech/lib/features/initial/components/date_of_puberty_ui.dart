@@ -12,9 +12,9 @@ class DateOfPubertyUI extends UI {
           width: 2,
           // color: settingsBloc.settings.materialColor.withOpacity(.6),
         ),
-        // borderRadius: BorderRadius.circular(
-        //   settingsBloc.settings.borderRadius,
-        // ),
+        borderRadius: BorderRadius.circular(
+          settingsRM().borderRadius,
+        ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -25,7 +25,7 @@ class DateOfPubertyUI extends UI {
               'DATE OF PUBERTY - became adult on'.text().pad(),
             ],
           ),
-          appUserRM().dateOfPuberty.humane().text().pad().card().pad(),
+          appUserRM().dateOfPuberty.date().text().pad().card().pad(),
           ElevatedButton(
             onPressed: () => updateDateOfPuberty(context: context),
             child: 'What is your puberty date?'.text(),

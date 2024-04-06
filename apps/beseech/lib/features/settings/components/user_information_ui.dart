@@ -40,7 +40,7 @@ class UserInformationUI extends UI {
                       ),
                 const Divider(),
                 'DATE OF BIRTH'.text().pad(),
-                appUserRM().dateOfBirth.time().text().pad().container(
+                appUserRM().dateOfBirth.date().text().pad().container(
                   onTap: () async {
                     final selectedDate = await showDatePicker(
                       context: context,

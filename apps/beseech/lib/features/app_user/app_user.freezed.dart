@@ -978,6 +978,7 @@ mixin _$AppUser {
   DateTime get dateOfBirth => throw _privateConstructorUsedError;
   DateTime get dateOfPubertyExplicit => throw _privateConstructorUsedError;
   AgeVysor get ageVysor => throw _privateConstructorUsedError;
+  Duration get age => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
@@ -986,7 +987,8 @@ mixin _$AppUser {
             bool ageBasedOrExplicit,
             DateTime dateOfBirth,
             DateTime dateOfPubertyExplicit,
-            AgeVysor ageVysor)
+            AgeVysor ageVysor,
+            Duration age)
         raw,
   }) =>
       throw _privateConstructorUsedError;
@@ -998,7 +1000,8 @@ mixin _$AppUser {
             bool ageBasedOrExplicit,
             DateTime dateOfBirth,
             DateTime dateOfPubertyExplicit,
-            AgeVysor ageVysor)?
+            AgeVysor ageVysor,
+            Duration age)?
         raw,
   }) =>
       throw _privateConstructorUsedError;
@@ -1010,7 +1013,8 @@ mixin _$AppUser {
             bool ageBasedOrExplicit,
             DateTime dateOfBirth,
             DateTime dateOfPubertyExplicit,
-            AgeVysor ageVysor)?
+            AgeVysor ageVysor,
+            Duration age)?
         raw,
     required TResult orElse(),
   }) =>
@@ -1047,7 +1051,8 @@ abstract class $AppUserCopyWith<$Res> {
       bool ageBasedOrExplicit,
       DateTime dateOfBirth,
       DateTime dateOfPubertyExplicit,
-      AgeVysor ageVysor});
+      AgeVysor ageVysor,
+      Duration age});
 }
 
 /// @nodoc
@@ -1069,6 +1074,7 @@ class _$AppUserCopyWithImpl<$Res, $Val extends AppUser>
     Object? dateOfBirth = null,
     Object? dateOfPubertyExplicit = null,
     Object? ageVysor = null,
+    Object? age = null,
   }) {
     return _then(_value.copyWith(
       userName: null == userName
@@ -1095,6 +1101,10 @@ class _$AppUserCopyWithImpl<$Res, $Val extends AppUser>
           ? _value.ageVysor
           : ageVysor // ignore: cast_nullable_to_non_nullable
               as AgeVysor,
+      age: null == age
+          ? _value.age
+          : age // ignore: cast_nullable_to_non_nullable
+              as Duration,
     ) as $Val);
   }
 }
@@ -1112,7 +1122,8 @@ abstract class _$$AppUserImplCopyWith<$Res> implements $AppUserCopyWith<$Res> {
       bool ageBasedOrExplicit,
       DateTime dateOfBirth,
       DateTime dateOfPubertyExplicit,
-      AgeVysor ageVysor});
+      AgeVysor ageVysor,
+      Duration age});
 }
 
 /// @nodoc
@@ -1132,6 +1143,7 @@ class __$$AppUserImplCopyWithImpl<$Res>
     Object? dateOfBirth = null,
     Object? dateOfPubertyExplicit = null,
     Object? ageVysor = null,
+    Object? age = null,
   }) {
     return _then(_$AppUserImpl(
       userName: null == userName
@@ -1158,6 +1170,10 @@ class __$$AppUserImplCopyWithImpl<$Res>
           ? _value.ageVysor
           : ageVysor // ignore: cast_nullable_to_non_nullable
               as AgeVysor,
+      age: null == age
+          ? _value.age
+          : age // ignore: cast_nullable_to_non_nullable
+              as Duration,
     ));
   }
 }
@@ -1166,33 +1182,41 @@ class __$$AppUserImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$AppUserImpl extends _AppUser with DiagnosticableTreeMixin {
   _$AppUserImpl(
-      {required this.userName,
-      required this.editing,
-      required this.ageBasedOrExplicit,
+      {this.userName = '',
+      this.editing = false,
+      this.ageBasedOrExplicit = false,
       required this.dateOfBirth,
       required this.dateOfPubertyExplicit,
-      required this.ageVysor})
+      this.ageVysor = AgeVysor.seconds,
+      this.age = Duration.zero})
       : super._();
 
   factory _$AppUserImpl.fromJson(Map<String, dynamic> json) =>
       _$$AppUserImplFromJson(json);
 
   @override
+  @JsonKey()
   final String userName;
   @override
+  @JsonKey()
   final bool editing;
   @override
+  @JsonKey()
   final bool ageBasedOrExplicit;
   @override
   final DateTime dateOfBirth;
   @override
   final DateTime dateOfPubertyExplicit;
   @override
+  @JsonKey()
   final AgeVysor ageVysor;
+  @override
+  @JsonKey()
+  final Duration age;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AppUser.raw(userName: $userName, editing: $editing, ageBasedOrExplicit: $ageBasedOrExplicit, dateOfBirth: $dateOfBirth, dateOfPubertyExplicit: $dateOfPubertyExplicit, ageVysor: $ageVysor)';
+    return 'AppUser.raw(userName: $userName, editing: $editing, ageBasedOrExplicit: $ageBasedOrExplicit, dateOfBirth: $dateOfBirth, dateOfPubertyExplicit: $dateOfPubertyExplicit, ageVysor: $ageVysor, age: $age)';
   }
 
   @override
@@ -1205,7 +1229,8 @@ class _$AppUserImpl extends _AppUser with DiagnosticableTreeMixin {
       ..add(DiagnosticsProperty('ageBasedOrExplicit', ageBasedOrExplicit))
       ..add(DiagnosticsProperty('dateOfBirth', dateOfBirth))
       ..add(DiagnosticsProperty('dateOfPubertyExplicit', dateOfPubertyExplicit))
-      ..add(DiagnosticsProperty('ageVysor', ageVysor));
+      ..add(DiagnosticsProperty('ageVysor', ageVysor))
+      ..add(DiagnosticsProperty('age', age));
   }
 
   @override
@@ -1223,13 +1248,14 @@ class _$AppUserImpl extends _AppUser with DiagnosticableTreeMixin {
             (identical(other.dateOfPubertyExplicit, dateOfPubertyExplicit) ||
                 other.dateOfPubertyExplicit == dateOfPubertyExplicit) &&
             (identical(other.ageVysor, ageVysor) ||
-                other.ageVysor == ageVysor));
+                other.ageVysor == ageVysor) &&
+            (identical(other.age, age) || other.age == age));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, userName, editing,
-      ageBasedOrExplicit, dateOfBirth, dateOfPubertyExplicit, ageVysor);
+      ageBasedOrExplicit, dateOfBirth, dateOfPubertyExplicit, ageVysor, age);
 
   @JsonKey(ignore: true)
   @override
@@ -1246,11 +1272,12 @@ class _$AppUserImpl extends _AppUser with DiagnosticableTreeMixin {
             bool ageBasedOrExplicit,
             DateTime dateOfBirth,
             DateTime dateOfPubertyExplicit,
-            AgeVysor ageVysor)
+            AgeVysor ageVysor,
+            Duration age)
         raw,
   }) {
     return raw(userName, editing, ageBasedOrExplicit, dateOfBirth,
-        dateOfPubertyExplicit, ageVysor);
+        dateOfPubertyExplicit, ageVysor, age);
   }
 
   @override
@@ -1262,11 +1289,12 @@ class _$AppUserImpl extends _AppUser with DiagnosticableTreeMixin {
             bool ageBasedOrExplicit,
             DateTime dateOfBirth,
             DateTime dateOfPubertyExplicit,
-            AgeVysor ageVysor)?
+            AgeVysor ageVysor,
+            Duration age)?
         raw,
   }) {
     return raw?.call(userName, editing, ageBasedOrExplicit, dateOfBirth,
-        dateOfPubertyExplicit, ageVysor);
+        dateOfPubertyExplicit, ageVysor, age);
   }
 
   @override
@@ -1278,13 +1306,14 @@ class _$AppUserImpl extends _AppUser with DiagnosticableTreeMixin {
             bool ageBasedOrExplicit,
             DateTime dateOfBirth,
             DateTime dateOfPubertyExplicit,
-            AgeVysor ageVysor)?
+            AgeVysor ageVysor,
+            Duration age)?
         raw,
     required TResult orElse(),
   }) {
     if (raw != null) {
       return raw(userName, editing, ageBasedOrExplicit, dateOfBirth,
-          dateOfPubertyExplicit, ageVysor);
+          dateOfPubertyExplicit, ageVysor, age);
     }
     return orElse();
   }
@@ -1327,12 +1356,13 @@ class _$AppUserImpl extends _AppUser with DiagnosticableTreeMixin {
 
 abstract class _AppUser extends AppUser {
   factory _AppUser(
-      {required final String userName,
-      required final bool editing,
-      required final bool ageBasedOrExplicit,
+      {final String userName,
+      final bool editing,
+      final bool ageBasedOrExplicit,
       required final DateTime dateOfBirth,
       required final DateTime dateOfPubertyExplicit,
-      required final AgeVysor ageVysor}) = _$AppUserImpl;
+      final AgeVysor ageVysor,
+      final Duration age}) = _$AppUserImpl;
   _AppUser._() : super._();
 
   factory _AppUser.fromJson(Map<String, dynamic> json) = _$AppUserImpl.fromJson;
@@ -1349,6 +1379,8 @@ abstract class _AppUser extends AppUser {
   DateTime get dateOfPubertyExplicit;
   @override
   AgeVysor get ageVysor;
+  @override
+  Duration get age;
   @override
   @JsonKey(ignore: true)
   _$$AppUserImplCopyWith<_$AppUserImpl> get copyWith =>

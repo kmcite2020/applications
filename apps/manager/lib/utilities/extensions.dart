@@ -34,11 +34,9 @@ extension WidgetExtensions on Widget {
 
 extension DateTimeExtensions on DateTime {
   String time() => '';
-  String humane() {
+  String date() {
     return "$day/$month/$year";
   }
-
-  Widget human() => humane().text();
 
   String get day => this.day.toString();
   String get month => this.month.toString();

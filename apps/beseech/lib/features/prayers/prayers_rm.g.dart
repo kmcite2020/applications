@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'prayers_bloc.dart';
+part of 'prayers_rm.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

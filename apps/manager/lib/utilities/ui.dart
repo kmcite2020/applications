@@ -65,8 +65,8 @@ abstract class TopUI extends TopStatelessWidget {
     BuildContext context,
   );
 
-  ColorScheme get lightScheme => ColorScheme.light();
-  ColorScheme get darkScheme => ColorScheme.dark();
+  ThemeData get theme => ThemeData.light();
+  ThemeData get darkTheme => ThemeData.dark();
   ThemeMode get themeMode => ThemeMode.system;
 
   @override
@@ -79,8 +79,12 @@ abstract class TopUI extends TopStatelessWidget {
             navigatorKey: navigator.navigatorKey,
             home: homePage(context),
             themeMode: themeMode,
-            theme: ThemeData(colorScheme: lightDynamic ?? lightScheme),
-            darkTheme: ThemeData(colorScheme: darkDynamic ?? darkScheme),
+            theme: lightDynamic == null
+                ? theme
+                : ThemeData(colorScheme: lightDynamic),
+            darkTheme: darkDynamic == null
+                ? darkTheme
+                : ThemeData(colorScheme: darkDynamic),
           );
         },
       ),

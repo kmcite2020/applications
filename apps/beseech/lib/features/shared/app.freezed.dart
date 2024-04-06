@@ -21,27 +21,26 @@ Application _$ApplicationFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Application {
   SettingsState get settings => throw _privateConstructorUsedError;
-  Prayers get prayers => throw _privateConstructorUsedError;
   Onboarding get onboarding => throw _privateConstructorUsedError;
   AppUser get appUser => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(SettingsState settings, Prayers prayers,
-            Onboarding onboarding, AppUser appUser)
+    required TResult Function(
+            SettingsState settings, Onboarding onboarding, AppUser appUser)
         raw,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(SettingsState settings, Prayers prayers,
-            Onboarding onboarding, AppUser appUser)?
+    TResult? Function(
+            SettingsState settings, Onboarding onboarding, AppUser appUser)?
         raw,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(SettingsState settings, Prayers prayers,
-            Onboarding onboarding, AppUser appUser)?
+    TResult Function(
+            SettingsState settings, Onboarding onboarding, AppUser appUser)?
         raw,
     required TResult orElse(),
   }) =>
@@ -74,14 +73,9 @@ abstract class $ApplicationCopyWith<$Res> {
           Application value, $Res Function(Application) then) =
       _$ApplicationCopyWithImpl<$Res, Application>;
   @useResult
-  $Res call(
-      {SettingsState settings,
-      Prayers prayers,
-      Onboarding onboarding,
-      AppUser appUser});
+  $Res call({SettingsState settings, Onboarding onboarding, AppUser appUser});
 
   $SettingsStateCopyWith<$Res> get settings;
-  $PrayersCopyWith<$Res> get prayers;
   $OnboardingCopyWith<$Res> get onboarding;
   $AppUserCopyWith<$Res> get appUser;
 }
@@ -100,7 +94,6 @@ class _$ApplicationCopyWithImpl<$Res, $Val extends Application>
   @override
   $Res call({
     Object? settings = null,
-    Object? prayers = null,
     Object? onboarding = null,
     Object? appUser = null,
   }) {
@@ -109,10 +102,6 @@ class _$ApplicationCopyWithImpl<$Res, $Val extends Application>
           ? _value.settings
           : settings // ignore: cast_nullable_to_non_nullable
               as SettingsState,
-      prayers: null == prayers
-          ? _value.prayers
-          : prayers // ignore: cast_nullable_to_non_nullable
-              as Prayers,
       onboarding: null == onboarding
           ? _value.onboarding
           : onboarding // ignore: cast_nullable_to_non_nullable
@@ -129,14 +118,6 @@ class _$ApplicationCopyWithImpl<$Res, $Val extends Application>
   $SettingsStateCopyWith<$Res> get settings {
     return $SettingsStateCopyWith<$Res>(_value.settings, (value) {
       return _then(_value.copyWith(settings: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $PrayersCopyWith<$Res> get prayers {
-    return $PrayersCopyWith<$Res>(_value.prayers, (value) {
-      return _then(_value.copyWith(prayers: value) as $Val);
     });
   }
 
@@ -165,16 +146,10 @@ abstract class _$$ApplicationImplCopyWith<$Res>
       __$$ApplicationImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {SettingsState settings,
-      Prayers prayers,
-      Onboarding onboarding,
-      AppUser appUser});
+  $Res call({SettingsState settings, Onboarding onboarding, AppUser appUser});
 
   @override
   $SettingsStateCopyWith<$Res> get settings;
-  @override
-  $PrayersCopyWith<$Res> get prayers;
   @override
   $OnboardingCopyWith<$Res> get onboarding;
   @override
@@ -193,7 +168,6 @@ class __$$ApplicationImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? settings = null,
-    Object? prayers = null,
     Object? onboarding = null,
     Object? appUser = null,
   }) {
@@ -202,10 +176,6 @@ class __$$ApplicationImplCopyWithImpl<$Res>
           ? _value.settings
           : settings // ignore: cast_nullable_to_non_nullable
               as SettingsState,
-      prayers: null == prayers
-          ? _value.prayers
-          : prayers // ignore: cast_nullable_to_non_nullable
-              as Prayers,
       onboarding: null == onboarding
           ? _value.onboarding
           : onboarding // ignore: cast_nullable_to_non_nullable
@@ -222,10 +192,7 @@ class __$$ApplicationImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ApplicationImpl extends _Application with DiagnosticableTreeMixin {
   const _$ApplicationImpl(
-      {required this.settings,
-      required this.prayers,
-      required this.onboarding,
-      required this.appUser})
+      {required this.settings, required this.onboarding, required this.appUser})
       : super._();
 
   factory _$ApplicationImpl.fromJson(Map<String, dynamic> json) =>
@@ -234,15 +201,13 @@ class _$ApplicationImpl extends _Application with DiagnosticableTreeMixin {
   @override
   final SettingsState settings;
   @override
-  final Prayers prayers;
-  @override
   final Onboarding onboarding;
   @override
   final AppUser appUser;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Application.raw(settings: $settings, prayers: $prayers, onboarding: $onboarding, appUser: $appUser)';
+    return 'Application.raw(settings: $settings, onboarding: $onboarding, appUser: $appUser)';
   }
 
   @override
@@ -251,7 +216,6 @@ class _$ApplicationImpl extends _Application with DiagnosticableTreeMixin {
     properties
       ..add(DiagnosticsProperty('type', 'Application.raw'))
       ..add(DiagnosticsProperty('settings', settings))
-      ..add(DiagnosticsProperty('prayers', prayers))
       ..add(DiagnosticsProperty('onboarding', onboarding))
       ..add(DiagnosticsProperty('appUser', appUser));
   }
@@ -263,7 +227,6 @@ class _$ApplicationImpl extends _Application with DiagnosticableTreeMixin {
             other is _$ApplicationImpl &&
             (identical(other.settings, settings) ||
                 other.settings == settings) &&
-            (identical(other.prayers, prayers) || other.prayers == prayers) &&
             (identical(other.onboarding, onboarding) ||
                 other.onboarding == onboarding) &&
             (identical(other.appUser, appUser) || other.appUser == appUser));
@@ -271,8 +234,7 @@ class _$ApplicationImpl extends _Application with DiagnosticableTreeMixin {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, settings, prayers, onboarding, appUser);
+  int get hashCode => Object.hash(runtimeType, settings, onboarding, appUser);
 
   @JsonKey(ignore: true)
   @override
@@ -283,33 +245,33 @@ class _$ApplicationImpl extends _Application with DiagnosticableTreeMixin {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(SettingsState settings, Prayers prayers,
-            Onboarding onboarding, AppUser appUser)
+    required TResult Function(
+            SettingsState settings, Onboarding onboarding, AppUser appUser)
         raw,
   }) {
-    return raw(settings, prayers, onboarding, appUser);
+    return raw(settings, onboarding, appUser);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(SettingsState settings, Prayers prayers,
-            Onboarding onboarding, AppUser appUser)?
+    TResult? Function(
+            SettingsState settings, Onboarding onboarding, AppUser appUser)?
         raw,
   }) {
-    return raw?.call(settings, prayers, onboarding, appUser);
+    return raw?.call(settings, onboarding, appUser);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(SettingsState settings, Prayers prayers,
-            Onboarding onboarding, AppUser appUser)?
+    TResult Function(
+            SettingsState settings, Onboarding onboarding, AppUser appUser)?
         raw,
     required TResult orElse(),
   }) {
     if (raw != null) {
-      return raw(settings, prayers, onboarding, appUser);
+      return raw(settings, onboarding, appUser);
     }
     return orElse();
   }
@@ -353,7 +315,6 @@ class _$ApplicationImpl extends _Application with DiagnosticableTreeMixin {
 abstract class _Application extends Application {
   const factory _Application(
       {required final SettingsState settings,
-      required final Prayers prayers,
       required final Onboarding onboarding,
       required final AppUser appUser}) = _$ApplicationImpl;
   const _Application._() : super._();
@@ -363,8 +324,6 @@ abstract class _Application extends Application {
 
   @override
   SettingsState get settings;
-  @override
-  Prayers get prayers;
   @override
   Onboarding get onboarding;
   @override
