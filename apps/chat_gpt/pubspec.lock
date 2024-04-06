@@ -10,7 +10,7 @@ packages:
     source: hosted
     version: "67.0.0"
   analyzer:
-    dependency: transitive
+    dependency: "direct dev"
     description:
       name: analyzer
       sha256: "37577842a27e4338429a1cbc32679d508836510b056f1eedf0c8d20e39c1383d"
@@ -162,7 +162,7 @@ packages:
     source: hosted
     version: "1.18.0"
   colornames:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: colornames
       sha256: c42ee28edfc65391d7cdb40577c57390e1ea2ff78d73a9983a452a72dacfbdbc
@@ -194,7 +194,7 @@ packages:
     source: hosted
     version: "1.0.0"
   cupertino_icons:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: cupertino_icons
       sha256: d57953e10f9f8327ce64a508a355f0b1ec902193f66288e8cb5070e7c47eeb2d
@@ -210,7 +210,7 @@ packages:
     source: hosted
     version: "2.3.6"
   dynamic_color:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: dynamic_color
       sha256: eae98052fa6e2826bdac3dd2e921c6ce2903be15c6b7f8b6d8a5d49b5086298d
@@ -260,7 +260,7 @@ packages:
     source: sdk
     version: "0.0.0"
   flutter_native_splash:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: flutter_native_splash
       sha256: edf39bcf4d74aca1eb2c1e43c3e445fd9f494013df7f0da752fefe72020eedc0
@@ -326,7 +326,7 @@ packages:
     source: hosted
     version: "2.2.3"
   hive_flutter:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: hive_flutter
       sha256: dca1da446b1d808a51689fb5d0c6c9510c0a2ba01e22805d492c73b68e33eecc
@@ -501,7 +501,7 @@ packages:
     source: hosted
     version: "2.1.0"
   package_info_plus:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: package_info_plus
       sha256: "88bc797f44a94814f2213db1c9bd5badebafdfb8290ca9f78d4b9ee2a3db4d79"

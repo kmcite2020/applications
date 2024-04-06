@@ -79,7 +79,7 @@ class StudyTimerPage extends UI {
                     final eachSession = sessions().values.toList()[index];
                     return ListTile(
                       title: eachSession.duration.text(),
-                      subtitle: eachSession.startedOn.humane().text(),
+                      subtitle: eachSession.startedOn.date().text(),
                       trailing: IconButton(
                         onPressed: () {
                           removeSession(eachSession);

@@ -1,65 +1,26 @@
 import 'package:manager/manager.dart';
 
-abstract class Page extends UI {
-  const Page({super.key});
-
-  PreferredSizeWidget? appBar() => null;
-  Widget? body() => null;
-  Drawer? drawer() => null;
-  Drawer? endDrawer() => null;
-  Widget? floatingActionButton() => null;
-  Widget? navigationBar() => null;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      endDrawer: endDrawer(),
-      drawer: drawer(),
-      appBar: appBar(),
-      body: body(),
-      floatingActionButton: floatingActionButton(),
-      bottomNavigationBar: navigationBar(),
-    );
-  }
+abstract class UI extends ReactiveStatelessWidget {
+  const UI({super.key});
+  void to(Widget page) => navigator.to(page);
 }
-
-typedef UI = ReactiveStatelessWidget;
 
 abstract class TopUI extends TopStatelessWidget {
   const TopUI({super.key});
-  void initApp() {}
-  void disposeApp() {}
-  List<FutureOr<void>> get dependencies => [];
-  Widget get splashUI => CircularProgressIndicator().center();
-  Widget errorUI(error, void Function() refresh) => error.toString().text();
-
   @override
-  List<FutureOr<void>> ensureInitialization() => [
-        SynchronousFuture(
-          FlutterNativeSplash.preserve(
-            widgetsBinding: WidgetsFlutterBinding.ensureInitialized(),
-          ),
+  List<FutureOr<void>> ensureInitialization() {
+    return [
+      SynchronousFuture(
+        FlutterNativeSplash.preserve(
+          widgetsBinding: WidgetsFlutterBinding.ensureInitialized(),
         ),
-        RM.storageInitializer(HiveStorage()),
-        ...dependencies,
-      ];
+      ),
+      RM.storageInitializer(HiveStorage()),
+    ];
+  }
 
   @override
-  Widget? splashScreen() => splashUI;
-
-  @override
-  Widget? errorScreen(error, void Function() refresh) =>
-      errorUI(error, refresh);
-
-  @override
-  void didMountWidget() => initApp();
-
-  @override
-  void didUnmountWidget() => disposeApp();
-
-  @override
-  void didChangeAppLifecycleState(AppLifecycleState state) =>
-      super.didChangeAppLifecycleState(state);
+  Widget? splashScreen() => CircularProgressIndicator().center();
 
   Widget homePage(
     BuildContext context,

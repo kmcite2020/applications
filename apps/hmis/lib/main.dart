@@ -24,17 +24,6 @@ void main() => runApp(App());
 
 class App extends TopUI {
   @override
-  final dependencies = [
-    Future.delayed(
-      1.seconds,
-      () => FlutterNativeSplash.preserve(
-        widgetsBinding: WidgetsFlutterBinding.ensureInitialized(),
-      ),
-    ),
-    RM.storageInitializer(HiveStorage()),
-  ];
-
-  @override
   Widget? splashScreen() => CircularProgressIndicator().center();
 
   @override

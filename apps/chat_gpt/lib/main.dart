@@ -18,11 +18,6 @@ Directory get directory => directoryRM();
 
 class ChatGPT extends TopUI {
   @override
-  final List<FutureOr<void>> dependencies = [
-    directoryRM.initializeState(),
-  ];
-
-  @override
   ThemeMode get themeMode => themeModeRM();
   @override
   ThemeData get theme => ThemeData(
@@ -41,6 +36,10 @@ class ChatGPT extends TopUI {
           ),
         ),
       );
+
+  @override
+  Widget? splashScreen() => CircularProgressIndicator().center();
+
   @override
   Widget homePage(BuildContext context) {
     return SafeArea(child: CurrentChatScreen());

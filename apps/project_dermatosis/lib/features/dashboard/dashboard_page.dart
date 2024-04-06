@@ -10,7 +10,6 @@ class DashboardPage extends UI {
   @override
   Widget build(BuildContext context) {
     return PopScope(
-      onPopInvoked: (didPop) {},
       canPop: false,
       child: Scaffold(
         appBar: AppBar(
@@ -21,21 +20,21 @@ class DashboardPage extends UI {
           children: [
             ElevatedButton.icon(
               onPressed: () {
-                navigator.to(PicturesPage());
+                to(PicturesPage());
               },
               label: 'Pictures'.text(),
               icon: Icon(Icons.photo_size_select_actual),
             ).pad(),
             ElevatedButton.icon(
               onPressed: () {
-                navigator.to(PatientsPage());
+                to(PatientsPage());
               },
               label: 'Patients'.text(),
               icon: Icon(FontAwesomeIcons.prescriptionBottleMedical),
             ).pad(),
             ElevatedButton.icon(
               onPressed: () {
-                navigator.to(SettingsPage());
+                to(SettingsPage());
               },
               label: 'Settings'.text(),
               icon: Icon(Icons.settings),
@@ -47,7 +46,7 @@ class DashboardPage extends UI {
   }
 }
 
-class LeadingBackButton extends ReactiveStatelessWidget {
+class LeadingBackButton extends UI {
   const LeadingBackButton({super.key});
   @override
   Widget build(BuildContext context) {

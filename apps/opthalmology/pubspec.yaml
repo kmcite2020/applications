@@ -15,9 +15,6 @@ dependencies:
   flutter:
     sdk: flutter
   freezed_annotation: ^2.4.1
-  # hive: ^4.0.0-dev.2
-  # isar: ^4.0.0-dev.13
-  # isar_flutter_libs: ^4.0.0-dev.13
   json_annotation: ^4.8.1
   json_serializable: ^6.7.1
   manager:
@@ -26,9 +23,12 @@ dependencies:
   path_provider: ^2.1.2
   states_rebuilder: ^6.4.0
   uuid: ^4.3.3
-
-dev_dependencies:
+  package_info_plus: ^5.0.1 
+  flutter_native_splash: ^2.3.10 
+  dynamic_color: 
+  hive_flutter: ^1.1.0  
   build_runner: ^2.4.8
   freezed: ^2.4.7
+  analyzer: ^6.4.1  
 flutter:
   uses-material-design: true

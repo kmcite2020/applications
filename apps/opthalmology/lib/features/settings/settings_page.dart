@@ -16,7 +16,7 @@ class SettingsPage extends UI {
       body: Column(
         children: [
           DropdownButtonFormField(
-            value: settingsManager.settings.themeMode,
+            value: settingsRM().themeMode,
             items: ThemeMode.values
                 .map(
                   (eachMode) => DropdownMenuItem(
@@ -26,11 +26,11 @@ class SettingsPage extends UI {
                 )
                 .toList(),
             onChanged: (themeMode) {
-              settingsManager.setThemeMode(themeMode!);
+              settingsRM.setThemeMode(themeMode!);
             },
           ).pad(),
           DropdownButtonFormField(
-            value: settingsManager.settings.materialColor,
+            value: settingsRM().materialColor,
             items: Colors.primaries
                 .map(
                   (e) => DropdownMenuItem(
@@ -40,7 +40,7 @@ class SettingsPage extends UI {
                 )
                 .toList(),
             onChanged: (materialColor) {
-              settingsManager.setMaterialColor(materialColor!);
+              settingsRM.setMaterialColor(materialColor!);
             },
           ).pad(),
         ],

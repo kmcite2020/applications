@@ -13,37 +13,32 @@ void main() => runApp(MyApp());
 
 class MyApp extends TopUI {
   @override
-  final dependencies = [
-    RM.storageInitializer(HiveStorage()),
-  ];
-
-  @override
   Widget? splashScreen() => CircularProgressIndicator().center();
-
   @override
-  Widget homePage(BuildContext context) {
-    return MaterialApp(
-      navigatorKey: RM.navigate.navigatorKey,
-      debugShowCheckedModeBanner: false,
-      theme: FlexThemeData.light(
+  ThemeData get theme => FlexThemeData.light(
         useMaterial3: true,
         lightIsWhite: true,
         subThemesData: FlexSubThemesData(
           defaultRadius: settings.borderRadius,
         ),
-      ),
-      darkTheme: FlexThemeData.dark(
+      );
+
+  @override
+  ThemeData get darkTheme => FlexThemeData.dark(
         useMaterial3: true,
         darkIsTrueBlack: true,
         subThemesData: FlexSubThemesData(
           defaultRadius: settings.borderRadius,
         ),
-      ),
-      themeMode: settings.themeMode,
-      home: switch (navigation) {
-        0 => const NotesPage(),
-        _ => const SettingsPage(),
-      },
-    );
+      );
+
+  @override
+  ThemeMode get themeMode => settings.themeMode;
+  @override
+  Widget homePage(BuildContext context) {
+    return switch (navigation) {
+      0 => const NotesPage(),
+      _ => const SettingsPage(),
+    };
   }
 }

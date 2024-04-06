@@ -125,7 +125,7 @@ class __$$NoteImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$NoteImpl implements _Note {
+class _$NoteImpl with DiagnosticableTreeMixin implements _Note {
   const _$NoteImpl(
       {required this.id,
       required this.timeCreated,
@@ -147,8 +147,19 @@ class _$NoteImpl implements _Note {
   final String details;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Note(id: $id, timeCreated: $timeCreated, title: $title, details: $details)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Note'))
+      ..add(DiagnosticsProperty('id', id))
+      ..add(DiagnosticsProperty('timeCreated', timeCreated))
+      ..add(DiagnosticsProperty('title', title))
+      ..add(DiagnosticsProperty('details', details));
   }
 
   @override
@@ -201,147 +212,5 @@ abstract class _Note implements Note {
   @override
   @JsonKey(ignore: true)
   _$$NoteImplCopyWith<_$NoteImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-Notes _$NotesFromJson(Map<String, dynamic> json) {
-  return _Notes.fromJson(json);
-}
-
-/// @nodoc
-mixin _$Notes {
-  Map<String, Note> get cache => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $NotesCopyWith<Notes> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $NotesCopyWith<$Res> {
-  factory $NotesCopyWith(Notes value, $Res Function(Notes) then) =
-      _$NotesCopyWithImpl<$Res, Notes>;
-  @useResult
-  $Res call({Map<String, Note> cache});
-}
-
-/// @nodoc
-class _$NotesCopyWithImpl<$Res, $Val extends Notes>
-    implements $NotesCopyWith<$Res> {
-  _$NotesCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? cache = null,
-  }) {
-    return _then(_value.copyWith(
-      cache: null == cache
-          ? _value.cache
-          : cache // ignore: cast_nullable_to_non_nullable
-              as Map<String, Note>,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$NotesImplCopyWith<$Res> implements $NotesCopyWith<$Res> {
-  factory _$$NotesImplCopyWith(
-          _$NotesImpl value, $Res Function(_$NotesImpl) then) =
-      __$$NotesImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({Map<String, Note> cache});
-}
-
-/// @nodoc
-class __$$NotesImplCopyWithImpl<$Res>
-    extends _$NotesCopyWithImpl<$Res, _$NotesImpl>
-    implements _$$NotesImplCopyWith<$Res> {
-  __$$NotesImplCopyWithImpl(
-      _$NotesImpl _value, $Res Function(_$NotesImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? cache = null,
-  }) {
-    return _then(_$NotesImpl(
-      cache: null == cache
-          ? _value._cache
-          : cache // ignore: cast_nullable_to_non_nullable
-              as Map<String, Note>,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$NotesImpl extends _Notes {
-  const _$NotesImpl({final Map<String, Note> cache = const <String, Note>{}})
-      : _cache = cache,
-        super._();
-
-  factory _$NotesImpl.fromJson(Map<String, dynamic> json) =>
-      _$$NotesImplFromJson(json);
-
-  final Map<String, Note> _cache;
-  @override
-  @JsonKey()
-  Map<String, Note> get cache {
-    if (_cache is EqualUnmodifiableMapView) return _cache;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_cache);
-  }
-
-  @override
-  String toString() {
-    return 'Notes(cache: $cache)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$NotesImpl &&
-            const DeepCollectionEquality().equals(other._cache, _cache));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_cache));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$NotesImplCopyWith<_$NotesImpl> get copyWith =>
-      __$$NotesImplCopyWithImpl<_$NotesImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$NotesImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _Notes extends Notes {
-  const factory _Notes({final Map<String, Note> cache}) = _$NotesImpl;
-  const _Notes._() : super._();
-
-  factory _Notes.fromJson(Map<String, dynamic> json) = _$NotesImpl.fromJson;
-
-  @override
-  Map<String, Note> get cache;
-  @override
-  @JsonKey(ignore: true)
-  _$$NotesImplCopyWith<_$NotesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

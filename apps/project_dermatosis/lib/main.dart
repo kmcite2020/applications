@@ -20,12 +20,9 @@ Box get patientsBox => patientsBoxRM.state;
 
 Directory get directory => directoryRM.state;
 
-void main() async {
-  runApp(App());
-}
+void main() => runApp(App());
 
 class App extends TopUI {
-  @override
   final dependencies = [
     directoryRM.initializeState(),
     patientsBoxRM.initializeState(),

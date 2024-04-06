@@ -10,10 +10,6 @@ class NotesPage extends UI {
         title: 'NOTES'.text(),
         actions: [
           IconButton(
-            onPressed: () => RM.navigate.to(SettingsPage()),
-            icon: Icon(Icons.settings),
-          ),
-          IconButton(
             onPressed: () => switch (settings.viewMode) {
               ViewMode.grid => setViewMode(ViewMode.list),
               ViewMode.list => setViewMode(ViewMode.grid),
@@ -24,14 +20,18 @@ class NotesPage extends UI {
                 ViewMode.grid => Icons.list,
               },
             ),
-          ).pad()
+          ),
+          IconButton(
+            onPressed: () => to(SettingsPage()),
+            icon: Icon(Icons.settings),
+          ).pad(),
         ],
       ),
       body: switch (settings.viewMode) {
         ViewMode.list => ListView.builder(
-            itemCount: notes().length,
+            itemCount: notesRM().length,
             itemBuilder: (context, index) {
-              final note = notes()[index];
+              final note = notesRM()[index];
               return Container(
                 margin: const EdgeInsets.all(2),
                 decoration: BoxDecoration(
@@ -44,7 +44,7 @@ class NotesPage extends UI {
                   title: note.title.text(),
                   subtitle: note.details.text(),
                   onTap: () {
-                    RM.navigate.to(NotePage(note.id));
+                    to(NotePage(note.id));
                   },
                 ),
               );
@@ -54,9 +54,9 @@ class NotesPage extends UI {
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
             ),
-            itemCount: notes().length,
+            itemCount: notesRM().length,
             itemBuilder: (context, index) {
-              final note = notes()[index];
+              final note = notesRM()[index];
               return Container(
                 margin: const EdgeInsets.all(2),
                 decoration: BoxDecoration(
@@ -69,7 +69,7 @@ class NotesPage extends UI {
                   title: note.title.text(),
                   subtitle: note.details.text(),
                   onTap: () {
-                    RM.navigate.to(NotePage(note.id));
+                    to(NotePage(note.id));
                   },
                 ),
               );
@@ -79,7 +79,7 @@ class NotesPage extends UI {
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
         onPressed: () {
-          setNote(
+          notesRM.save(
             Note(
               id: randomID,
               timeCreated: DateTime.now(),

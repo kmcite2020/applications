@@ -8,7 +8,7 @@ class NotePage extends UI {
 
   @override
   Widget build(BuildContext context) {
-    final note = getNote(noteID);
+    final note = notesRM.tryGet(noteID);
     if (note != null) {
       return Scaffold(
         appBar: AppBar(
@@ -18,7 +18,7 @@ class NotePage extends UI {
             IconButton(
               tooltip: 'create one?',
               onPressed: () {
-                setNote(
+                notesRM.save(
                   Note(
                     id: noteID,
                     timeCreated: DateTime.now(),
@@ -39,7 +39,7 @@ class NotePage extends UI {
         actions: [
           IconButton(
             onPressed: () {
-              removeNote(note);
+              notesRM.delete(note);
             },
             icon: const Icon(Icons.delete_forever),
           )
@@ -50,7 +50,7 @@ class NotePage extends UI {
           TextFormField(
             initialValue: note.title,
             onChanged: (title) {
-              setNote(note.copyWith(title: title));
+              notesRM.save(note.copyWith(title: title));
             },
             decoration: const InputDecoration(
               border: InputBorder.none,
@@ -61,7 +61,7 @@ class NotePage extends UI {
             child: TextFormField(
               initialValue: note.details,
               onChanged: (details) {
-                setNote(
+                notesRM.save(
                   note.copyWith(details: details),
                 );
               },
@@ -74,7 +74,7 @@ class NotePage extends UI {
               ),
             ).pad(),
           ),
-          note.timeCreated.human().pad(),
+          note.timeCreated.date().text().pad(),
         ],
       ),
     );

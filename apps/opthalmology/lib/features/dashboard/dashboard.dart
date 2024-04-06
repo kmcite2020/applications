@@ -3,11 +3,17 @@ import 'package:opthalmology/features/stats/stats_page.dart';
 import 'package:opthalmology/features/study_timer/study_timer.dart';
 import 'package:opthalmology/main.dart';
 
-class DashboardPage extends Page {
+class DashboardPage extends UI {
   const DashboardPage({super.key});
-
   @override
-  Widget? navigationBar() => NavigationBar(
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: [
+        FlashGroupsPage(),
+        StudyTimerPage(),
+        StatsPage(),
+      ][dashboardIndex()],
+      bottomNavigationBar: NavigationBar(
         selectedIndex: dashboardIndex(),
         onDestinationSelected: dashboardIndex,
         destinations: [
@@ -24,15 +30,8 @@ class DashboardPage extends Page {
             label: 'Stats',
           ),
         ],
-      );
-
-  @override
-  Widget body() {
-    return [
-      FlashGroupsPage(),
-      StudyTimerPage(),
-      StatsPage(),
-    ][dashboardIndex()];
+      ),
+    );
   }
 }
 

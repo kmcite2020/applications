@@ -1,8 +1,4 @@
-import 'dart:convert';
-
-import 'package:flutter/material.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:states_rebuilder/states_rebuilder.dart';
+import 'package:opthalmology/main.dart';
 
 part 'settings.g.dart';
 part 'settings.freezed.dart';
@@ -20,33 +16,17 @@ class Settings with _$Settings {
       _$SettingsFromJson(json);
 }
 
-final settingsManager = SettingsManager();
+final settingsRM = SettingsRM();
 
-class SettingsManager {
-  final settingsRM = RM.inject(
-    () => Settings(),
-    persist: () => PersistState(
-      key: 'settings',
-      toJson: (s) => jsonEncode(s),
-      fromJson: (json) => Settings.fromJson(jsonDecode(json)),
-    ),
-  );
-  Settings get settings => settingsRM.state;
-
-  void setSettings(Settings settings) => settingsRM.state = settings;
-
-  void setThemeMode(ThemeMode themeMode) =>
-      setSettings(settings.copyWith(themeMode: themeMode));
-
-  void setMaterialColor(MaterialColor materialColor) =>
-      setSettings(settings.copyWith(materialColor: materialColor));
-}
-
-class MaterialColorConverter implements JsonConverter<MaterialColor, int> {
-  const MaterialColorConverter();
+class SettingsRM extends Manager<Settings> {
   @override
-  MaterialColor fromJson(int json) => Colors.primaries[json];
+  final initialState = Settings();
 
-  @override
-  int toJson(MaterialColor object) => Colors.primaries.indexOf(object);
+  void setThemeMode(ThemeMode themeMode) {
+    state = state.copyWith(themeMode: themeMode);
+  }
+
+  void setMaterialColor(MaterialColor materialColor) {
+    state = state.copyWith(materialColor: materialColor);
+  }
 }

@@ -1,4 +1,5 @@
 import 'package:opthalmology/features/dashboard/dashboard.dart';
+import 'package:opthalmology/features/settings/settings.dart';
 import 'package:opthalmology/features/study_timer/sessions.dart';
 import 'package:opthalmology/features/study_timer/studies.dart';
 
@@ -10,25 +11,13 @@ part 'app.g.dart';
 
 class App extends TopUI {
   @override
-  Widget? splashScreen() => CircularProgressIndicator().center();
-
-  @override
-  final dependencies = [
-    WidgetsFlutterBinding.ensureInitialized(),
-    RM.storageInitializer(HiveStorage()),
-  ];
-
-  @override
   Widget homePage(BuildContext context) {
-    return MaterialApp(
-      navigatorKey: RM.navigate.navigatorKey,
-      debugShowCheckedModeBanner: false,
-      theme: themes.theme(),
-      darkTheme: themes.darkTheme(),
-      themeMode: themes.themeMode(),
-      home: DashboardPage(),
-    );
+    return DashboardPage();
   }
+
+  ThemeData get theme => _theme();
+  ThemeData get darkTheme => _darkTheme();
+  ThemeMode get themeMode => settingsRM().themeMode;
 }
 
 @freezed
@@ -54,3 +43,38 @@ final appStateRM = RM.inject(
 );
 AppState appState([AppState? _appState]) =>
     (_appState != null) ? appStateRM.state = _appState : appStateRM.state;
+
+ThemeData _theme() => FlexThemeData.light(
+      colorScheme: ColorScheme.fromSwatch(
+        primarySwatch: settingsRM().materialColor,
+      ),
+      subThemesData: const FlexSubThemesData(defaultRadius: 20),
+      appBarStyle: FlexAppBarStyle.primary,
+      lightIsWhite: true,
+      useMaterial3: true,
+    ).copyWith(
+      switchTheme: SwitchThemeData(
+        thumbIcon: const MaterialStatePropertyAll(Icon(Icons.color_lens)),
+        thumbColor: MaterialStatePropertyAll(
+          settingsRM().materialColor.shade200,
+        ),
+      ),
+    );
+
+ThemeData _darkTheme() => FlexThemeData.dark(
+      colorScheme: ColorScheme.fromSwatch(
+        primarySwatch: settingsRM().materialColor,
+        brightness: Brightness.dark,
+      ),
+      subThemesData: const FlexSubThemesData(defaultRadius: 20),
+      appBarStyle: FlexAppBarStyle.primary,
+      darkIsTrueBlack: true,
+      useMaterial3: true,
+    ).copyWith(
+      switchTheme: SwitchThemeData(
+        thumbIcon: const MaterialStatePropertyAll(Icon(Icons.color_lens)),
+        thumbColor: MaterialStatePropertyAll(
+          settingsRM().materialColor.shade200,
+        ),
+      ),
+    );
