@@ -10,12 +10,14 @@ _$FlashGroupImpl _$$FlashGroupImplFromJson(Map<String, dynamic> json) =>
     _$FlashGroupImpl(
       id: json['id'] as String? ?? '',
       name: json['name'] as String? ?? '',
-      colorIndex: json['colorIndex'] as int? ?? 0,
+      color: json['color'] == null
+          ? Colors.blue
+          : const MaterialColorConverter().fromJson(json['color'] as int),
     );
 
 Map<String, dynamic> _$$FlashGroupImplToJson(_$FlashGroupImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
-      'colorIndex': instance.colorIndex,
+      'color': const MaterialColorConverter().toJson(instance.color),
     };

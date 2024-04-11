@@ -5,7 +5,7 @@ import '../../../main.dart';
 final createNewFlashCard = () async {
   final flashCard = await RM.navigate.toDialog(NewFlashCardDialog());
   if (flashCard != null) {
-    saveFlashCard(flashCard.copyWith(id: randomID));
+    flashCardsRM.save(flashCard.copyWith(id: randomID));
   }
 };
 
@@ -28,8 +28,7 @@ class NewFlashCardDialog extends UI {
           'New FlashGroup'.text(textScaleFactor: 1.5).pad(),
           DropdownButtonFormField(
             value: null,
-            items: flashGroups()
-                .values
+            items: flashGroupsRM()
                 .map(
                   (e) => DropdownMenuItem(
                     value: e,

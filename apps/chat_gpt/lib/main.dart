@@ -12,9 +12,9 @@ export 'settings/themes.dart';
 
 void main() => runApp(ChatGPT());
 
-final directoryRM = ComplexFuture(getApplicationDocumentsDirectory);
+final directoryRM = RM.injectFuture(getApplicationDocumentsDirectory);
 
-Directory get directory => directoryRM();
+Directory get directory => directoryRM.state;
 
 class ChatGPT extends TopUI {
   @override

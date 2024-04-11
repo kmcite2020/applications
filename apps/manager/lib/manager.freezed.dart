@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'handler.dart';
+part of 'manager.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -13,6 +13,160 @@ T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+
+/// @nodoc
+mixin _$Persistor<T> {
+  String get key => throw _privateConstructorUsedError;
+  ToJson<T> get toJson => throw _privateConstructorUsedError;
+  FromJson<T> get fromJson => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $PersistorCopyWith<T, Persistor<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PersistorCopyWith<T, $Res> {
+  factory $PersistorCopyWith(
+          Persistor<T> value, $Res Function(Persistor<T>) then) =
+      _$PersistorCopyWithImpl<T, $Res, Persistor<T>>;
+  @useResult
+  $Res call({String key, ToJson<T> toJson, FromJson<T> fromJson});
+}
+
+/// @nodoc
+class _$PersistorCopyWithImpl<T, $Res, $Val extends Persistor<T>>
+    implements $PersistorCopyWith<T, $Res> {
+  _$PersistorCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? key = null,
+    Object? toJson = null,
+    Object? fromJson = null,
+  }) {
+    return _then(_value.copyWith(
+      key: null == key
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
+              as String,
+      toJson: null == toJson
+          ? _value.toJson
+          : toJson // ignore: cast_nullable_to_non_nullable
+              as ToJson<T>,
+      fromJson: null == fromJson
+          ? _value.fromJson
+          : fromJson // ignore: cast_nullable_to_non_nullable
+              as FromJson<T>,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$PersistorImplCopyWith<T, $Res>
+    implements $PersistorCopyWith<T, $Res> {
+  factory _$$PersistorImplCopyWith(
+          _$PersistorImpl<T> value, $Res Function(_$PersistorImpl<T>) then) =
+      __$$PersistorImplCopyWithImpl<T, $Res>;
+  @override
+  @useResult
+  $Res call({String key, ToJson<T> toJson, FromJson<T> fromJson});
+}
+
+/// @nodoc
+class __$$PersistorImplCopyWithImpl<T, $Res>
+    extends _$PersistorCopyWithImpl<T, $Res, _$PersistorImpl<T>>
+    implements _$$PersistorImplCopyWith<T, $Res> {
+  __$$PersistorImplCopyWithImpl(
+      _$PersistorImpl<T> _value, $Res Function(_$PersistorImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? key = null,
+    Object? toJson = null,
+    Object? fromJson = null,
+  }) {
+    return _then(_$PersistorImpl<T>(
+      key: null == key
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
+              as String,
+      toJson: null == toJson
+          ? _value.toJson
+          : toJson // ignore: cast_nullable_to_non_nullable
+              as ToJson<T>,
+      fromJson: null == fromJson
+          ? _value.fromJson
+          : fromJson // ignore: cast_nullable_to_non_nullable
+              as FromJson<T>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$PersistorImpl<T> implements _Persistor<T> {
+  const _$PersistorImpl(
+      {required this.key, required this.toJson, required this.fromJson});
+
+  @override
+  final String key;
+  @override
+  final ToJson<T> toJson;
+  @override
+  final FromJson<T> fromJson;
+
+  @override
+  String toString() {
+    return 'Persistor<$T>(key: $key, toJson: $toJson, fromJson: $fromJson)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PersistorImpl<T> &&
+            (identical(other.key, key) || other.key == key) &&
+            (identical(other.toJson, toJson) || other.toJson == toJson) &&
+            (identical(other.fromJson, fromJson) ||
+                other.fromJson == fromJson));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, key, toJson, fromJson);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PersistorImplCopyWith<T, _$PersistorImpl<T>> get copyWith =>
+      __$$PersistorImplCopyWithImpl<T, _$PersistorImpl<T>>(this, _$identity);
+}
+
+abstract class _Persistor<T> implements Persistor<T> {
+  const factory _Persistor(
+      {required final String key,
+      required final ToJson<T> toJson,
+      required final FromJson<T> fromJson}) = _$PersistorImpl<T>;
+
+  @override
+  String get key;
+  @override
+  ToJson<T> get toJson;
+  @override
+  FromJson<T> get fromJson;
+  @override
+  @JsonKey(ignore: true)
+  _$$PersistorImplCopyWith<T, _$PersistorImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
 
 /// @nodoc
 mixin _$Handler {
@@ -110,7 +264,7 @@ class __$$HandlerImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$HandlerImpl with DiagnosticableTreeMixin implements _Handler {
+class _$HandlerImpl implements _Handler {
   const _$HandlerImpl(
       {required this.isType, required this.type, required this.function});
 
@@ -122,18 +276,8 @@ class _$HandlerImpl with DiagnosticableTreeMixin implements _Handler {
   final Function function;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'Handler(isType: $isType, type: $type, function: $function)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'Handler'))
-      ..add(DiagnosticsProperty('isType', isType))
-      ..add(DiagnosticsProperty('type', type))
-      ..add(DiagnosticsProperty('function', function));
   }
 
   @override
@@ -251,23 +395,15 @@ class __$$CapsuleImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$CapsuleImpl<T> with DiagnosticableTreeMixin implements _Capsule<T> {
+class _$CapsuleImpl<T> implements _Capsule<T> {
   const _$CapsuleImpl(this.value);
 
   @override
   final T value;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'Capsule<$T>(value: $value)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'Capsule<$T>'))
-      ..add(DiagnosticsProperty('value', value));
   }
 
   @override
@@ -297,5 +433,137 @@ abstract class _Capsule<T> implements Capsule<T> {
   @override
   @JsonKey(ignore: true)
   _$$CapsuleImplCopyWith<T, _$CapsuleImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+Count _$CountFromJson(Map<String, dynamic> json) {
+  return _Count.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Count {
+  int get value => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $CountCopyWith<Count> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $CountCopyWith<$Res> {
+  factory $CountCopyWith(Count value, $Res Function(Count) then) =
+      _$CountCopyWithImpl<$Res, Count>;
+  @useResult
+  $Res call({int value});
+}
+
+/// @nodoc
+class _$CountCopyWithImpl<$Res, $Val extends Count>
+    implements $CountCopyWith<$Res> {
+  _$CountCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? value = null,
+  }) {
+    return _then(_value.copyWith(
+      value: null == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as int,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$CountImplCopyWith<$Res> implements $CountCopyWith<$Res> {
+  factory _$$CountImplCopyWith(
+          _$CountImpl value, $Res Function(_$CountImpl) then) =
+      __$$CountImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({int value});
+}
+
+/// @nodoc
+class __$$CountImplCopyWithImpl<$Res>
+    extends _$CountCopyWithImpl<$Res, _$CountImpl>
+    implements _$$CountImplCopyWith<$Res> {
+  __$$CountImplCopyWithImpl(
+      _$CountImpl _value, $Res Function(_$CountImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? value = null,
+  }) {
+    return _then(_$CountImpl(
+      null == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$CountImpl implements _Count {
+  const _$CountImpl(this.value);
+
+  factory _$CountImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CountImplFromJson(json);
+
+  @override
+  final int value;
+
+  @override
+  String toString() {
+    return 'Count(value: $value)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CountImpl &&
+            (identical(other.value, value) || other.value == value));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, value);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CountImplCopyWith<_$CountImpl> get copyWith =>
+      __$$CountImplCopyWithImpl<_$CountImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$CountImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Count implements Count {
+  const factory _Count(final int value) = _$CountImpl;
+
+  factory _Count.fromJson(Map<String, dynamic> json) = _$CountImpl.fromJson;
+
+  @override
+  int get value;
+  @override
+  @JsonKey(ignore: true)
+  _$$CountImplCopyWith<_$CountImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

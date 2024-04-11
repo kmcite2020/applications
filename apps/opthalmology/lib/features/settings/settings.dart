@@ -20,6 +20,12 @@ final settingsRM = SettingsRM();
 
 class SettingsRM extends Manager<Settings> {
   @override
+  final persistor = Persistor.freezed(
+    key: 'settings',
+    fromJson: Settings.fromJson,
+  );
+
+  @override
   final initialState = Settings();
 
   void setThemeMode(ThemeMode themeMode) {

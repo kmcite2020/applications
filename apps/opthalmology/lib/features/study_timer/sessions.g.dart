@@ -8,7 +8,7 @@ part of 'sessions.dart';
 
 _$SessionImpl _$$SessionImplFromJson(Map<String, dynamic> json) =>
     _$SessionImpl(
-      id: json['id'] as String,
+      id: json['id'] as String? ?? '',
       startedOn: DateTime.parse(json['startedOn'] as String),
       duration: json['duration'] as int? ?? 0,
       sessionStatus:

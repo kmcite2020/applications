@@ -28,7 +28,7 @@ class FlashGroupsPage extends UI {
       ),
       body: ListView(
         children: [
-          ...flashGroups().values.map(
+          ...flashGroupsRM().map(
             (eachFlashGroup) {
               return ListTile(
                 shape: RoundedRectangleBorder(
@@ -42,15 +42,14 @@ class FlashGroupsPage extends UI {
                   );
                 },
                 title: eachFlashGroup.name.text(),
-                subtitle: flashCards()
-                    .values
+                subtitle: flashCardsRM()
                     .where(
                       (eachFlashCard) =>
                           eachFlashCard.flashGroupId == eachFlashGroup.id,
                     )
                     .length
                     .text(),
-                tileColor: Colors.primaries[eachFlashGroup.colorIndex],
+                tileColor: eachFlashGroup.color,
               ).pad();
             },
           ).toList(),
@@ -63,8 +62,7 @@ class FlashGroupsPage extends UI {
               RM.navigate.to(FlashCardsPage(flashGroupId: ''));
             },
             title: 'Ungrouped'.text(),
-            subtitle: flashCards()
-                .values
+            subtitle: flashCardsRM()
                 .where(
                   (card) => card.flashGroupId == '',
                 )

@@ -136,7 +136,7 @@ class __$$SessionImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$SessionImpl implements _Session {
   const _$SessionImpl(
-      {required this.id,
+      {this.id = '',
       required this.startedOn,
       this.duration = 0,
       this.sessionStatus = SessionStatus.none});
@@ -145,6 +145,7 @@ class _$SessionImpl implements _Session {
       _$$SessionImplFromJson(json);
 
   @override
+  @JsonKey()
   final String id;
   @override
   final DateTime startedOn;
@@ -195,7 +196,7 @@ class _$SessionImpl implements _Session {
 
 abstract class _Session implements Session {
   const factory _Session(
-      {required final String id,
+      {final String id,
       required final DateTime startedOn,
       final int duration,
       final SessionStatus sessionStatus}) = _$SessionImpl;

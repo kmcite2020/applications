@@ -1,4 +1,7 @@
+import 'package:manager/state_manager/collection.dart';
 import 'package:opthalmology/main.dart';
+
+import '../stats/stats_page.dart';
 
 part 'sessions.freezed.dart';
 part 'sessions.g.dart';
@@ -9,10 +12,18 @@ Stream<int> ticker() {
 
 enum SessionStatus { none, isInitial, isPaused, isRunning, isCompleted }
 
+final sessionsRM = ComplexCollection<Session>();
+
+List<Day> get lsd => sessionsRM()
+    .map(
+      (element) => Day(durationOfStudy: element.duration),
+    )
+    .toList();
+
 @freezed
-class Session with _$Session {
+class Session extends ID with _$Session {
   const factory Session({
-    required final String id,
+    @Default('') final String id,
     required final DateTime startedOn,
     @Default(0) final int duration,
     @Default(SessionStatus.none) final SessionStatus sessionStatus,
@@ -67,7 +78,7 @@ void resume() {
 
 void reset() {
   _tickerSubscription?.cancel();
-  addSession(_timerStateRM.state);
+  sessionsRM.save(_timerStateRM.state);
   _timerStateRM.state = session.copyWith(
     duration: 0,
     sessionStatus: SessionStatus.isInitial,
@@ -102,17 +113,3 @@ class TimerText extends UI {
     );
   }
 }
-
-Map<String, Session> sessions([Map<String, Session>? _sessions]) {
-  if (_sessions != null) {
-    appState(appState().copyWith(sessions: _sessions));
-  }
-  return appState().sessions;
-}
-
-final addSession = (Session session) {
-  sessions(Map.of(sessions())..[session.id] = session);
-};
-final removeSession = (Session session) {
-  sessions(Map.of(sessions())..remove(session.id));
-};

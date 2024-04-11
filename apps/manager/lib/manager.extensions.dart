@@ -1,4 +1,4 @@
-import 'package:manager/manager.dart';
+part of 'manager.dart';
 
 extension CapitalizerX on String {
   String get capitalize {
@@ -66,5 +66,6 @@ class Uint8ListConvertor implements JsonConverter<Uint8List, String> {
 }
 
 abstract class ID {
+  const ID();
   String get id;
 }

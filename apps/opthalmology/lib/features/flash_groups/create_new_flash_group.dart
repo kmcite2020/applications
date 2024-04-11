@@ -5,7 +5,7 @@ import '../../main.dart';
 final createNewFlashGroup = () async {
   final flashGroup = await RM.navigate.toDialog(NewFlashGroupDialog());
   if (flashGroup != null) {
-    saveFlashGroup(flashGroup.copyWith(id: randomID));
+    flashGroupsRM.save(flashGroup.copyWith(id: randomID));
   }
 };
 
@@ -35,10 +35,10 @@ class NewFlashGroupDialog extends UI {
                   ),
                 )
                 .toList(),
-            onChanged: (colorName) {
+            onChanged: (color) {
               newFlashGroup(
                 newFlashGroup().copyWith(
-                  colorIndex: colorName!.index,
+                  color: color!,
                 ),
               );
             },

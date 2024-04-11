@@ -22,7 +22,8 @@ FlashGroup _$FlashGroupFromJson(Map<String, dynamic> json) {
 mixin _$FlashGroup {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  int get colorIndex => throw _privateConstructorUsedError;
+  @MaterialColorConverter()
+  MaterialColor get color => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +37,8 @@ abstract class $FlashGroupCopyWith<$Res> {
           FlashGroup value, $Res Function(FlashGroup) then) =
       _$FlashGroupCopyWithImpl<$Res, FlashGroup>;
   @useResult
-  $Res call({String id, String name, int colorIndex});
+  $Res call(
+      {String id, String name, @MaterialColorConverter() MaterialColor color});
 }
 
 /// @nodoc
@@ -54,7 +56,7 @@ class _$FlashGroupCopyWithImpl<$Res, $Val extends FlashGroup>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? colorIndex = null,
+    Object? color = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -65,10 +67,10 @@ class _$FlashGroupCopyWithImpl<$Res, $Val extends FlashGroup>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      colorIndex: null == colorIndex
-          ? _value.colorIndex
-          : colorIndex // ignore: cast_nullable_to_non_nullable
-              as int,
+      color: null == color
+          ? _value.color
+          : color // ignore: cast_nullable_to_non_nullable
+              as MaterialColor,
     ) as $Val);
   }
 }
@@ -81,7 +83,8 @@ abstract class _$$FlashGroupImplCopyWith<$Res>
       __$$FlashGroupImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String name, int colorIndex});
+  $Res call(
+      {String id, String name, @MaterialColorConverter() MaterialColor color});
 }
 
 /// @nodoc
@@ -97,7 +100,7 @@ class __$$FlashGroupImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? colorIndex = null,
+    Object? color = null,
   }) {
     return _then(_$FlashGroupImpl(
       id: null == id
@@ -108,10 +111,10 @@ class __$$FlashGroupImplCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      colorIndex: null == colorIndex
-          ? _value.colorIndex
-          : colorIndex // ignore: cast_nullable_to_non_nullable
-              as int,
+      color: null == color
+          ? _value.color
+          : color // ignore: cast_nullable_to_non_nullable
+              as MaterialColor,
     ));
   }
 }
@@ -119,7 +122,10 @@ class __$$FlashGroupImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$FlashGroupImpl extends _FlashGroup {
-  const _$FlashGroupImpl({this.id = '', this.name = '', this.colorIndex = 0})
+  const _$FlashGroupImpl(
+      {this.id = '',
+      this.name = '',
+      @MaterialColorConverter() this.color = Colors.blue})
       : super._();
 
   factory _$FlashGroupImpl.fromJson(Map<String, dynamic> json) =>
@@ -133,11 +139,12 @@ class _$FlashGroupImpl extends _FlashGroup {
   final String name;
   @override
   @JsonKey()
-  final int colorIndex;
+  @MaterialColorConverter()
+  final MaterialColor color;
 
   @override
   String toString() {
-    return 'FlashGroup(id: $id, name: $name, colorIndex: $colorIndex)';
+    return 'FlashGroup(id: $id, name: $name, color: $color)';
   }
 
   @override
@@ -147,13 +154,12 @@ class _$FlashGroupImpl extends _FlashGroup {
             other is _$FlashGroupImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.colorIndex, colorIndex) ||
-                other.colorIndex == colorIndex));
+            (identical(other.color, color) || other.color == color));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, colorIndex);
+  int get hashCode => Object.hash(runtimeType, id, name, color);
 
   @JsonKey(ignore: true)
   @override
@@ -173,7 +179,7 @@ abstract class _FlashGroup extends FlashGroup {
   const factory _FlashGroup(
       {final String id,
       final String name,
-      final int colorIndex}) = _$FlashGroupImpl;
+      @MaterialColorConverter() final MaterialColor color}) = _$FlashGroupImpl;
   const _FlashGroup._() : super._();
 
   factory _FlashGroup.fromJson(Map<String, dynamic> json) =
@@ -184,7 +190,8 @@ abstract class _FlashGroup extends FlashGroup {
   @override
   String get name;
   @override
-  int get colorIndex;
+  @MaterialColorConverter()
+  MaterialColor get color;
   @override
   @JsonKey(ignore: true)
   _$$FlashGroupImplCopyWith<_$FlashGroupImpl> get copyWith =>

@@ -21,10 +21,49 @@ Note _$NoteFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Note {
   String get id => throw _privateConstructorUsedError;
-  DateTime get timeCreated => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get details => throw _privateConstructorUsedError;
-
+  NoteStatus get noteStatus => throw _privateConstructorUsedError;
+  DateTime get dueDate => throw _privateConstructorUsedError;
+  DateTime get timeCreated => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String id, String title, String details,
+            NoteStatus noteStatus, DateTime dueDate, DateTime timeCreated)
+        internal,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String id, String title, String details,
+            NoteStatus noteStatus, DateTime dueDate, DateTime timeCreated)?
+        internal,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id, String title, String details,
+            NoteStatus noteStatus, DateTime dueDate, DateTime timeCreated)?
+        internal,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Note value) internal,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Note value)? internal,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Note value)? internal,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $NoteCopyWith<Note> get copyWith => throw _privateConstructorUsedError;
@@ -35,7 +74,13 @@ abstract class $NoteCopyWith<$Res> {
   factory $NoteCopyWith(Note value, $Res Function(Note) then) =
       _$NoteCopyWithImpl<$Res, Note>;
   @useResult
-  $Res call({String id, DateTime timeCreated, String title, String details});
+  $Res call(
+      {String id,
+      String title,
+      String details,
+      NoteStatus noteStatus,
+      DateTime dueDate,
+      DateTime timeCreated});
 }
 
 /// @nodoc
@@ -52,19 +97,17 @@ class _$NoteCopyWithImpl<$Res, $Val extends Note>
   @override
   $Res call({
     Object? id = null,
-    Object? timeCreated = null,
     Object? title = null,
     Object? details = null,
+    Object? noteStatus = null,
+    Object? dueDate = null,
+    Object? timeCreated = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      timeCreated: null == timeCreated
-          ? _value.timeCreated
-          : timeCreated // ignore: cast_nullable_to_non_nullable
-              as DateTime,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -73,6 +116,18 @@ class _$NoteCopyWithImpl<$Res, $Val extends Note>
           ? _value.details
           : details // ignore: cast_nullable_to_non_nullable
               as String,
+      noteStatus: null == noteStatus
+          ? _value.noteStatus
+          : noteStatus // ignore: cast_nullable_to_non_nullable
+              as NoteStatus,
+      dueDate: null == dueDate
+          ? _value.dueDate
+          : dueDate // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      timeCreated: null == timeCreated
+          ? _value.timeCreated
+          : timeCreated // ignore: cast_nullable_to_non_nullable
+              as DateTime,
     ) as $Val);
   }
 }
@@ -84,7 +139,13 @@ abstract class _$$NoteImplCopyWith<$Res> implements $NoteCopyWith<$Res> {
       __$$NoteImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, DateTime timeCreated, String title, String details});
+  $Res call(
+      {String id,
+      String title,
+      String details,
+      NoteStatus noteStatus,
+      DateTime dueDate,
+      DateTime timeCreated});
 }
 
 /// @nodoc
@@ -98,19 +159,17 @@ class __$$NoteImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? timeCreated = null,
     Object? title = null,
     Object? details = null,
+    Object? noteStatus = null,
+    Object? dueDate = null,
+    Object? timeCreated = null,
   }) {
     return _then(_$NoteImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      timeCreated: null == timeCreated
-          ? _value.timeCreated
-          : timeCreated // ignore: cast_nullable_to_non_nullable
-              as DateTime,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -119,6 +178,18 @@ class __$$NoteImplCopyWithImpl<$Res>
           ? _value.details
           : details // ignore: cast_nullable_to_non_nullable
               as String,
+      noteStatus: null == noteStatus
+          ? _value.noteStatus
+          : noteStatus // ignore: cast_nullable_to_non_nullable
+              as NoteStatus,
+      dueDate: null == dueDate
+          ? _value.dueDate
+          : dueDate // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      timeCreated: null == timeCreated
+          ? _value.timeCreated
+          : timeCreated // ignore: cast_nullable_to_non_nullable
+              as DateTime,
     ));
   }
 }
@@ -127,39 +198,49 @@ class __$$NoteImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$NoteImpl with DiagnosticableTreeMixin implements _Note {
   const _$NoteImpl(
-      {required this.id,
-      required this.timeCreated,
+      {this.id = '',
       this.title = '',
-      this.details = ''});
+      this.details = '',
+      this.noteStatus = NoteStatus.notCompleted,
+      required this.dueDate,
+      required this.timeCreated});
 
   factory _$NoteImpl.fromJson(Map<String, dynamic> json) =>
       _$$NoteImplFromJson(json);
 
   @override
+  @JsonKey()
   final String id;
-  @override
-  final DateTime timeCreated;
   @override
   @JsonKey()
   final String title;
   @override
   @JsonKey()
   final String details;
+  @override
+  @JsonKey()
+  final NoteStatus noteStatus;
+  @override
+  final DateTime dueDate;
+  @override
+  final DateTime timeCreated;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Note(id: $id, timeCreated: $timeCreated, title: $title, details: $details)';
+    return 'Note.internal(id: $id, title: $title, details: $details, noteStatus: $noteStatus, dueDate: $dueDate, timeCreated: $timeCreated)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'Note'))
+      ..add(DiagnosticsProperty('type', 'Note.internal'))
       ..add(DiagnosticsProperty('id', id))
-      ..add(DiagnosticsProperty('timeCreated', timeCreated))
       ..add(DiagnosticsProperty('title', title))
-      ..add(DiagnosticsProperty('details', details));
+      ..add(DiagnosticsProperty('details', details))
+      ..add(DiagnosticsProperty('noteStatus', noteStatus))
+      ..add(DiagnosticsProperty('dueDate', dueDate))
+      ..add(DiagnosticsProperty('timeCreated', timeCreated));
   }
 
   @override
@@ -168,21 +249,87 @@ class _$NoteImpl with DiagnosticableTreeMixin implements _Note {
         (other.runtimeType == runtimeType &&
             other is _$NoteImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.timeCreated, timeCreated) ||
-                other.timeCreated == timeCreated) &&
             (identical(other.title, title) || other.title == title) &&
-            (identical(other.details, details) || other.details == details));
+            (identical(other.details, details) || other.details == details) &&
+            (identical(other.noteStatus, noteStatus) ||
+                other.noteStatus == noteStatus) &&
+            (identical(other.dueDate, dueDate) || other.dueDate == dueDate) &&
+            (identical(other.timeCreated, timeCreated) ||
+                other.timeCreated == timeCreated));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, timeCreated, title, details);
+  int get hashCode => Object.hash(
+      runtimeType, id, title, details, noteStatus, dueDate, timeCreated);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$NoteImplCopyWith<_$NoteImpl> get copyWith =>
       __$$NoteImplCopyWithImpl<_$NoteImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String id, String title, String details,
+            NoteStatus noteStatus, DateTime dueDate, DateTime timeCreated)
+        internal,
+  }) {
+    return internal(id, title, details, noteStatus, dueDate, timeCreated);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String id, String title, String details,
+            NoteStatus noteStatus, DateTime dueDate, DateTime timeCreated)?
+        internal,
+  }) {
+    return internal?.call(id, title, details, noteStatus, dueDate, timeCreated);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id, String title, String details,
+            NoteStatus noteStatus, DateTime dueDate, DateTime timeCreated)?
+        internal,
+    required TResult orElse(),
+  }) {
+    if (internal != null) {
+      return internal(id, title, details, noteStatus, dueDate, timeCreated);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Note value) internal,
+  }) {
+    return internal(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Note value)? internal,
+  }) {
+    return internal?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Note value)? internal,
+    required TResult orElse(),
+  }) {
+    if (internal != null) {
+      return internal(this);
+    }
+    return orElse();
+  }
 
   @override
   Map<String, dynamic> toJson() {
@@ -194,21 +341,27 @@ class _$NoteImpl with DiagnosticableTreeMixin implements _Note {
 
 abstract class _Note implements Note {
   const factory _Note(
-      {required final String id,
-      required final DateTime timeCreated,
+      {final String id,
       final String title,
-      final String details}) = _$NoteImpl;
+      final String details,
+      final NoteStatus noteStatus,
+      required final DateTime dueDate,
+      required final DateTime timeCreated}) = _$NoteImpl;
 
   factory _Note.fromJson(Map<String, dynamic> json) = _$NoteImpl.fromJson;
 
   @override
   String get id;
   @override
-  DateTime get timeCreated;
-  @override
   String get title;
   @override
   String get details;
+  @override
+  NoteStatus get noteStatus;
+  @override
+  DateTime get dueDate;
+  @override
+  DateTime get timeCreated;
   @override
   @JsonKey(ignore: true)
   _$$NoteImplCopyWith<_$NoteImpl> get copyWith =>

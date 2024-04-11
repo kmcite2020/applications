@@ -3,15 +3,13 @@ import 'package:opthalmology/features/settings/settings.dart';
 import '../../main.dart';
 
 class SettingsPage extends UI {
-  static String path = 'configuration';
-
   const SettingsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: 'Configuration'.text(),
+        title: 'Settings'.text(),
       ),
       body: Column(
         children: [
@@ -33,9 +31,9 @@ class SettingsPage extends UI {
             value: settingsRM().materialColor,
             items: Colors.primaries
                 .map(
-                  (e) => DropdownMenuItem(
-                    value: e,
-                    child: e.colorName.toUpperCase().text(),
+                  (eachColor) => DropdownMenuItem(
+                    value: eachColor,
+                    child: eachColor.colorName.toUpperCase().text(),
                   ),
                 )
                 .toList(),

@@ -12,7 +12,8 @@ dependencies:
   package_info_plus: ^5.0.1 
   colornames: 
   flutter_native_splash: ^2.3.10 
-  path_provider: ^2.1.2  
+  path_provider: ^2.1.2
+  path: 
   uuid: ^4.3.3  
   dynamic_color: 
   hive_flutter: ^1.1.0  

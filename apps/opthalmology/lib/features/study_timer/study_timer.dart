@@ -74,15 +74,15 @@ class StudyTimerPage extends UI {
               Container(
                 height: 300,
                 child: ListView.builder(
-                  itemCount: sessions().length,
+                  itemCount: sessionsRM().length,
                   itemBuilder: (context, index) {
-                    final eachSession = sessions().values.toList()[index];
+                    final eachSession = sessionsRM()[index];
                     return ListTile(
                       title: eachSession.duration.text(),
                       subtitle: eachSession.startedOn.date().text(),
                       trailing: IconButton(
                         onPressed: () {
-                          removeSession(eachSession);
+                          sessionsRM.delete(eachSession);
                         },
                         icon: Icon(Icons.delete_forever),
                       ),

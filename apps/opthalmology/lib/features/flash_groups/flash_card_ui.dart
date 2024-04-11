@@ -7,14 +7,8 @@ bool editing([bool? _editing]) =>
     _editing != null ? editingRM.state = _editing : editingRM.state;
 
 class FlashCardUI extends UI {
+  const FlashCardUI({super.key, required this.flashCardId});
   final String flashCardId;
-  const FlashCardUI({
-    super.key,
-    required this.flashCardId,
-  });
-  @override
-  void didMountWidget(BuildContext context) {}
-
   @override
   Widget build(BuildContext context) {
     return FlashCardBuilder(
@@ -59,9 +53,9 @@ Future<void> editQuestionOfFlashCard(
   String flashCardId,
   String question,
 ) async {
-  final flashCard = flashCards()[flashCardId];
+  final flashCard = flashCardsRM.state[flashCardId];
   if (flashCard == null) return;
-  saveFlashCard(
+  flashCardsRM.save(
     flashCard.copyWith(question: question),
   );
 }
@@ -70,9 +64,9 @@ Future<void> editAnswerOfFlashCard(
   String flashCardId,
   String answer,
 ) async {
-  final flashCard = flashCards()[flashCardId];
+  final flashCard = flashCardsRM.state[flashCardId];
   if (flashCard == null) return;
-  saveFlashCard(
+  flashCardsRM.save(
     flashCard.copyWith(answer: answer),
   );
 }
@@ -81,9 +75,9 @@ Future<void> editExplainationOfFlashCard(
   String flashCardId,
   String explaination,
 ) async {
-  final flashCard = flashCards()[flashCardId];
+  final flashCard = flashCardsRM.state[flashCardId];
   if (flashCard == null) return;
-  saveFlashCard(
+  flashCardsRM.save(
     flashCard.copyWith(explaination: explaination),
   );
 }

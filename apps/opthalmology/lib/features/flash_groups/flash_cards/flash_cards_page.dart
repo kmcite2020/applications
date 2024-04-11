@@ -12,9 +12,9 @@ Future<void> editFlashGroupName(String flashGroupId) async {
     ),
   );
   if (name != null) {
-    final flashGroup = flashGroups()[flashGroupId];
+    final flashGroup = flashGroupsRM.state[flashGroupId];
     if (flashGroup != null) {
-      saveFlashGroup(
+      flashGroupsRM.save(
         flashGroup.copyWith(name: name),
       );
     }
@@ -26,8 +26,7 @@ Future<void> editFlashCardGroup(String flashCardId) async {
     Dialog(
       child: DropdownButtonFormField<FlashGroup>(
         value: null,
-        items: flashGroups()
-            .values
+        items: flashGroupsRM()
             .map(
               (eachFlashGroup) => DropdownMenuItem(
                 value: eachFlashGroup,
@@ -40,9 +39,9 @@ Future<void> editFlashCardGroup(String flashCardId) async {
     ),
   );
   if (flashGroup != null) {
-    final flashCard = flashCards()[flashCardId];
+    final flashCard = flashCardsRM.state[flashCardId];
     if (flashCard != null) {
-      saveFlashCard(
+      flashCardsRM.save(
         flashCard.copyWith(flashGroupId: flashGroup.id),
       );
     }
@@ -65,15 +64,13 @@ class FlashCardsPage extends UI {
                   title: 'Ungrouped'.text(),
                 ),
                 body: PageView.builder(
-                  itemCount: flashCards()
-                      .values
+                  itemCount: flashCardsRM()
                       .where(
                         (efc) => efc.flashGroupId == flashGroupId,
                       )
                       .length,
                   itemBuilder: (context, index) {
-                    final flashCard = flashCards()
-                        .values
+                    final flashCard = flashCardsRM()
                         .where(
                           (efc) => efc.flashGroupId == flashGroupId,
                         )
@@ -89,7 +86,7 @@ class FlashCardsPage extends UI {
                 return Scaffold(
                   appBar: AppBar(
                     title: flashGroup.name.text(),
-                    backgroundColor: Colors.primaries[flashGroup.colorIndex],
+                    backgroundColor: flashGroup.color,
                     actions: [
                       IconButton(
                         onPressed: () => editFlashGroupName(flashGroupId),
@@ -98,8 +95,7 @@ class FlashCardsPage extends UI {
                     ],
                   ),
                   body: ListView(
-                    children: flashCards()
-                        .values
+                    children: flashCardsRM()
                         .where(
                             (element) => element.flashGroupId == flashGroupId)
                         .map(
@@ -124,7 +120,7 @@ class FlashGroupBuilder extends UI {
   });
   @override
   Widget build(BuildContext context) {
-    final flashGroup = flashGroups()[flashGroupId];
+    final flashGroup = flashGroupsRM.state[flashGroupId];
     return builder(flashGroup);
   }
 }
@@ -139,7 +135,7 @@ class FlashCardBuilder extends UI {
   });
   @override
   Widget build(BuildContext context) {
-    final flashCard = flashCards()[flashCardId];
+    final flashCard = flashCardsRM.state[flashCardId];
     return builder(flashCard);
   }
 }

@@ -12,6 +12,7 @@ class DashboardPage extends UI {
         FlashGroupsPage(),
         StudyTimerPage(),
         StatsPage(),
+        SettingsPage(),
       ][dashboardIndex()],
       bottomNavigationBar: NavigationBar(
         selectedIndex: dashboardIndex(),
@@ -28,6 +29,10 @@ class DashboardPage extends UI {
           NavigationDestination(
             icon: Icon(Icons.add_chart),
             label: 'Stats',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
           ),
         ],
       ),

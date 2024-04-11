@@ -1,80 +1,77 @@
 library manager;
 
-export 'package:manager/utilities/navigator.dart';
-export 'manager.dart';
-export 'state_manager/simplicity.dart';
-export 'package:manager/state_manager/handler.dart' show Capsule, Handler;
-export 'package:dynamic_color/dynamic_color.dart';
-export 'package:manager/state_manager/complex.dart' show Complex;
-export 'package:manager/state_manager/simplicity.dart' show Simplicity;
-export 'package:uuid/uuid.dart';
-export 'dart:async';
-export 'dart:convert';
-export 'dart:developer';
-export 'package:flutter_native_splash/flutter_native_splash.dart';
-export 'package:path_provider/path_provider.dart';
-export 'package:states_rebuilder/states_rebuilder.dart';
-export 'package:package_info_plus/package_info_plus.dart';
-export 'package:flutter/foundation.dart';
-export 'package:hive_flutter/hive_flutter.dart';
-export 'package:manager/state_manager/base.dart';
-export 'package:freezed_annotation/freezed_annotation.dart';
-export 'dart:io';
-export 'dart:typed_data';
-export 'package:colornames/colornames.dart';
-export 'utilities/extensions.dart';
-export 'package:flutter/material.dart' hide Flow;
-export 'utilities/hive_storage.dart';
-export 'utilities/ui.dart';
+import 'dart:developer';
 
 import 'manager.dart';
 
-abstract class Manager<State> extends Base<State>
-    implements CallableForStateOnly<State> {
-  State get initialState;
-  State call([State? newState]) {
-    if (newState != null) {
-      state = newState;
-    }
-    return state;
+export 'dart:async';
+export 'dart:convert';
+export 'dart:typed_data';
+
+export 'package:flutter/material.dart';
+export 'package:freezed_annotation/freezed_annotation.dart';
+export 'package:hive_flutter/hive_flutter.dart';
+export 'package:package_info_plus/package_info_plus.dart';
+export 'package:states_rebuilder/states_rebuilder.dart';
+export 'package:uuid/uuid.dart';
+part 'manager.extensions.dart';
+part 'manager.g.dart';
+part 'manager.complex.dart';
+part 'manager.ui.dart';
+part 'manager.handler.dart';
+part 'manager.freezed.dart';
+part 'manager.collection.dart';
+
+abstract class Base<S> {
+  Base() {
+    injected = Injected<Capsule<S>>(
+      creator: () => Capsule(getFromStorage() ?? _initialState),
+      autoDisposeWhenNotUsed: false,
+    );
   }
+  S get _initialState;
+  Persistor<S>? get persistor => null;
+  late final injected;
+
+  S get state => injected.state.value;
+
+  S? getFromStorage() {
+    try {
+      if (persistor != null) {
+        final getByKey = storage.get(persistor!.key);
+        var decodedByJson = jsonDecode(getByKey);
+        final persistentState = persistor!.fromJson(decodedByJson);
+        return persistentState;
+      }
+    } catch (e) {
+      log(e.toString());
+    }
+    return null;
+  }
+
+  set state(S newState) {
+    if (persistor != null) {
+      final key = persistor!.key;
+      final value = persistor!.toJson(newState);
+      storage.put(key, jsonEncode(value));
+    }
+    injected.state = Capsule(newState);
+  }
+
+  void reset() => state = _initialState;
+  @override
+  String toString() => '$S $state';
 }
 
-/// its tricky
-/// because you maybe provided with a stream
-/// you can only read it.
-/// you can not provide side effects from here
-/// the stream provider shoud give a way to add events to the stream
-
-class ComplexStream<T> {
-  ComplexStream(
-    this.creator, {
-    this.initialState,
-  });
-  final T? initialState;
-  final Stream<T> Function() creator;
-  late final Injected<T> injected = RM.injectStream(
-    creator,
-    initialState: initialState,
-  );
-  bool get loading => injected.isWaiting;
-  T call() => injected.state;
+class Simple<S> extends Base<S> {
+  @override
+  final S _initialState;
+  Simple(this._initialState, {this.persistor});
+  S call([S? _state]) => _state != null ? state = _state : state;
+  @override
+  final Persistor<S>? persistor;
 }
 
-/// these objects are not disposable by default
-
-class ComplexFuture<T> extends Base<T?> {
-  ComplexFuture(
-    this.creator, {
-    this.initialState,
-  });
-  final T? initialState;
-  final Future<T> Function() creator;
-  late final Injected<T> injected = RM.injectFuture(
-    creator,
-    initialState: initialState,
-    autoDisposeWhenNotUsed: false,
-  );
-  bool get loading => injected.isWaiting;
-  T call() => injected.state;
+abstract class Manager<S> extends Base<S> {
+  S call([S? _state]) => _state != null ? state = _state : state;
 }

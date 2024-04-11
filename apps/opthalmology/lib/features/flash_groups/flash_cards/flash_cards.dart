@@ -1,3 +1,4 @@
+import 'package:manager/state_manager/collection.dart';
 import 'package:opthalmology/features/flash_groups/flash_groups.dart';
 
 import '../../../main.dart';
@@ -5,23 +6,10 @@ import '../../../main.dart';
 part 'flash_cards.freezed.dart';
 part 'flash_cards.g.dart';
 
-Map<String, FlashCard> flashCards([Map<String, FlashCard>? _flashCards]) {
-  if (_flashCards != null)
-    appState(appState().copyWith(flashCards: _flashCards));
-  return appState().flashCards;
-}
-
-final saveFlashCard = (FlashCard flashCard) {
-  flashCards(Map.of(flashCards())..[flashCard.id] = flashCard);
-};
-final deleteFlashCard = (FlashCard flashCard) {
-  flashCards(
-    Map.of(flashCards())..remove(flashCard.id),
-  );
-};
+final flashCardsRM = ComplexCollection<FlashCard>();
 
 @freezed
-class FlashCard with _$FlashCard {
+class FlashCard extends ID with _$FlashCard {
   const factory FlashCard({
     @Default('') final String flashGroupId,
     @Default('') final String id,
@@ -30,7 +18,7 @@ class FlashCard with _$FlashCard {
     @Default('') final String explaination,
   }) = _FlashCard;
   const FlashCard._();
-  FlashGroup? get flashGroup => flashGroups()[flashGroupId];
+  FlashGroup? get flashGroup => flashGroupsRM.state[flashGroupId];
   factory FlashCard.fromJson(Map<String, dynamic> json) =>
       _$FlashCardFromJson(json);
 }
