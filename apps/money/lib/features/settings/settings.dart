@@ -3,44 +3,50 @@ import '../../main.dart';
 part 'settings.g.dart';
 part 'settings.freezed.dart';
 
-final settingsRM = RM.inject(
-  () => Settings(),
-  persist: () => PersistState(
-    key: 'settings',
-    fromJson: (json) => Settings.fromJson(jsonDecode(json)),
-    toJson: (state) => jsonEncode(state.toJson()),
-  ),
-);
+final settingsRM = SettingsRM();
 
-Settings get settings => settingsRM.state;
-set settings(Settings settings) => settingsRM.state = settings;
-
-ThemeMode get themeMode => settings.themeMode;
-set themeMode(themeMode) => settings = settings.copyWith(
-      themeMode: themeMode,
+class SettingsRM extends Complex<SettingsEvent, Settings> {
+  SettingsRM() {
+    register<_SettingsEventThemeMode>(
+      (_) => state = state.copyWith(themeMode: _.themeMode),
     );
-MaterialColor get materialColor => settings.materialColor;
-set materialColor(materialColor) =>
-    settings = settings.copyWith(materialColor: materialColor);
-bool get useMaterial3 => settings.useMaterial3;
-set useMaterial3(_) => settings = settings.copyWith(useMaterial3: _);
-
-Uint8List? get backgroundImage => settings.backgroundImage;
-set backgroundImagePath(String backgroundImagePath) =>
-    settings = settings.copyWith(
-      backgroundImagePath: backgroundImagePath,
+    register<_SettingsEventColor>(
+      (_) => state = state.copyWith(materialColor: _.materialColor),
     );
-double get padding => settings.padding;
-PaddingEnum get paddingEnum => settings.paddingEnum;
-set paddingEnum(_) => settings = settings.copyWith(paddingEnum: _);
+    register<_SettingsEventUseMaterial3>(
+      (_) => state = state.copyWith(useMaterial3: _.useMaterial3),
+    );
+    register<_SettingsEventBackgroundImage>(
+      (_) => state = state.copyWith(backgroundImagePath: _.backgroundImagePath),
+    );
+    register<_SettingsEventPadding>(
+      (_) => state = state.copyWith(paddingEnum: _.paddingEnum),
+    );
+    register<_SettingsEventBorderRadius>(
+      (_) => state = state.copyWith(borderRadiusEnum: _.borderRadiusEnum),
+    );
+    register<_SettingsEventFont>(
+      (_) => state = state.copyWith(font: _.font),
+    );
+  }
 
-double get borderRadius => settings.borderRadius;
-BorderRadiusEnum get borderRadiusEnum => settings.borderRadiusEnum;
-set borderRadiusEnum(_) => settings = settings.copyWith(borderRadiusEnum: _);
+  @override
+  Settings get initialState => Settings();
+}
 
-get font => settings.font;
-set font(_) => settings = settings.copyWith(font: _);
-void resetSettings() => settings = Settings();
+@freezed
+class SettingsEvent with _$SettingsEvent {
+  const factory SettingsEvent.themeMode(themeMode) = _SettingsEventThemeMode;
+  const factory SettingsEvent.color(materialColor) = _SettingsEventColor;
+  const factory SettingsEvent.useMaterial3(useMaterial3) =
+      _SettingsEventUseMaterial3;
+  const factory SettingsEvent.backgroundImagePath(backgroundImagePath) =
+      _SettingsEventBackgroundImage;
+  const factory SettingsEvent.padding(paddingEnum) = _SettingsEventPadding;
+  const factory SettingsEvent.borderRadius(borderRadiusEnum) =
+      _SettingsEventBorderRadius;
+  const factory SettingsEvent.font(font) = _SettingsEventFont;
+}
 
 enum BorderRadiusEnum {
   none,
@@ -71,16 +77,18 @@ class Settings with _$Settings {
   }) = _Settings;
 
   factory Settings.fromJson(json) => _$SettingsFromJson(json);
-  factory Settings() => Settings.get(
-        themeMode: ThemeMode.system,
-        materialColor: Colors.blue,
-        pageIndex: 0,
-        borderRadiusEnum: BorderRadiusEnum.full,
-        paddingEnum: PaddingEnum.relaxed,
-        backgroundImagePath: '',
-        useMaterial3: true,
-        font: 'Default',
-      );
+  factory Settings() {
+    return Settings.get(
+      themeMode: ThemeMode.system,
+      materialColor: Colors.blue,
+      pageIndex: 0,
+      borderRadiusEnum: BorderRadiusEnum.full,
+      paddingEnum: PaddingEnum.relaxed,
+      backgroundImagePath: '',
+      useMaterial3: true,
+      font: 'Default',
+    );
+  }
 
   Uint8List? get backgroundImage {
     try {
@@ -101,24 +109,11 @@ class Settings with _$Settings {
     };
   }
 
-  double get padding {
-    return switch (paddingEnum) {
-      PaddingEnum.none => 4,
-      PaddingEnum.tight => 7,
-      PaddingEnum.normal => 10,
-      PaddingEnum.relaxed => 13,
-    };
-  }
-
+  double get padding => switch (paddingEnum) {
+        PaddingEnum.none => 4,
+        PaddingEnum.tight => 7,
+        PaddingEnum.normal => 10,
+        PaddingEnum.relaxed => 13,
+      };
   const Settings._();
-}
-
-class MaterialColorConverter implements JsonConverter<MaterialColor, int> {
-  const MaterialColorConverter();
-
-  @override
-  MaterialColor fromJson(int json) => Colors.primaries[json];
-
-  @override
-  int toJson(MaterialColor object) => Colors.primaries.indexOf(object);
 }

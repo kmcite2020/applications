@@ -1,18 +1,50 @@
-import 'package:money/features/dashboard/dashboard.dart';
-
 import '../main.dart';
 
-class App extends StatelessWidget {
-  const App({super.key});
+class App extends TopUI {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      navigatorKey: RM.navigate.navigatorKey,
-      home: DashboardPage(),
-      debugShowCheckedModeBanner: false,
-      theme: themes.theme(),
-      darkTheme: themes.darkTheme(),
-      themeMode: themeMode,
-    );
-  }
+  Widget? homePage(BuildContext context) => DashboardPage();
+
+  @override
+  ThemeData get theme => _theme();
+  @override
+  ThemeData get darkTheme => _darkTheme();
+  @override
+  ThemeMode get themeMode => settingsRM().themeMode;
+}
+
+ThemeData _theme() {
+  return FlexThemeData.light(
+    fontFamily: fontFamily(settingsRM().font),
+    colorScheme: ColorScheme.fromSwatch(
+      primarySwatch: settingsRM().materialColor,
+    ),
+    useMaterial3: settingsRM().useMaterial3,
+    appBarStyle: FlexAppBarStyle.primary,
+    subThemesData: FlexSubThemesData(
+      defaultRadius: settingsRM().borderRadius,
+    ),
+    lightIsWhite: true,
+  ).copyWith(
+    listTileTheme: ListTileThemeData(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(settingsRM().borderRadius),
+      ),
+    ),
+  );
+}
+
+ThemeData _darkTheme() {
+  return FlexThemeData.dark(
+    fontFamily: fontFamily(settingsRM().font),
+    colorScheme: ColorScheme.fromSwatch(
+      primarySwatch: settingsRM().materialColor,
+      brightness: Brightness.dark,
+    ),
+    useMaterial3: settingsRM().useMaterial3,
+    appBarStyle: FlexAppBarStyle.primary,
+    subThemesData: FlexSubThemesData(
+      defaultRadius: settingsRM().borderRadius,
+    ),
+    darkIsTrueBlack: true,
+  );
 }

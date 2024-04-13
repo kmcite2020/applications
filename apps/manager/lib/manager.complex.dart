@@ -33,4 +33,6 @@ abstract class Complex<E, S> extends Base<S> {
     }
     return state;
   }
+
+  S get initialState;
 }

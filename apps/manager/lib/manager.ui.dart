@@ -5,7 +5,7 @@ abstract class TopUI extends TopStatelessWidget {
   ThemeData get theme => ThemeData.light();
   ThemeData get darkTheme => ThemeData.dark();
   ThemeMode get themeMode => ThemeMode.system;
-  Widget? homePage(BuildContext context) => null;
+  Widget? homePage(BuildContext context);
   @override
   List<FutureOr<void>>? ensureInitialization() => [_StorageOpener()];
   @override
@@ -29,7 +29,7 @@ abstract class TopUI extends TopStatelessWidget {
   }
 }
 
-abstract class UI extends ReactiveStatelessWidget {}
+typedef UI = ReactiveStatelessWidget;
 
 /// NAVIGATION
 final navigator = RM.navigate;

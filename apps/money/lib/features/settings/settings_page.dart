@@ -1,6 +1,6 @@
 import '../../main.dart';
 
-class SettingsPage extends StatelessWidget {
+class SettingsPage extends UI {
   const SettingsPage({super.key});
 
   @override
@@ -14,11 +14,13 @@ class SettingsPage extends StatelessWidget {
           SwitchListTile(
             title: 'Material 3'.text(),
             subtitle: 'Enable Material 3 Support'.text(),
-            value: useMaterial3,
-            onChanged: (_) => useMaterial3 = _,
+            value: settingsRM().useMaterial3,
+            onChanged: (useMaterial3) => settingsRM(
+              SettingsEvent.useMaterial3(useMaterial3),
+            ),
           ).pad(),
           DropdownButtonFormField(
-            value: themeMode,
+            value: settingsRM().themeMode,
             items: ThemeMode.values.map(
               (eachThemeMode) {
                 return DropdownMenuItem(
@@ -27,11 +29,13 @@ class SettingsPage extends StatelessWidget {
                 );
               },
             ).toList(),
-            onChanged: (_) => themeMode = _,
+            onChanged: (themeMode) => settingsRM(
+              SettingsEvent.themeMode(themeMode),
+            ),
             decoration: const InputDecoration(labelText: 'Theme Mode'),
           ).pad(),
           DropdownButtonFormField(
-            value: materialColor,
+            value: settingsRM().materialColor,
             items: Colors.primaries
                 .map(
                   (eachMaterialColor) => DropdownMenuItem(
@@ -40,13 +44,13 @@ class SettingsPage extends StatelessWidget {
                   ),
                 )
                 .toList(),
-            onChanged: (_) => materialColor = _,
+            onChanged: (color) => settingsRM(SettingsEvent.color(color)),
             decoration: const InputDecoration(
               labelText: 'Material Color',
             ),
           ).pad(),
           DropdownButtonFormField(
-            value: font,
+            value: settingsRM().font,
             items: fonts.map(
               (eachFont) {
                 return DropdownMenuItem(
@@ -59,11 +63,11 @@ class SettingsPage extends StatelessWidget {
                 );
               },
             ).toList(),
-            onChanged: (_) => font = _,
+            onChanged: (font) => settingsRM(SettingsEvent.font(font)),
             decoration: const InputDecoration(labelText: 'Font'),
           ).pad(),
           DropdownButtonFormField(
-            value: settings.paddingEnum,
+            value: settingsRM().paddingEnum,
             items: PaddingEnum.values
                 .map(
                   (eachPaddingEnum) => DropdownMenuItem(
@@ -72,11 +76,13 @@ class SettingsPage extends StatelessWidget {
                   ),
                 )
                 .toList(),
-            onChanged: (_) => paddingEnum = _,
+            onChanged: (padding) => settingsRM(
+              SettingsEvent.padding(padding),
+            ),
             decoration: const InputDecoration(labelText: 'Padding'),
           ).pad(),
           DropdownButtonFormField(
-            value: settings.borderRadiusEnum,
+            value: settingsRM().borderRadiusEnum,
             items: BorderRadiusEnum.values
                 .map(
                   (eachBorderRadiusEnum) => DropdownMenuItem(
@@ -85,7 +91,9 @@ class SettingsPage extends StatelessWidget {
                   ),
                 )
                 .toList(),
-            onChanged: (_) => borderRadiusEnum = _,
+            onChanged: (borderRadius) => settingsRM(
+              SettingsEvent.borderRadius(borderRadius),
+            ),
             decoration: const InputDecoration(labelText: 'Border Radius'),
           ).pad(),
         ],

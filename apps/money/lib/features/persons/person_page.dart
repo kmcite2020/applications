@@ -1,18 +1,15 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import '../../main.dart';
-import '../dashboard/dashboard.dart';
-import 'persons.dart';
 
-class PersonPage extends StatelessWidget {
+class PersonPage extends UI {
   const PersonPage({
     Key? key,
-    required this.personID,
+    required this.id,
   }) : super(key: key);
-  final String personID;
+  final String id;
   @override
   Widget build(BuildContext context) {
     return PersonBuilder(
-      personID: personID,
+      id: id,
       builder: (person) {
         if (person == null) return CircularProgressIndicator().pad();
         return Scaffold(
@@ -24,7 +21,7 @@ class PersonPage extends StatelessWidget {
               TextFormField(
                 initialValue: person.name,
                 onChanged: (name) {
-                  setPerson(
+                  personsRM.save(
                     person.copyWith(name: name),
                   );
                 },
@@ -41,24 +38,17 @@ class PersonPage extends StatelessWidget {
   }
 }
 
-class PersonBuilder extends StatelessWidget {
+class PersonBuilder extends UI {
   const PersonBuilder({
     Key? key,
-    required this.personID,
+    required this.id,
     required this.builder,
   }) : super(key: key);
-  final String personID;
+  final String id;
   final Widget Function(Person? person) builder;
 
   @override
-  Widget build(BuildContext context) {
-    return InjectedBuilder(
-      injectedRM: personsRM,
-      builder: (persons) => builder(
-        getPerson(personID),
-      ),
-    );
-  }
+  Widget build(BuildContext context) => builder(personsRM.tryGet(id));
 }
 
 class InjectedBuilder<T> extends StatelessWidget {

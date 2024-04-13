@@ -25,36 +25,6 @@ SizedBox spacing([
       height: height,
     );
 
-String get randomID => const Uuid().v4();
-
-extension ObjectExtensions on Object? {
-  Text text({
-    TextStyle? style,
-    double? textScaleFactor,
-  }) {
-    return Text(
-      toString(),
-      style: style,
-      // ignore: deprecated_member_use
-      textScaleFactor: textScaleFactor,
-    );
-  }
-}
-
-extension WidgetExtensions on Widget {
-  Widget pad({
-    EdgeInsetsGeometry? customPadding,
-  }) {
-    return Padding(
-      padding: customPadding ?? EdgeInsets.all(padding),
-      child: this,
-    );
-  }
-
-  Card card() => Card(child: this);
-  Center center() => Center(child: this);
-}
-
 class HiveStorage implements IPersistStore {
   late Box _box;
 

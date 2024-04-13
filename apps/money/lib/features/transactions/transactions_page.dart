@@ -1,11 +1,6 @@
-import '../../main.dart';
-import '../dashboard/dashboard.dart';
-import '../persons/person_page.dart';
-import '../persons/persons.dart';
-import 'transaction_page.dart';
-import 'transactions.dart';
+import 'package:money/main.dart';
 
-class TransactionsPage extends StatelessWidget {
+class TransactionsPage extends UI {
   const TransactionsPage({super.key});
 
   @override
@@ -15,9 +10,9 @@ class TransactionsPage extends StatelessWidget {
         title: 'Transactions'.text(),
         actions: [
           IconButton(
-            onPressed: () => setTransaction(
-              Transaction.get(
-                transactionID: randomID,
+            onPressed: () => transactionsRM.save(
+              Transaction(
+                id: randomID,
                 created: DateTime.now(),
               ),
             ),
@@ -26,88 +21,85 @@ class TransactionsPage extends StatelessWidget {
         ],
       ),
       body: ListView.builder(
-        itemCount: listOfTransactions.length,
+        itemCount: transactionsRM().length,
         itemBuilder: (context, index) {
-          final _transaction = listOfTransactions[index];
-          return TransactionBuilder(
-              transactionID: _transaction.transactionID,
-              builder: (transaction) {
-                if (transaction == null) return SizedBox();
-                return ExpansionTile(
-                  expandedCrossAxisAlignment: CrossAxisAlignment.start,
-                  initiallyExpanded: transaction.editing,
-                  maintainState: true,
-                  onExpansionChanged: (editing) {
-                    setTransaction(
-                      transaction.copyWith(editing: editing),
-                    );
-                  },
-                  title: (transaction.person?.name)
-                      .text(textScaleFactor: 1.5)
-                      .pad(),
-                  subtitle: transaction.amount.text(textScaleFactor: 3),
-                  children: [
-                    Wrap(
-                      children: [
-                        ElevatedButton(
-                          onPressed: () {
-                            navigator.to(
-                              TransactionPage(
-                                transactionID: transaction.transactionID,
+          final transaction = transactionsRM()[index];
+          return ExpansionTile(
+            title: transaction.text(),
+            expandedCrossAxisAlignment: CrossAxisAlignment.start,
+            initiallyExpanded: transaction.editing,
+            maintainState: true,
+            onExpansionChanged: (editing) {
+              transactionsRM.save(
+                transaction.copyWith(editing: editing),
+              );
+            },
+            // title: personsRM
+            //     .tryGet(transaction.personID ?? '')
+            //     .name
+            //     .text(textScaleFactor: 1.5)
+            //     .pad(),
+            subtitle: transaction.amount.text(textScaleFactor: 3),
+            children: [
+              Wrap(
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      navigator.to(
+                        TransactionPage(
+                          id: transaction.id,
+                        ),
+                      );
+                    },
+                    child: 'Transaction'.text(),
+                  ).pad(),
+                  ElevatedButton(
+                    onPressed: (transaction.personID == null)
+                        ? null
+                        : () => to(
+                              PersonPage(
+                                id: transaction.personID!,
                               ),
-                            );
-                          },
-                          child: 'Transaction'.text(),
-                        ).pad(),
-                        ElevatedButton(
-                          onPressed: (transaction.personID == null)
-                              ? null
-                              : () => navigator.to(
-                                    PersonPage(
-                                      personID: transaction.personID!,
-                                    ),
+                            ),
+                    child: 'Person'.text(),
+                  ).pad(),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  DateTimeUI(dateTime: transaction.created).pad(),
+                  Row(
+                    children: [
+                      PopupMenuButton(
+                        itemBuilder: (context) => personsRM()
+                            .map(
+                              (eachPerson) => PopupMenuItem(
+                                enabled:
+                                    !(eachPerson.id == transaction.personID),
+                                onTap: () => transactionsRM.save(
+                                  transaction.copyWith(
+                                    personID: eachPerson.id,
                                   ),
-                          child: 'Person'.text(),
-                        ).pad(),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        DateTimeUI(dateTime: transaction.created).pad(),
-                        Row(
-                          children: [
-                            PopupMenuButton(
-                              itemBuilder: (context) => listOfPersons
-                                  .map(
-                                    (eachPerson) => PopupMenuItem(
-                                      enabled: !(eachPerson.personID ==
-                                          transaction.personID),
-                                      onTap: () => setTransaction(
-                                        transaction.copyWith(
-                                          personID: eachPerson.personID,
-                                        ),
-                                      ),
-                                      value: eachPerson,
-                                      child: eachPerson.name.text(),
-                                    ),
-                                  )
-                                  .toList(),
-                            ),
-                            IconButton(
-                              onPressed: () =>
-                                  removeTransaction(transaction.transactionID),
-                              icon: Icon(Icons.delete),
-                            ),
-                          ],
-                        ).pad(),
-                      ],
-                    ),
-                    'Notes'.text(textScaleFactor: 1.5).pad(),
-                    transaction.notes.text().pad(),
-                  ],
-                );
-              });
+                                ),
+                                value: eachPerson,
+                                child: eachPerson.name.text(),
+                              ),
+                            )
+                            .toList(),
+                      ),
+                      IconButton(
+                        onPressed: () => transactionsRM.delete(transaction),
+                        icon: Icon(Icons.delete),
+                      ),
+                    ],
+                  ).pad(),
+                ],
+              ),
+              'Notes'.text(textScaleFactor: 1.5).pad(),
+              transaction.notes.text().pad(),
+            ],
+          );
         },
       ),
     );

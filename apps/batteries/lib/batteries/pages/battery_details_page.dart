@@ -2,7 +2,7 @@ import 'package:batteries/battery/battery.dart';
 import 'package:batteries/main.dart';
 import 'package:manager/manager.dart';
 
-final deletedBatteryRM = Simplicity<Battery?>(null, autoDispose: false);
+final deletedBatteryRM = Simple<Battery?>(null);
 
 class BatteryDetailsPage extends UI {
   const BatteryDetailsPage({super.key, required this.batteryID});

@@ -25,11 +25,11 @@ part 'manager.collection.dart';
 abstract class Base<S> {
   Base() {
     injected = Injected<Capsule<S>>(
-      creator: () => Capsule(getFromStorage() ?? _initialState),
+      creator: () => Capsule(getFromStorage() ?? initialState),
       autoDisposeWhenNotUsed: false,
     );
   }
-  S get _initialState;
+  S get initialState;
   Persistor<S>? get persistor => null;
   late final injected;
 
@@ -58,15 +58,15 @@ abstract class Base<S> {
     injected.state = Capsule(newState);
   }
 
-  void reset() => state = _initialState;
+  void reset() => state = initialState;
   @override
   String toString() => '$S $state';
 }
 
 class Simple<S> extends Base<S> {
   @override
-  final S _initialState;
-  Simple(this._initialState, {this.persistor});
+  final S initialState;
+  Simple(this.initialState, {this.persistor});
   S call([S? _state]) => _state != null ? state = _state : state;
   @override
   final Persistor<S>? persistor;

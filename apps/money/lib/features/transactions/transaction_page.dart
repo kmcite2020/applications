@@ -1,38 +1,33 @@
-import 'package:money/features/dashboard/dashboard.dart';
-import 'package:money/features/persons/persons.dart';
-
 import '../../main.dart';
-import '../persons/person_page.dart';
-import 'transactions.dart';
 
 class TransactionPage extends StatelessWidget {
   const TransactionPage({
     Key? key,
-    required this.transactionID,
+    required this.id,
   }) : super(key: key);
-  final String transactionID;
+  final String id;
 
   @override
   Widget build(BuildContext context) {
     return TransactionBuilder(
-      transactionID: transactionID,
+      id: id,
       builder: (transaction) {
         if (transaction == null) return CircularProgressIndicator().pad();
         return Scaffold(
           appBar: AppBar(
-            title: transaction.person == null
+            title: transaction.personID == null
                 ? 'No user'.text()
                 : GestureDetector(
                     onTap: () => navigator.to(
-                      PersonPage(personID: transaction.person!.personID),
+                      PersonPage(id: transaction.personID!),
                     ),
-                    child: (transaction.person?.name).text(),
+                    child: ((personsRM.get(transaction.personID!)).name).text(),
                   ),
             actions: [
               Switch(
                 value: transaction.editing,
                 onChanged: (editing) {
-                  setTransaction(
+                  transactionsRM.save(
                     transaction.copyWith(editing: editing),
                   );
                 },
@@ -49,14 +44,16 @@ class TransactionPage extends StatelessWidget {
                       ? PopupMenuButton(
                           tooltip: 'select person for this transaction',
                           itemBuilder: (context) {
-                            return listOfPersons.map(
+                            return personsRM().map(
                               (eachPerson) {
                                 return PopupMenuItem(
-                                  enabled: !(transaction.person == eachPerson),
+                                  enabled:
+                                      !(transaction.personID == eachPerson.id),
                                   onTap: () {
-                                    setTransaction(
+                                    transactionsRM.save(
                                       transaction.copyWith(
-                                          personID: eachPerson.personID),
+                                        personID: eachPerson.id,
+                                      ),
                                     );
                                   },
                                   value: eachPerson,
@@ -78,11 +75,12 @@ class TransactionPage extends StatelessWidget {
                             .text(textScaleFactor: 1.5)
                             .pad(),
                         Container(
-                          margin: EdgeInsets.all(padding / 2),
-                          padding: EdgeInsets.all(padding / 2),
+                          margin: EdgeInsets.all(settingsRM().padding / 2),
+                          padding: EdgeInsets.all(settingsRM().padding / 2),
                           decoration: BoxDecoration(
                             border: Border.all(),
-                            borderRadius: BorderRadius.circular(borderRadius),
+                            borderRadius: BorderRadius.circular(
+                                settingsRM().borderRadius),
                           ),
                           child: Wrap(
                             children: [
@@ -101,11 +99,11 @@ class TransactionPage extends StatelessWidget {
                               (e) {
                                 return InkWell(
                                   child: e.text(textScaleFactor: 1.3).pad(
-                                      customPadding:
-                                          EdgeInsets.all(padding / 2)),
+                                      custom: EdgeInsets.all(
+                                          settingsRM().padding / 2)),
                                   onTap: transaction.editing
                                       ? () {
-                                          setTransaction(
+                                          transactionsRM.save(
                                             transaction.copyWith(
                                               amount: transaction.amount + e,
                                             ),
@@ -114,17 +112,18 @@ class TransactionPage extends StatelessWidget {
                                       : null,
                                   onDoubleTap: transaction.editing
                                       ? () {
-                                          setTransaction(
+                                          transactionsRM.save(
                                             transaction.copyWith(
                                               amount: transaction.amount - e,
                                             ),
                                           );
                                         }
                                       : null,
-                                  borderRadius:
-                                      BorderRadius.circular(borderRadius),
+                                  borderRadius: BorderRadius.circular(
+                                      settingsRM().borderRadius),
                                 ).pad(
-                                  customPadding: EdgeInsets.all(padding / 2),
+                                  custom:
+                                      EdgeInsets.all(settingsRM().padding / 2),
                                 );
                               },
                             ).toList(),
@@ -140,7 +139,7 @@ class TransactionPage extends StatelessWidget {
                   ? TextFormField(
                       initialValue: transaction.notes,
                       onChanged: (notes) {
-                        setTransaction(transaction.copyWith(notes: notes));
+                        transactionsRM.save(transaction.copyWith(notes: notes));
                       },
                     ).pad()
                   : transaction.notes.text().pad(),
@@ -152,22 +151,18 @@ class TransactionPage extends StatelessWidget {
   }
 }
 
-class TransactionBuilder extends StatelessWidget {
+class TransactionBuilder extends UI {
   const TransactionBuilder({
     Key? key,
-    required this.transactionID,
+    required this.id,
     required this.builder,
   }) : super(key: key);
-  final String transactionID;
+  final String id;
   final Widget Function(Transaction? transaction) builder;
 
   @override
   Widget build(BuildContext context) {
-    return InjectedBuilder(
-      injectedRM: transactionsRM,
-      builder: (transactions) => builder(
-        getTransaction(transactionID),
-      ),
-    );
+    final transaction = transactionsRM.tryGet(id);
+    return builder(transaction);
   }
 }

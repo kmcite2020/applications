@@ -12,156 +12,7 @@ part of 'persons.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-Persons _$PersonsFromJson(Map<String, dynamic> json) {
-  return _Persons.fromJson(json);
-}
-
-/// @nodoc
-mixin _$Persons {
-  Map<String, Person> get data => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $PersonsCopyWith<Persons> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $PersonsCopyWith<$Res> {
-  factory $PersonsCopyWith(Persons value, $Res Function(Persons) then) =
-      _$PersonsCopyWithImpl<$Res, Persons>;
-  @useResult
-  $Res call({Map<String, Person> data});
-}
-
-/// @nodoc
-class _$PersonsCopyWithImpl<$Res, $Val extends Persons>
-    implements $PersonsCopyWith<$Res> {
-  _$PersonsCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_value.copyWith(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Map<String, Person>,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$PersonsImplCopyWith<$Res> implements $PersonsCopyWith<$Res> {
-  factory _$$PersonsImplCopyWith(
-          _$PersonsImpl value, $Res Function(_$PersonsImpl) then) =
-      __$$PersonsImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({Map<String, Person> data});
-}
-
-/// @nodoc
-class __$$PersonsImplCopyWithImpl<$Res>
-    extends _$PersonsCopyWithImpl<$Res, _$PersonsImpl>
-    implements _$$PersonsImplCopyWith<$Res> {
-  __$$PersonsImplCopyWithImpl(
-      _$PersonsImpl _value, $Res Function(_$PersonsImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$PersonsImpl(
-      data: null == data
-          ? _value._data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Map<String, Person>,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$PersonsImpl with DiagnosticableTreeMixin implements _Persons {
-  const _$PersonsImpl(
-      {final Map<String, Person> data = const <String, Person>{}})
-      : _data = data;
-
-  factory _$PersonsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PersonsImplFromJson(json);
-
-  final Map<String, Person> _data;
-  @override
-  @JsonKey()
-  Map<String, Person> get data {
-    if (_data is EqualUnmodifiableMapView) return _data;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_data);
-  }
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Persons(data: $data)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'Persons'))
-      ..add(DiagnosticsProperty('data', data));
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$PersonsImpl &&
-            const DeepCollectionEquality().equals(other._data, _data));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$PersonsImplCopyWith<_$PersonsImpl> get copyWith =>
-      __$$PersonsImplCopyWithImpl<_$PersonsImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$PersonsImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _Persons implements Persons {
-  const factory _Persons({final Map<String, Person> data}) = _$PersonsImpl;
-
-  factory _Persons.fromJson(Map<String, dynamic> json) = _$PersonsImpl.fromJson;
-
-  @override
-  Map<String, Person> get data;
-  @override
-  @JsonKey(ignore: true)
-  _$$PersonsImplCopyWith<_$PersonsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 Person _$PersonFromJson(Map<String, dynamic> json) {
   return _Person.fromJson(json);
@@ -169,7 +20,7 @@ Person _$PersonFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Person {
-  String get personID => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   bool get editing => throw _privateConstructorUsedError;
   DateTime get created => throw _privateConstructorUsedError;
@@ -184,7 +35,7 @@ abstract class $PersonCopyWith<$Res> {
   factory $PersonCopyWith(Person value, $Res Function(Person) then) =
       _$PersonCopyWithImpl<$Res, Person>;
   @useResult
-  $Res call({String personID, String name, bool editing, DateTime created});
+  $Res call({String id, String name, bool editing, DateTime created});
 }
 
 /// @nodoc
@@ -200,15 +51,15 @@ class _$PersonCopyWithImpl<$Res, $Val extends Person>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? personID = null,
+    Object? id = null,
     Object? name = null,
     Object? editing = null,
     Object? created = null,
   }) {
     return _then(_value.copyWith(
-      personID: null == personID
-          ? _value.personID
-          : personID // ignore: cast_nullable_to_non_nullable
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as String,
       name: null == name
           ? _value.name
@@ -233,7 +84,7 @@ abstract class _$$PersonImplCopyWith<$Res> implements $PersonCopyWith<$Res> {
       __$$PersonImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String personID, String name, bool editing, DateTime created});
+  $Res call({String id, String name, bool editing, DateTime created});
 }
 
 /// @nodoc
@@ -247,15 +98,15 @@ class __$$PersonImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? personID = null,
+    Object? id = null,
     Object? name = null,
     Object? editing = null,
     Object? created = null,
   }) {
     return _then(_$PersonImpl(
-      personID: null == personID
-          ? _value.personID
-          : personID // ignore: cast_nullable_to_non_nullable
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as String,
       name: null == name
           ? _value.name
@@ -277,7 +128,7 @@ class __$$PersonImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$PersonImpl extends _Person with DiagnosticableTreeMixin {
   const _$PersonImpl(
-      {required this.personID,
+      {required this.id,
       required this.name,
       this.editing = false,
       required this.created})
@@ -287,7 +138,7 @@ class _$PersonImpl extends _Person with DiagnosticableTreeMixin {
       _$$PersonImplFromJson(json);
 
   @override
-  final String personID;
+  final String id;
   @override
   final String name;
   @override
@@ -298,7 +149,7 @@ class _$PersonImpl extends _Person with DiagnosticableTreeMixin {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Person(personID: $personID, name: $name, editing: $editing, created: $created)';
+    return 'Person(id: $id, name: $name, editing: $editing, created: $created)';
   }
 
   @override
@@ -306,7 +157,7 @@ class _$PersonImpl extends _Person with DiagnosticableTreeMixin {
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'Person'))
-      ..add(DiagnosticsProperty('personID', personID))
+      ..add(DiagnosticsProperty('id', id))
       ..add(DiagnosticsProperty('name', name))
       ..add(DiagnosticsProperty('editing', editing))
       ..add(DiagnosticsProperty('created', created));
@@ -317,8 +168,7 @@ class _$PersonImpl extends _Person with DiagnosticableTreeMixin {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PersonImpl &&
-            (identical(other.personID, personID) ||
-                other.personID == personID) &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.editing, editing) || other.editing == editing) &&
             (identical(other.created, created) || other.created == created));
@@ -326,8 +176,7 @@ class _$PersonImpl extends _Person with DiagnosticableTreeMixin {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, personID, name, editing, created);
+  int get hashCode => Object.hash(runtimeType, id, name, editing, created);
 
   @JsonKey(ignore: true)
   @override
@@ -345,7 +194,7 @@ class _$PersonImpl extends _Person with DiagnosticableTreeMixin {
 
 abstract class _Person extends Person {
   const factory _Person(
-      {required final String personID,
+      {required final String id,
       required final String name,
       final bool editing,
       required final DateTime created}) = _$PersonImpl;
@@ -354,7 +203,7 @@ abstract class _Person extends Person {
   factory _Person.fromJson(Map<String, dynamic> json) = _$PersonImpl.fromJson;
 
   @override
-  String get personID;
+  String get id;
   @override
   String get name;
   @override

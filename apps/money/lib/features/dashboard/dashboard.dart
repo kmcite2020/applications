@@ -1,60 +1,85 @@
-import 'package:money/features/transactions/transactions.dart';
+import 'package:money/main.dart';
 
-import '../../main.dart';
-import '../persons/persons_page.dart';
-import '../transactions/transactions_page.dart';
-
-class DashboardPage extends StatelessWidget {
+class DashboardPage extends UI {
   const DashboardPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(context) {
     return Scaffold(
-      appBar: AppBar(
-        title: 'MONEY'.text(),
-        actions: [
-          IconButton(
-            onPressed: () {
-              navigator.to(SettingsPage());
-            },
-            icon: Icon(
-              Icons.settings,
-            ),
-          ).pad(),
-        ],
-      ),
-      body: ListView(
-        physics: BouncingScrollPhysics(),
-        children: [
-          Column(
-            children: [
-              'Total'.text().pad(),
-              '${transactions()}'.text(textScaleFactor: 3).pad(),
-              'To get'.text().pad(),
-              '${transactions.toGet}'.text(textScaleFactor: 3).pad(),
-              'To give'.text().pad(),
-              '${transactions.toGive}'.text(textScaleFactor: 3).pad(),
+      body: [
+        Scaffold(
+          appBar: AppBar(
+            title: 'MONEY'.text(),
+            actions: [
+              IconButton(
+                onPressed: () {
+                  navigator.to(SettingsPage());
+                },
+                icon: Icon(
+                  Icons.settings,
+                ),
+              ).pad(),
             ],
           ),
-          ElevatedButton(
-            onPressed: () {
-              navigator.to(TransactionsPage());
-            },
-            child: 'Transactions'.text(textScaleFactor: 2).pad(),
-          ).pad(),
-          ElevatedButton(
-            onPressed: () => navigator.to(
-              PersonsPage(),
-            ),
-            child: 'Persons'.text(textScaleFactor: 2).pad(),
-          ).pad(),
+          body: ListView(
+            physics: BouncingScrollPhysics(),
+            children: [
+              Column(
+                children: [
+                  'Total'.text().pad(),
+                  '${transactionsRM.all()}'.text(textScaleFactor: 3).pad(),
+                  'To get'.text().pad(),
+                  '${transactionsRM.toGet}'.text(textScaleFactor: 3).pad(),
+                  'To give'.text().pad(),
+                  '${transactionsRM.toGive}'.text(textScaleFactor: 3).pad(),
+                ],
+              ),
+              // ElevatedButton(
+              //   onPressed: () {
+              //     navigator.to(TransactionsPage());
+              //   },
+              //   child: 'Transactions'.text(textScaleFactor: 2).pad(),
+              // ).pad(),
+              // ElevatedButton(
+              //   onPressed: () => navigator.to(
+              //     PersonsPage(),
+              //   ),
+              //   child: 'Persons'.text(textScaleFactor: 2).pad(),
+              // ).pad(),
+            ],
+          ),
+        ),
+        PersonsPage(),
+        TransactionsPage(),
+      ][index()],
+      bottomNavigationBar: NavigationBar(
+        selectedIndex: index(),
+        onDestinationSelected: index,
+        destinations: [
+          NavigationDestination(
+            icon: Icon(Icons.dashboard),
+            label: 'Dashboard',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.person),
+            label: 'Persons',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.edit_document),
+            label: 'Transactions',
+          ),
         ],
       ),
     );
   }
 }
 
-class DateTimeUI extends StatelessWidget {
+final indexRM = RM.inject(() => 0);
+
+final index =
+    ([int? _index]) => _index != null ? indexRM.state = _index : indexRM.state;
+
+class DateTimeUI extends UI {
   const DateTimeUI({
     super.key,
     required this.dateTime,

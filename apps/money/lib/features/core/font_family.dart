@@ -1,4 +1,4 @@
-import '../../../main.dart';
+import 'package:money/main.dart';
 
 String? fontFamily(String font) {
   try {

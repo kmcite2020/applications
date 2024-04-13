@@ -1,7 +1,4 @@
-import 'package:money/features/persons/persons.dart';
-
 import '../../main.dart';
-import 'person_page.dart';
 
 class PersonsPage extends StatelessWidget {
   const PersonsPage({super.key});
@@ -13,10 +10,10 @@ class PersonsPage extends StatelessWidget {
         title: 'Persons'.text(),
         actions: [
           IconButton(
-            onPressed: () => setPerson(
+            onPressed: () => personsRM.save(
               Person(
                 created: DateTime.now(),
-                personID: randomID,
+                id: randomID,
                 name: '',
               ),
             ),
@@ -25,16 +22,16 @@ class PersonsPage extends StatelessWidget {
         ],
       ),
       body: ListView.builder(
-        itemCount: listOfPersons.length,
+        itemCount: personsRM().length,
         itemBuilder: (context, index) {
-          final person = listOfPersons[index];
+          final person = personsRM()[index];
           return ExpansionTile(
-            key: Key(person.personID),
+            key: Key(person.id),
             leading: person.total.text(textScaleFactor: 1.5).pad(),
             title: person.name.text(textScaleFactor: 1.2),
             initiallyExpanded: person.editing,
             onExpansionChanged: (editing) {
-              setPerson(
+              personsRM.save(
                 person.copyWith(editing: editing),
               );
             },
@@ -43,7 +40,7 @@ class PersonsPage extends StatelessWidget {
                 onPressed: () {
                   navigator.to(
                     PersonPage(
-                      personID: person.personID,
+                      id: person.id,
                     ),
                   );
                 },

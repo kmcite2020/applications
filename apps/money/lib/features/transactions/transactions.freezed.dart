@@ -12,163 +12,7 @@ part of 'transactions.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-Transactions _$TransactionsFromJson(Map<String, dynamic> json) {
-  return _Transactions.fromJson(json);
-}
-
-/// @nodoc
-mixin _$Transactions {
-  Map<String, Transaction> get data => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $TransactionsCopyWith<Transactions> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $TransactionsCopyWith<$Res> {
-  factory $TransactionsCopyWith(
-          Transactions value, $Res Function(Transactions) then) =
-      _$TransactionsCopyWithImpl<$Res, Transactions>;
-  @useResult
-  $Res call({Map<String, Transaction> data});
-}
-
-/// @nodoc
-class _$TransactionsCopyWithImpl<$Res, $Val extends Transactions>
-    implements $TransactionsCopyWith<$Res> {
-  _$TransactionsCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_value.copyWith(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Map<String, Transaction>,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$TransactionsImplCopyWith<$Res>
-    implements $TransactionsCopyWith<$Res> {
-  factory _$$TransactionsImplCopyWith(
-          _$TransactionsImpl value, $Res Function(_$TransactionsImpl) then) =
-      __$$TransactionsImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({Map<String, Transaction> data});
-}
-
-/// @nodoc
-class __$$TransactionsImplCopyWithImpl<$Res>
-    extends _$TransactionsCopyWithImpl<$Res, _$TransactionsImpl>
-    implements _$$TransactionsImplCopyWith<$Res> {
-  __$$TransactionsImplCopyWithImpl(
-      _$TransactionsImpl _value, $Res Function(_$TransactionsImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$TransactionsImpl(
-      data: null == data
-          ? _value._data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Map<String, Transaction>,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$TransactionsImpl extends _Transactions with DiagnosticableTreeMixin {
-  const _$TransactionsImpl(
-      {final Map<String, Transaction> data = const <String, Transaction>{}})
-      : _data = data,
-        super._();
-
-  factory _$TransactionsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$TransactionsImplFromJson(json);
-
-  final Map<String, Transaction> _data;
-  @override
-  @JsonKey()
-  Map<String, Transaction> get data {
-    if (_data is EqualUnmodifiableMapView) return _data;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_data);
-  }
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Transactions(data: $data)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'Transactions'))
-      ..add(DiagnosticsProperty('data', data));
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$TransactionsImpl &&
-            const DeepCollectionEquality().equals(other._data, _data));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$TransactionsImplCopyWith<_$TransactionsImpl> get copyWith =>
-      __$$TransactionsImplCopyWithImpl<_$TransactionsImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$TransactionsImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _Transactions extends Transactions {
-  const factory _Transactions({final Map<String, Transaction> data}) =
-      _$TransactionsImpl;
-  const _Transactions._() : super._();
-
-  factory _Transactions.fromJson(Map<String, dynamic> json) =
-      _$TransactionsImpl.fromJson;
-
-  @override
-  Map<String, Transaction> get data;
-  @override
-  @JsonKey(ignore: true)
-  _$$TransactionsImplCopyWith<_$TransactionsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 Transaction _$TransactionFromJson(Map<String, dynamic> json) {
   return _Transaction.fromJson(json);
@@ -176,50 +20,13 @@ Transaction _$TransactionFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Transaction {
-  String get transactionID => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
   String? get personID => throw _privateConstructorUsedError;
   int get amount => throw _privateConstructorUsedError;
   String get notes => throw _privateConstructorUsedError;
   bool get editing => throw _privateConstructorUsedError;
   DateTime get created => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String transactionID, String? personID,
-            int amount, String notes, bool editing, DateTime created)
-        get,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String transactionID, String? personID, int amount,
-            String notes, bool editing, DateTime created)?
-        get,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String transactionID, String? personID, int amount,
-            String notes, bool editing, DateTime created)?
-        get,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Transaction value) get,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Transaction value)? get,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Transaction value)? get,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $TransactionCopyWith<Transaction> get copyWith =>
@@ -233,7 +40,7 @@ abstract class $TransactionCopyWith<$Res> {
       _$TransactionCopyWithImpl<$Res, Transaction>;
   @useResult
   $Res call(
-      {String transactionID,
+      {String id,
       String? personID,
       int amount,
       String notes,
@@ -254,7 +61,7 @@ class _$TransactionCopyWithImpl<$Res, $Val extends Transaction>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? transactionID = null,
+    Object? id = null,
     Object? personID = freezed,
     Object? amount = null,
     Object? notes = null,
@@ -262,9 +69,9 @@ class _$TransactionCopyWithImpl<$Res, $Val extends Transaction>
     Object? created = null,
   }) {
     return _then(_value.copyWith(
-      transactionID: null == transactionID
-          ? _value.transactionID
-          : transactionID // ignore: cast_nullable_to_non_nullable
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as String,
       personID: freezed == personID
           ? _value.personID
@@ -299,7 +106,7 @@ abstract class _$$TransactionImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String transactionID,
+      {String id,
       String? personID,
       int amount,
       String notes,
@@ -318,7 +125,7 @@ class __$$TransactionImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? transactionID = null,
+    Object? id = null,
     Object? personID = freezed,
     Object? amount = null,
     Object? notes = null,
@@ -326,9 +133,9 @@ class __$$TransactionImplCopyWithImpl<$Res>
     Object? created = null,
   }) {
     return _then(_$TransactionImpl(
-      transactionID: null == transactionID
-          ? _value.transactionID
-          : transactionID // ignore: cast_nullable_to_non_nullable
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as String,
       personID: freezed == personID
           ? _value.personID
@@ -356,21 +163,20 @@ class __$$TransactionImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$TransactionImpl extends _Transaction with DiagnosticableTreeMixin {
+class _$TransactionImpl with DiagnosticableTreeMixin implements _Transaction {
   const _$TransactionImpl(
-      {required this.transactionID,
+      {required this.id,
       this.personID,
       this.amount = 0,
       this.notes = 'notes',
       this.editing = false,
-      required this.created})
-      : super._();
+      required this.created});
 
   factory _$TransactionImpl.fromJson(Map<String, dynamic> json) =>
       _$$TransactionImplFromJson(json);
 
   @override
-  final String transactionID;
+  final String id;
   @override
   final String? personID;
   @override
@@ -387,15 +193,15 @@ class _$TransactionImpl extends _Transaction with DiagnosticableTreeMixin {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Transaction.get(transactionID: $transactionID, personID: $personID, amount: $amount, notes: $notes, editing: $editing, created: $created)';
+    return 'Transaction(id: $id, personID: $personID, amount: $amount, notes: $notes, editing: $editing, created: $created)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'Transaction.get'))
-      ..add(DiagnosticsProperty('transactionID', transactionID))
+      ..add(DiagnosticsProperty('type', 'Transaction'))
+      ..add(DiagnosticsProperty('id', id))
       ..add(DiagnosticsProperty('personID', personID))
       ..add(DiagnosticsProperty('amount', amount))
       ..add(DiagnosticsProperty('notes', notes))
@@ -408,8 +214,7 @@ class _$TransactionImpl extends _Transaction with DiagnosticableTreeMixin {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TransactionImpl &&
-            (identical(other.transactionID, transactionID) ||
-                other.transactionID == transactionID) &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.personID, personID) ||
                 other.personID == personID) &&
             (identical(other.amount, amount) || other.amount == amount) &&
@@ -420,76 +225,14 @@ class _$TransactionImpl extends _Transaction with DiagnosticableTreeMixin {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, transactionID, personID, amount, notes, editing, created);
+  int get hashCode =>
+      Object.hash(runtimeType, id, personID, amount, notes, editing, created);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$TransactionImplCopyWith<_$TransactionImpl> get copyWith =>
       __$$TransactionImplCopyWithImpl<_$TransactionImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String transactionID, String? personID,
-            int amount, String notes, bool editing, DateTime created)
-        get,
-  }) {
-    return get(transactionID, personID, amount, notes, editing, created);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String transactionID, String? personID, int amount,
-            String notes, bool editing, DateTime created)?
-        get,
-  }) {
-    return get?.call(transactionID, personID, amount, notes, editing, created);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String transactionID, String? personID, int amount,
-            String notes, bool editing, DateTime created)?
-        get,
-    required TResult orElse(),
-  }) {
-    if (get != null) {
-      return get(transactionID, personID, amount, notes, editing, created);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Transaction value) get,
-  }) {
-    return get(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Transaction value)? get,
-  }) {
-    return get?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Transaction value)? get,
-    required TResult orElse(),
-  }) {
-    if (get != null) {
-      return get(this);
-    }
-    return orElse();
-  }
 
   @override
   Map<String, dynamic> toJson() {
@@ -499,21 +242,20 @@ class _$TransactionImpl extends _Transaction with DiagnosticableTreeMixin {
   }
 }
 
-abstract class _Transaction extends Transaction {
+abstract class _Transaction implements Transaction {
   const factory _Transaction(
-      {required final String transactionID,
+      {required final String id,
       final String? personID,
       final int amount,
       final String notes,
       final bool editing,
       required final DateTime created}) = _$TransactionImpl;
-  const _Transaction._() : super._();
 
   factory _Transaction.fromJson(Map<String, dynamic> json) =
       _$TransactionImpl.fromJson;
 
   @override
-  String get transactionID;
+  String get id;
   @override
   String? get personID;
   @override

@@ -1,7 +1,6 @@
 // ignore_for_file: unused_element
 
 import 'package:batteries/main.dart';
-import 'package:manager/state_manager/collection.dart';
 
 part 'battery.freezed.dart';
 part 'battery.g.dart';
