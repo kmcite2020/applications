@@ -1,5 +1,4 @@
 import 'package:roster_system/doctors/doctors.dart';
-import 'package:roster_system/doctors/doctors_rm.dart';
 
 import '../../main.dart';
 
@@ -8,20 +7,20 @@ class DoctorPage extends UI {
   final String id;
 
   static late Injected<Doctor> doctorRM;
-  static Doctor get doctor => doctorRM.state;
-  static void setDoctor(Doctor doctor) => doctorRM.state = doctor;
+  Doctor get doctor => doctorRM.state;
+  void setDoctor(Doctor doctor) => doctorRM.state = doctor;
   @override
   void didMountWidget(BuildContext context) {
     doctorRM = RM.inject(
-      () => doctors.cache[id]!,
+      () => doctorsRM.get(id),
       sideEffects: SideEffects(
-        onSetState: (doctorSnap) => doctors.setDoctor(doctorSnap.state),
+        onSetState: (doctorSnap) => doctorsRM.save(doctorSnap.state),
       ),
     );
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(context) {
     return Scaffold(
       appBar: AppBar(
         title: doctor.name.text(),
@@ -31,14 +30,10 @@ class DoctorPage extends UI {
               children: [
                 TextFormField(
                   initialValue: doctor.name,
-                  onChanged: (name) {
-                    setDoctor(
-                      doctor.copyWith(name: name),
-                    );
-                  },
-                  decoration: const InputDecoration(
-                    labelText: 'Name',
+                  onChanged: (name) => setDoctor(
+                    doctor.copyWith(name: name),
                   ),
+                  decoration: const InputDecoration(labelText: 'Name'),
                 ).pad(),
                 TextFormField(
                   initialValue: doctor.qualifications,
@@ -47,9 +42,8 @@ class DoctorPage extends UI {
                       doctor.copyWith(qualifications: qualifications),
                     );
                   },
-                  decoration: const InputDecoration(
-                    labelText: 'Qualifications',
-                  ),
+                  decoration:
+                      const InputDecoration(labelText: 'Qualifications'),
                 ).pad(),
                 TextFormField(
                   initialValue: doctor.contactDetails,

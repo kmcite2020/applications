@@ -5,10 +5,8 @@ import 'package:prescription_er/main.dart';
 import 'package:prescription_er/prescriptions/patients_rm.dart';
 import 'package:prescription_er/prescriptions/prescription.dart';
 
-class AddPatientWizard extends StatelessWidget {
-  const AddPatientWizard({
-    super.key,
-  });
+class AddPatientWizard extends UI {
+  const AddPatientWizard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +22,7 @@ class AddPatientWizard extends StatelessWidget {
           ClassificationUI(),
           ElevatedButton(
             onPressed: () {
-              savePatient(patient);
+              patientsRM.save(patient);
               RM.navigate.back();
             },
             child: "Save".text(),

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:roster_system/main.dart';
 
 class SettingsPage extends UI {
@@ -14,7 +15,7 @@ class SettingsPage extends UI {
         physics: const BouncingScrollPhysics(),
         children: [
           DropdownButtonFormField(
-            value: settingsRM.state.themeMode,
+            value: settingsRM().themeMode,
             items: ThemeMode.values.map(
               (eachThemeMode) {
                 return DropdownMenuItem(
@@ -23,7 +24,7 @@ class SettingsPage extends UI {
                 );
               },
             ).toList(),
-            onChanged: setThemeMode,
+            onChanged: settingsRM.themeMode,
           ).pad(),
           DropdownButtonFormField(
             value: settingsRM.state.materialColor,
@@ -35,9 +36,14 @@ class SettingsPage extends UI {
                 );
               },
             ).toList(),
-            onChanged: setMaterialColor,
+            onChanged: settingsRM.materialColor,
           ).pad(),
-          ElevatedButton(
+          CupertinoSlider(
+            max: 30,
+            value: settingsRM().borderRadius,
+            onChanged: settingsRM.borderRadius,
+          ).pad(),
+          CupertinoButton.filled(
             onPressed: () {
               RM.navigate.to(const DepartmentsPage());
             },

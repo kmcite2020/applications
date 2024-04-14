@@ -1,3 +1,4 @@
+import 'package:prescription_er/core.dart';
 import 'package:prescription_er/main.dart';
 import 'package:prescription_er/prescriptions/patients_rm.dart';
 
@@ -16,7 +17,7 @@ class PresentingComplaintsUI extends UI {
       id: id,
       builder: (patient) {
         final complaints = patient.presentingComplaints;
-        void setComplaints(PresentingComplaints complaints) => savePatient(
+        void setComplaints(PresentingComplaints complaints) => patientsRM.save(
               patient.copyWith(presentingComplaints: complaints),
             );
 
@@ -114,18 +115,15 @@ class ComplaintDialogUI extends UI {
   }
 }
 
-class PatientBuilder extends UI {
+class PatientBuilder extends ComplexTableBuilder<Patient> {
   final MR id;
-
+  final Widget Function(Patient patient) builder;
   PatientBuilder({
     required this.id,
     required this.builder,
-  });
-  final Widget Function(Patient patient) builder;
-  @override
-  Widget build(BuildContext context) {
-    final patient = patients.cache[id];
-    if (patient == null) return CircularProgressIndicator().center();
-    return builder(patient);
-  }
+  }) : super(
+          id: id,
+          builder: builder,
+          table: patientsRM,
+        );
 }

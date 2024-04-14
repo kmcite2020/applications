@@ -9,17 +9,7 @@ class DashboardPage extends UI {
       body: [
         Scaffold(
           appBar: AppBar(
-            title: 'MONEY'.text(),
-            actions: [
-              IconButton(
-                onPressed: () {
-                  navigator.to(SettingsPage());
-                },
-                icon: Icon(
-                  Icons.settings,
-                ),
-              ).pad(),
-            ],
+            title: 'Money'.text(),
           ),
           body: ListView(
             physics: BouncingScrollPhysics(),
@@ -34,23 +24,12 @@ class DashboardPage extends UI {
                   '${transactionsRM.toGive}'.text(textScaleFactor: 3).pad(),
                 ],
               ),
-              // ElevatedButton(
-              //   onPressed: () {
-              //     navigator.to(TransactionsPage());
-              //   },
-              //   child: 'Transactions'.text(textScaleFactor: 2).pad(),
-              // ).pad(),
-              // ElevatedButton(
-              //   onPressed: () => navigator.to(
-              //     PersonsPage(),
-              //   ),
-              //   child: 'Persons'.text(textScaleFactor: 2).pad(),
-              // ).pad(),
             ],
           ),
         ),
         PersonsPage(),
         TransactionsPage(),
+        SettingsPage(),
       ][index()],
       bottomNavigationBar: NavigationBar(
         selectedIndex: index(),
@@ -67,6 +46,10 @@ class DashboardPage extends UI {
           NavigationDestination(
             icon: Icon(Icons.edit_document),
             label: 'Transactions',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
           ),
         ],
       ),

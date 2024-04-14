@@ -1,23 +1,25 @@
 import 'package:roster_system/main.dart';
 import 'package:roster_system/settings/settings.dart';
 
-final settingsRM = RM.inject(
-  () => Settings(),
-  persist: () => PersistState(
-    key: 'settings',
-    toJson: (state) => jsonEncode(state.toJson()),
-    fromJson: (json) => Settings.fromJson(jsonDecode(json)),
-  ),
-);
-Settings get settings => settingsRM.state;
-void setSettings(Settings settings) => settingsRM.state = settings;
+final settingsRM = SettingsRM();
 
-void setMaterialColor(materialColor) {
-  setSettings(
-    settings.copyWith(materialColor: materialColor),
-  );
-}
+class SettingsRM extends Manager<Settings> {
+  @override
+  final initialState = Settings();
+  @override
+  Persistor<Settings>? get persistor => Persistor.freezed(
+        key: 'settings',
+        fromJson: Settings.fromJson,
+      );
+  void materialColor(materialColor) {
+    state = state.copyWith(materialColor: materialColor);
+  }
 
-void setThemeMode(themeMode) {
-  setSettings(settings.copyWith(themeMode: themeMode));
+  void themeMode(themeMode) {
+    setState(state.copyWith(themeMode: themeMode));
+  }
+
+  void borderRadius(borderRadius) {
+    setState(state.copyWith(borderRadius: borderRadius));
+  }
 }

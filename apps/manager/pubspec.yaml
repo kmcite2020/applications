@@ -13,6 +13,7 @@ dependencies:
   colornames: 
   flutter_native_splash: ^2.3.10 
   path_provider: ^2.1.2
+  flex_color_scheme:
   path: 
   uuid: ^4.3.3  
   dynamic_color: 

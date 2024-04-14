@@ -24,6 +24,20 @@ class Persistor<T> with _$Persistor<T> {
       fromJson: fromJson,
     );
   }
+  factory Persistor.list(
+    String key, {
+    required List<T> values,
+  }) {
+    return Persistor(
+      key: key,
+      toJson: (state) {
+        return {key: values.indexOf(state)};
+      },
+      fromJson: (json) {
+        return values[json[key] ?? 0];
+      },
+    );
+  }
 }
 
 @freezed

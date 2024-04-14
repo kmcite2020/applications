@@ -5,7 +5,12 @@ part 'transactions.g.dart';
 
 final transactionsRM = TransactionsRM();
 
-class TransactionsRM extends ComplexCollection<Transaction> {
+class TransactionsRM extends ComplexTable<Transaction> {
+  @override
+  Persistor<Transaction>? get valuePersistor => Persistor.freezed(
+        key: 'transactions',
+        fromJson: Transaction.fromJson,
+      );
   int all() => state.values.fold(
         0,
         (previousValue, eachTransaction) =>

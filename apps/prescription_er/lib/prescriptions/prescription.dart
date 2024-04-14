@@ -2,20 +2,10 @@ import 'package:prescription_er/main.dart';
 part 'prescription.freezed.dart';
 part 'prescription.g.dart';
 
-@freezed
-class Patients with _$Patients {
-  const factory Patients({
-    @Default({}) final Map<String, Patient> cache,
-  }) = _Patients;
-
-  factory Patients.fromJson(Map<String, dynamic> json) =>
-      _$PatientsFromJson(json);
-}
-
 typedef MR = String;
 
 @freezed
-class Patient with _$Patient {
+class Patient extends ID with _$Patient {
   const factory Patient({
     required final DateTime arrivalAt,
     @Default("") final MR id,

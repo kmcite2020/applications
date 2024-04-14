@@ -102,6 +102,10 @@ class TransactionsPage extends UI {
           );
         },
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.add_box),
+      ),
     );
   }
 }

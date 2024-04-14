@@ -1,6 +1,6 @@
 import '../../main.dart';
 
-class PersonsPage extends StatelessWidget {
+class PersonsPage extends UI {
   const PersonsPage({super.key});
 
   @override
@@ -54,6 +54,10 @@ class PersonsPage extends StatelessWidget {
             ],
           );
         },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.add_circle),
       ),
     );
   }

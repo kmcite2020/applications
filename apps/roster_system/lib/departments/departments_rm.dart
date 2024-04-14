@@ -2,11 +2,11 @@ import '../main.dart';
 
 final departmentsRM = RM.inject(
   () => Departments(),
-  persist: () => PersistState(
-    key: 'departments',
-    toJson: (state) => jsonEncode(state.toJson()),
-    fromJson: (json) => Departments.fromJson(jsonDecode(json)),
-  ),
+  // persist: () => PersistState(
+  //   key: 'departments',
+  //   toJson: (state) => jsonEncode(state.toJson()),
+  //   fromJson: (json) => Departments.fromJson(jsonDecode(json)),
+  // ),
 );
 Departments get departments => departmentsRM.state;
 set departments(Departments newState) => departments = newState;

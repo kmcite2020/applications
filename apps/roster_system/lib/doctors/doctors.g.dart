@@ -7,7 +7,7 @@ part of 'doctors.dart';
 // **************************************************************************
 
 _$DoctorImpl _$$DoctorImplFromJson(Map<String, dynamic> json) => _$DoctorImpl(
-      id: json['id'] as String,
+      id: json['id'] as String? ?? '',
       name: json['name'] as String? ?? '',
       gender:
           $enumDecodeNullable(_$GenderEnumMap, json['gender']) ?? Gender.male,
@@ -36,16 +36,3 @@ const _$GenderEnumMap = {
   Gender.male: 'male',
   Gender.female: 'female',
 };
-
-_$DoctorsImpl _$$DoctorsImplFromJson(Map<String, dynamic> json) =>
-    _$DoctorsImpl(
-      cache: (json['cache'] as Map<String, dynamic>?)?.map(
-            (k, e) => MapEntry(k, Doctor.fromJson(e)),
-          ) ??
-          const <String, Doctor>{},
-    );
-
-Map<String, dynamic> _$$DoctorsImplToJson(_$DoctorsImpl instance) =>
-    <String, dynamic>{
-      'cache': instance.cache,
-    };

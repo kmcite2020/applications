@@ -9,18 +9,23 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.6
-  manager:
-    path: D://FLUTTER//applications//apps//manager
-  states_rebuilder: ^6.4.0
+  # manager:
+  #   path: D://FLUTTER//applications//apps//manager
+  # states_rebuilder: ^6.4.0
   flex_color_scheme: ^7.3.1
-  freezed: ^2.4.7
   freezed_annotation: ^2.4.1
   json_annotation: ^4.8.1
-  json_serializable: ^6.7.1
+  flutter_riverpod: ^2.5.1
+  riverpod_annotation: 
+
 
 dev_dependencies:
+  riverpod_generator: ^2.4.0
+  custom_lint: 
+  riverpod_lint: ^2.3.10 
+  json_serializable: ^6.7.1
+  freezed: ^2.4.7
   build_runner: ^2.4.8
-  very_good_analysis: ^5.1.0
 
 flutter:
   uses-material-design: true

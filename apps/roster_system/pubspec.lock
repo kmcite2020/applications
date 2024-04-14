@@ -162,7 +162,7 @@ packages:
     source: hosted
     version: "1.18.0"
   colornames:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: colornames
       sha256: c42ee28edfc65391d7cdb40577c57390e1ea2ff78d73a9983a452a72dacfbdbc

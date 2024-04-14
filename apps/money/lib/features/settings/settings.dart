@@ -31,6 +31,11 @@ class SettingsRM extends Complex<SettingsEvent, Settings> {
   }
 
   @override
+  final persistor = Persistor.freezed(
+    key: 'settings',
+    fromJson: Settings.fromJson,
+  );
+  @override
   Settings get initialState => Settings();
 }
 

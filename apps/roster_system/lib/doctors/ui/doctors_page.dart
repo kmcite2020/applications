@@ -1,5 +1,4 @@
 import 'package:roster_system/doctors/doctors.dart';
-import 'package:roster_system/doctors/doctors_rm.dart';
 import 'package:roster_system/doctors/ui/doctor_page.dart';
 
 import '../../main.dart';
@@ -14,17 +13,17 @@ class DoctorsPage extends UI {
         title: 'DOCTORS'.text(),
       ),
       body: ListView(
-        children: doctors.cache.entries
+        children: doctorsRM()
             .map(
               (doctor) => ListTile(
-                title: doctor.value.name.text(),
+                title: doctor.name.text(),
                 onTap: () {
                   RM.navigate.to(
-                    DoctorPage(id: doctor.key),
+                    DoctorPage(id: doctor.id),
                   );
                 },
                 trailing: IconButton(
-                  onPressed: () => doctors.removeDoctor(doctor.value),
+                  onPressed: () => doctorsRM.delete(doctor),
                   icon: const Icon(Icons.delete),
                 ),
               ),
@@ -33,8 +32,7 @@ class DoctorsPage extends UI {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // doctorsManager.addDoctor();
-          doctors.setDoctor(
+          doctorsRM.save(
             Doctor.init(),
           );
         },

@@ -5,7 +5,15 @@ part 'persons.g.dart';
 
 final personsRM = PersonsRM();
 
-class PersonsRM extends ComplexCollection<Person> {}
+class PersonsRM extends ComplexTable<Person> {
+  @override
+  Persistor<Person>? get valuePersistor {
+    return Persistor.freezed(
+      key: 'persons',
+      fromJson: Person.fromJson,
+    );
+  }
+}
 
 @freezed
 class Person extends ID with _$Person {
@@ -23,9 +31,8 @@ class Person extends ID with _$Person {
       .toList();
 
   int get total => transactions.fold(
-        0,
-        (previousValue, eachTransaction) =>
-            previousValue + eachTransaction.amount,
-      );
+      0,
+      (previousValue, eachTransaction) =>
+          previousValue + eachTransaction.amount);
   factory Person.fromJson(json) => _$PersonFromJson(json);
 }

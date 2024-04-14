@@ -6,19 +6,6 @@ part of 'prescription.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$PatientsImpl _$$PatientsImplFromJson(Map<String, dynamic> json) =>
-    _$PatientsImpl(
-      cache: (json['cache'] as Map<String, dynamic>?)?.map(
-            (k, e) => MapEntry(k, Patient.fromJson(e)),
-          ) ??
-          const {},
-    );
-
-Map<String, dynamic> _$$PatientsImplToJson(_$PatientsImpl instance) =>
-    <String, dynamic>{
-      'cache': instance.cache,
-    };
-
 _$PatientImpl _$$PatientImplFromJson(Map<String, dynamic> json) =>
     _$PatientImpl(
       arrivalAt: DateTime.parse(json['arrivalAt'] as String),

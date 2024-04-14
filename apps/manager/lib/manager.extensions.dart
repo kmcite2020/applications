@@ -1,7 +1,7 @@
 part of 'manager.dart';
 
 extension CapitalizerX on String {
-  String get capitalize {
+  String get capitalizer {
     final firstChar = this[0];
     return firstChar.toUpperCase() + this.substring(1);
   }

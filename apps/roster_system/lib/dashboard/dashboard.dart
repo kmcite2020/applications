@@ -1,3 +1,4 @@
+import 'package:manager/manager.dart';
 import 'package:roster_system/main.dart';
 
 class DashboardPage extends UI {
@@ -8,29 +9,18 @@ class DashboardPage extends UI {
       appBar: AppBar(
         title: 'DASHBOARD'.text(),
       ),
-      body: Builder(
-        builder: (context) {
-          return ListView(
-            children: List.generate(
-              2900,
-              (x) {
-                if (x == 1)
-                  return ElevatedButton(
-                    onPressed: () {
-                      RM.scaffold.showBottomSheet(
-                        BottomSheet(
-                          onClosing: () {},
-                          builder: (context) => Card.filled(),
-                        ),
-                      );
-                    },
-                    child: 'Reserve'.text(),
-                  ).pad();
-                return x.text(textScaleFactor: 5);
-              },
-            ),
-          );
-        },
+      body: ListView(
+        children: List.generate(
+          10,
+          (x) {
+            if (x == 1)
+              return ElevatedButton(
+                onPressed: () {},
+                child: 'Reserve'.text(),
+              ).pad();
+            return x.text(textScaleFactor: 5);
+          },
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
