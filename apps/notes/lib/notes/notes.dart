@@ -1,5 +1,4 @@
 import 'package:manager/manager.dart';
-import 'package:manager/state_manager/collection.dart';
 import 'package:notes/main.dart';
 
 part 'notes.freezed.dart';
@@ -26,20 +25,7 @@ class Note extends ID with _$Note {
   factory Note.fromJson(Map<String, dynamic> json) => _$NoteFromJson(json);
 }
 
-final notesRM = ComplexCollection<Note>(
-  persistor: Persistor(
-    key: 'notes',
-    toJson: (state) => state.map(
-      (key, value) => MapEntry(
-        key,
-        value.toJson(),
-      ),
-    ),
-    fromJson: (json) => json.map(
-      (key, value) => MapEntry(
-        key,
-        Note.fromJson(value),
-      ),
-    ),
-  ),
+final notesRM = ComplexTable(
+  key: 'notes',
+  fromJson: Note.fromJson,
 );

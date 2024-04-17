@@ -1,7 +1,7 @@
 import 'package:notes/main.dart';
 import 'package:notes/notes/note_builder.dart';
 
-final Simplicity<Note?> _editNoteRM = Simplicity(null);
+final Simple<Note?> _editNoteRM = Simple(null);
 
 class EditNotePage extends UI {
   const EditNotePage({super.key, required this.id});

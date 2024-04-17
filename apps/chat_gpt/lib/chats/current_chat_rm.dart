@@ -3,7 +3,6 @@ import 'package:chat_gpt/main.dart';
 final currentChatRM = CurrentChatRM();
 
 class CurrentChatRM extends Manager<Chat?> {
-  @override
   final bool autoDispose = false;
   @override
   final initialState = chatsRM().firstOrNull;
@@ -14,7 +13,7 @@ class CurrentChatRM extends Manager<Chat?> {
   void createQuery(QueryResponseModel model) {}
   void createResponse(QueryResponseModel model) {}
 
-  void delete() => chatsRM.delete(state!);
+  void delete() => chatsRM.delete(state!.id);
 
   void changeTitle(String title) {
     chatsRM(state?.copyWith(title: title));

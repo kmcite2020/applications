@@ -52,9 +52,9 @@ class RegisterPage extends UI {
   }
 }
 
-final registerEmailRM = Simplicity('');
-final registerUserIDRM = Simplicity('');
-final registerPasswordRM = Simplicity('');
+final registerEmailRM = Simple('');
+final registerUserIDRM = Simple('');
+final registerPasswordRM = Simple('');
 
 String? validatePassword(String? password) {
   if (password!.isEmpty) {

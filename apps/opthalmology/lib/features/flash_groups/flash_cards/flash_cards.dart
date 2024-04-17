@@ -1,4 +1,3 @@
-import 'package:manager/state_manager/collection.dart';
 import 'package:opthalmology/features/flash_groups/flash_groups.dart';
 
 import '../../../main.dart';
@@ -6,7 +5,10 @@ import '../../../main.dart';
 part 'flash_cards.freezed.dart';
 part 'flash_cards.g.dart';
 
-final flashCardsRM = ComplexCollection<FlashCard>();
+final flashCardsRM = ComplexTable(
+  key: 'flashCards',
+  fromJson: FlashCard.fromJson,
+);
 
 @freezed
 class FlashCard extends ID with _$FlashCard {
@@ -18,7 +20,7 @@ class FlashCard extends ID with _$FlashCard {
     @Default('') final String explaination,
   }) = _FlashCard;
   const FlashCard._();
-  FlashGroup? get flashGroup => flashGroupsRM.state[flashGroupId];
+  FlashGroup? get flashGroup => flashGroupsRM.tryGet(flashGroupId);
   factory FlashCard.fromJson(Map<String, dynamic> json) =>
       _$FlashCardFromJson(json);
 }

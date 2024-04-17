@@ -50,7 +50,7 @@ class NameUI extends UI {
 
 final isEditingName = false.inj();
 
-final nameRM = Simplicity('initialState');
+final nameRM = Simple('initialState');
 
 class CallableTextField extends UI {
   const CallableTextField({

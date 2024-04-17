@@ -1,56 +1,41 @@
-import 'package:manager/manager.dart';
+part of 'manager.dart';
 
-enum CounterActions { add, minus }
-
-class Store<T, A> extends Base<T> {
-  Store(
-    this.initialState, {
-    required this.modifier,
-  });
-  final T initialState;
-  final T Function(T data, A action) modifier;
-  T call([A? action]) =>
-      action != null ? state = modifier(state, action) : state;
-}
-
-final counterRM = Store(
-  01,
-  modifier: (state, CounterActions action) {
-    return switch (action) {
-      CounterActions.add => state + 1,
-      CounterActions.minus => state - 1,
-    };
-  },
-);
-
-main() {
+void main() {
   runApp(App());
+  doWhenWindowReady(
+    () {
+      final win = appWindow;
+      const initialSize = Size(340, 1032);
+      win.minSize = initialSize;
+      win.size = initialSize;
+      win.title = "Custom window with Flutter";
+      win.alignment = Alignment.centerRight;
+      win.show();
+    },
+  );
 }
 
 class App extends TopUI {
   @override
-  ThemeMode get themeMode => settingsRM();
-  @override
-  MaterialColor get primarySwatch => colorRM();
-
-  @override
   Widget? homePage(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: ListenableBuilder(
-        listenable: storage.listenable(),
-        builder: (_, __) {
-          return Column(
-            children: [
-              Container(
-                height: 500,
-                child: SettingsPage(),
-              ),
-              storage.toMap().text(),
-            ],
-          );
-        },
+      body: Column(
+        children: [
+          usersRM().text(),
+        ],
       ),
     );
   }
+}
+
+final usersRM = ComplexTable(key: 'users', fromJson: User.fromJson);
+
+@freezed
+class User extends ID with _$User {
+  const factory User({
+    @Default('') final String id,
+  }) = _User;
+
+  factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 }

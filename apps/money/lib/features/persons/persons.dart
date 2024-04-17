@@ -3,17 +3,10 @@ import 'package:money/main.dart';
 part 'persons.freezed.dart';
 part 'persons.g.dart';
 
-final personsRM = PersonsRM();
-
-class PersonsRM extends ComplexTable<Person> {
-  @override
-  Persistor<Person>? get valuePersistor {
-    return Persistor.freezed(
-      key: 'persons',
-      fromJson: Person.fromJson,
-    );
-  }
-}
+final personsRM = ComplexTable(
+  key: 'persons',
+  fromJson: Person.fromJson,
+);
 
 @freezed
 class Person extends ID with _$Person {

@@ -23,7 +23,7 @@ class DoctorsPage extends UI {
                   );
                 },
                 trailing: IconButton(
-                  onPressed: () => doctorsRM.delete(doctor),
+                  onPressed: () => doctorsRM.delete(doctor.id),
                   icon: const Icon(Icons.delete),
                 ),
               ),

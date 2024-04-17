@@ -82,7 +82,7 @@ class StudyTimerPage extends UI {
                       subtitle: eachSession.startedOn.date().text(),
                       trailing: IconButton(
                         onPressed: () {
-                          sessionsRM.delete(eachSession);
+                          sessionsRM.delete(eachSession.id);
                         },
                         icon: Icon(Icons.delete_forever),
                       ),

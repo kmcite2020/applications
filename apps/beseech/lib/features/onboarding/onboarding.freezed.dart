@@ -140,7 +140,7 @@ class __$$OnboardingImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$OnboardingImpl extends _Onboarding with DiagnosticableTreeMixin {
+class _$OnboardingImpl extends _Onboarding {
   _$OnboardingImpl(
       {required this.onboardingPageIndex, required this.isOnboardingComplete})
       : super._();
@@ -154,17 +154,8 @@ class _$OnboardingImpl extends _Onboarding with DiagnosticableTreeMixin {
   final bool isOnboardingComplete;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'Onboarding.raw(onboardingPageIndex: $onboardingPageIndex, isOnboardingComplete: $isOnboardingComplete)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'Onboarding.raw'))
-      ..add(DiagnosticsProperty('onboardingPageIndex', onboardingPageIndex))
-      ..add(DiagnosticsProperty('isOnboardingComplete', isOnboardingComplete));
   }
 
   @override

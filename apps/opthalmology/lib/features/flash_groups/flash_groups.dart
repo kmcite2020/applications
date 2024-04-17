@@ -1,9 +1,11 @@
-import 'package:manager/state_manager/collection.dart';
 import 'package:opthalmology/main.dart';
 part 'flash_groups.freezed.dart';
 part 'flash_groups.g.dart';
 
-final flashGroupsRM = ComplexCollection<FlashGroup>();
+final flashGroupsRM = ComplexTable<FlashGroup>(
+  key: 'flashGroups',
+  fromJson: FlashGroup.fromJson,
+);
 
 @freezed
 class FlashGroup extends ID with _$FlashGroup {

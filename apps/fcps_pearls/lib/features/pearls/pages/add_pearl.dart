@@ -1,7 +1,7 @@
 import '../../../main.dart';
 
 class AddPearlPage extends UI {
-  final pearlRM = Simplicity(Pearl());
+  final pearlRM = Simple(Pearl());
   // RM.inject(Pearl.new);
   Pearl get pearl => pearlRM.state;
   void setPearl(Pearl _) => pearlRM.state = _;

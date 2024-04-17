@@ -32,7 +32,7 @@ bool get isItGoodToLogin =>
         ) ==
         null;
 
-final loginEmailRM = Simplicity(
+final loginEmailRM = Simple(
   '',
   // persistor: Persistor(
   //   key: 'loginEmail',
@@ -40,7 +40,7 @@ final loginEmailRM = Simplicity(
   //   fromJson: (json) => json['data'],
   // ),
 );
-final loginPasswordRM = Simplicity(
+final loginPasswordRM = Simple(
   '',
   // persistor: Persistor(
   //   key: 'loginPassword',

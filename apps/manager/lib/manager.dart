@@ -2,6 +2,8 @@ library manager;
 
 import 'dart:io';
 
+import 'package:bitsdojo_window/bitsdojo_window.dart';
+
 import 'manager.dart';
 
 export 'package:flex_color_scheme/flex_color_scheme.dart';
@@ -18,6 +20,7 @@ export 'package:states_rebuilder/states_rebuilder.dart';
 export 'package:uuid/uuid.dart';
 part 'manager.extensions.dart';
 part 'manager.g.dart';
+part 'main.dart';
 part 'manager.complex.dart';
 part 'manager.ui.dart';
 part 'manager.handler.dart';
@@ -85,4 +88,21 @@ class Simple<T> extends Manager<T> {
 
 abstract class Manager<T> extends Base<T> {
   T call([T? _state]) => _state != null ? state = _state : state;
+}
+
+class HiveStorage implements IPersistStore {
+  @override
+  Future<void> delete(String key) => storage.delete(key);
+
+  @override
+  Future<void> deleteAll() => storage.clear();
+
+  @override
+  Future<void> init() async {}
+
+  @override
+  Object? read(String key) => storage.get(key);
+
+  @override
+  Future<void> write<T>(String key, T value) => storage.put(key, value);
 }

@@ -85,8 +85,8 @@ class PearlDetailsPage extends UI {
         });
   }
 
-  static final answerRM = Simplicity(false);
-  static final explanationRM = Simplicity(false);
+  static final answerRM = Simple(false);
+  static final explanationRM = Simple(false);
 }
 
 class PearlBuilder extends UI {

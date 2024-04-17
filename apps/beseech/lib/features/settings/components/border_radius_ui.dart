@@ -10,7 +10,7 @@ class BorderRadiusUI extends UI {
         'Border Radius'.text().pad(),
         Slider(
           value: settingsRM.state.borderRadius,
-          onChanged: (_) => settingsRM.add(SettingsEvent.borderRadius(_)),
+          onChanged: (_) => settingsRM(SettingsEvent.borderRadius(_)),
         ).pad(),
       ],
     ).card();

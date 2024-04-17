@@ -18,7 +18,7 @@ export 'package:money/features/settings/settings_page.dart';
 export 'package:money/features/core/font_family.dart';
 export 'package:states_rebuilder/states_rebuilder.dart';
 export 'package:uuid/uuid.dart';
-export 'package:manager/manager.dart';
+export 'package:manager/manager.dart' hide Flow;
 export 'package:money/features/dashboard/dashboard.dart';
 export 'package:money/features/persons/person_page.dart';
 export 'package:money/features/persons/persons.dart';

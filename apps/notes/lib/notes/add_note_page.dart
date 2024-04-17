@@ -1,6 +1,6 @@
 import 'package:notes/main.dart';
 
-final noteRM = Simplicity(Note());
+final noteRM = Simple(Note());
 
 class AddNotePage extends UI {
   @override

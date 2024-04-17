@@ -104,7 +104,7 @@ class __$$PrayerImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PrayerImpl with DiagnosticableTreeMixin implements _Prayer {
+class _$PrayerImpl implements _Prayer {
   const _$PrayerImpl({this.id = '', this.count = 0});
 
   factory _$PrayerImpl.fromJson(Map<String, dynamic> json) =>
@@ -118,17 +118,8 @@ class _$PrayerImpl with DiagnosticableTreeMixin implements _Prayer {
   final int count;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'Prayer(id: $id, count: $count)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'Prayer'))
-      ..add(DiagnosticsProperty('id', id))
-      ..add(DiagnosticsProperty('count', count));
   }
 
   @override

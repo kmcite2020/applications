@@ -136,7 +136,7 @@ class __$$SettingsImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SettingsImpl with DiagnosticableTreeMixin implements _Settings {
+class _$SettingsImpl implements _Settings {
   const _$SettingsImpl(
       {this.viewMode = ViewMode.list,
       this.themeMode = ThemeMode.system,
@@ -160,19 +160,8 @@ class _$SettingsImpl with DiagnosticableTreeMixin implements _Settings {
   final double padding;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'Settings(viewMode: $viewMode, themeMode: $themeMode, borderRadius: $borderRadius, padding: $padding)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'Settings'))
-      ..add(DiagnosticsProperty('viewMode', viewMode))
-      ..add(DiagnosticsProperty('themeMode', themeMode))
-      ..add(DiagnosticsProperty('borderRadius', borderRadius))
-      ..add(DiagnosticsProperty('padding', padding));
   }
 
   @override

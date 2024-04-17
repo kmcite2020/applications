@@ -6,15 +6,10 @@ part 'doctors.g.dart';
 
 enum Gender { male, female }
 
-final doctorsRM = DoctorsRM();
-
-final class DoctorsRM extends ComplexTable<Doctor> {
-  @override
-  final valuePersistor = Persistor.freezed(
-    key: 'doctors',
-    fromJson: Doctor.fromJson,
-  );
-}
+final doctorsRM = ComplexTable<Doctor>(
+  key: 'doctors',
+  fromJson: Doctor.fromJson,
+);
 
 @freezed
 class Doctor extends ID with _$Doctor {

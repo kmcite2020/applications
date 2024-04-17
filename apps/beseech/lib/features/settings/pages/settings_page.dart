@@ -23,14 +23,14 @@ class SettingsPage extends UI {
           Slider(
             // name: 'Border Radius',
             value: settingsRM.state.borderRadius,
-            onChanged: (_) => settingsRM.add(SettingsEvent.borderRadius(_)),
+            onChanged: (_) => settingsRM(SettingsEvent.borderRadius(_)),
             min: 0,
             max: 30,
           ).pad(),
           Slider(
             // name: 'Padding',
             value: settingsRM.state.padding,
-            onChanged: (_) => settingsRM.add(SettingsEvent.padding(_)),
+            onChanged: (_) => settingsRM(SettingsEvent.padding(_)),
             min: 4,
             max: 10,
           ).pad(),

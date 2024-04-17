@@ -5,7 +5,10 @@ import 'package:batteries/main.dart';
 part 'battery.freezed.dart';
 part 'battery.g.dart';
 
-final batteriesRM = ComplexCollection<Battery>();
+final batteriesRM = ComplexTable<Battery>(
+  key: 'batteries',
+  fromJson: Battery.fromJson,
+);
 
 @freezed
 class Battery extends ID with _$Battery {

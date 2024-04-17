@@ -29,17 +29,21 @@ extension WidgetExtensions on Widget {
   }
 
   Widget center() => Center(child: this);
+
   Widget card() => Card(child: this);
 }
 
 extension DateTimeExtensions on DateTime {
   String time() => '';
+
   String date() {
     return "$day/$month/$year";
   }
 
   String get day => this.day.toString();
+
   String get month => this.month.toString();
+
   String get year => this.year.toString();
 }
 
@@ -67,5 +71,7 @@ class Uint8ListConvertor implements JsonConverter<Uint8List, String> {
 
 abstract class ID {
   const ID();
+
   String get id;
+// Map<String, dynamic> toJson();
 }

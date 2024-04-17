@@ -114,20 +114,12 @@ class __$$SettingsEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SettingsEventImpl
-    with DiagnosticableTreeMixin
-    implements _SettingsEvent {
+class _$SettingsEventImpl implements _SettingsEvent {
   const _$SettingsEventImpl();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'SettingsEvent()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'SettingsEvent'));
   }
 
   @override
@@ -263,25 +255,15 @@ class __$$SettingsEventThemeModeImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SettingsEventThemeModeImpl
-    with DiagnosticableTreeMixin
-    implements _SettingsEventThemeMode {
+class _$SettingsEventThemeModeImpl implements _SettingsEventThemeMode {
   const _$SettingsEventThemeModeImpl(this.themeMode);
 
   @override
   final ThemeMode themeMode;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'SettingsEvent.themeMode(themeMode: $themeMode)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'SettingsEvent.themeMode'))
-      ..add(DiagnosticsProperty('themeMode', themeMode));
   }
 
   @override
@@ -433,9 +415,7 @@ class __$$SettingsEventMaterialColorImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SettingsEventMaterialColorImpl
-    with DiagnosticableTreeMixin
-    implements _SettingsEventMaterialColor {
+class _$SettingsEventMaterialColorImpl implements _SettingsEventMaterialColor {
   const _$SettingsEventMaterialColorImpl(
       @MaterialColorConverter() this.materialColor);
 
@@ -444,16 +424,8 @@ class _$SettingsEventMaterialColorImpl
   final MaterialColor materialColor;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'SettingsEvent.materialColor(materialColor: $materialColor)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'SettingsEvent.materialColor'))
-      ..add(DiagnosticsProperty('materialColor', materialColor));
   }
 
   @override
@@ -607,25 +579,15 @@ class __$$SettingsEventBorderRadiusImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SettingsEventBorderRadiusImpl
-    with DiagnosticableTreeMixin
-    implements _SettingsEventBorderRadius {
+class _$SettingsEventBorderRadiusImpl implements _SettingsEventBorderRadius {
   const _$SettingsEventBorderRadiusImpl(this.borderRadius);
 
   @override
   final double borderRadius;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'SettingsEvent.borderRadius(borderRadius: $borderRadius)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'SettingsEvent.borderRadius'))
-      ..add(DiagnosticsProperty('borderRadius', borderRadius));
   }
 
   @override
@@ -775,25 +737,15 @@ class __$$SettingsEventPaddingImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SettingsEventPaddingImpl
-    with DiagnosticableTreeMixin
-    implements _SettingsEventPadding {
+class _$SettingsEventPaddingImpl implements _SettingsEventPadding {
   const _$SettingsEventPaddingImpl(this.padding);
 
   @override
   final double padding;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'SettingsEvent.padding(padding: $padding)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'SettingsEvent.padding'))
-      ..add(DiagnosticsProperty('padding', padding));
   }
 
   @override
@@ -1034,9 +986,7 @@ class __$$SettingsStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SettingsStateImpl
-    with DiagnosticableTreeMixin
-    implements _SettingsState {
+class _$SettingsStateImpl implements _SettingsState {
   const _$SettingsStateImpl(
       {this.borderRadius = 8,
       this.padding = 8,
@@ -1061,19 +1011,8 @@ class _$SettingsStateImpl
   final MaterialColor materialColor;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'SettingsState(borderRadius: $borderRadius, padding: $padding, themeMode: $themeMode, materialColor: $materialColor)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'SettingsState'))
-      ..add(DiagnosticsProperty('borderRadius', borderRadius))
-      ..add(DiagnosticsProperty('padding', padding))
-      ..add(DiagnosticsProperty('themeMode', themeMode))
-      ..add(DiagnosticsProperty('materialColor', materialColor));
   }
 
   @override

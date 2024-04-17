@@ -12,7 +12,7 @@ Future<void> editFlashGroupName(String flashGroupId) async {
     ),
   );
   if (name != null) {
-    final flashGroup = flashGroupsRM.state[flashGroupId];
+    final flashGroup = flashGroupsRM.tryGet(flashGroupId);
     if (flashGroup != null) {
       flashGroupsRM.save(
         flashGroup.copyWith(name: name),
@@ -39,7 +39,7 @@ Future<void> editFlashCardGroup(String flashCardId) async {
     ),
   );
   if (flashGroup != null) {
-    final flashCard = flashCardsRM.state[flashCardId];
+    final flashCard = flashCardsRM.tryGet(flashCardId);
     if (flashCard != null) {
       flashCardsRM.save(
         flashCard.copyWith(flashGroupId: flashGroup.id),
@@ -120,7 +120,7 @@ class FlashGroupBuilder extends UI {
   });
   @override
   Widget build(BuildContext context) {
-    final flashGroup = flashGroupsRM.state[flashGroupId];
+    final flashGroup = flashGroupsRM.tryGet(flashGroupId);
     return builder(flashGroup);
   }
 }
@@ -135,7 +135,7 @@ class FlashCardBuilder extends UI {
   });
   @override
   Widget build(BuildContext context) {
-    final flashCard = flashCardsRM.state[flashCardId];
+    final flashCard = flashCardsRM.tryGet(flashCardId);
     return builder(flashCard);
   }
 }

@@ -1,5 +1,4 @@
 import 'package:chat_gpt/main.dart';
-import 'package:manager/state_manager/collection.dart';
 
 part 'chats.freezed.dart';
 part 'chats.g.dart';
@@ -15,4 +14,4 @@ class Chat extends ID with _$Chat {
   factory Chat.fromJson(Map<String, dynamic> json) => _$ChatFromJson(json);
 }
 
-final chatsRM = ComplexCollection<Chat>();
+final chatsRM = ComplexTable<Chat>(key: 'chats', fromJson: Chat.fromJson);

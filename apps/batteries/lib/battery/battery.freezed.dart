@@ -161,7 +161,7 @@ class __$$BatteryImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$BatteryImpl with DiagnosticableTreeMixin implements _Battery {
+class _$BatteryImpl implements _Battery {
   const _$BatteryImpl(
       {this.id = '',
       this.brandName = '',
@@ -194,21 +194,8 @@ class _$BatteryImpl with DiagnosticableTreeMixin implements _Battery {
   final String price;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'Battery(id: $id, brandName: $brandName, capacity: $capacity, voltage: $voltage, technologyType: $technologyType, price: $price)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'Battery'))
-      ..add(DiagnosticsProperty('id', id))
-      ..add(DiagnosticsProperty('brandName', brandName))
-      ..add(DiagnosticsProperty('capacity', capacity))
-      ..add(DiagnosticsProperty('voltage', voltage))
-      ..add(DiagnosticsProperty('technologyType', technologyType))
-      ..add(DiagnosticsProperty('price', price));
   }
 
   @override

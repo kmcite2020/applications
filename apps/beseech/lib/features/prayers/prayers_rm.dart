@@ -1,5 +1,3 @@
-import 'package:manager/state_manager/collection.dart';
-
 import 'package:beseech/main.dart';
 
 part 'prayers_rm.freezed.dart';
@@ -7,20 +5,20 @@ part 'prayers_rm.g.dart';
 
 final prayersRM = PrayersRM();
 
-class PrayersRM extends ComplexCollection<Prayer> {
+class PrayersRM extends ComplexTable<Prayer> {
   static const fajrID = 'fajr';
   static const zuhrID = 'zuhr';
   static const asarID = 'asar';
   static const maghribID = 'maghrib';
   static const ishaID = 'isha';
-  PrayersRM() {
+  PrayersRM() : super(key: '', fromJson: Prayer.fromJson) {
     save(Prayer(id: fajrID));
     save(Prayer(id: zuhrID));
     save(Prayer(id: asarID));
     save(Prayer(id: maghribID));
     save(Prayer(id: ishaID));
   }
-  int get all => state.values.fold(
+  int get all => this().fold(
         0,
         (
           previousValue,

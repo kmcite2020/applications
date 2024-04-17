@@ -13,7 +13,7 @@ dependencies:
   colornames: 
   flutter_native_splash: ^2.3.10 
   path_provider: ^2.1.2
-  flex_color_scheme:
+  flex_color_scheme: ^7.3.1
   path: 
   uuid: ^4.3.3  
   dynamic_color: 
@@ -24,5 +24,6 @@ dependencies:
   json_serializable: ^6.7.1 
   freezed: ^2.4.7  
   analyzer: ^6.4.1  
+  bitsdojo_window: ^0.1.6
 flutter:
   uses-material-design: true

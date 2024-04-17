@@ -1,4 +1,3 @@
-import 'package:manager/state_manager/collection.dart';
 import 'package:opthalmology/main.dart';
 
 import '../stats/stats_page.dart';
@@ -12,7 +11,7 @@ Stream<int> ticker() {
 
 enum SessionStatus { none, isInitial, isPaused, isRunning, isCompleted }
 
-final sessionsRM = ComplexCollection<Session>();
+final sessionsRM = ComplexTable(key: 'sessions', fromJson: Session.fromJson);
 
 List<Day> get lsd => sessionsRM()
     .map(

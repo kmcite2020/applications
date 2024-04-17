@@ -3,7 +3,9 @@ part of 'manager.dart';
 /// UI
 abstract class TopUI extends TopStatelessWidget {
   double get borderRadius => 8;
+
   MaterialColor get primarySwatch => Colors.brown;
+
   ThemeData get theme {
     return FlexThemeData.light(
       colorScheme: ColorScheme.fromSwatch(
@@ -26,11 +28,17 @@ abstract class TopUI extends TopStatelessWidget {
   }
 
   ThemeMode get themeMode => ThemeMode.system;
+
   Widget? homePage(BuildContext context);
+
   @override
   List<FutureOr<void>>? ensureInitialization() => [
         storageRM.initializeState(),
+        RM.storageInitializer(HiveStorage()),
+        RM.deleteAllPersistState(),
+        storageRM.initializeState(),
       ];
+
   @override
   Widget? splashScreen() => CircularProgressIndicator().center();
 
@@ -70,73 +78,73 @@ final storageRM = RM.injectFuture(
 /// PERSISTENCE and STORAGE
 Box get storage => storageRM.state;
 
-class SettingsPage extends UI {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          DropdownButtonFormField(
-            value: settingsRM(),
-            items: ThemeMode.values.map(
-              (eachThemeMode) {
-                return DropdownMenuItem(
-                  value: eachThemeMode,
-                  child: eachThemeMode.name.capitalizer.text(),
-                );
-              },
-            ).toList(),
-            onChanged: settingsRM.call,
-          ).pad(),
-          DropdownButtonFormField(
-            value: colorRM(),
-            items: Colors.primaries.map(
-              (eachThemeMode) {
-                return DropdownMenuItem(
-                  value: eachThemeMode,
-                  child: eachThemeMode.colorName.text(),
-                );
-              },
-            ).toList(),
-            onChanged: colorRM.call,
-          ).pad(),
-          ElevatedButton(
-            onPressed: storage.isEmpty ? null : storage.clear,
-            child: storage.name.text(),
-          ).pad(),
-        ],
-      ),
-    );
-  }
-}
+// class SettingsPage extends UI {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: Column(
+//         crossAxisAlignment: CrossAxisAlignment.stretch,
+//         children: [
+//           DropdownButtonFormField(
+//             value: settingsRM(),
+//             items: ThemeMode.values.map(
+//               (eachThemeMode) {
+//                 return DropdownMenuItem(
+//                   value: eachThemeMode,
+//                   child: eachThemeMode.name.capitalizer.text(),
+//                 );
+//               },
+//             ).toList(),
+//             onChanged: settingsRM.call,
+//           ).pad(),
+//           DropdownButtonFormField(
+//             value: colorRM(),
+//             items: Colors.primaries.map(
+//               (eachThemeMode) {
+//                 return DropdownMenuItem(
+//                   value: eachThemeMode,
+//                   child: eachThemeMode.colorName.text(),
+//                 );
+//               },
+//             ).toList(),
+//             onChanged: colorRM.call,
+//           ).pad(),
+//           ElevatedButton(
+//             onPressed: storage.isEmpty ? null : storage.clear,
+//             child: storage.name.text(),
+//           ).pad(),
+//         ],
+//       ),
+//     );
+//   }
+// }
 
-final settingsRM = Simple<ThemeMode>(
-  ThemeMode.system,
-  persistor: Persistor.list('themeMode', values: ThemeMode.values),
-);
-final colorRM = Simple(
-  Colors.amber,
-  persistor: Persistor.list(
-    'color',
-    values: Colors.primaries,
-  ),
-);
+// final settingsRM = Simple<ThemeMode>(
+//   ThemeMode.system,
+//   persistor: Persistor.list('themeMode', values: ThemeMode.values),
+// );
+// final colorRM = Simple(
+//   Colors.amber,
+//   persistor: Persistor.list(
+//     'color',
+//     values: Colors.primaries,
+//   ),
+// );
 
-class ClearStorageButton extends UI {
-  const ClearStorageButton({super.key});
+// class ClearStorageButton extends UI {
+//   const ClearStorageButton({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return ListenableBuilder(
-      listenable: storage.listenable(),
-      builder: (context, cachedChild) {
-        return ElevatedButton(
-          onPressed: storage.isEmpty ? null : storage.clear,
-          child: cachedChild,
-        ).pad();
-      },
-      child: storage.name.text(),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return ListenableBuilder(
+//       listenable: storage.listenable(),
+//       builder: (context, cachedChild) {
+//         return ElevatedButton(
+//           onPressed: storage.isEmpty ? null : storage.clear,
+//           child: cachedChild,
+//         ).pad();
+//       },
+//       child: storage.name.text(),
+//     );
+//   }
+// }

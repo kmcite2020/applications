@@ -196,7 +196,7 @@ class __$$NoteImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$NoteImpl with DiagnosticableTreeMixin implements _Note {
+class _$NoteImpl implements _Note {
   const _$NoteImpl(
       {this.id = '',
       this.title = '',
@@ -226,21 +226,8 @@ class _$NoteImpl with DiagnosticableTreeMixin implements _Note {
   final DateTime timeCreated;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'Note.internal(id: $id, title: $title, details: $details, noteStatus: $noteStatus, dueDate: $dueDate, timeCreated: $timeCreated)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'Note.internal'))
-      ..add(DiagnosticsProperty('id', id))
-      ..add(DiagnosticsProperty('title', title))
-      ..add(DiagnosticsProperty('details', details))
-      ..add(DiagnosticsProperty('noteStatus', noteStatus))
-      ..add(DiagnosticsProperty('dueDate', dueDate))
-      ..add(DiagnosticsProperty('timeCreated', timeCreated));
   }
 
   @override

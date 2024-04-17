@@ -89,7 +89,7 @@ class TransactionsPage extends UI {
                             .toList(),
                       ),
                       IconButton(
-                        onPressed: () => transactionsRM.delete(transaction),
+                        onPressed: () => transactionsRM.delete(transaction.id),
                         icon: Icon(Icons.delete),
                       ),
                     ],

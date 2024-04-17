@@ -190,7 +190,7 @@ class __$$ApplicationImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ApplicationImpl extends _Application with DiagnosticableTreeMixin {
+class _$ApplicationImpl extends _Application {
   const _$ApplicationImpl(
       {required this.settings, required this.onboarding, required this.appUser})
       : super._();
@@ -206,18 +206,8 @@ class _$ApplicationImpl extends _Application with DiagnosticableTreeMixin {
   final AppUser appUser;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'Application.raw(settings: $settings, onboarding: $onboarding, appUser: $appUser)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'Application.raw'))
-      ..add(DiagnosticsProperty('settings', settings))
-      ..add(DiagnosticsProperty('onboarding', onboarding))
-      ..add(DiagnosticsProperty('appUser', appUser));
   }
 
   @override

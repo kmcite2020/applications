@@ -44,7 +44,7 @@ class BatteryUI extends UI {
               ),
               trailing: IconButton.filledTonal(
                 onPressed: () {
-                  batteriesRM.delete(battery);
+                  batteriesRM.delete(battery.id);
                 },
                 icon: const Icon(Icons.delete_forever),
               ),

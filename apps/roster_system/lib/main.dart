@@ -1,5 +1,7 @@
 export 'dart:async';
 
+import 'package:roster_system/dashboard/dashboard.dart';
+
 import 'main.dart';
 export 'package:roster_system/settings/settings_page.dart';
 export 'package:roster_system/departments/departments.dart';
@@ -20,5 +22,5 @@ class App extends TopUI {
   @override
   MaterialColor get primarySwatch => settingsRM().materialColor;
   @override
-  Widget homePage(BuildContext context) => SettingsPage();
+  Widget homePage(BuildContext context) => DashboardPage();
 }

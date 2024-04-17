@@ -32,7 +32,7 @@ class NoteDetailsPage extends UI {
                     child: 'Edit Note'.text(),
                   ).pad(),
                   ElevatedButton(
-                    onPressed: () => notesRM.delete(note),
+                    onPressed: () => notesRM.delete(note.id),
                     child: 'Delete Note'.text(),
                   ).pad(),
                 ],

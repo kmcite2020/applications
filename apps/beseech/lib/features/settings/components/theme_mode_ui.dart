@@ -18,7 +18,7 @@ class ThemeModeUI extends UI {
                 ),
               )
               .toList(),
-          onChanged: (_) => settingsRM.add(SettingsEvent.themeMode(_!)),
+          onChanged: (_) => settingsRM(SettingsEvent.themeMode(_!)),
         ).pad(),
       ],
     ).card();

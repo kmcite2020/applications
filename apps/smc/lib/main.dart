@@ -21,11 +21,11 @@ void main() => runApp(App());
 
 class App extends TopUI {
   final dependencies = [
-    Future.value(
-      () => FlutterNativeSplash.preserve(
-        widgetsBinding: WidgetsFlutterBinding.ensureInitialized(),
-      ),
-    ),
+    // Future.value(
+    //   () => FlutterNativeSplash.preserve(
+    //     widgetsBinding: WidgetsFlutterBinding.ensureInitialized(),
+    //   ),
+    // ),
     Future.delayed(
       1000.milliseconds,
       () => RM.storageInitializer(HiveStorage()),

@@ -55,7 +55,7 @@ class PearlsPage extends UI {
 
 enum PearlPage { pearls, editPearl, pearlDetails }
 
-final pearlsPageRM = Simplicity(PearlPageState(page: PearlPage.pearls));
+final pearlsPageRM = Simple(PearlPageState(page: PearlPage.pearls));
 
 @freezed
 class PearlPageState with _$PearlPageState {

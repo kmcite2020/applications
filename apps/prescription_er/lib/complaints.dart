@@ -1,4 +1,3 @@
-import 'package:prescription_er/core.dart';
 import 'package:prescription_er/main.dart';
 import 'package:prescription_er/prescriptions/patients_rm.dart';
 

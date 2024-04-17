@@ -1,4 +1,5 @@
 import 'package:manager/manager.dart';
+import 'package:roster_system/doctors/ui/doctors_page.dart';
 import 'package:roster_system/main.dart';
 
 class DashboardPage extends UI {
@@ -9,18 +10,23 @@ class DashboardPage extends UI {
       appBar: AppBar(
         title: 'DASHBOARD'.text(),
       ),
-      body: ListView(
-        children: List.generate(
-          10,
-          (x) {
-            if (x == 1)
-              return ElevatedButton(
-                onPressed: () {},
-                child: 'Reserve'.text(),
-              ).pad();
-            return x.text(textScaleFactor: 5);
-          },
-        ),
+      body: [
+        DoctorsPage(),
+        DepartmentsPage(),
+      ][index()],
+      bottomNavigationBar: NavigationBar(
+        selectedIndex: index(),
+        onDestinationSelected: index.call,
+        destinations: [
+          NavigationDestination(
+            icon: Icon(Icons.dock),
+            label: 'Doctors',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.departure_board),
+            label: 'Departments',
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
@@ -28,3 +34,5 @@ class DashboardPage extends UI {
     );
   }
 }
+
+final index = Simple(0);

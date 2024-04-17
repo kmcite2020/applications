@@ -118,9 +118,7 @@ class __$$QueryResponseModelImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$QueryResponseModelImpl
-    with DiagnosticableTreeMixin
-    implements _QueryResponseModel {
+class _$QueryResponseModelImpl implements _QueryResponseModel {
   const _$QueryResponseModelImpl(
       {required this.cardType, required this.content, required this.dateTime});
 
@@ -135,18 +133,8 @@ class _$QueryResponseModelImpl
   final DateTime dateTime;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'QueryResponseModel(cardType: $cardType, content: $content, dateTime: $dateTime)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'QueryResponseModel'))
-      ..add(DiagnosticsProperty('cardType', cardType))
-      ..add(DiagnosticsProperty('content', content))
-      ..add(DiagnosticsProperty('dateTime', dateTime));
   }
 
   @override

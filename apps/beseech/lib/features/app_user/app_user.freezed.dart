@@ -133,25 +133,15 @@ class __$$AppUserEventSetDateOfBirthImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AppUserEventSetDateOfBirthImpl
-    with DiagnosticableTreeMixin
-    implements _AppUserEventSetDateOfBirth {
+class _$AppUserEventSetDateOfBirthImpl implements _AppUserEventSetDateOfBirth {
   const _$AppUserEventSetDateOfBirthImpl(this.dateOfBirth);
 
   @override
   final DateTime dateOfBirth;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'AppUserEvent.setDateOfBirth(dateOfBirth: $dateOfBirth)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'AppUserEvent.setDateOfBirth'))
-      ..add(DiagnosticsProperty('dateOfBirth', dateOfBirth));
   }
 
   @override
@@ -307,7 +297,6 @@ class __$$AppUserEventSetAgeBaredOrExplicitImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AppUserEventSetAgeBaredOrExplicitImpl
-    with DiagnosticableTreeMixin
     implements _AppUserEventSetAgeBaredOrExplicit {
   const _$AppUserEventSetAgeBaredOrExplicitImpl(this.ageBasedOrExplicit);
 
@@ -315,16 +304,8 @@ class _$AppUserEventSetAgeBaredOrExplicitImpl
   final bool ageBasedOrExplicit;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'AppUserEvent.setAgeBasedOrExplicit(ageBasedOrExplicit: $ageBasedOrExplicit)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'AppUserEvent.setAgeBasedOrExplicit'))
-      ..add(DiagnosticsProperty('ageBasedOrExplicit', ageBasedOrExplicit));
   }
 
   @override
@@ -482,7 +463,6 @@ class __$$AppUserEventSetDateOfPubertyExplicitImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AppUserEventSetDateOfPubertyExplicitImpl
-    with DiagnosticableTreeMixin
     implements _AppUserEventSetDateOfPubertyExplicit {
   const _$AppUserEventSetDateOfPubertyExplicitImpl(this.dateOfPuberty);
 
@@ -490,17 +470,8 @@ class _$AppUserEventSetDateOfPubertyExplicitImpl
   final DateTime dateOfPuberty;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'AppUserEvent.setDateOfPubertyExplicit(dateOfPuberty: $dateOfPuberty)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(
-          DiagnosticsProperty('type', 'AppUserEvent.setDateOfPubertyExplicit'))
-      ..add(DiagnosticsProperty('dateOfPuberty', dateOfPuberty));
   }
 
   @override
@@ -657,25 +628,15 @@ class __$$AppUserEventSetAgeVysorImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AppUserEventSetAgeVysorImpl
-    with DiagnosticableTreeMixin
-    implements _AppUserEventSetAgeVysor {
+class _$AppUserEventSetAgeVysorImpl implements _AppUserEventSetAgeVysor {
   const _$AppUserEventSetAgeVysorImpl(this.ageVysor);
 
   @override
   final AgeVysor? ageVysor;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'AppUserEvent.setAgeVysor(ageVysor: $ageVysor)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'AppUserEvent.setAgeVysor'))
-      ..add(DiagnosticsProperty('ageVysor', ageVysor));
   }
 
   @override
@@ -829,25 +790,15 @@ class __$$AppUserEventSetUserNameImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AppUserEventSetUserNameImpl
-    with DiagnosticableTreeMixin
-    implements _AppUserEventSetUserName {
+class _$AppUserEventSetUserNameImpl implements _AppUserEventSetUserName {
   const _$AppUserEventSetUserNameImpl(this.userName);
 
   @override
   final String userName;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'AppUserEvent.setUserName(userName: $userName)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'AppUserEvent.setUserName'))
-      ..add(DiagnosticsProperty('userName', userName));
   }
 
   @override
@@ -1180,7 +1131,7 @@ class __$$AppUserImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$AppUserImpl extends _AppUser with DiagnosticableTreeMixin {
+class _$AppUserImpl extends _AppUser {
   _$AppUserImpl(
       {this.userName = '',
       this.editing = false,
@@ -1215,22 +1166,8 @@ class _$AppUserImpl extends _AppUser with DiagnosticableTreeMixin {
   final Duration age;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'AppUser.raw(userName: $userName, editing: $editing, ageBasedOrExplicit: $ageBasedOrExplicit, dateOfBirth: $dateOfBirth, dateOfPubertyExplicit: $dateOfPubertyExplicit, ageVysor: $ageVysor, age: $age)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'AppUser.raw'))
-      ..add(DiagnosticsProperty('userName', userName))
-      ..add(DiagnosticsProperty('editing', editing))
-      ..add(DiagnosticsProperty('ageBasedOrExplicit', ageBasedOrExplicit))
-      ..add(DiagnosticsProperty('dateOfBirth', dateOfBirth))
-      ..add(DiagnosticsProperty('dateOfPubertyExplicit', dateOfPubertyExplicit))
-      ..add(DiagnosticsProperty('ageVysor', ageVysor))
-      ..add(DiagnosticsProperty('age', age));
   }
 
   @override
