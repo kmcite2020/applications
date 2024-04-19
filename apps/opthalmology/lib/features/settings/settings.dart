@@ -16,17 +16,16 @@ class Settings with _$Settings {
       _$SettingsFromJson(json);
 }
 
-final settingsRM = SettingsRM();
+final settingsRM = SettingsRM(Settings());
 
-class SettingsRM extends Manager<Settings> {
-  @override
-  final persistor = Persistor.freezed(
-    key: 'settings',
-    fromJson: Settings.fromJson,
-  );
-
-  @override
-  final initialState = Settings();
+class SettingsRM extends Simple<Settings> {
+  SettingsRM(super.initialState)
+      : super(
+          serializer: Serializer(
+            key: 'settings',
+            fromJson: Settings.fromJson,
+          ),
+        );
 
   void setThemeMode(ThemeMode themeMode) {
     state = state.copyWith(themeMode: themeMode);

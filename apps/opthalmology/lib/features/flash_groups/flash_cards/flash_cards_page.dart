@@ -14,7 +14,7 @@ Future<void> editFlashGroupName(String flashGroupId) async {
   if (name != null) {
     final flashGroup = flashGroupsRM.tryGet(flashGroupId);
     if (flashGroup != null) {
-      flashGroupsRM.save(
+      flashGroupsRM(
         flashGroup.copyWith(name: name),
       );
     }
@@ -41,7 +41,7 @@ Future<void> editFlashCardGroup(String flashCardId) async {
   if (flashGroup != null) {
     final flashCard = flashCardsRM.tryGet(flashCardId);
     if (flashCard != null) {
-      flashCardsRM.save(
+      flashCardsRM(
         flashCard.copyWith(flashGroupId: flashGroup.id),
       );
     }

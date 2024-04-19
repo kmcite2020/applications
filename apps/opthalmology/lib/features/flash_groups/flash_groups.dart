@@ -3,12 +3,12 @@ part 'flash_groups.freezed.dart';
 part 'flash_groups.g.dart';
 
 final flashGroupsRM = ComplexTable<FlashGroup>(
-  key: 'flashGroups',
+  'flashGroups',
   fromJson: FlashGroup.fromJson,
 );
 
 @freezed
-class FlashGroup extends ID with _$FlashGroup {
+class FlashGroup with _$FlashGroup {
   const factory FlashGroup({
     @Default('') final String id,
     @Default('') final String name,

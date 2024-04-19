@@ -5,7 +5,7 @@ import '../../main.dart';
 final createNewFlashGroup = () async {
   final flashGroup = await RM.navigate.toDialog(NewFlashGroupDialog());
   if (flashGroup != null) {
-    flashGroupsRM.save(flashGroup.copyWith(id: randomID));
+    flashGroupsRM(flashGroup.copyWith(id: randomID));
   }
 };
 

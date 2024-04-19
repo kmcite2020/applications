@@ -6,12 +6,12 @@ part 'flash_cards.freezed.dart';
 part 'flash_cards.g.dart';
 
 final flashCardsRM = ComplexTable(
-  key: 'flashCards',
+  'flashCards',
   fromJson: FlashCard.fromJson,
 );
 
 @freezed
-class FlashCard extends ID with _$FlashCard {
+class FlashCard with _$FlashCard {
   const factory FlashCard({
     @Default('') final String flashGroupId,
     @Default('') final String id,

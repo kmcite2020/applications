@@ -55,7 +55,7 @@ Future<void> editQuestionOfFlashCard(
 ) async {
   final flashCard = flashCardsRM.state[flashCardId];
   if (flashCard == null) return;
-  flashCardsRM.save(
+  flashCardsRM(
     flashCard.copyWith(question: question),
   );
 }
@@ -66,7 +66,7 @@ Future<void> editAnswerOfFlashCard(
 ) async {
   final flashCard = flashCardsRM.state[flashCardId];
   if (flashCard == null) return;
-  flashCardsRM.save(
+  flashCardsRM(
     flashCard.copyWith(answer: answer),
   );
 }
@@ -77,7 +77,7 @@ Future<void> editExplainationOfFlashCard(
 ) async {
   final flashCard = flashCardsRM.state[flashCardId];
   if (flashCard == null) return;
-  flashCardsRM.save(
+  flashCardsRM(
     flashCard.copyWith(explaination: explaination),
   );
 }

@@ -5,7 +5,7 @@ import '../../../main.dart';
 final createNewFlashCard = () async {
   final flashCard = await RM.navigate.toDialog(NewFlashCardDialog());
   if (flashCard != null) {
-    flashCardsRM.save(flashCard.copyWith(id: randomID));
+    flashCardsRM(flashCard.copyWith(id: randomID));
   }
 };
 

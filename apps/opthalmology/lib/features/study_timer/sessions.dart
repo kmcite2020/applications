@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:opthalmology/main.dart';
 
 import '../stats/stats_page.dart';
@@ -11,7 +13,7 @@ Stream<int> ticker() {
 
 enum SessionStatus { none, isInitial, isPaused, isRunning, isCompleted }
 
-final sessionsRM = ComplexTable(key: 'sessions', fromJson: Session.fromJson);
+final sessionsRM = ComplexTable('sessions', fromJson: Session.fromJson);
 
 List<Day> get lsd => sessionsRM()
     .map(
@@ -20,7 +22,7 @@ List<Day> get lsd => sessionsRM()
     .toList();
 
 @freezed
-class Session extends ID with _$Session {
+class Session with _$Session {
   const factory Session({
     @Default('') final String id,
     required final DateTime startedOn,
@@ -77,7 +79,7 @@ void resume() {
 
 void reset() {
   _tickerSubscription?.cancel();
-  sessionsRM.save(_timerStateRM.state);
+  sessionsRM(_timerStateRM.state);
   _timerStateRM.state = session.copyWith(
     duration: 0,
     sessionStatus: SessionStatus.isInitial,
