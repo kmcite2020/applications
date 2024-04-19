@@ -14,12 +14,12 @@ dependencies:
   uuid: ^4.3.3
   hive_flutter: ^1.1.0
   package_info_plus: ^5.0.1
-  freezed_annotation:
-  json_annotation:
+  freezed_annotation: ^2.4.1
+  json_annotation: ^4.8.1
 
 dev_dependencies:
-  freezed:
-  json_serializable:
+  freezed: ^2.4.7
+  json_serializable: ^6.7.1
   flutter_test:
     sdk: flutter
   flutter_lints: ^3.0.0
