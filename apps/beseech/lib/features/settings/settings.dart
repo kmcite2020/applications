@@ -3,35 +3,30 @@ import 'package:manager/manager.dart';
 part 'settings.freezed.dart';
 part 'settings.g.dart';
 
-final settingsRM = SettingsRM();
-
-class SettingsRM extends Complex<SettingsEvent, SettingsState> {
-  SettingsRM() {
+final settingsRM = Complex<SettingsEvent, SettingsState>(
+  SettingsState(),
+  setup: (register) {
     register<_SettingsEventThemeMode>(
-      (_) => state = state.copyWith(themeMode: _.themeMode),
+      (_, state) => state = state.copyWith(themeMode: _.themeMode),
     );
     register<_SettingsEventMaterialColor>(
-      (_) => state = state.copyWith(materialColor: _.materialColor),
+      (_, state) => state = state.copyWith(materialColor: _.materialColor),
     );
     register<_SettingsEventBorderRadius>(
-      (_) => state = (state.copyWith(borderRadius: _.borderRadius)),
+      (_, state) => state = (state.copyWith(borderRadius: _.borderRadius)),
     );
     register<_SettingsEventPadding>(
-      (_) => state = (state.copyWith(padding: _.padding)),
+      (_, state) => state = (state.copyWith(padding: _.padding)),
     );
-  }
-
-  @override
-  SettingsState get initialState => SettingsState();
-}
+  },
+);
 
 @freezed
 class SettingsEvent with _$SettingsEvent {
   const factory SettingsEvent() = _SettingsEvent;
   const factory SettingsEvent.themeMode(ThemeMode themeMode) =
       _SettingsEventThemeMode;
-  const factory SettingsEvent.materialColor(
-          @MaterialColorConverter() MaterialColor materialColor) =
+  const factory SettingsEvent.materialColor(MaterialColor materialColor) =
       _SettingsEventMaterialColor;
   const factory SettingsEvent.borderRadius(double borderRadius) =
       _SettingsEventBorderRadius;

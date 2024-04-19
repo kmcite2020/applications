@@ -16,9 +16,8 @@ class DiseasesPage extends ReactiveStatelessWidget {
       body: ListView.builder(
         physics: const BouncingScrollPhysics(),
         shrinkWrap: true,
-        itemCount: diseasesRM().diseases.length,
-        itemBuilder: (context, index) =>
-            diseaseTile(diseasesRM().diseases[index]!.id),
+        itemCount: diseasesRM().length,
+        itemBuilder: (context, index) => diseaseTile(diseasesRM()[index].id),
       ),
     );
   }

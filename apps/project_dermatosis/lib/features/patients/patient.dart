@@ -1,11 +1,10 @@
-import 'package:flutter/material.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
-
+import '../../main.dart';
 import '../pictures/pictures.dart';
-import 'patients.dart';
 
 part 'patient.freezed.dart';
 part 'patient.g.dart';
+
+final patientsRM = ComplexTable('patients', fromJson: Patient.fromJson);
 
 @freezed
 class Patient with _$Patient {
@@ -21,10 +20,12 @@ class Patient with _$Patient {
     @Default(Diagnoses()) final Diagnoses diagnoses,
     @Default([]) final List<Imagery> pictures,
   }) = _Patient;
+
   const Patient._();
+
   Duration get age => DateTime.now().difference(dateOfBirth);
-  factory Patient.fromJson(Map<String, dynamic> json) =>
-      _$PatientFromJson(json);
+
+  factory Patient.fromJson(Map<String, dynamic> json) => _$PatientFromJson(json);
 }
 
 @freezed
@@ -33,9 +34,10 @@ class Diagnoses with _$Diagnoses {
     @Default('') final String diagnosis,
     @Default([]) final List<String> provisionalDiagnoses,
   }) = _Diagnoses;
+
   const Diagnoses._();
-  factory Diagnoses.fromJson(Map<String, dynamic> json) =>
-      _$DiagnosesFromJson(json);
+
+  factory Diagnoses.fromJson(Map<String, dynamic> json) => _$DiagnosesFromJson(json);
 }
 
 @freezed
@@ -44,7 +46,9 @@ class Lesion with _$Lesion {
     @Default(Site.arms) Site site,
     @Default(Patterns()) Patterns patterns,
   }) = _Lesion;
+
   const Lesion._();
+
   factory Lesion.fromJson(Map<String, dynamic> json) => _$LesionFromJson(json);
 }
 
@@ -58,9 +62,10 @@ class Patterns with _$Patterns {
     @Default(false) bool flexorOrExtensor,
     @Default(false) bool exposedOrCovered,
   }) = _Patterns;
+
   const Patterns._();
-  factory Patterns.fromJson(Map<String, dynamic> json) =>
-      _$PatternsFromJson(json);
+
+  factory Patterns.fromJson(Map<String, dynamic> json) => _$PatternsFromJson(json);
 }
 
 @freezed
@@ -70,9 +75,10 @@ class Contact with _$Contact {
     @Default('') String mnp,
     @Default('') String phoneCode,
   }) = _Contact;
+
   const Contact._();
-  factory Contact.fromJson(Map<String, dynamic> json) =>
-      _$ContactFromJson(json);
+
+  factory Contact.fromJson(Map<String, dynamic> json) => _$ContactFromJson(json);
 }
 
 @freezed
@@ -83,16 +89,17 @@ class Address with _$Address {
     @Default('') String province,
     @Default('') String country,
   }) = _Address;
+
   const Address._();
-  factory Address.fromJson(Map<String, dynamic> json) =>
-      _$AddressFromJson(json);
+
+  factory Address.fromJson(Map<String, dynamic> json) => _$AddressFromJson(json);
 }
 
 enum Gender { male, female }
 
 enum Site { scalp, face, trunk, thigh, legs, arms, hands, feet }
 
-class PatientBuilder extends StatelessWidget {
+class PatientBuilder extends UI {
   const PatientBuilder({
     Key? key,
     required this.id,
@@ -100,14 +107,11 @@ class PatientBuilder extends StatelessWidget {
   }) : super(key: key);
   final String id;
   final Widget Function(Patient patient) builder;
+
   @override
   Widget build(BuildContext context) {
-    return PatientsBuilder(
-      builder: (patients) {
-        final patient =
-            patients.patients.firstWhere((element) => element.id == id);
-        return builder(patient);
-      },
-    );
+    final patient = patientsRM.tryGet(id);
+    if (patient == null) return CircularProgressIndicator().center().pad();
+    return builder(patient);
   }
 }

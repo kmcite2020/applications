@@ -174,7 +174,7 @@ class __$$DiseaseImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$DiseaseImpl implements _Disease {
+class _$DiseaseImpl with DiagnosticableTreeMixin implements _Disease {
   const _$DiseaseImpl(
       {this.id = '',
       this.name = '',
@@ -229,8 +229,22 @@ class _$DiseaseImpl implements _Disease {
   }
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Disease(id: $id, name: $name, image: $image, createdAt: $createdAt, descriptions: $descriptions, instructions: $instructions, managements: $managements)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Disease'))
+      ..add(DiagnosticsProperty('id', id))
+      ..add(DiagnosticsProperty('name', name))
+      ..add(DiagnosticsProperty('image', image))
+      ..add(DiagnosticsProperty('createdAt', createdAt))
+      ..add(DiagnosticsProperty('descriptions', descriptions))
+      ..add(DiagnosticsProperty('instructions', instructions))
+      ..add(DiagnosticsProperty('managements', managements));
   }
 
   @override
@@ -307,150 +321,5 @@ abstract class _Disease implements Disease {
   @override
   @JsonKey(ignore: true)
   _$$DiseaseImplCopyWith<_$DiseaseImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-Diseases _$DiseasesFromJson(Map<String, dynamic> json) {
-  return _Diseases.fromJson(json);
-}
-
-/// @nodoc
-mixin _$Diseases {
-  Map<String, Disease> get diseases => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $DiseasesCopyWith<Diseases> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $DiseasesCopyWith<$Res> {
-  factory $DiseasesCopyWith(Diseases value, $Res Function(Diseases) then) =
-      _$DiseasesCopyWithImpl<$Res, Diseases>;
-  @useResult
-  $Res call({Map<String, Disease> diseases});
-}
-
-/// @nodoc
-class _$DiseasesCopyWithImpl<$Res, $Val extends Diseases>
-    implements $DiseasesCopyWith<$Res> {
-  _$DiseasesCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? diseases = null,
-  }) {
-    return _then(_value.copyWith(
-      diseases: null == diseases
-          ? _value.diseases
-          : diseases // ignore: cast_nullable_to_non_nullable
-              as Map<String, Disease>,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$DiseasesImplCopyWith<$Res>
-    implements $DiseasesCopyWith<$Res> {
-  factory _$$DiseasesImplCopyWith(
-          _$DiseasesImpl value, $Res Function(_$DiseasesImpl) then) =
-      __$$DiseasesImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({Map<String, Disease> diseases});
-}
-
-/// @nodoc
-class __$$DiseasesImplCopyWithImpl<$Res>
-    extends _$DiseasesCopyWithImpl<$Res, _$DiseasesImpl>
-    implements _$$DiseasesImplCopyWith<$Res> {
-  __$$DiseasesImplCopyWithImpl(
-      _$DiseasesImpl _value, $Res Function(_$DiseasesImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? diseases = null,
-  }) {
-    return _then(_$DiseasesImpl(
-      diseases: null == diseases
-          ? _value._diseases
-          : diseases // ignore: cast_nullable_to_non_nullable
-              as Map<String, Disease>,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$DiseasesImpl implements _Diseases {
-  const _$DiseasesImpl(
-      {final Map<String, Disease> diseases = const <String, Disease>{}})
-      : _diseases = diseases;
-
-  factory _$DiseasesImpl.fromJson(Map<String, dynamic> json) =>
-      _$$DiseasesImplFromJson(json);
-
-  final Map<String, Disease> _diseases;
-  @override
-  @JsonKey()
-  Map<String, Disease> get diseases {
-    if (_diseases is EqualUnmodifiableMapView) return _diseases;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_diseases);
-  }
-
-  @override
-  String toString() {
-    return 'Diseases(diseases: $diseases)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$DiseasesImpl &&
-            const DeepCollectionEquality().equals(other._diseases, _diseases));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_diseases));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$DiseasesImplCopyWith<_$DiseasesImpl> get copyWith =>
-      __$$DiseasesImplCopyWithImpl<_$DiseasesImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$DiseasesImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _Diseases implements Diseases {
-  const factory _Diseases({final Map<String, Disease> diseases}) =
-      _$DiseasesImpl;
-
-  factory _Diseases.fromJson(Map<String, dynamic> json) =
-      _$DiseasesImpl.fromJson;
-
-  @override
-  Map<String, Disease> get diseases;
-  @override
-  @JsonKey(ignore: true)
-  _$$DiseasesImplCopyWith<_$DiseasesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -11,6 +11,6 @@ class CustomerBuilder extends UI {
 
   @override
   Widget build(BuildContext context) => builder(
-        Customer.id(custmerID),
+        customersRM.get(custmerID),
       );
 }

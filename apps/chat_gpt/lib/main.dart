@@ -58,7 +58,7 @@ class CurrentChatScreen extends UI {
         actions: [
           IconButton(
             onPressed: () {
-              chatsRM.save(
+              chatsRM(
                 Chat(
                   id: randomID,
                   title: 'title',
@@ -79,8 +79,8 @@ class CurrentChatScreen extends UI {
                   children: [
                     TextField(
                       onSubmitted: (title) {
-                        currentChatRM.changeTitle(title);
-                        navigator.back();
+                        currentChatRM(CurrentChatEvent.changeTitle(title));
+                        back();
                       },
                     ).pad()
                   ],
@@ -125,8 +125,8 @@ class MenuButtonForCurrentChat extends UI {
                   children: [
                     TextField(
                       onSubmitted: (title) {
-                        currentChatRM.changeTitle(title);
-                        navigator.back();
+                        currentChatRM(CurrentChatEvent.changeTitle(title));
+                        back();
                       },
                     ).pad()
                   ],
@@ -139,7 +139,7 @@ class MenuButtonForCurrentChat extends UI {
         ),
         PopupMenuItem(
           child: 'Delete'.text(),
-          onTap: currentChatRM.delete,
+          onTap: () => currentChatRM(CurrentChatEvent.delete()),
           enabled: currentChatRM()?.id != '',
         ),
       ],

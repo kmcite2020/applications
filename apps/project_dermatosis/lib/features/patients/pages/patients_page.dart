@@ -3,7 +3,6 @@ import 'package:project_dermatosis/features/patients/patient.dart';
 import 'package:project_dermatosis/main.dart';
 
 import '../../pictures/pictures.dart';
-import '../patients.dart';
 
 class PatientsPage extends ReactiveStatelessWidget {
   const PatientsPage({super.key});
@@ -17,9 +16,9 @@ class PatientsPage extends ReactiveStatelessWidget {
       ),
       body: ListView.builder(
         physics: const BouncingScrollPhysics(),
-        itemCount: patientsManager.listOfPatients.length,
+        itemCount: patientsRM().length,
         itemBuilder: (context, index) {
-          final eachPatient = patientsManager.listOfPatients[index];
+          final eachPatient = patientsRM()[index];
           return Card(
             child: ListTile(
               title: Column(
@@ -37,8 +36,7 @@ class PatientsPage extends ReactiveStatelessWidget {
                     ],
                   ),
                   GridView.builder(
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 3,
                     ),
                     physics: const BouncingScrollPhysics(),
@@ -93,7 +91,7 @@ class PatientsPage extends ReactiveStatelessWidget {
               // final PatientModel patientModel = PatientModel()
               //   ..dateOfBirth = DateTime(1995);
               // patientsBloc.setPatient(patientModel);
-              patientsManager.setPatient(
+              patientsRM(
                 Patient(
                   dateOfBirth: DateTime.now(),
                 ),
@@ -112,8 +110,9 @@ class PatientsPage extends ReactiveStatelessWidget {
   }
 }
 
-class ShowImageWidget extends ReactiveStatelessWidget {
+class ShowImageWidget extends UI {
   const ShowImageWidget({super.key, required this.pictureModel});
+
   final Imagery pictureModel;
 
   @override

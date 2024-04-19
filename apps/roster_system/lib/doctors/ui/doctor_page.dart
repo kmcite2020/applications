@@ -1,6 +1,5 @@
+import 'package:manager/manager.dart';
 import 'package:roster_system/doctors/doctors.dart';
-
-import '../../main.dart';
 
 class DoctorPage extends UI {
   const DoctorPage({super.key, required this.id});
@@ -14,7 +13,7 @@ class DoctorPage extends UI {
     doctorRM = RM.inject(
       () => doctorsRM.get(id),
       sideEffects: SideEffects(
-        onSetState: (doctorSnap) => doctorsRM.save(doctorSnap.state),
+        onSetState: (doctorSnap) => doctorsRM(doctorSnap.state),
       ),
     );
   }

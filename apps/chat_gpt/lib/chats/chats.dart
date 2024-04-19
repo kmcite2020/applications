@@ -4,7 +4,7 @@ part 'chats.freezed.dart';
 part 'chats.g.dart';
 
 @freezed
-class Chat extends ID with _$Chat {
+class Chat with _$Chat {
   const factory Chat({
     @Default('') final String id,
     @Default('') final String title,
@@ -14,4 +14,4 @@ class Chat extends ID with _$Chat {
   factory Chat.fromJson(Map<String, dynamic> json) => _$ChatFromJson(json);
 }
 
-final chatsRM = ComplexTable<Chat>(key: 'chats', fromJson: Chat.fromJson);
+final chatsRM = ComplexTable<Chat>('chats', fromJson: Chat.fromJson);

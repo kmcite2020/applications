@@ -73,11 +73,13 @@ class QueryInputBar extends UI {
               suffixIcon: queryController.focusNode.hasFocus
                   ? IconButton(
                       onPressed: () {
-                        currentChatRM.createQuery(
-                          QueryResponseModel(
-                            cardType: CardType.query,
-                            content: queryController.text,
-                            dateTime: DateTime.now(),
+                        currentChatRM(
+                          CurrentChatEvent.createQuery(
+                            QueryResponseModel(
+                              cardType: CardType.query,
+                              content: queryController.text,
+                              dateTime: DateTime.now(),
+                            ),
                           ),
                         );
                         queryController.controller.clear();

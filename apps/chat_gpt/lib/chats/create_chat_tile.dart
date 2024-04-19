@@ -15,8 +15,8 @@ class CreateChatTile extends UI {
           title: 'title',
           cards: [],
         );
-        chatsRM.save(newChat);
-        currentChatRM.loadChat(newChat);
+        chatsRM(newChat);
+        currentChatRM(CurrentChatEvent.load(newChat));
         navigator.back();
       },
       title: 'New Chat'.text(),

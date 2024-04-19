@@ -24,7 +24,9 @@ class Patient with _$Patient {
     required final String provisionalDiagnosis,
     required final String diagnosis,
   }) = _Patient;
+
   factory Patient.fromJson(json) => _$PatientFromJson(json);
+
   factory Patient.init() => Patient(
         id: randomID,
         name: '',
@@ -76,8 +78,9 @@ class Examinations with _$Examinations {
     required final String gi,
     required final String gu,
   }) = _Examinations;
+
   factory Examinations.fromJson(json) => _$ExaminationsFromJson(json);
-  // factory Medicine.init() => Medicine(medicine: '');
+// factory Medicine.init() => Medicine(medicine: '');
 }
 
 @freezed
@@ -87,8 +90,9 @@ class Complaint with _$Complaint {
     required final String history,
     required final Duration duration,
   }) = _Complaint;
+
   factory Complaint.fromJson(json) => _$ComplaintFromJson(json);
-  // factory Medicine.init() => Medicine(medicine: '');
+// factory Medicine.init() => Medicine(medicine: '');
 }
 
 enum Classification { rta, medical, surgical, other, mlc }
@@ -98,7 +102,7 @@ enum Gender {
   female;
 
   @override
-  toString() => 'Gender: ${name.capitalize}';
+  toString() => 'Gender: ${name.toUpperCase()}';
 }
 
 @freezed
@@ -108,8 +112,9 @@ class CNIC with _$CNIC {
     required final String b,
     required final String c,
   }) = _CNIC;
+
   factory CNIC.fromJson(json) => _$CNICFromJson(json);
-  // factory Medicine.init() => Medicine(medicine: '');
+// factory Medicine.init() => Medicine(medicine: '');
 }
 
 @freezed
@@ -120,8 +125,9 @@ class Address with _$Address {
     required final String city,
     required final String area,
   }) = _Address;
+
   factory Address.fromJson(json) => _$AddressFromJson(json);
-  // factory Medicine.init() => Medicine(medicine: '');
+// factory Medicine.init() => Medicine(medicine: '');
 }
 
 @freezed
@@ -131,8 +137,9 @@ class Investigation with _$Investigation {
     required final String value,
     required final DateTime time,
   }) = _Investigation;
+
   factory Investigation.fromJson(json) => _$InvestigationFromJson(json);
-  // factory Medicine.init() => Medicine(medicine: '');
+// factory Medicine.init() => Medicine(medicine: '');
 }
 
 @freezed
@@ -141,8 +148,9 @@ class Management with _$Management {
     required final String description,
     required final DateTime time,
   }) = _Management;
+
   factory Management.fromJson(json) => _$ManagementFromJson(json);
-  // factory Medicine.init() => Medicine(medicine: '');
+// factory Medicine.init() => Medicine(medicine: '');
 }
 
 @freezed
@@ -151,8 +159,9 @@ class Outcome with _$Outcome {
     required final OutcomeStatus outcomeStatus,
     required final String description,
   }) = _Outcome;
+
   factory Outcome.fromJson(json) => _$OutcomeFromJson(json);
-  // factory Medicine.init() => Medicine(medicine: '');
+// factory Medicine.init() => Medicine(medicine: '');
 }
 
 enum OutcomeStatus {
@@ -163,6 +172,7 @@ enum OutcomeStatus {
   pending;
 
   toMap() => index;
+
   static OutcomeStatus fromMap(map) => OutcomeStatus.values[map];
 }
 
@@ -173,9 +183,11 @@ enum Triage {
   white(Colors.white);
 
   const Triage(this.color);
+
   final Color color;
+
   @override
-  toString() => name.capitalize;
+  toString() => name.toUpperCase();
 }
 
 @freezed
@@ -186,6 +198,7 @@ class Vitals with _$Vitals {
       required final int pulse,
       required final int oxygen,
       required final double temperature}) = _Vitals;
+
   factory Vitals.fromJson(json) => _$VitalsFromJson(json);
-  // factory Medicine.init() => Medicine(medicine: '');
+// factory Medicine.init() => Medicine(medicine: '');
 }

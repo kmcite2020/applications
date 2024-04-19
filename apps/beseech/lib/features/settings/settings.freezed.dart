@@ -20,9 +20,7 @@ mixin _$SettingsEvent {
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
     required TResult Function(ThemeMode themeMode) themeMode,
-    required TResult Function(
-            @MaterialColorConverter() MaterialColor materialColor)
-        materialColor,
+    required TResult Function(MaterialColor materialColor) materialColor,
     required TResult Function(double borderRadius) borderRadius,
     required TResult Function(double padding) padding,
   }) =>
@@ -31,8 +29,7 @@ mixin _$SettingsEvent {
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function()? $default, {
     TResult? Function(ThemeMode themeMode)? themeMode,
-    TResult? Function(@MaterialColorConverter() MaterialColor materialColor)?
-        materialColor,
+    TResult? Function(MaterialColor materialColor)? materialColor,
     TResult? Function(double borderRadius)? borderRadius,
     TResult? Function(double padding)? padding,
   }) =>
@@ -41,8 +38,7 @@ mixin _$SettingsEvent {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
     TResult Function(ThemeMode themeMode)? themeMode,
-    TResult Function(@MaterialColorConverter() MaterialColor materialColor)?
-        materialColor,
+    TResult Function(MaterialColor materialColor)? materialColor,
     TResult Function(double borderRadius)? borderRadius,
     TResult Function(double padding)? padding,
     required TResult orElse(),
@@ -114,12 +110,20 @@ class __$$SettingsEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SettingsEventImpl implements _SettingsEvent {
+class _$SettingsEventImpl
+    with DiagnosticableTreeMixin
+    implements _SettingsEvent {
   const _$SettingsEventImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SettingsEvent()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'SettingsEvent'));
   }
 
   @override
@@ -136,9 +140,7 @@ class _$SettingsEventImpl implements _SettingsEvent {
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
     required TResult Function(ThemeMode themeMode) themeMode,
-    required TResult Function(
-            @MaterialColorConverter() MaterialColor materialColor)
-        materialColor,
+    required TResult Function(MaterialColor materialColor) materialColor,
     required TResult Function(double borderRadius) borderRadius,
     required TResult Function(double padding) padding,
   }) {
@@ -150,8 +152,7 @@ class _$SettingsEventImpl implements _SettingsEvent {
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function()? $default, {
     TResult? Function(ThemeMode themeMode)? themeMode,
-    TResult? Function(@MaterialColorConverter() MaterialColor materialColor)?
-        materialColor,
+    TResult? Function(MaterialColor materialColor)? materialColor,
     TResult? Function(double borderRadius)? borderRadius,
     TResult? Function(double padding)? padding,
   }) {
@@ -163,8 +164,7 @@ class _$SettingsEventImpl implements _SettingsEvent {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
     TResult Function(ThemeMode themeMode)? themeMode,
-    TResult Function(@MaterialColorConverter() MaterialColor materialColor)?
-        materialColor,
+    TResult Function(MaterialColor materialColor)? materialColor,
     TResult Function(double borderRadius)? borderRadius,
     TResult Function(double padding)? padding,
     required TResult orElse(),
@@ -255,15 +255,25 @@ class __$$SettingsEventThemeModeImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SettingsEventThemeModeImpl implements _SettingsEventThemeMode {
+class _$SettingsEventThemeModeImpl
+    with DiagnosticableTreeMixin
+    implements _SettingsEventThemeMode {
   const _$SettingsEventThemeModeImpl(this.themeMode);
 
   @override
   final ThemeMode themeMode;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SettingsEvent.themeMode(themeMode: $themeMode)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SettingsEvent.themeMode'))
+      ..add(DiagnosticsProperty('themeMode', themeMode));
   }
 
   @override
@@ -290,9 +300,7 @@ class _$SettingsEventThemeModeImpl implements _SettingsEventThemeMode {
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
     required TResult Function(ThemeMode themeMode) themeMode,
-    required TResult Function(
-            @MaterialColorConverter() MaterialColor materialColor)
-        materialColor,
+    required TResult Function(MaterialColor materialColor) materialColor,
     required TResult Function(double borderRadius) borderRadius,
     required TResult Function(double padding) padding,
   }) {
@@ -304,8 +312,7 @@ class _$SettingsEventThemeModeImpl implements _SettingsEventThemeMode {
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function()? $default, {
     TResult? Function(ThemeMode themeMode)? themeMode,
-    TResult? Function(@MaterialColorConverter() MaterialColor materialColor)?
-        materialColor,
+    TResult? Function(MaterialColor materialColor)? materialColor,
     TResult? Function(double borderRadius)? borderRadius,
     TResult? Function(double padding)? padding,
   }) {
@@ -317,8 +324,7 @@ class _$SettingsEventThemeModeImpl implements _SettingsEventThemeMode {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
     TResult Function(ThemeMode themeMode)? themeMode,
-    TResult Function(@MaterialColorConverter() MaterialColor materialColor)?
-        materialColor,
+    TResult Function(MaterialColor materialColor)? materialColor,
     TResult Function(double borderRadius)? borderRadius,
     TResult Function(double padding)? padding,
     required TResult orElse(),
@@ -387,7 +393,7 @@ abstract class _$$SettingsEventMaterialColorImplCopyWith<$Res> {
           $Res Function(_$SettingsEventMaterialColorImpl) then) =
       __$$SettingsEventMaterialColorImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({@MaterialColorConverter() MaterialColor materialColor});
+  $Res call({MaterialColor materialColor});
 }
 
 /// @nodoc
@@ -415,17 +421,25 @@ class __$$SettingsEventMaterialColorImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SettingsEventMaterialColorImpl implements _SettingsEventMaterialColor {
-  const _$SettingsEventMaterialColorImpl(
-      @MaterialColorConverter() this.materialColor);
+class _$SettingsEventMaterialColorImpl
+    with DiagnosticableTreeMixin
+    implements _SettingsEventMaterialColor {
+  const _$SettingsEventMaterialColorImpl(this.materialColor);
 
   @override
-  @MaterialColorConverter()
   final MaterialColor materialColor;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SettingsEvent.materialColor(materialColor: $materialColor)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SettingsEvent.materialColor'))
+      ..add(DiagnosticsProperty('materialColor', materialColor));
   }
 
   @override
@@ -452,9 +466,7 @@ class _$SettingsEventMaterialColorImpl implements _SettingsEventMaterialColor {
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
     required TResult Function(ThemeMode themeMode) themeMode,
-    required TResult Function(
-            @MaterialColorConverter() MaterialColor materialColor)
-        materialColor,
+    required TResult Function(MaterialColor materialColor) materialColor,
     required TResult Function(double borderRadius) borderRadius,
     required TResult Function(double padding) padding,
   }) {
@@ -466,8 +478,7 @@ class _$SettingsEventMaterialColorImpl implements _SettingsEventMaterialColor {
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function()? $default, {
     TResult? Function(ThemeMode themeMode)? themeMode,
-    TResult? Function(@MaterialColorConverter() MaterialColor materialColor)?
-        materialColor,
+    TResult? Function(MaterialColor materialColor)? materialColor,
     TResult? Function(double borderRadius)? borderRadius,
     TResult? Function(double padding)? padding,
   }) {
@@ -479,8 +490,7 @@ class _$SettingsEventMaterialColorImpl implements _SettingsEventMaterialColor {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
     TResult Function(ThemeMode themeMode)? themeMode,
-    TResult Function(@MaterialColorConverter() MaterialColor materialColor)?
-        materialColor,
+    TResult Function(MaterialColor materialColor)? materialColor,
     TResult Function(double borderRadius)? borderRadius,
     TResult Function(double padding)? padding,
     required TResult orElse(),
@@ -533,11 +543,9 @@ class _$SettingsEventMaterialColorImpl implements _SettingsEventMaterialColor {
 }
 
 abstract class _SettingsEventMaterialColor implements SettingsEvent {
-  const factory _SettingsEventMaterialColor(
-          @MaterialColorConverter() final MaterialColor materialColor) =
+  const factory _SettingsEventMaterialColor(final MaterialColor materialColor) =
       _$SettingsEventMaterialColorImpl;
 
-  @MaterialColorConverter()
   MaterialColor get materialColor;
   @JsonKey(ignore: true)
   _$$SettingsEventMaterialColorImplCopyWith<_$SettingsEventMaterialColorImpl>
@@ -579,15 +587,25 @@ class __$$SettingsEventBorderRadiusImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SettingsEventBorderRadiusImpl implements _SettingsEventBorderRadius {
+class _$SettingsEventBorderRadiusImpl
+    with DiagnosticableTreeMixin
+    implements _SettingsEventBorderRadius {
   const _$SettingsEventBorderRadiusImpl(this.borderRadius);
 
   @override
   final double borderRadius;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SettingsEvent.borderRadius(borderRadius: $borderRadius)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SettingsEvent.borderRadius'))
+      ..add(DiagnosticsProperty('borderRadius', borderRadius));
   }
 
   @override
@@ -614,9 +632,7 @@ class _$SettingsEventBorderRadiusImpl implements _SettingsEventBorderRadius {
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
     required TResult Function(ThemeMode themeMode) themeMode,
-    required TResult Function(
-            @MaterialColorConverter() MaterialColor materialColor)
-        materialColor,
+    required TResult Function(MaterialColor materialColor) materialColor,
     required TResult Function(double borderRadius) borderRadius,
     required TResult Function(double padding) padding,
   }) {
@@ -628,8 +644,7 @@ class _$SettingsEventBorderRadiusImpl implements _SettingsEventBorderRadius {
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function()? $default, {
     TResult? Function(ThemeMode themeMode)? themeMode,
-    TResult? Function(@MaterialColorConverter() MaterialColor materialColor)?
-        materialColor,
+    TResult? Function(MaterialColor materialColor)? materialColor,
     TResult? Function(double borderRadius)? borderRadius,
     TResult? Function(double padding)? padding,
   }) {
@@ -641,8 +656,7 @@ class _$SettingsEventBorderRadiusImpl implements _SettingsEventBorderRadius {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
     TResult Function(ThemeMode themeMode)? themeMode,
-    TResult Function(@MaterialColorConverter() MaterialColor materialColor)?
-        materialColor,
+    TResult Function(MaterialColor materialColor)? materialColor,
     TResult Function(double borderRadius)? borderRadius,
     TResult Function(double padding)? padding,
     required TResult orElse(),
@@ -737,15 +751,25 @@ class __$$SettingsEventPaddingImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SettingsEventPaddingImpl implements _SettingsEventPadding {
+class _$SettingsEventPaddingImpl
+    with DiagnosticableTreeMixin
+    implements _SettingsEventPadding {
   const _$SettingsEventPaddingImpl(this.padding);
 
   @override
   final double padding;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SettingsEvent.padding(padding: $padding)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SettingsEvent.padding'))
+      ..add(DiagnosticsProperty('padding', padding));
   }
 
   @override
@@ -772,9 +796,7 @@ class _$SettingsEventPaddingImpl implements _SettingsEventPadding {
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
     required TResult Function(ThemeMode themeMode) themeMode,
-    required TResult Function(
-            @MaterialColorConverter() MaterialColor materialColor)
-        materialColor,
+    required TResult Function(MaterialColor materialColor) materialColor,
     required TResult Function(double borderRadius) borderRadius,
     required TResult Function(double padding) padding,
   }) {
@@ -786,8 +808,7 @@ class _$SettingsEventPaddingImpl implements _SettingsEventPadding {
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function()? $default, {
     TResult? Function(ThemeMode themeMode)? themeMode,
-    TResult? Function(@MaterialColorConverter() MaterialColor materialColor)?
-        materialColor,
+    TResult? Function(MaterialColor materialColor)? materialColor,
     TResult? Function(double borderRadius)? borderRadius,
     TResult? Function(double padding)? padding,
   }) {
@@ -799,8 +820,7 @@ class _$SettingsEventPaddingImpl implements _SettingsEventPadding {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
     TResult Function(ThemeMode themeMode)? themeMode,
-    TResult Function(@MaterialColorConverter() MaterialColor materialColor)?
-        materialColor,
+    TResult Function(MaterialColor materialColor)? materialColor,
     TResult Function(double borderRadius)? borderRadius,
     TResult Function(double padding)? padding,
     required TResult orElse(),
@@ -986,7 +1006,9 @@ class __$$SettingsStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SettingsStateImpl implements _SettingsState {
+class _$SettingsStateImpl
+    with DiagnosticableTreeMixin
+    implements _SettingsState {
   const _$SettingsStateImpl(
       {this.borderRadius = 8,
       this.padding = 8,
@@ -1011,8 +1033,19 @@ class _$SettingsStateImpl implements _SettingsState {
   final MaterialColor materialColor;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SettingsState(borderRadius: $borderRadius, padding: $padding, themeMode: $themeMode, materialColor: $materialColor)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SettingsState'))
+      ..add(DiagnosticsProperty('borderRadius', borderRadius))
+      ..add(DiagnosticsProperty('padding', padding))
+      ..add(DiagnosticsProperty('themeMode', themeMode))
+      ..add(DiagnosticsProperty('materialColor', materialColor));
   }
 
   @override

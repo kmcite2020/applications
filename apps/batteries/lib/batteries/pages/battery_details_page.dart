@@ -19,7 +19,8 @@ class BatteryDetailsPage extends UI {
           actions: [
             IconButton(
               onPressed: () {
-                deletedBatteryRM.state = batteriesRM.delete(battery.id);
+                deletedBatteryRM.state = batteriesRM.tryGet(battery.id);
+                batteriesRM.delete(battery.id);
               },
               icon: Icon(Icons.delete_forever),
             ).pad(),

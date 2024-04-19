@@ -30,10 +30,10 @@ class AuthState with _$AuthState {
       _$AuthStateFromJson(json);
 }
 
-final authStateRM = AuthStateRM();
+final authStateRM = AuthStateRM(AuthState());
 
-class AuthStateRM extends Manager<AuthState> {
-  final initialState = AuthState();
+class AuthStateRM extends Simple<AuthState> {
+  AuthStateRM(super.initialState);
   void login(
     String email,
     String password,

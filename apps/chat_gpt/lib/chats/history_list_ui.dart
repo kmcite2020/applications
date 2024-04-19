@@ -13,8 +13,8 @@ class HistoryListUI extends UI {
           final chat = chatsRM()[index];
           return ListTile(
             onTap: () {
-              currentChatRM.loadChat(chat);
-              navigator.back();
+              currentChatRM(CurrentChatEvent.load(chat));
+              back();
             },
             selected: currentChatRM()?.id == chat.id,
             title: chat.title.text(),

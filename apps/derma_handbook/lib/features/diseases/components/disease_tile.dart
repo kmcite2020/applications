@@ -6,7 +6,7 @@ import '../pages/disease.dart';
 Widget diseaseTile(String id) {
   return DiseaseBuilder(
     id: id,
-    builder: (context, disease) => Card(
+    builder: (disease) => Card(
       child: ListTile(
         leading: CircleAvatar(
           child: disease.image == null

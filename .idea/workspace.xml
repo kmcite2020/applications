@@ -5,21 +5,299 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21815b96-f851-4168-9e4f-8aabdee08f47" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/opthalmology/lib/features/app.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/opthalmology/lib/features/app.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/opthalmology/lib/features/app.freezed.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/opthalmology/lib/features/app.freezed.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/opthalmology/lib/features/app.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/opthalmology/lib/features/app.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/opthalmology/lib/features/flash_cards/create_new_folder_page.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/opthalmology/lib/features/flash_cards/flash_cards.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/opthalmology/lib/features/flash_cards/flash_cards.freezed.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/opthalmology/lib/features/flash_cards/flash_cards.g.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/opthalmology/lib/features/flash_groups/flash_group_page.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/opthalmology/lib/features/flash_groups/flash_groups.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/opthalmology/lib/features/flash_groups/flash_groups.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/opthalmology/lib/features/flash_groups/flash_groups.freezed.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/opthalmology/lib/features/flash_groups/flash_groups.freezed.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/opthalmology/lib/features/flash_groups/flash_groups_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/opthalmology/lib/features/flash_groups/flash_groups_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/opthalmology/lib/features/stats/stats_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/opthalmology/lib/features/stats/stats_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/opthalmology/lib/features/study_timer/study_timer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/opthalmology/lib/features/study_timer/study_timer.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/opthalmology/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/opthalmology/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/batteries/lib/batteries/pages/battery_details_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/batteries/lib/batteries/pages/battery_details_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/batteries/lib/battery/battery.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/batteries/lib/battery/battery.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/batteries/linux/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/apps/batteries/linux/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/batteries/linux/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/apps/batteries/linux/flutter/generated_plugins.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/batteries/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/apps/batteries/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/batteries/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/apps/batteries/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/batteries/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/apps/batteries/windows/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/batteries/windows/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/apps/batteries/windows/flutter/generated_plugins.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/beseech/lib/features/app_user/app_user.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/beseech/lib/features/app_user/app_user.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/beseech/lib/features/app_user/app_user.freezed.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/beseech/lib/features/app_user/app_user.freezed.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/beseech/lib/features/initial/components/date_of_birth_ui.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/beseech/lib/features/initial/components/date_of_birth_ui.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/beseech/lib/features/initial/components/date_of_puberty_ui.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/beseech/lib/features/initial/components/date_of_puberty_ui.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/beseech/lib/features/onboarding/onboarding.freezed.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/beseech/lib/features/onboarding/onboarding.freezed.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/beseech/lib/features/onboarding/pages/welcome_ui.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/beseech/lib/features/onboarding/pages/welcome_ui.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/beseech/lib/features/prayers/prayers_rm.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/beseech/lib/features/prayers/prayers_rm.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/beseech/lib/features/prayers/prayers_rm.freezed.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/beseech/lib/features/prayers/prayers_rm.freezed.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/beseech/lib/features/settings/components/user_information_ui.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/beseech/lib/features/settings/components/user_information_ui.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/beseech/lib/features/settings/settings.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/beseech/lib/features/settings/settings.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/beseech/lib/features/settings/settings.freezed.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/beseech/lib/features/settings/settings.freezed.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/beseech/lib/features/shared/app.freezed.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/beseech/lib/features/shared/app.freezed.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/beseech/linux/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/apps/beseech/linux/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/beseech/linux/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/apps/beseech/linux/flutter/generated_plugins.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/beseech/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/apps/beseech/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/beseech/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/apps/beseech/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/beseech/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/apps/beseech/windows/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/beseech/windows/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/apps/beseech/windows/flutter/generated_plugins.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/chat_gpt/lib/chats/current_chat_rm.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/chat_gpt/lib/chats/current_chat_rm.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/chat_gpt/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/apps/chat_gpt/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/derma_handbook/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/apps/derma_handbook/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/derma_handbook/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/apps/derma_handbook/windows/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/derma_handbook/windows/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/apps/derma_handbook/windows/flutter/generated_plugins.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/doctor_on_duty/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/apps/doctor_on_duty/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/doctor_on_duty/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/apps/doctor_on_duty/windows/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/doctor_on_duty/windows/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/apps/doctor_on_duty/windows/flutter/generated_plugins.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/fcps_pearls/linux/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fcps_pearls/linux/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/fcps_pearls/linux/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fcps_pearls/linux/flutter/generated_plugins.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/fcps_pearls/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fcps_pearls/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/fcps_pearls/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fcps_pearls/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/fcps_pearls/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fcps_pearls/windows/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/fcps_pearls/windows/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fcps_pearls/windows/flutter/generated_plugins.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/hmis/linux/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/apps/hmis/linux/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/hmis/linux/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/apps/hmis/linux/flutter/generated_plugins.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/hmis/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/apps/hmis/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/hmis/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/apps/hmis/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/hmis/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/apps/hmis/windows/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/hmis/windows/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/apps/hmis/windows/flutter/generated_plugins.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/ideal_store/lib/features/customers/components/customer_builder.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/ideal_store/lib/features/customers/components/customer_builder.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/ideal_store/lib/features/customers/components/customer_tile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/ideal_store/lib/features/customers/components/customer_tile.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/ideal_store/lib/features/customers/customer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/ideal_store/lib/features/customers/customer.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/ideal_store/lib/features/customers/customer.freezed.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/ideal_store/lib/features/customers/customer.freezed.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/ideal_store/lib/features/customers/customer.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/ideal_store/lib/features/customers/customer.g.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/ideal_store/lib/features/orders/order.freezed.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/ideal_store/lib/features/orders/order.freezed.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/ideal_store/lib/features/orders/order.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/ideal_store/lib/features/orders/order.g.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/ideal_store/lib/features/products/current_worth.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/ideal_store/lib/features/products/current_worth.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/ideal_store/lib/features/products/pages/products_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/ideal_store/lib/features/products/pages/products_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/ideal_store/lib/features/products/product.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/ideal_store/lib/features/products/product.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/ideal_store/lib/features/products/product.freezed.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/ideal_store/lib/features/products/product.g.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/ideal_store/lib/features/settings/settings.freezed.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/ideal_store/lib/features/settings/settings.freezed.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/ideal_store/lib/features/settings/settings.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/ideal_store/lib/features/settings/settings.g.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/ideal_store/lib/features/settings/settings_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/ideal_store/lib/features/settings/settings_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/ideal_store/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/ideal_store/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/ideal_store/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/apps/ideal_store/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/ideal_store/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/apps/ideal_store/windows/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/ideal_store/windows/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/apps/ideal_store/windows/flutter/generated_plugins.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/apps/manager/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/.metadata" beforeDir="false" afterPath="$PROJECT_DIR$/apps/manager/.metadata" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/apps/manager/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/analysis_options.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/apps/manager/analysis_options.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/android/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/android/app/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/android/app/src/debug/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/android/app/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/android/app/src/main/kotlin/dev/loner/manager/MainActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/android/app/src/main/res/drawable-v21/launch_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/android/app/src/main/res/drawable/launch_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/android/app/src/main/res/values-night/styles.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/android/app/src/main/res/values/styles.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/android/app/src/profile/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/android/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/android/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/android/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/ios/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/ios/Flutter/AppFrameworkInfo.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/ios/Flutter/Debug.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/ios/Flutter/Release.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/ios/Runner.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/ios/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/ios/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/ios/Runner/AppDelegate.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/ios/Runner/Base.lproj/LaunchScreen.storyboard" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/ios/Runner/Base.lproj/Main.storyboard" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/ios/Runner/Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/ios/Runner/Runner-Bridging-Header.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/ios/RunnerTests/RunnerTests.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/lib/main.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/lib/manager.collections.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/lib/manager.complex.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/lib/manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/manager/lib/manager.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/lib/manager.experiments.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/lib/manager.extensions.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/lib/manager.freezed.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/lib/manager.g.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/lib/manager.handler.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/lib/manager.ui.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/linux/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/linux/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/linux/flutter/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/linux/flutter/generated_plugin_registrant.cc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/linux/flutter/generated_plugin_registrant.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/linux/flutter/generated_plugins.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/linux/main.cc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/linux/my_application.cc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/linux/my_application.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/macos/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/macos/Flutter/Flutter-Debug.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/macos/Flutter/Flutter-Release.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/macos/Runner.xcodeproj/project.pbxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/macos/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/macos/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/macos/Runner.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/macos/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/macos/Runner/AppDelegate.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/macos/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_1024.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_128.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_256.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_64.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/macos/Runner/Base.lproj/MainMenu.xib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/macos/Runner/Configs/AppInfo.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/macos/Runner/Configs/Debug.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/macos/Runner/Configs/Release.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/macos/Runner/Configs/Warnings.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/macos/Runner/DebugProfile.entitlements" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/macos/Runner/Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/macos/Runner/MainFlutterWindow.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/macos/Runner/Release.entitlements" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/macos/RunnerTests/RunnerTests.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/apps/manager/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/apps/manager/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/test/widget_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/web/favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/web/icons/Icon-192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/web/icons/Icon-512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/web/icons/Icon-maskable-192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/web/icons/Icon-maskable-512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/web/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/web/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/windows/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/windows/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/windows/flutter/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/windows/flutter/generated_plugin_registrant.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/windows/flutter/generated_plugins.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/windows/runner/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/windows/runner/Runner.rc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/windows/runner/flutter_window.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/windows/runner/flutter_window.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/windows/runner/main.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/windows/runner/resource.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/windows/runner/resources/app_icon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/windows/runner/runner.exe.manifest" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/windows/runner/utils.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/windows/runner/utils.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/windows/runner/win32_window.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/windows/runner/win32_window.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/money/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/money/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/money/linux/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/apps/money/linux/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/money/linux/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/apps/money/linux/flutter/generated_plugins.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/money/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/apps/money/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/money/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/apps/money/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/money/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/apps/money/windows/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/money/windows/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/apps/money/windows/flutter/generated_plugins.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/notes/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/apps/notes/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/opthalmology/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/apps/opthalmology/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/patients/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/apps/patients/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/patients/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/apps/patients/windows/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/patients/windows/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/apps/patients/windows/flutter/generated_plugins.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/prescription_er/lib/add_patient_wizard/add_patient_wizard.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/prescription_er/lib/add_patient_wizard/add_patient_wizard.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/prescription_er/lib/complaints.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/prescription_er/lib/complaints.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/prescription_er/lib/patient_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/prescription_er/lib/patient_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/prescription_er/lib/prescriptions/patients_rm.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/prescription_er/lib/prescriptions/patients_rm.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/prescription_er/lib/prescriptions/prescription.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/prescription_er/lib/prescriptions/prescription.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/prescription_er/linux/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/apps/prescription_er/linux/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/prescription_er/linux/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/apps/prescription_er/linux/flutter/generated_plugins.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/prescription_er/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/apps/prescription_er/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/prescription_er/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/apps/prescription_er/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/prescription_er/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/apps/prescription_er/windows/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/prescription_er/windows/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/apps/prescription_er/windows/flutter/generated_plugins.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/project_dermatosis/lib/features/patients/gender_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/project_dermatosis/lib/features/patients/gender_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/project_dermatosis/lib/features/patients/pages/patient_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/project_dermatosis/lib/features/patients/pages/patient_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/project_dermatosis/lib/features/patients/pages/patients_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/project_dermatosis/lib/features/patients/pages/patients_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/project_dermatosis/lib/features/patients/patient.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/project_dermatosis/lib/features/patients/patient.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/project_dermatosis/lib/features/patients/patient.freezed.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/project_dermatosis/lib/features/patients/patient.freezed.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/project_dermatosis/lib/features/patients/patient.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/project_dermatosis/lib/features/patients/patient.g.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/project_dermatosis/lib/features/patients/patients.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/project_dermatosis/lib/features/patients/patients.freezed.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/project_dermatosis/lib/features/patients/patients.g.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/project_dermatosis/lib/features/pictures/pictures.freezed.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/project_dermatosis/lib/features/pictures/pictures.freezed.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/project_dermatosis/lib/features/pictures/pictures.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/project_dermatosis/lib/features/pictures/pictures.g.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/project_dermatosis/lib/features/settings/settings_page/advanced_themes_state.freezed.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/project_dermatosis/lib/features/settings/settings_page/advanced_themes_state.freezed.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/project_dermatosis/lib/features/settings/settings_page/advanced_themes_state.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/project_dermatosis/lib/features/settings/settings_page/advanced_themes_state.g.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/project_dermatosis/lib/features/settings/settings_page/settings.freezed.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/project_dermatosis/lib/features/settings/settings_page/settings.freezed.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/project_dermatosis/lib/features/settings/settings_page/settings.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/project_dermatosis/lib/features/settings/settings_page/settings.g.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/project_dermatosis/linux/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/apps/project_dermatosis/linux/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/project_dermatosis/linux/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/apps/project_dermatosis/linux/flutter/generated_plugins.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/project_dermatosis/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/apps/project_dermatosis/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/project_dermatosis/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/apps/project_dermatosis/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/project_dermatosis/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/apps/project_dermatosis/windows/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/project_dermatosis/windows/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/apps/project_dermatosis/windows/flutter/generated_plugins.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/rebuilder_docs/linux/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/apps/rebuilder_docs/linux/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/rebuilder_docs/linux/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/apps/rebuilder_docs/linux/flutter/generated_plugins.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/rebuilder_docs/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/apps/rebuilder_docs/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/rebuilder_docs/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/apps/rebuilder_docs/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/rebuilder_docs/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/apps/rebuilder_docs/windows/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/rebuilder_docs/windows/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/apps/rebuilder_docs/windows/flutter/generated_plugins.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/roster_system/lib/dashboard/dashboard.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/roster_system/lib/dashboard/dashboard.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/roster_system/lib/departments/departments.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/roster_system/lib/departments/departments.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/roster_system/lib/departments/departments.freezed.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/roster_system/lib/departments/departments.freezed.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/roster_system/lib/departments/departments.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/roster_system/lib/departments/departments.g.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/roster_system/lib/departments/departments_rm.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/roster_system/lib/departments/departments_rm.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/roster_system/lib/departments/ui/department_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/roster_system/lib/departments/ui/department_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/roster_system/lib/departments/ui/departments_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/roster_system/lib/departments/ui/departments_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/roster_system/lib/doctors/doctors.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/roster_system/lib/doctors/doctors.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/roster_system/lib/doctors/doctors.freezed.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/roster_system/lib/doctors/doctors.freezed.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/roster_system/lib/doctors/doctors.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/roster_system/lib/doctors/doctors.g.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/roster_system/lib/doctors/ui/doctor_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/roster_system/lib/doctors/ui/doctor_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/roster_system/lib/doctors/ui/doctors_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/roster_system/lib/doctors/ui/doctors_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/roster_system/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/roster_system/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/roster_system/lib/settings/settings.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/roster_system/lib/settings/settings.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/roster_system/lib/settings/settings.freezed.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/roster_system/lib/settings/settings.freezed.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/roster_system/lib/settings/settings.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/roster_system/lib/settings/settings.g.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/roster_system/lib/settings/settings_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/roster_system/lib/settings/settings_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/roster_system/lib/settings/settings_rm.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/roster_system/linux/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/apps/roster_system/linux/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/roster_system/linux/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/apps/roster_system/linux/flutter/generated_plugins.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/roster_system/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/apps/roster_system/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/roster_system/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/apps/roster_system/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/roster_system/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/apps/roster_system/windows/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/roster_system/windows/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/apps/roster_system/windows/flutter/generated_plugins.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/smc/lib/domain/models/models.freezed.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/smc/lib/domain/models/models.freezed.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/smc/lib/domain/models/models.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/smc/lib/domain/models/models.g.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/smc/lib/domain/models/patient.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/smc/lib/domain/models/patient.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/smc/lib/presentation/ui/configuration/configuration_ui.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/smc/lib/presentation/ui/configuration/configuration_ui.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/smc/linux/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/apps/smc/linux/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/smc/linux/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/apps/smc/linux/flutter/generated_plugins.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/smc/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/apps/smc/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/smc/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/apps/smc/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/smc/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/apps/smc/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/smc/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/apps/smc/windows/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/smc/windows/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/apps/smc/windows/flutter/generated_plugins.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/melos_applications.iml" beforeDir="false" afterPath="$PROJECT_DIR$/melos_applications.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,33 +313,43 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/apps/money/lib/main.dart" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="OptimizeOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 4
+}]]></component>
   <component name="ProjectId" id="2e0QrEP14EdVc1FsqUTmD29qmHt" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/FLUTTER/applications&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
-    &quot;settings.editor.splitter.proportion&quot;: &quot;0.32983193&quot;,
-    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "main",
+    "io.flutter.reload.alreadyRun": "true",
+    "last_opened_file_path": "D:/FLUTTER/applications",
+    "rearrange.code.on.save": "true",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
+    "settings.editor.splitter.proportion": "0.32983193",
+    "show.migrate.to.gradle.popup": "false"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Flutter.Flutter Run -&gt; 'opthalmology'" />
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

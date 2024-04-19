@@ -247,7 +247,7 @@ class __$$PatientImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PatientImpl extends _Patient {
+class _$PatientImpl extends _Patient with DiagnosticableTreeMixin {
   const _$PatientImpl(
       {this.id = '',
       this.name = '',
@@ -308,8 +308,25 @@ class _$PatientImpl extends _Patient {
   }
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Patient(id: $id, name: $name, gender: $gender, editing: $editing, address: $address, dateOfBirth: $dateOfBirth, lesions: $lesions, contact: $contact, diagnoses: $diagnoses, pictures: $pictures)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Patient'))
+      ..add(DiagnosticsProperty('id', id))
+      ..add(DiagnosticsProperty('name', name))
+      ..add(DiagnosticsProperty('gender', gender))
+      ..add(DiagnosticsProperty('editing', editing))
+      ..add(DiagnosticsProperty('address', address))
+      ..add(DiagnosticsProperty('dateOfBirth', dateOfBirth))
+      ..add(DiagnosticsProperty('lesions', lesions))
+      ..add(DiagnosticsProperty('contact', contact))
+      ..add(DiagnosticsProperty('diagnoses', diagnoses))
+      ..add(DiagnosticsProperty('pictures', pictures));
   }
 
   @override
@@ -494,7 +511,7 @@ class __$$DiagnosesImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$DiagnosesImpl extends _Diagnoses {
+class _$DiagnosesImpl extends _Diagnoses with DiagnosticableTreeMixin {
   const _$DiagnosesImpl(
       {this.diagnosis = '', final List<String> provisionalDiagnoses = const []})
       : _provisionalDiagnoses = provisionalDiagnoses,
@@ -517,8 +534,17 @@ class _$DiagnosesImpl extends _Diagnoses {
   }
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Diagnoses(diagnosis: $diagnosis, provisionalDiagnoses: $provisionalDiagnoses)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Diagnoses'))
+      ..add(DiagnosticsProperty('diagnosis', diagnosis))
+      ..add(DiagnosticsProperty('provisionalDiagnoses', provisionalDiagnoses));
   }
 
   @override
@@ -673,7 +699,7 @@ class __$$LesionImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$LesionImpl extends _Lesion {
+class _$LesionImpl extends _Lesion with DiagnosticableTreeMixin {
   const _$LesionImpl({this.site = Site.arms, this.patterns = const Patterns()})
       : super._();
 
@@ -688,8 +714,17 @@ class _$LesionImpl extends _Lesion {
   final Patterns patterns;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Lesion(site: $site, patterns: $patterns)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Lesion'))
+      ..add(DiagnosticsProperty('site', site))
+      ..add(DiagnosticsProperty('patterns', patterns));
   }
 
   @override
@@ -885,7 +920,7 @@ class __$$PatternsImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PatternsImpl extends _Patterns {
+class _$PatternsImpl extends _Patterns with DiagnosticableTreeMixin {
   const _$PatternsImpl(
       {this.localizedOrGeneralized = false,
       this.unilateralOrBilateral = false,
@@ -918,8 +953,23 @@ class _$PatternsImpl extends _Patterns {
   final bool exposedOrCovered;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Patterns(localizedOrGeneralized: $localizedOrGeneralized, unilateralOrBilateral: $unilateralOrBilateral, symmetricalOrAssymetrical: $symmetricalOrAssymetrical, truncalOrAcral: $truncalOrAcral, flexorOrExtensor: $flexorOrExtensor, exposedOrCovered: $exposedOrCovered)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Patterns'))
+      ..add(
+          DiagnosticsProperty('localizedOrGeneralized', localizedOrGeneralized))
+      ..add(DiagnosticsProperty('unilateralOrBilateral', unilateralOrBilateral))
+      ..add(DiagnosticsProperty(
+          'symmetricalOrAssymetrical', symmetricalOrAssymetrical))
+      ..add(DiagnosticsProperty('truncalOrAcral', truncalOrAcral))
+      ..add(DiagnosticsProperty('flexorOrExtensor', flexorOrExtensor))
+      ..add(DiagnosticsProperty('exposedOrCovered', exposedOrCovered));
   }
 
   @override
@@ -1099,7 +1149,7 @@ class __$$ContactImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ContactImpl extends _Contact {
+class _$ContactImpl extends _Contact with DiagnosticableTreeMixin {
   const _$ContactImpl(
       {this.countryCode = '', this.mnp = '', this.phoneCode = ''})
       : super._();
@@ -1118,8 +1168,18 @@ class _$ContactImpl extends _Contact {
   final String phoneCode;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Contact(countryCode: $countryCode, mnp: $mnp, phoneCode: $phoneCode)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Contact'))
+      ..add(DiagnosticsProperty('countryCode', countryCode))
+      ..add(DiagnosticsProperty('mnp', mnp))
+      ..add(DiagnosticsProperty('phoneCode', phoneCode));
   }
 
   @override
@@ -1285,7 +1345,7 @@ class __$$AddressImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$AddressImpl extends _Address {
+class _$AddressImpl extends _Address with DiagnosticableTreeMixin {
   const _$AddressImpl(
       {this.town = '', this.city = '', this.province = '', this.country = ''})
       : super._();
@@ -1307,8 +1367,19 @@ class _$AddressImpl extends _Address {
   final String country;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Address(town: $town, city: $city, province: $province, country: $country)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Address'))
+      ..add(DiagnosticsProperty('town', town))
+      ..add(DiagnosticsProperty('city', city))
+      ..add(DiagnosticsProperty('province', province))
+      ..add(DiagnosticsProperty('country', country));
   }
 
   @override

@@ -15,7 +15,7 @@ class EditDiseasePage extends ReactiveStatelessWidget {
   Widget build(BuildContext context) {
     return DiseaseBuilder(
       id: id,
-      builder: (context, Disease diseaseModel) {
+      builder: (diseaseModel) {
         return Scaffold(
           appBar: AppBar(
             leading: const SizedBox(),

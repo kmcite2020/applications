@@ -1,5 +1,10 @@
+import 'package:colornames/colornames.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:manager/manager.dart';
+import 'package:roster_system/departments/ui/departments_page.dart';
 import 'package:roster_system/main.dart';
+
+import 'settings.dart';
 
 class SettingsPage extends UI {
   const SettingsPage({super.key});
@@ -11,7 +16,6 @@ class SettingsPage extends UI {
         title: 'Settings'.text(),
       ),
       body: ListView(
-        shrinkWrap: true,
         physics: const BouncingScrollPhysics(),
         children: [
           DropdownButtonFormField(
@@ -24,7 +28,8 @@ class SettingsPage extends UI {
                 );
               },
             ).toList(),
-            onChanged: settingsRM.themeMode,
+            onChanged: (themeMode) =>
+                settingsRM(SettingsEvent.themeMode(themeMode!)),
           ).pad(),
           DropdownButtonFormField(
             value: settingsRM.state.materialColor,
@@ -36,14 +41,14 @@ class SettingsPage extends UI {
                 );
               },
             ).toList(),
-            onChanged: settingsRM.materialColor,
+            onChanged: (color) => settingsRM(SettingsEvent.material(color!)),
           ).pad(),
           CupertinoSlider(
             max: 30,
             value: settingsRM().borderRadius,
-            onChanged: settingsRM.borderRadius,
+            onChanged: (br) => settingsRM(SettingsEvent.borderRadius(br)),
           ).pad(),
-          CupertinoButton.filled(
+          FilledButton(
             onPressed: () {
               RM.navigate.to(const DepartmentsPage());
             },

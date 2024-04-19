@@ -10,7 +10,9 @@ class PatientPage extends UI {
     super.key,
     required this.id,
   });
-  final MR id;
+
+  final String id;
+
   @override
   Widget build(BuildContext context) {
     return PatientBuilder(
@@ -51,7 +53,7 @@ class PatientPage extends UI {
               decoration: InputDecoration(labelText: 'NAME'),
               initialValue: patient.name,
               onChanged: (value) {
-                patientsRM.save(
+                patientsRM(
                   patient.copyWith(name: value),
                 );
               },
@@ -61,7 +63,7 @@ class PatientPage extends UI {
               decoration: InputDecoration(labelText: 'FATHER NAME'),
               initialValue: patient.fatherName,
               onChanged: (value) {
-                patientsRM.save(
+                patientsRM(
                   patient.copyWith(fatherName: value),
                 );
               },
@@ -84,16 +86,17 @@ class PatientPage extends UI {
 }
 
 class ExaminationsUI extends UI {
-  final MR id;
+  final String id;
 
   ExaminationsUI({super.key, required this.id});
+
   @override
   Widget build(BuildContext context) {
     return PatientBuilder(
       id: id,
       builder: (patient) {
         void setExaminations(Examinations examinations) {
-          patientsRM.save(patient.copyWith(examinations: examinations));
+          patientsRM(patient.copyWith(examinations: examinations));
         }
 
         final examinations = patient.examinations;
@@ -178,7 +181,8 @@ class VitalsMonitoringUI extends UI {
     super.key,
     required this.id,
   });
-  final MR id;
+
+  final String id;
 
   @override
   Widget build(BuildContext context) {

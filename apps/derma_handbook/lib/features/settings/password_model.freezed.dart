@@ -119,7 +119,7 @@ class __$$PasswordImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PasswordImpl implements _Password {
+class _$PasswordImpl with DiagnosticableTreeMixin implements _Password {
   const _$PasswordImpl(
       {this.password = 'false',
       this.isPasswordVisible = false,
@@ -139,8 +139,18 @@ class _$PasswordImpl implements _Password {
   final bool isAddDiseaseVisible;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Password(password: $password, isPasswordVisible: $isPasswordVisible, isAddDiseaseVisible: $isAddDiseaseVisible)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Password'))
+      ..add(DiagnosticsProperty('password', password))
+      ..add(DiagnosticsProperty('isPasswordVisible', isPasswordVisible))
+      ..add(DiagnosticsProperty('isAddDiseaseVisible', isAddDiseaseVisible));
   }
 
   @override

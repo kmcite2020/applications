@@ -23,6 +23,7 @@ mixin _$AppUserEvent {
     required TResult Function(DateTime dateOfPuberty) setDateOfPubertyExplicit,
     required TResult Function(AgeVysor? ageVysor) setAgeVysor,
     required TResult Function(String userName) setUserName,
+    required TResult Function(Duration age) setAge,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,6 +33,7 @@ mixin _$AppUserEvent {
     TResult? Function(DateTime dateOfPuberty)? setDateOfPubertyExplicit,
     TResult? Function(AgeVysor? ageVysor)? setAgeVysor,
     TResult? Function(String userName)? setUserName,
+    TResult? Function(Duration age)? setAge,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,6 +43,7 @@ mixin _$AppUserEvent {
     TResult Function(DateTime dateOfPuberty)? setDateOfPubertyExplicit,
     TResult Function(AgeVysor? ageVysor)? setAgeVysor,
     TResult Function(String userName)? setUserName,
+    TResult Function(Duration age)? setAge,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -53,6 +56,7 @@ mixin _$AppUserEvent {
         setDateOfPubertyExplicit,
     required TResult Function(_AppUserEventSetAgeVysor value) setAgeVysor,
     required TResult Function(_AppUserEventSetUserName value) setUserName,
+    required TResult Function(_AppUserEventSetAge value) setAge,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -64,6 +68,7 @@ mixin _$AppUserEvent {
         setDateOfPubertyExplicit,
     TResult? Function(_AppUserEventSetAgeVysor value)? setAgeVysor,
     TResult? Function(_AppUserEventSetUserName value)? setUserName,
+    TResult? Function(_AppUserEventSetAge value)? setAge,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -75,6 +80,7 @@ mixin _$AppUserEvent {
         setDateOfPubertyExplicit,
     TResult Function(_AppUserEventSetAgeVysor value)? setAgeVysor,
     TResult Function(_AppUserEventSetUserName value)? setUserName,
+    TResult Function(_AppUserEventSetAge value)? setAge,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -133,15 +139,25 @@ class __$$AppUserEventSetDateOfBirthImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AppUserEventSetDateOfBirthImpl implements _AppUserEventSetDateOfBirth {
+class _$AppUserEventSetDateOfBirthImpl
+    with DiagnosticableTreeMixin
+    implements _AppUserEventSetDateOfBirth {
   const _$AppUserEventSetDateOfBirthImpl(this.dateOfBirth);
 
   @override
   final DateTime dateOfBirth;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AppUserEvent.setDateOfBirth(dateOfBirth: $dateOfBirth)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AppUserEvent.setDateOfBirth'))
+      ..add(DiagnosticsProperty('dateOfBirth', dateOfBirth));
   }
 
   @override
@@ -171,6 +187,7 @@ class _$AppUserEventSetDateOfBirthImpl implements _AppUserEventSetDateOfBirth {
     required TResult Function(DateTime dateOfPuberty) setDateOfPubertyExplicit,
     required TResult Function(AgeVysor? ageVysor) setAgeVysor,
     required TResult Function(String userName) setUserName,
+    required TResult Function(Duration age) setAge,
   }) {
     return setDateOfBirth(dateOfBirth);
   }
@@ -183,6 +200,7 @@ class _$AppUserEventSetDateOfBirthImpl implements _AppUserEventSetDateOfBirth {
     TResult? Function(DateTime dateOfPuberty)? setDateOfPubertyExplicit,
     TResult? Function(AgeVysor? ageVysor)? setAgeVysor,
     TResult? Function(String userName)? setUserName,
+    TResult? Function(Duration age)? setAge,
   }) {
     return setDateOfBirth?.call(dateOfBirth);
   }
@@ -195,6 +213,7 @@ class _$AppUserEventSetDateOfBirthImpl implements _AppUserEventSetDateOfBirth {
     TResult Function(DateTime dateOfPuberty)? setDateOfPubertyExplicit,
     TResult Function(AgeVysor? ageVysor)? setAgeVysor,
     TResult Function(String userName)? setUserName,
+    TResult Function(Duration age)? setAge,
     required TResult orElse(),
   }) {
     if (setDateOfBirth != null) {
@@ -213,6 +232,7 @@ class _$AppUserEventSetDateOfBirthImpl implements _AppUserEventSetDateOfBirth {
         setDateOfPubertyExplicit,
     required TResult Function(_AppUserEventSetAgeVysor value) setAgeVysor,
     required TResult Function(_AppUserEventSetUserName value) setUserName,
+    required TResult Function(_AppUserEventSetAge value) setAge,
   }) {
     return setDateOfBirth(this);
   }
@@ -227,6 +247,7 @@ class _$AppUserEventSetDateOfBirthImpl implements _AppUserEventSetDateOfBirth {
         setDateOfPubertyExplicit,
     TResult? Function(_AppUserEventSetAgeVysor value)? setAgeVysor,
     TResult? Function(_AppUserEventSetUserName value)? setUserName,
+    TResult? Function(_AppUserEventSetAge value)? setAge,
   }) {
     return setDateOfBirth?.call(this);
   }
@@ -241,6 +262,7 @@ class _$AppUserEventSetDateOfBirthImpl implements _AppUserEventSetDateOfBirth {
         setDateOfPubertyExplicit,
     TResult Function(_AppUserEventSetAgeVysor value)? setAgeVysor,
     TResult Function(_AppUserEventSetUserName value)? setUserName,
+    TResult Function(_AppUserEventSetAge value)? setAge,
     required TResult orElse(),
   }) {
     if (setDateOfBirth != null) {
@@ -297,6 +319,7 @@ class __$$AppUserEventSetAgeBaredOrExplicitImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AppUserEventSetAgeBaredOrExplicitImpl
+    with DiagnosticableTreeMixin
     implements _AppUserEventSetAgeBaredOrExplicit {
   const _$AppUserEventSetAgeBaredOrExplicitImpl(this.ageBasedOrExplicit);
 
@@ -304,8 +327,16 @@ class _$AppUserEventSetAgeBaredOrExplicitImpl
   final bool ageBasedOrExplicit;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AppUserEvent.setAgeBasedOrExplicit(ageBasedOrExplicit: $ageBasedOrExplicit)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AppUserEvent.setAgeBasedOrExplicit'))
+      ..add(DiagnosticsProperty('ageBasedOrExplicit', ageBasedOrExplicit));
   }
 
   @override
@@ -336,6 +367,7 @@ class _$AppUserEventSetAgeBaredOrExplicitImpl
     required TResult Function(DateTime dateOfPuberty) setDateOfPubertyExplicit,
     required TResult Function(AgeVysor? ageVysor) setAgeVysor,
     required TResult Function(String userName) setUserName,
+    required TResult Function(Duration age) setAge,
   }) {
     return setAgeBasedOrExplicit(ageBasedOrExplicit);
   }
@@ -348,6 +380,7 @@ class _$AppUserEventSetAgeBaredOrExplicitImpl
     TResult? Function(DateTime dateOfPuberty)? setDateOfPubertyExplicit,
     TResult? Function(AgeVysor? ageVysor)? setAgeVysor,
     TResult? Function(String userName)? setUserName,
+    TResult? Function(Duration age)? setAge,
   }) {
     return setAgeBasedOrExplicit?.call(ageBasedOrExplicit);
   }
@@ -360,6 +393,7 @@ class _$AppUserEventSetAgeBaredOrExplicitImpl
     TResult Function(DateTime dateOfPuberty)? setDateOfPubertyExplicit,
     TResult Function(AgeVysor? ageVysor)? setAgeVysor,
     TResult Function(String userName)? setUserName,
+    TResult Function(Duration age)? setAge,
     required TResult orElse(),
   }) {
     if (setAgeBasedOrExplicit != null) {
@@ -378,6 +412,7 @@ class _$AppUserEventSetAgeBaredOrExplicitImpl
         setDateOfPubertyExplicit,
     required TResult Function(_AppUserEventSetAgeVysor value) setAgeVysor,
     required TResult Function(_AppUserEventSetUserName value) setUserName,
+    required TResult Function(_AppUserEventSetAge value) setAge,
   }) {
     return setAgeBasedOrExplicit(this);
   }
@@ -392,6 +427,7 @@ class _$AppUserEventSetAgeBaredOrExplicitImpl
         setDateOfPubertyExplicit,
     TResult? Function(_AppUserEventSetAgeVysor value)? setAgeVysor,
     TResult? Function(_AppUserEventSetUserName value)? setUserName,
+    TResult? Function(_AppUserEventSetAge value)? setAge,
   }) {
     return setAgeBasedOrExplicit?.call(this);
   }
@@ -406,6 +442,7 @@ class _$AppUserEventSetAgeBaredOrExplicitImpl
         setDateOfPubertyExplicit,
     TResult Function(_AppUserEventSetAgeVysor value)? setAgeVysor,
     TResult Function(_AppUserEventSetUserName value)? setUserName,
+    TResult Function(_AppUserEventSetAge value)? setAge,
     required TResult orElse(),
   }) {
     if (setAgeBasedOrExplicit != null) {
@@ -463,6 +500,7 @@ class __$$AppUserEventSetDateOfPubertyExplicitImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AppUserEventSetDateOfPubertyExplicitImpl
+    with DiagnosticableTreeMixin
     implements _AppUserEventSetDateOfPubertyExplicit {
   const _$AppUserEventSetDateOfPubertyExplicitImpl(this.dateOfPuberty);
 
@@ -470,8 +508,17 @@ class _$AppUserEventSetDateOfPubertyExplicitImpl
   final DateTime dateOfPuberty;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AppUserEvent.setDateOfPubertyExplicit(dateOfPuberty: $dateOfPuberty)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(
+          DiagnosticsProperty('type', 'AppUserEvent.setDateOfPubertyExplicit'))
+      ..add(DiagnosticsProperty('dateOfPuberty', dateOfPuberty));
   }
 
   @override
@@ -502,6 +549,7 @@ class _$AppUserEventSetDateOfPubertyExplicitImpl
     required TResult Function(DateTime dateOfPuberty) setDateOfPubertyExplicit,
     required TResult Function(AgeVysor? ageVysor) setAgeVysor,
     required TResult Function(String userName) setUserName,
+    required TResult Function(Duration age) setAge,
   }) {
     return setDateOfPubertyExplicit(dateOfPuberty);
   }
@@ -514,6 +562,7 @@ class _$AppUserEventSetDateOfPubertyExplicitImpl
     TResult? Function(DateTime dateOfPuberty)? setDateOfPubertyExplicit,
     TResult? Function(AgeVysor? ageVysor)? setAgeVysor,
     TResult? Function(String userName)? setUserName,
+    TResult? Function(Duration age)? setAge,
   }) {
     return setDateOfPubertyExplicit?.call(dateOfPuberty);
   }
@@ -526,6 +575,7 @@ class _$AppUserEventSetDateOfPubertyExplicitImpl
     TResult Function(DateTime dateOfPuberty)? setDateOfPubertyExplicit,
     TResult Function(AgeVysor? ageVysor)? setAgeVysor,
     TResult Function(String userName)? setUserName,
+    TResult Function(Duration age)? setAge,
     required TResult orElse(),
   }) {
     if (setDateOfPubertyExplicit != null) {
@@ -544,6 +594,7 @@ class _$AppUserEventSetDateOfPubertyExplicitImpl
         setDateOfPubertyExplicit,
     required TResult Function(_AppUserEventSetAgeVysor value) setAgeVysor,
     required TResult Function(_AppUserEventSetUserName value) setUserName,
+    required TResult Function(_AppUserEventSetAge value) setAge,
   }) {
     return setDateOfPubertyExplicit(this);
   }
@@ -558,6 +609,7 @@ class _$AppUserEventSetDateOfPubertyExplicitImpl
         setDateOfPubertyExplicit,
     TResult? Function(_AppUserEventSetAgeVysor value)? setAgeVysor,
     TResult? Function(_AppUserEventSetUserName value)? setUserName,
+    TResult? Function(_AppUserEventSetAge value)? setAge,
   }) {
     return setDateOfPubertyExplicit?.call(this);
   }
@@ -572,6 +624,7 @@ class _$AppUserEventSetDateOfPubertyExplicitImpl
         setDateOfPubertyExplicit,
     TResult Function(_AppUserEventSetAgeVysor value)? setAgeVysor,
     TResult Function(_AppUserEventSetUserName value)? setUserName,
+    TResult Function(_AppUserEventSetAge value)? setAge,
     required TResult orElse(),
   }) {
     if (setDateOfPubertyExplicit != null) {
@@ -628,15 +681,25 @@ class __$$AppUserEventSetAgeVysorImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AppUserEventSetAgeVysorImpl implements _AppUserEventSetAgeVysor {
+class _$AppUserEventSetAgeVysorImpl
+    with DiagnosticableTreeMixin
+    implements _AppUserEventSetAgeVysor {
   const _$AppUserEventSetAgeVysorImpl(this.ageVysor);
 
   @override
   final AgeVysor? ageVysor;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AppUserEvent.setAgeVysor(ageVysor: $ageVysor)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AppUserEvent.setAgeVysor'))
+      ..add(DiagnosticsProperty('ageVysor', ageVysor));
   }
 
   @override
@@ -666,6 +729,7 @@ class _$AppUserEventSetAgeVysorImpl implements _AppUserEventSetAgeVysor {
     required TResult Function(DateTime dateOfPuberty) setDateOfPubertyExplicit,
     required TResult Function(AgeVysor? ageVysor) setAgeVysor,
     required TResult Function(String userName) setUserName,
+    required TResult Function(Duration age) setAge,
   }) {
     return setAgeVysor(ageVysor);
   }
@@ -678,6 +742,7 @@ class _$AppUserEventSetAgeVysorImpl implements _AppUserEventSetAgeVysor {
     TResult? Function(DateTime dateOfPuberty)? setDateOfPubertyExplicit,
     TResult? Function(AgeVysor? ageVysor)? setAgeVysor,
     TResult? Function(String userName)? setUserName,
+    TResult? Function(Duration age)? setAge,
   }) {
     return setAgeVysor?.call(ageVysor);
   }
@@ -690,6 +755,7 @@ class _$AppUserEventSetAgeVysorImpl implements _AppUserEventSetAgeVysor {
     TResult Function(DateTime dateOfPuberty)? setDateOfPubertyExplicit,
     TResult Function(AgeVysor? ageVysor)? setAgeVysor,
     TResult Function(String userName)? setUserName,
+    TResult Function(Duration age)? setAge,
     required TResult orElse(),
   }) {
     if (setAgeVysor != null) {
@@ -708,6 +774,7 @@ class _$AppUserEventSetAgeVysorImpl implements _AppUserEventSetAgeVysor {
         setDateOfPubertyExplicit,
     required TResult Function(_AppUserEventSetAgeVysor value) setAgeVysor,
     required TResult Function(_AppUserEventSetUserName value) setUserName,
+    required TResult Function(_AppUserEventSetAge value) setAge,
   }) {
     return setAgeVysor(this);
   }
@@ -722,6 +789,7 @@ class _$AppUserEventSetAgeVysorImpl implements _AppUserEventSetAgeVysor {
         setDateOfPubertyExplicit,
     TResult? Function(_AppUserEventSetAgeVysor value)? setAgeVysor,
     TResult? Function(_AppUserEventSetUserName value)? setUserName,
+    TResult? Function(_AppUserEventSetAge value)? setAge,
   }) {
     return setAgeVysor?.call(this);
   }
@@ -736,6 +804,7 @@ class _$AppUserEventSetAgeVysorImpl implements _AppUserEventSetAgeVysor {
         setDateOfPubertyExplicit,
     TResult Function(_AppUserEventSetAgeVysor value)? setAgeVysor,
     TResult Function(_AppUserEventSetUserName value)? setUserName,
+    TResult Function(_AppUserEventSetAge value)? setAge,
     required TResult orElse(),
   }) {
     if (setAgeVysor != null) {
@@ -790,15 +859,25 @@ class __$$AppUserEventSetUserNameImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AppUserEventSetUserNameImpl implements _AppUserEventSetUserName {
+class _$AppUserEventSetUserNameImpl
+    with DiagnosticableTreeMixin
+    implements _AppUserEventSetUserName {
   const _$AppUserEventSetUserNameImpl(this.userName);
 
   @override
   final String userName;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AppUserEvent.setUserName(userName: $userName)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AppUserEvent.setUserName'))
+      ..add(DiagnosticsProperty('userName', userName));
   }
 
   @override
@@ -828,6 +907,7 @@ class _$AppUserEventSetUserNameImpl implements _AppUserEventSetUserName {
     required TResult Function(DateTime dateOfPuberty) setDateOfPubertyExplicit,
     required TResult Function(AgeVysor? ageVysor) setAgeVysor,
     required TResult Function(String userName) setUserName,
+    required TResult Function(Duration age) setAge,
   }) {
     return setUserName(userName);
   }
@@ -840,6 +920,7 @@ class _$AppUserEventSetUserNameImpl implements _AppUserEventSetUserName {
     TResult? Function(DateTime dateOfPuberty)? setDateOfPubertyExplicit,
     TResult? Function(AgeVysor? ageVysor)? setAgeVysor,
     TResult? Function(String userName)? setUserName,
+    TResult? Function(Duration age)? setAge,
   }) {
     return setUserName?.call(userName);
   }
@@ -852,6 +933,7 @@ class _$AppUserEventSetUserNameImpl implements _AppUserEventSetUserName {
     TResult Function(DateTime dateOfPuberty)? setDateOfPubertyExplicit,
     TResult Function(AgeVysor? ageVysor)? setAgeVysor,
     TResult Function(String userName)? setUserName,
+    TResult Function(Duration age)? setAge,
     required TResult orElse(),
   }) {
     if (setUserName != null) {
@@ -870,6 +952,7 @@ class _$AppUserEventSetUserNameImpl implements _AppUserEventSetUserName {
         setDateOfPubertyExplicit,
     required TResult Function(_AppUserEventSetAgeVysor value) setAgeVysor,
     required TResult Function(_AppUserEventSetUserName value) setUserName,
+    required TResult Function(_AppUserEventSetAge value) setAge,
   }) {
     return setUserName(this);
   }
@@ -884,6 +967,7 @@ class _$AppUserEventSetUserNameImpl implements _AppUserEventSetUserName {
         setDateOfPubertyExplicit,
     TResult? Function(_AppUserEventSetAgeVysor value)? setAgeVysor,
     TResult? Function(_AppUserEventSetUserName value)? setUserName,
+    TResult? Function(_AppUserEventSetAge value)? setAge,
   }) {
     return setUserName?.call(this);
   }
@@ -898,6 +982,7 @@ class _$AppUserEventSetUserNameImpl implements _AppUserEventSetUserName {
         setDateOfPubertyExplicit,
     TResult Function(_AppUserEventSetAgeVysor value)? setAgeVysor,
     TResult Function(_AppUserEventSetUserName value)? setUserName,
+    TResult Function(_AppUserEventSetAge value)? setAge,
     required TResult orElse(),
   }) {
     if (setUserName != null) {
@@ -915,6 +1000,181 @@ abstract class _AppUserEventSetUserName implements AppUserEvent {
   @JsonKey(ignore: true)
   _$$AppUserEventSetUserNameImplCopyWith<_$AppUserEventSetUserNameImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AppUserEventSetAgeImplCopyWith<$Res> {
+  factory _$$AppUserEventSetAgeImplCopyWith(_$AppUserEventSetAgeImpl value,
+          $Res Function(_$AppUserEventSetAgeImpl) then) =
+      __$$AppUserEventSetAgeImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Duration age});
+}
+
+/// @nodoc
+class __$$AppUserEventSetAgeImplCopyWithImpl<$Res>
+    extends _$AppUserEventCopyWithImpl<$Res, _$AppUserEventSetAgeImpl>
+    implements _$$AppUserEventSetAgeImplCopyWith<$Res> {
+  __$$AppUserEventSetAgeImplCopyWithImpl(_$AppUserEventSetAgeImpl _value,
+      $Res Function(_$AppUserEventSetAgeImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? age = null,
+  }) {
+    return _then(_$AppUserEventSetAgeImpl(
+      null == age
+          ? _value.age
+          : age // ignore: cast_nullable_to_non_nullable
+              as Duration,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AppUserEventSetAgeImpl
+    with DiagnosticableTreeMixin
+    implements _AppUserEventSetAge {
+  const _$AppUserEventSetAgeImpl(this.age);
+
+  @override
+  final Duration age;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'AppUserEvent.setAge(age: $age)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AppUserEvent.setAge'))
+      ..add(DiagnosticsProperty('age', age));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AppUserEventSetAgeImpl &&
+            (identical(other.age, age) || other.age == age));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, age);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AppUserEventSetAgeImplCopyWith<_$AppUserEventSetAgeImpl> get copyWith =>
+      __$$AppUserEventSetAgeImplCopyWithImpl<_$AppUserEventSetAgeImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(DateTime dateOfBirth) setDateOfBirth,
+    required TResult Function(bool ageBasedOrExplicit) setAgeBasedOrExplicit,
+    required TResult Function(DateTime dateOfPuberty) setDateOfPubertyExplicit,
+    required TResult Function(AgeVysor? ageVysor) setAgeVysor,
+    required TResult Function(String userName) setUserName,
+    required TResult Function(Duration age) setAge,
+  }) {
+    return setAge(age);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(DateTime dateOfBirth)? setDateOfBirth,
+    TResult? Function(bool ageBasedOrExplicit)? setAgeBasedOrExplicit,
+    TResult? Function(DateTime dateOfPuberty)? setDateOfPubertyExplicit,
+    TResult? Function(AgeVysor? ageVysor)? setAgeVysor,
+    TResult? Function(String userName)? setUserName,
+    TResult? Function(Duration age)? setAge,
+  }) {
+    return setAge?.call(age);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DateTime dateOfBirth)? setDateOfBirth,
+    TResult Function(bool ageBasedOrExplicit)? setAgeBasedOrExplicit,
+    TResult Function(DateTime dateOfPuberty)? setDateOfPubertyExplicit,
+    TResult Function(AgeVysor? ageVysor)? setAgeVysor,
+    TResult Function(String userName)? setUserName,
+    TResult Function(Duration age)? setAge,
+    required TResult orElse(),
+  }) {
+    if (setAge != null) {
+      return setAge(age);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AppUserEventSetDateOfBirth value) setDateOfBirth,
+    required TResult Function(_AppUserEventSetAgeBaredOrExplicit value)
+        setAgeBasedOrExplicit,
+    required TResult Function(_AppUserEventSetDateOfPubertyExplicit value)
+        setDateOfPubertyExplicit,
+    required TResult Function(_AppUserEventSetAgeVysor value) setAgeVysor,
+    required TResult Function(_AppUserEventSetUserName value) setUserName,
+    required TResult Function(_AppUserEventSetAge value) setAge,
+  }) {
+    return setAge(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_AppUserEventSetDateOfBirth value)? setDateOfBirth,
+    TResult? Function(_AppUserEventSetAgeBaredOrExplicit value)?
+        setAgeBasedOrExplicit,
+    TResult? Function(_AppUserEventSetDateOfPubertyExplicit value)?
+        setDateOfPubertyExplicit,
+    TResult? Function(_AppUserEventSetAgeVysor value)? setAgeVysor,
+    TResult? Function(_AppUserEventSetUserName value)? setUserName,
+    TResult? Function(_AppUserEventSetAge value)? setAge,
+  }) {
+    return setAge?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AppUserEventSetDateOfBirth value)? setDateOfBirth,
+    TResult Function(_AppUserEventSetAgeBaredOrExplicit value)?
+        setAgeBasedOrExplicit,
+    TResult Function(_AppUserEventSetDateOfPubertyExplicit value)?
+        setDateOfPubertyExplicit,
+    TResult Function(_AppUserEventSetAgeVysor value)? setAgeVysor,
+    TResult Function(_AppUserEventSetUserName value)? setUserName,
+    TResult Function(_AppUserEventSetAge value)? setAge,
+    required TResult orElse(),
+  }) {
+    if (setAge != null) {
+      return setAge(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AppUserEventSetAge implements AppUserEvent {
+  const factory _AppUserEventSetAge(final Duration age) =
+      _$AppUserEventSetAgeImpl;
+
+  Duration get age;
+  @JsonKey(ignore: true)
+  _$$AppUserEventSetAgeImplCopyWith<_$AppUserEventSetAgeImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 AppUser _$AppUserFromJson(Map<String, dynamic> json) {
@@ -1131,7 +1391,7 @@ class __$$AppUserImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$AppUserImpl extends _AppUser {
+class _$AppUserImpl extends _AppUser with DiagnosticableTreeMixin {
   _$AppUserImpl(
       {this.userName = '',
       this.editing = false,
@@ -1166,8 +1426,22 @@ class _$AppUserImpl extends _AppUser {
   final Duration age;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AppUser.raw(userName: $userName, editing: $editing, ageBasedOrExplicit: $ageBasedOrExplicit, dateOfBirth: $dateOfBirth, dateOfPubertyExplicit: $dateOfPubertyExplicit, ageVysor: $ageVysor, age: $age)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AppUser.raw'))
+      ..add(DiagnosticsProperty('userName', userName))
+      ..add(DiagnosticsProperty('editing', editing))
+      ..add(DiagnosticsProperty('ageBasedOrExplicit', ageBasedOrExplicit))
+      ..add(DiagnosticsProperty('dateOfBirth', dateOfBirth))
+      ..add(DiagnosticsProperty('dateOfPubertyExplicit', dateOfPubertyExplicit))
+      ..add(DiagnosticsProperty('ageVysor', ageVysor))
+      ..add(DiagnosticsProperty('age', age));
   }
 
   @override

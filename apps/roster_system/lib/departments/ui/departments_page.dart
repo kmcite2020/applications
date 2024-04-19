@@ -1,3 +1,7 @@
+import 'package:roster_system/departments/departments.dart';
+import 'package:roster_system/departments/departments_rm.dart';
+import 'package:roster_system/departments/ui/department_page.dart';
+
 import '../../main.dart';
 
 class DepartmentsPage extends UI {

@@ -25,26 +25,6 @@ class Settings with _$Settings {
       _$SettingsFromJson(json);
 }
 
-class MaterialColorConverter implements JsonConverter<MaterialColor, int> {
-  const MaterialColorConverter();
-
-  @override
-  MaterialColor fromJson(int json) => Colors.primaries[json];
-
-  @override
-  int toJson(MaterialColor object) => Colors.primaries.indexOf(object);
-}
-
-class Uint8ListConverter implements JsonConverter<Uint8List, int> {
-  const Uint8ListConverter();
-
-  @override
-  Uint8List fromJson(int json) => throw UnimplementedError();
-
-  @override
-  int toJson(Uint8List object) => throw UnimplementedError();
-}
-
 final settingsManager = SettingsManager();
 
 class SettingsManager {

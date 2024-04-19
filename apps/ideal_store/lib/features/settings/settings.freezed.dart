@@ -202,7 +202,7 @@ class __$$SettingsImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SettingsImpl implements _Settings {
+class _$SettingsImpl with DiagnosticableTreeMixin implements _Settings {
   const _$SettingsImpl(
       {@MaterialColorConverter() this.materialColor = Colors.amber,
       this.themeMode = ThemeMode.system,
@@ -247,8 +247,24 @@ class _$SettingsImpl implements _Settings {
   final double borderRadius;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Settings(materialColor: $materialColor, themeMode: $themeMode, isAddCustomerVisible: $isAddCustomerVisible, isThemeModesExtended: $isThemeModesExtended, isColorsExtended: $isColorsExtended, isFontsExtended: $isFontsExtended, font: $font, padding: $padding, borderRadius: $borderRadius)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Settings'))
+      ..add(DiagnosticsProperty('materialColor', materialColor))
+      ..add(DiagnosticsProperty('themeMode', themeMode))
+      ..add(DiagnosticsProperty('isAddCustomerVisible', isAddCustomerVisible))
+      ..add(DiagnosticsProperty('isThemeModesExtended', isThemeModesExtended))
+      ..add(DiagnosticsProperty('isColorsExtended', isColorsExtended))
+      ..add(DiagnosticsProperty('isFontsExtended', isFontsExtended))
+      ..add(DiagnosticsProperty('font', font))
+      ..add(DiagnosticsProperty('padding', padding))
+      ..add(DiagnosticsProperty('borderRadius', borderRadius));
   }
 
   @override

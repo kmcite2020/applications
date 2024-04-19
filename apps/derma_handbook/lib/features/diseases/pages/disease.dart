@@ -18,7 +18,7 @@ class DiseasePage extends ReactiveStatelessWidget {
     final size = MediaQuery.of(context).size;
     return DiseaseBuilder(
       id: id,
-      builder: (BuildContext context, Disease disease) {
+      builder: (disease) {
         if (disease.descriptions.isNotEmpty) {
           return Scaffold(
             appBar: AppBar(

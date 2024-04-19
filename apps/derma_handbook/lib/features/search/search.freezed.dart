@@ -104,7 +104,7 @@ class __$$SearchImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SearchImpl extends _Search {
+class _$SearchImpl extends _Search with DiagnosticableTreeMixin {
   const _$SearchImpl(
       {this.searchMode = SearchMode.startsWith, this.search = ''})
       : super._();
@@ -120,8 +120,17 @@ class _$SearchImpl extends _Search {
   final String search;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Search(searchMode: $searchMode, search: $search)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Search'))
+      ..add(DiagnosticsProperty('searchMode', searchMode))
+      ..add(DiagnosticsProperty('search', search));
   }
 
   @override

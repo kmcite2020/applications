@@ -114,7 +114,7 @@ class __$$ChatImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ChatImpl implements _Chat {
+class _$ChatImpl with DiagnosticableTreeMixin implements _Chat {
   const _$ChatImpl(
       {this.id = '',
       this.title = '',
@@ -140,8 +140,18 @@ class _$ChatImpl implements _Chat {
   }
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Chat(id: $id, title: $title, cards: $cards)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Chat'))
+      ..add(DiagnosticsProperty('id', id))
+      ..add(DiagnosticsProperty('title', title))
+      ..add(DiagnosticsProperty('cards', cards));
   }
 
   @override

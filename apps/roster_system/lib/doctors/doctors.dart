@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:roster_system/main.dart';
 
 part 'doctors.freezed.dart';
@@ -7,12 +8,12 @@ part 'doctors.g.dart';
 enum Gender { male, female }
 
 final doctorsRM = ComplexTable<Doctor>(
-  key: 'doctors',
+  'doctors',
   fromJson: Doctor.fromJson,
 );
 
 @freezed
-class Doctor extends ID with _$Doctor {
+class Doctor with _$Doctor {
   const Doctor._();
   const factory Doctor({
     @Default('') final String id,

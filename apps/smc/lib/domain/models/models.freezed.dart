@@ -137,7 +137,7 @@ class __$$SettingsImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SettingsImpl implements _Settings {
+class _$SettingsImpl with DiagnosticableTreeMixin implements _Settings {
   const _$SettingsImpl(
       {this.borderRadius = 8.0,
       this.padding = 8.0,
@@ -162,8 +162,19 @@ class _$SettingsImpl implements _Settings {
   final MaterialColor materialColor;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Settings(borderRadius: $borderRadius, padding: $padding, themeMode: $themeMode, materialColor: $materialColor)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Settings'))
+      ..add(DiagnosticsProperty('borderRadius', borderRadius))
+      ..add(DiagnosticsProperty('padding', padding))
+      ..add(DiagnosticsProperty('themeMode', themeMode))
+      ..add(DiagnosticsProperty('materialColor', materialColor));
   }
 
   @override
@@ -308,7 +319,9 @@ class __$$HomeTreatmentPlanImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$HomeTreatmentPlanImpl implements _HomeTreatmentPlan {
+class _$HomeTreatmentPlanImpl
+    with DiagnosticableTreeMixin
+    implements _HomeTreatmentPlan {
   const _$HomeTreatmentPlanImpl(
       {required final Map<String, Prescription> homeTreatment})
       : _homeTreatment = homeTreatment;
@@ -325,8 +338,16 @@ class _$HomeTreatmentPlanImpl implements _HomeTreatmentPlan {
   }
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HomeTreatmentPlan(homeTreatment: $homeTreatment)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'HomeTreatmentPlan'))
+      ..add(DiagnosticsProperty('homeTreatment', homeTreatment));
   }
 
   @override
@@ -455,7 +476,7 @@ class __$$MedicineImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$MedicineImpl implements _Medicine {
+class _$MedicineImpl with DiagnosticableTreeMixin implements _Medicine {
   const _$MedicineImpl({required this.medicine});
 
   factory _$MedicineImpl.fromJson(Map<String, dynamic> json) =>
@@ -465,8 +486,16 @@ class _$MedicineImpl implements _Medicine {
   final String medicine;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Medicine(medicine: $medicine)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Medicine'))
+      ..add(DiagnosticsProperty('medicine', medicine));
   }
 
   @override
@@ -622,7 +651,7 @@ class __$$StaffImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$StaffImpl extends _Staff {
+class _$StaffImpl extends _Staff with DiagnosticableTreeMixin {
   const _$StaffImpl(
       {required this.id,
       required this.staffType,
@@ -643,8 +672,19 @@ class _$StaffImpl extends _Staff {
   final int payScale;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Staff(id: $id, staffType: $staffType, name: $name, payScale: $payScale)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Staff'))
+      ..add(DiagnosticsProperty('id', id))
+      ..add(DiagnosticsProperty('staffType', staffType))
+      ..add(DiagnosticsProperty('name', name))
+      ..add(DiagnosticsProperty('payScale', payScale));
   }
 
   @override
@@ -1051,7 +1091,7 @@ class __$$PatientImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PatientImpl implements _Patient {
+class _$PatientImpl with DiagnosticableTreeMixin implements _Patient {
   const _$PatientImpl(
       {required this.id,
       required this.name,
@@ -1135,8 +1175,33 @@ class _$PatientImpl implements _Patient {
   final String diagnosis;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Patient(id: $id, name: $name, cnic: $cnic, age: $age, gender: $gender, isAttended: $isAttended, arrivalAt: $arrivalAt, address: $address, patientStatus: $patientStatus, classification: $classification, triage: $triage, presentingComplaints: $presentingComplaints, vitals: $vitals, examinations: $examinations, investigations: $investigations, managements: $managements, provisionalDiagnosis: $provisionalDiagnosis, diagnosis: $diagnosis)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Patient'))
+      ..add(DiagnosticsProperty('id', id))
+      ..add(DiagnosticsProperty('name', name))
+      ..add(DiagnosticsProperty('cnic', cnic))
+      ..add(DiagnosticsProperty('age', age))
+      ..add(DiagnosticsProperty('gender', gender))
+      ..add(DiagnosticsProperty('isAttended', isAttended))
+      ..add(DiagnosticsProperty('arrivalAt', arrivalAt))
+      ..add(DiagnosticsProperty('address', address))
+      ..add(DiagnosticsProperty('patientStatus', patientStatus))
+      ..add(DiagnosticsProperty('classification', classification))
+      ..add(DiagnosticsProperty('triage', triage))
+      ..add(DiagnosticsProperty('presentingComplaints', presentingComplaints))
+      ..add(DiagnosticsProperty('vitals', vitals))
+      ..add(DiagnosticsProperty('examinations', examinations))
+      ..add(DiagnosticsProperty('investigations', investigations))
+      ..add(DiagnosticsProperty('managements', managements))
+      ..add(DiagnosticsProperty('provisionalDiagnosis', provisionalDiagnosis))
+      ..add(DiagnosticsProperty('diagnosis', diagnosis));
   }
 
   @override
@@ -1451,7 +1516,7 @@ class __$$ExaminationsImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ExaminationsImpl implements _Examinations {
+class _$ExaminationsImpl with DiagnosticableTreeMixin implements _Examinations {
   const _$ExaminationsImpl(
       {required this.eye,
       required this.ent,
@@ -1483,8 +1548,23 @@ class _$ExaminationsImpl implements _Examinations {
   final String gu;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Examinations(eye: $eye, ent: $ent, cvs: $cvs, cns: $cns, pulmo: $pulmo, skin: $skin, gi: $gi, gu: $gu)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Examinations'))
+      ..add(DiagnosticsProperty('eye', eye))
+      ..add(DiagnosticsProperty('ent', ent))
+      ..add(DiagnosticsProperty('cvs', cvs))
+      ..add(DiagnosticsProperty('cns', cns))
+      ..add(DiagnosticsProperty('pulmo', pulmo))
+      ..add(DiagnosticsProperty('skin', skin))
+      ..add(DiagnosticsProperty('gi', gi))
+      ..add(DiagnosticsProperty('gu', gu));
   }
 
   @override
@@ -1660,7 +1740,7 @@ class __$$ComplaintImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ComplaintImpl implements _Complaint {
+class _$ComplaintImpl with DiagnosticableTreeMixin implements _Complaint {
   const _$ComplaintImpl(
       {required this.complaint, required this.history, required this.duration});
 
@@ -1675,8 +1755,18 @@ class _$ComplaintImpl implements _Complaint {
   final Duration duration;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Complaint(complaint: $complaint, history: $history, duration: $duration)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Complaint'))
+      ..add(DiagnosticsProperty('complaint', complaint))
+      ..add(DiagnosticsProperty('history', history))
+      ..add(DiagnosticsProperty('duration', duration));
   }
 
   @override
@@ -1830,7 +1920,7 @@ class __$$CNICImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$CNICImpl implements _CNIC {
+class _$CNICImpl with DiagnosticableTreeMixin implements _CNIC {
   const _$CNICImpl({required this.a, required this.b, required this.c});
 
   factory _$CNICImpl.fromJson(Map<String, dynamic> json) =>
@@ -1844,8 +1934,18 @@ class _$CNICImpl implements _CNIC {
   final String c;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'CNIC(a: $a, b: $b, c: $c)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'CNIC'))
+      ..add(DiagnosticsProperty('a', a))
+      ..add(DiagnosticsProperty('b', b))
+      ..add(DiagnosticsProperty('c', c));
   }
 
   @override
@@ -2008,7 +2108,7 @@ class __$$AddressImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$AddressImpl implements _Address {
+class _$AddressImpl with DiagnosticableTreeMixin implements _Address {
   const _$AddressImpl(
       {required this.country,
       required this.province,
@@ -2028,8 +2128,19 @@ class _$AddressImpl implements _Address {
   final String area;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Address(country: $country, province: $province, city: $city, area: $area)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Address'))
+      ..add(DiagnosticsProperty('country', country))
+      ..add(DiagnosticsProperty('province', province))
+      ..add(DiagnosticsProperty('city', city))
+      ..add(DiagnosticsProperty('area', area));
   }
 
   @override
@@ -2189,7 +2300,9 @@ class __$$InvestigationImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$InvestigationImpl implements _Investigation {
+class _$InvestigationImpl
+    with DiagnosticableTreeMixin
+    implements _Investigation {
   const _$InvestigationImpl(
       {required this.name, required this.value, required this.time});
 
@@ -2204,8 +2317,18 @@ class _$InvestigationImpl implements _Investigation {
   final DateTime time;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Investigation(name: $name, value: $value, time: $time)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Investigation'))
+      ..add(DiagnosticsProperty('name', name))
+      ..add(DiagnosticsProperty('value', value))
+      ..add(DiagnosticsProperty('time', time));
   }
 
   @override
@@ -2350,7 +2473,7 @@ class __$$ManagementImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ManagementImpl implements _Management {
+class _$ManagementImpl with DiagnosticableTreeMixin implements _Management {
   const _$ManagementImpl({required this.description, required this.time});
 
   factory _$ManagementImpl.fromJson(Map<String, dynamic> json) =>
@@ -2362,8 +2485,17 @@ class _$ManagementImpl implements _Management {
   final DateTime time;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Management(description: $description, time: $time)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Management'))
+      ..add(DiagnosticsProperty('description', description))
+      ..add(DiagnosticsProperty('time', time));
   }
 
   @override
@@ -2502,7 +2634,7 @@ class __$$OutcomeImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$OutcomeImpl implements _Outcome {
+class _$OutcomeImpl with DiagnosticableTreeMixin implements _Outcome {
   const _$OutcomeImpl({required this.outcomeStatus, required this.description});
 
   factory _$OutcomeImpl.fromJson(Map<String, dynamic> json) =>
@@ -2514,8 +2646,17 @@ class _$OutcomeImpl implements _Outcome {
   final String description;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Outcome(outcomeStatus: $outcomeStatus, description: $description)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Outcome'))
+      ..add(DiagnosticsProperty('outcomeStatus', outcomeStatus))
+      ..add(DiagnosticsProperty('description', description));
   }
 
   @override
@@ -2689,7 +2830,7 @@ class __$$VitalsImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$VitalsImpl implements _Vitals {
+class _$VitalsImpl with DiagnosticableTreeMixin implements _Vitals {
   const _$VitalsImpl(
       {required this.systolic,
       required this.diastolic,
@@ -2712,8 +2853,20 @@ class _$VitalsImpl implements _Vitals {
   final double temperature;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Vitals(systolic: $systolic, diastolic: $diastolic, pulse: $pulse, oxygen: $oxygen, temperature: $temperature)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Vitals'))
+      ..add(DiagnosticsProperty('systolic', systolic))
+      ..add(DiagnosticsProperty('diastolic', diastolic))
+      ..add(DiagnosticsProperty('pulse', pulse))
+      ..add(DiagnosticsProperty('oxygen', oxygen))
+      ..add(DiagnosticsProperty('temperature', temperature));
   }
 
   @override
@@ -2904,7 +3057,7 @@ class __$$PrescriptionImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PrescriptionImpl implements _Prescription {
+class _$PrescriptionImpl with DiagnosticableTreeMixin implements _Prescription {
   const _$PrescriptionImpl(
       {required this.name,
       required this.medicine,
@@ -2924,8 +3077,19 @@ class _$PrescriptionImpl implements _Prescription {
   final String instructions;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Prescription(name: $name, medicine: $medicine, dose: $dose, instructions: $instructions)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Prescription'))
+      ..add(DiagnosticsProperty('name', name))
+      ..add(DiagnosticsProperty('medicine', medicine))
+      ..add(DiagnosticsProperty('dose', dose))
+      ..add(DiagnosticsProperty('instructions', instructions));
   }
 
   @override

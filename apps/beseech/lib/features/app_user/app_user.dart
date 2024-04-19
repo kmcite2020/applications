@@ -2,27 +2,36 @@ import '../../main.dart';
 part 'app_user.freezed.dart';
 part 'app_user.g.dart';
 
-final appUserRM = AppUserRM();
-
-class AppUserRM extends Complex<AppUserEvent, AppUser> {
-  AppUserRM() {
+final appUserRM = Complex<AppUserEvent, AppUser>(
+  AppUser(),
+  setup: (register) {
     register<_AppUserEventSetDateOfBirth>(
-      (_) => state = state.copyWith(dateOfBirth: _.dateOfBirth),
+      (_, state) => state = state.copyWith(dateOfBirth: _.dateOfBirth),
     );
     register<_AppUserEventSetAgeBaredOrExplicit>(
-      (_) => state = state.copyWith(ageBasedOrExplicit: _.ageBasedOrExplicit),
+      (_, state) =>
+          state = state.copyWith(ageBasedOrExplicit: _.ageBasedOrExplicit),
     );
     register<_AppUserEventSetDateOfPubertyExplicit>(
-      (_) => state = state.copyWith(dateOfPubertyExplicit: _.dateOfPuberty),
+      (_, state) =>
+          state = state.copyWith(dateOfPubertyExplicit: _.dateOfPuberty),
     );
     register<_AppUserEventSetAgeVysor>(
-      (_) => state = state.copyWith(ageVysor: _.ageVysor!),
+      (_, state) => state = state.copyWith(ageVysor: _.ageVysor!),
     );
     register<_AppUserEventSetUserName>(
-      (_) => state = state.copyWith(userName: _.userName),
+      (_, state) => state = state.copyWith(userName: _.userName),
     );
+    register<_AppUserEventSetAge>(
+      (_, state) => state = state.copyWith(age: _.age),
+    );
+  },
+);
+
+class AppUserRM {
+  AppUserRM() {
     _age().listen(
-      (age) => state = state.copyWith(age: age),
+      (age) => appUserRM(AppUserEvent.setAge(age)),
     );
   }
   final initialState = AppUser();
@@ -32,12 +41,13 @@ class AppUserRM extends Complex<AppUserEvent, AppUser> {
         (_) {
           final now = DateTime.now();
           return Duration(
-            milliseconds: now.difference(state.dateOfBirth).inMilliseconds,
+            milliseconds:
+                now.difference(appUserRM().dateOfBirth).inMilliseconds,
           );
         },
       );
 
-  Duration get age => DateTime.now().difference(state.dateOfBirth);
+  Duration get age => DateTime.now().difference(appUserRM().dateOfBirth);
 }
 
 @freezed
@@ -52,6 +62,7 @@ class AppUserEvent with _$AppUserEvent {
       _AppUserEventSetAgeVysor;
   const factory AppUserEvent.setUserName(String userName) =
       _AppUserEventSetUserName;
+  const factory AppUserEvent.setAge(Duration age) = _AppUserEventSetAge;
 }
 
 @freezed

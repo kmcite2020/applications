@@ -1,5 +1,4 @@
 import '../../main.dart';
-import '../settings/settings.dart';
 
 part 'disease.freezed.dart';
 part 'disease.g.dart';
@@ -20,40 +19,18 @@ class Disease with _$Disease {
       _$DiseaseFromJson(json);
 }
 
-@freezed
-class Diseases with _$Diseases {
-  const factory Diseases({
-    @Default(<String, Disease>{}) final Map<String, Disease> diseases,
-  }) = _Diseases;
+final diseasesRM = ComplexTable(
+  'diseases',
+  fromJson: Disease.fromJson,
+);
 
-  factory Diseases.fromJson(Map<String, dynamic> json) =>
-      _$DiseasesFromJson(json);
-}
-
-final diseasesRM = DiseasesRM();
-
-final class DiseasesRM extends Manager<Diseases> {
-  @override
-  final initialState = Diseases();
-  void addDisease(Disease disease) => addDisease(disease);
-
-  updateImageOfDisease(Uint8List image, Disease diseaseModel) {
-    addDisease(diseaseModel.copyWith(image: image));
-  }
-
-  updateNameOfDisease(String name, Disease diseaseModel) {
-    addDisease(diseaseModel.copyWith(name: name));
-  }
-
-  updateDescriptionsOfDisease(descriptions, Disease diseaseModel) {
-    addDisease(diseaseModel.copyWith(descriptions: descriptions));
-  }
-
-  updateInstructionsOfDisease(instructions, Disease diseaseModel) {
-    addDisease(diseaseModel.copyWith(instructions: instructions));
-  }
-
-  updateManagementsOfDisease(managements, Disease diseaseModel) {
-    addDisease(diseaseModel.copyWith(managements: managements));
-  }
-}
+updateImageOfDisease(Uint8List image, Disease state) =>
+    diseasesRM(state.copyWith(image: image));
+updateNameOfDisease(String name, Disease state) =>
+    diseasesRM(state.copyWith(name: name));
+updateDescriptionsOfDisease(List<String> descriptions, Disease state) =>
+    diseasesRM(state.copyWith(descriptions: descriptions));
+updateInstructionsOfDisease(List<String> instructions, Disease state) =>
+    diseasesRM(state.copyWith(instructions: instructions));
+updateManagementsOfDisease(List<String> managements, Disease state) =>
+    diseasesRM(state.copyWith(managements: managements));

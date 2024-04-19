@@ -163,7 +163,7 @@ class __$$EditModelImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$EditModelImpl implements _EditModel {
+class _$EditModelImpl with DiagnosticableTreeMixin implements _EditModel {
   const _$EditModelImpl(
       {this.editId = '<String>[]',
       this.name = '<String>[]',
@@ -216,8 +216,21 @@ class _$EditModelImpl implements _EditModel {
   final Uint8List? image;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'EditModel(editId: $editId, name: $name, descriptions: $descriptions, instructions: $instructions, managements: $managements, image: $image)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'EditModel'))
+      ..add(DiagnosticsProperty('editId', editId))
+      ..add(DiagnosticsProperty('name', name))
+      ..add(DiagnosticsProperty('descriptions', descriptions))
+      ..add(DiagnosticsProperty('instructions', instructions))
+      ..add(DiagnosticsProperty('managements', managements))
+      ..add(DiagnosticsProperty('image', image));
   }
 
   @override

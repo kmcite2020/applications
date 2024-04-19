@@ -23,7 +23,7 @@ class SearchedDiseasesList extends ReactiveStatelessWidget {
 Widget searchedDiseaseTile(String id) {
   return DiseaseBuilder(
     id: id,
-    builder: (context, disease) => Card(
+    builder: (disease) => Card(
       child: ListTile(
         title: disease.id.text(),
         subtitle: disease.name.text(textScaleFactor: 1.5),

@@ -31,11 +31,10 @@ final class MaterialColorConverter
   int toJson(MaterialColor object) => Colors.primaries.indexOf(object);
 }
 
-final settingsRM = SettingsRM();
+final settingsRM = SettingsRM(Settings());
 
-class SettingsRM extends Manager<Settings> {
-  @override
-  final initialState = Settings();
+class SettingsRM extends Simple<Settings> {
+  SettingsRM(super.initialState);
 }
 
 // final themeModeRM = ThemeMode.system.obs(

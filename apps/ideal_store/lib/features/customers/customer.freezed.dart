@@ -25,44 +25,7 @@ mixin _$Customer {
   String get city => throw _privateConstructorUsedError;
   bool get editing => throw _privateConstructorUsedError;
   List<String> get products => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String customerID, String name, String city,
-            bool editing, List<String> products)
-        raw,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String customerID, String name, String city, bool editing,
-            List<String> products)?
-        raw,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String customerID, String name, String city, bool editing,
-            List<String> products)?
-        raw,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Customer value) raw,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Customer value)? raw,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Customer value)? raw,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $CustomerCopyWith<Customer> get copyWith =>
@@ -186,9 +149,9 @@ class __$$CustomerImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$CustomerImpl implements _Customer {
+class _$CustomerImpl with DiagnosticableTreeMixin implements _Customer {
   const _$CustomerImpl(
-      {required this.customerID,
+      {this.customerID = '',
       this.name = '',
       required this.city,
       this.editing = false,
@@ -199,6 +162,7 @@ class _$CustomerImpl implements _Customer {
       _$$CustomerImplFromJson(json);
 
   @override
+  @JsonKey()
   final String customerID;
   @override
   @JsonKey()
@@ -218,8 +182,20 @@ class _$CustomerImpl implements _Customer {
   }
 
   @override
-  String toString() {
-    return 'Customer.raw(customerID: $customerID, name: $name, city: $city, editing: $editing, products: $products)';
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'Customer(customerID: $customerID, name: $name, city: $city, editing: $editing, products: $products)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Customer'))
+      ..add(DiagnosticsProperty('customerID', customerID))
+      ..add(DiagnosticsProperty('name', name))
+      ..add(DiagnosticsProperty('city', city))
+      ..add(DiagnosticsProperty('editing', editing))
+      ..add(DiagnosticsProperty('products', products));
   }
 
   @override
@@ -247,68 +223,6 @@ class _$CustomerImpl implements _Customer {
       __$$CustomerImplCopyWithImpl<_$CustomerImpl>(this, _$identity);
 
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String customerID, String name, String city,
-            bool editing, List<String> products)
-        raw,
-  }) {
-    return raw(customerID, name, city, editing, products);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String customerID, String name, String city, bool editing,
-            List<String> products)?
-        raw,
-  }) {
-    return raw?.call(customerID, name, city, editing, products);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String customerID, String name, String city, bool editing,
-            List<String> products)?
-        raw,
-    required TResult orElse(),
-  }) {
-    if (raw != null) {
-      return raw(customerID, name, city, editing, products);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Customer value) raw,
-  }) {
-    return raw(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Customer value)? raw,
-  }) {
-    return raw?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Customer value)? raw,
-    required TResult orElse(),
-  }) {
-    if (raw != null) {
-      return raw(this);
-    }
-    return orElse();
-  }
-
-  @override
   Map<String, dynamic> toJson() {
     return _$$CustomerImplToJson(
       this,
@@ -318,7 +232,7 @@ class _$CustomerImpl implements _Customer {
 
 abstract class _Customer implements Customer {
   const factory _Customer(
-      {required final String customerID,
+      {final String customerID,
       final String name,
       required final String city,
       final bool editing,
@@ -340,150 +254,5 @@ abstract class _Customer implements Customer {
   @override
   @JsonKey(ignore: true)
   _$$CustomerImplCopyWith<_$CustomerImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-Customers _$CustomersFromJson(Map<String, dynamic> json) {
-  return _Customers.fromJson(json);
-}
-
-/// @nodoc
-mixin _$Customers {
-  Map<String, Customer> get cache => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $CustomersCopyWith<Customers> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $CustomersCopyWith<$Res> {
-  factory $CustomersCopyWith(Customers value, $Res Function(Customers) then) =
-      _$CustomersCopyWithImpl<$Res, Customers>;
-  @useResult
-  $Res call({Map<String, Customer> cache});
-}
-
-/// @nodoc
-class _$CustomersCopyWithImpl<$Res, $Val extends Customers>
-    implements $CustomersCopyWith<$Res> {
-  _$CustomersCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? cache = null,
-  }) {
-    return _then(_value.copyWith(
-      cache: null == cache
-          ? _value.cache
-          : cache // ignore: cast_nullable_to_non_nullable
-              as Map<String, Customer>,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$CustomersImplCopyWith<$Res>
-    implements $CustomersCopyWith<$Res> {
-  factory _$$CustomersImplCopyWith(
-          _$CustomersImpl value, $Res Function(_$CustomersImpl) then) =
-      __$$CustomersImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({Map<String, Customer> cache});
-}
-
-/// @nodoc
-class __$$CustomersImplCopyWithImpl<$Res>
-    extends _$CustomersCopyWithImpl<$Res, _$CustomersImpl>
-    implements _$$CustomersImplCopyWith<$Res> {
-  __$$CustomersImplCopyWithImpl(
-      _$CustomersImpl _value, $Res Function(_$CustomersImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? cache = null,
-  }) {
-    return _then(_$CustomersImpl(
-      cache: null == cache
-          ? _value._cache
-          : cache // ignore: cast_nullable_to_non_nullable
-              as Map<String, Customer>,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$CustomersImpl implements _Customers {
-  const _$CustomersImpl(
-      {final Map<String, Customer> cache = const <String, Customer>{}})
-      : _cache = cache;
-
-  factory _$CustomersImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CustomersImplFromJson(json);
-
-  final Map<String, Customer> _cache;
-  @override
-  @JsonKey()
-  Map<String, Customer> get cache {
-    if (_cache is EqualUnmodifiableMapView) return _cache;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_cache);
-  }
-
-  @override
-  String toString() {
-    return 'Customers(cache: $cache)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$CustomersImpl &&
-            const DeepCollectionEquality().equals(other._cache, _cache));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_cache));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$CustomersImplCopyWith<_$CustomersImpl> get copyWith =>
-      __$$CustomersImplCopyWithImpl<_$CustomersImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$CustomersImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _Customers implements Customers {
-  const factory _Customers({final Map<String, Customer> cache}) =
-      _$CustomersImpl;
-
-  factory _Customers.fromJson(Map<String, dynamic> json) =
-      _$CustomersImpl.fromJson;
-
-  @override
-  Map<String, Customer> get cache;
-  @override
-  @JsonKey(ignore: true)
-  _$$CustomersImplCopyWith<_$CustomersImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

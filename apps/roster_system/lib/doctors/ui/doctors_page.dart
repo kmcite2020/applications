@@ -1,7 +1,6 @@
+import 'package:manager/manager.dart';
 import 'package:roster_system/doctors/doctors.dart';
 import 'package:roster_system/doctors/ui/doctor_page.dart';
-
-import '../../main.dart';
 
 class DoctorsPage extends UI {
   const DoctorsPage({super.key});
@@ -32,7 +31,7 @@ class DoctorsPage extends UI {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          doctorsRM.save(
+          doctorsRM(
             Doctor.init(),
           );
         },

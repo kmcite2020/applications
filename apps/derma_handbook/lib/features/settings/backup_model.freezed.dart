@@ -117,7 +117,7 @@ class __$$BackupImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$BackupImpl extends _Backup {
+class _$BackupImpl extends _Backup with DiagnosticableTreeMixin {
   const _$BackupImpl(
       {final List<String> files = const <String>[],
       this.backupStatus = BackupStatus.idle,
@@ -145,8 +145,18 @@ class _$BackupImpl extends _Backup {
   final bool isShowHistory;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Backup(files: $files, backupStatus: $backupStatus, isShowHistory: $isShowHistory)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Backup'))
+      ..add(DiagnosticsProperty('files', files))
+      ..add(DiagnosticsProperty('backupStatus', backupStatus))
+      ..add(DiagnosticsProperty('isShowHistory', isShowHistory));
   }
 
   @override

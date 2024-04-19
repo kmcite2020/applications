@@ -8,16 +8,16 @@ import '../gender_widget.dart';
 import '../patient.dart';
 
 class PatientPage extends ReactiveStatelessWidget {
-  static const name = '/patient';
+  final String id;
 
-  const PatientPage({
-    super.key,
-  });
+  const PatientPage({super.key, required this.id});
+
   @override
   Widget build(BuildContext context) {
     return PatientBuilder(
       id: context.routeData.arguments,
       builder: (patient) {
+        if (patient == null) return CircularProgressIndicator().pad();
         return Scaffold(
           appBar: AppBar(
             title: patient.name.text(),
@@ -85,10 +85,12 @@ class PatientPage extends ReactiveStatelessWidget {
 
 class PicturesUI extends ReactiveStatelessWidget {
   final Patient patient;
+
   const PicturesUI({
     Key? key,
     required this.patient,
   }) : super(key: key);
+
   Widget build(context) {
     if (patient.pictures.isEmpty || patient.editing) {
       return PopupMenuButton(
@@ -122,6 +124,7 @@ class PictureUI extends StatelessWidget {
     required this.picture,
   }) : super(key: key);
   final Imagery picture;
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -154,6 +157,7 @@ class ContactUI extends StatelessWidget {
     required this.id,
   }) : super(key: key);
   final String id;
+
   @override
   Widget build(BuildContext context) {
     return PatientBuilder(
@@ -294,13 +298,13 @@ class AgeWidget extends ReactiveStatelessWidget {
     required this.age,
   }) : super(key: key);
   final Duration age;
+
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Container(
         decoration: BoxDecoration(
-          borderRadius:
-              BorderRadius.circular(settingsManager.settings.borderRadius),
+          borderRadius: BorderRadius.circular(settingsManager.settings.borderRadius),
         ),
         child: age.formatDuration.text(),
       ),

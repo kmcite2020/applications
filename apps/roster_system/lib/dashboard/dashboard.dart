@@ -1,6 +1,8 @@
 import 'package:manager/manager.dart';
+import 'package:roster_system/departments/ui/departments_page.dart';
 import 'package:roster_system/doctors/ui/doctors_page.dart';
 import 'package:roster_system/main.dart';
+import 'package:roster_system/settings/settings_page.dart';
 
 class DashboardPage extends UI {
   const DashboardPage({super.key});
@@ -11,8 +13,9 @@ class DashboardPage extends UI {
         title: 'DASHBOARD'.text(),
       ),
       body: [
-        DoctorsPage(),
+        SettingsPage(),
         DepartmentsPage(),
+        DoctorsPage(),
       ][index()],
       bottomNavigationBar: NavigationBar(
         selectedIndex: index(),
@@ -26,10 +29,11 @@ class DashboardPage extends UI {
             icon: Icon(Icons.departure_board),
             label: 'Departments',
           ),
+          NavigationDestination(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
+          ),
         ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
       ),
     );
   }

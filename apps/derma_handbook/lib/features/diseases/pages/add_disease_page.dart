@@ -20,7 +20,7 @@ class AddDiseaseWidget extends UI {
   }
 
   bool exists(String name) =>
-      diseasesRM().diseases.values.any((element) => element.name == name);
+      diseasesRM().any((element) => element.name == name);
 
   @override
   Widget build(BuildContext context) {

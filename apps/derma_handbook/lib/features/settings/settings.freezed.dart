@@ -228,7 +228,7 @@ class __$$SettingsImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SettingsImpl implements _Settings {
+class _$SettingsImpl with DiagnosticableTreeMixin implements _Settings {
   const _$SettingsImpl(
       {this.themeMode = ThemeMode.system,
       @MaterialColorConverter() this.materialColor = Colors.blue,
@@ -281,8 +281,26 @@ class _$SettingsImpl implements _Settings {
   final int pageIndex;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Settings(themeMode: $themeMode, materialColor: $materialColor, padding: $padding, elevation: $elevation, height: $height, areMoreColors: $areMoreColors, isFirstStart: $isFirstStart, borderRadius: $borderRadius, textScaleFactor: $textScaleFactor, headlineTextSize: $headlineTextSize, pageIndex: $pageIndex)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Settings'))
+      ..add(DiagnosticsProperty('themeMode', themeMode))
+      ..add(DiagnosticsProperty('materialColor', materialColor))
+      ..add(DiagnosticsProperty('padding', padding))
+      ..add(DiagnosticsProperty('elevation', elevation))
+      ..add(DiagnosticsProperty('height', height))
+      ..add(DiagnosticsProperty('areMoreColors', areMoreColors))
+      ..add(DiagnosticsProperty('isFirstStart', isFirstStart))
+      ..add(DiagnosticsProperty('borderRadius', borderRadius))
+      ..add(DiagnosticsProperty('textScaleFactor', textScaleFactor))
+      ..add(DiagnosticsProperty('headlineTextSize', headlineTextSize))
+      ..add(DiagnosticsProperty('pageIndex', pageIndex));
   }
 
   @override

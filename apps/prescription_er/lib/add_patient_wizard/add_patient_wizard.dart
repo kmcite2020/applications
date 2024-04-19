@@ -22,7 +22,7 @@ class AddPatientWizard extends UI {
           ClassificationUI(),
           ElevatedButton(
             onPressed: () {
-              patientsRM.save(patient);
+              patientsRM(patient);
               RM.navigate.back();
             },
             child: "Save".text(),

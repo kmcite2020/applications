@@ -202,7 +202,7 @@ class __$$OrderImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$OrderImpl extends _Order {
+class _$OrderImpl extends _Order with DiagnosticableTreeMixin {
   const _$OrderImpl(
       {required this.orderID,
       this.editing = true,
@@ -238,8 +238,21 @@ class _$OrderImpl extends _Order {
   }
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Order.raw(orderID: $orderID, editing: $editing, orderStatus: $orderStatus, createdOn: $createdOn, customerID: $customerID, products: $products)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Order.raw'))
+      ..add(DiagnosticsProperty('orderID', orderID))
+      ..add(DiagnosticsProperty('editing', editing))
+      ..add(DiagnosticsProperty('orderStatus', orderStatus))
+      ..add(DiagnosticsProperty('createdOn', createdOn))
+      ..add(DiagnosticsProperty('customerID', customerID))
+      ..add(DiagnosticsProperty('products', products));
   }
 
   @override
@@ -455,7 +468,7 @@ class __$$OrdersImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$OrdersImpl extends _Orders {
+class _$OrdersImpl extends _Orders with DiagnosticableTreeMixin {
   const _$OrdersImpl({final Map<String, Order> cache = const <String, Order>{}})
       : _cache = cache,
         super._();
@@ -473,8 +486,16 @@ class _$OrdersImpl extends _Orders {
   }
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Orders(cache: $cache)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Orders'))
+      ..add(DiagnosticsProperty('cache', cache));
   }
 
   @override

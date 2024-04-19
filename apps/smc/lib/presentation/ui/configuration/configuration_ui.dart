@@ -1,3 +1,4 @@
+import 'package:colornames/colornames.dart';
 import 'package:smc/main.dart';
 
 class SettingsPage extends UI {
@@ -28,10 +29,10 @@ class SettingsPage extends UI {
           DropdownButtonFormField(
             value: settings.materialColor,
             items: Colors.primaries.map(
-              (e) {
+              (color) {
                 return DropdownMenuItem(
-                  value: e,
-                  child: e.colorName.toUpperCase().text(),
+                  value: color,
+                  child: color.colorName.toUpperCase().text(),
                 );
               },
             ).toList(),

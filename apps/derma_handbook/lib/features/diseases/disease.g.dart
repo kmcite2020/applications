@@ -10,7 +10,7 @@ _$DiseaseImpl _$$DiseaseImplFromJson(Map<String, dynamic> json) =>
     _$DiseaseImpl(
       id: json['id'] as String? ?? '',
       name: json['name'] as String? ?? '',
-      image: _$JsonConverterFromJson<int, Uint8List>(
+      image: _$JsonConverterFromJson<String, Uint8List>(
           json['image'], const Uint8ListConverter().fromJson),
       createdAt: json['createdAt'] == null
           ? null
@@ -33,7 +33,7 @@ Map<String, dynamic> _$$DiseaseImplToJson(_$DiseaseImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
-      'image': _$JsonConverterToJson<int, Uint8List>(
+      'image': _$JsonConverterToJson<String, Uint8List>(
           instance.image, const Uint8ListConverter().toJson),
       'createdAt': instance.createdAt?.toIso8601String(),
       'descriptions': instance.descriptions,
@@ -52,16 +52,3 @@ Json? _$JsonConverterToJson<Json, Value>(
   Json? Function(Value value) toJson,
 ) =>
     value == null ? null : toJson(value);
-
-_$DiseasesImpl _$$DiseasesImplFromJson(Map<String, dynamic> json) =>
-    _$DiseasesImpl(
-      diseases: (json['diseases'] as Map<String, dynamic>?)?.map(
-            (k, e) => MapEntry(k, Disease.fromJson(e as Map<String, dynamic>)),
-          ) ??
-          const <String, Disease>{},
-    );
-
-Map<String, dynamic> _$$DiseasesImplToJson(_$DiseasesImpl instance) =>
-    <String, dynamic>{
-      'diseases': instance.diseases,
-    };

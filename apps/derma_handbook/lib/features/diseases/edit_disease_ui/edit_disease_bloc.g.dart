@@ -22,7 +22,7 @@ _$EditModelImpl _$$EditModelImplFromJson(Map<String, dynamic> json) =>
               ?.map((e) => e as String)
               .toList() ??
           const <String>[],
-      image: _$JsonConverterFromJson<int, Uint8List>(
+      image: _$JsonConverterFromJson<String, Uint8List>(
           json['image'], const Uint8ListConverter().fromJson),
     );
 
@@ -33,7 +33,7 @@ Map<String, dynamic> _$$EditModelImplToJson(_$EditModelImpl instance) =>
       'descriptions': instance.descriptions,
       'instructions': instance.instructions,
       'managements': instance.managements,
-      'image': _$JsonConverterToJson<int, Uint8List>(
+      'image': _$JsonConverterToJson<String, Uint8List>(
           instance.image, const Uint8ListConverter().toJson),
     };
 

@@ -14,15 +14,11 @@ class Search with _$Search {
   List<Disease> get searchedDiseases {
     return switch (searchMode) {
       SearchMode.contains => diseasesRM()
-          .diseases
-          .values
           .where(
             (element) => element.name.toLowerCase().contains(search),
           )
           .toList(),
       SearchMode.startsWith => diseasesRM()
-          .diseases
-          .values
           .where(
             (eachDisease) => eachDisease.name.toLowerCase().startsWith(search),
           )

@@ -2,7 +2,7 @@ import 'package:ideal_store/main.dart';
 
 String get currentWorth {
   late String worth;
-  double temp = productsRM().cache.values.fold(
+  double temp = productsRM().fold(
       0.0,
       (previousValue, element) =>
           previousValue + (element.stock * element.price));

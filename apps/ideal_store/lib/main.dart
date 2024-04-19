@@ -40,7 +40,6 @@ export 'package:uuid/uuid.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await RM.storageInitializer(HiveStorage());
   await imageRM.refresh();
   GoogleFonts.config.allowRuntimeFetching = false;
   addLicenses();
@@ -50,14 +49,5 @@ void main() async {
 
 class App extends TopUI {
   @override
-  Widget homePage(BuildContext context) {
-    return MaterialApp(
-      navigatorKey: RM.navigate.navigatorKey,
-      home: DashboardPage(),
-      debugShowCheckedModeBanner: false,
-      theme: theme,
-      darkTheme: darkTheme,
-      themeMode: settingsRM().themeMode,
-    );
-  }
+  Widget homePage(BuildContext context) => DashboardPage();
 }

@@ -18,14 +18,14 @@ class CustomerTile extends UI {
             children: [
               IconButton.filledTonal(
                 onPressed: () {
-                  customersRM.saveCustomer(customer.copyWith(editing: true));
+                  customersRM(customer.copyWith(editing: true));
                 },
                 icon: Icon(Icons.edit_document),
               ).pad(),
               IconButton.filledTonal(
                 icon: const Icon(Icons.delete_forever),
                 onPressed: () {
-                  customersRM.deleteCustomer(customerID);
+                  customersRM.delete(customerID);
                 },
               ).pad(),
               IconButton.filled(
@@ -42,23 +42,23 @@ class CustomerTile extends UI {
         }
 
         Widget Edit() {
-          final possibleProducts = productsRM().cache.values.where(
-                (element) => !customer.products.contains(element.productID),
-              );
+          final possibleProducts = productsRM().where(
+            (element) => !customer.products.contains(element.productID),
+          );
           return Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               IconButton.filledTonal(
                 onPressed: () {
-                  customersRM.saveCustomer(customer.copyWith(editing: false));
+                  customersRM(customer.copyWith(editing: false));
                 },
                 icon: Icon(Icons.edit),
               ).pad(),
               TextFormField(
                 initialValue: customer.name,
                 onChanged: (value) {
-                  customersRM.saveCustomer(customer.copyWith(name: value));
+                  customersRM(customer.copyWith(name: value));
                 },
                 decoration: InputDecoration(labelText: 'NAME'),
               ).pad(),
@@ -73,7 +73,7 @@ class CustomerTile extends UI {
                     )
                     .toList(),
                 onChanged: (city) {
-                  customersRM.saveCustomer(customer.copyWith(city: city!));
+                  customersRM(customer.copyWith(city: city!));
                 },
                 decoration: InputDecoration(labelText: 'CITY'),
               ).pad(),
@@ -87,13 +87,13 @@ class CustomerTile extends UI {
               Wrap(
                 children: customer.products
                     .map(
-                      (eachProductID) => Product.fromID(eachProductID),
+                      (eachProductID) => productsRM.get(eachProductID),
                     )
                     .map(
                       (eachProduct) => SizedBox(
                         child: ActionChip.elevated(
                           onPressed: () {
-                            customersRM.saveCustomer(
+                            customersRM(
                               customer.copyWith(
                                 products: List.of(customer.products)
                                   ..remove(eachProduct.productID),
@@ -122,7 +122,7 @@ class CustomerTile extends UI {
                           ),
                         )),
                         onPressed: () {
-                          customersRM.saveCustomer(
+                          customersRM(
                             customer.copyWith(
                               products: List.of(customer.products)
                                 ..add(

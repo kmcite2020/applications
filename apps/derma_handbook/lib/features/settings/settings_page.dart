@@ -1,3 +1,4 @@
+import 'package:colornames/colornames.dart';
 import 'package:derma_handbook/main.dart';
 import 'settings.dart';
 import 'data_management.dart';

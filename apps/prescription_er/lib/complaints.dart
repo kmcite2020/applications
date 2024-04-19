@@ -8,7 +8,8 @@ class PresentingComplaintsUI extends UI {
     super.key,
     required this.id,
   });
-  final MR id;
+
+  final String id;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class PresentingComplaintsUI extends UI {
       id: id,
       builder: (patient) {
         final complaints = patient.presentingComplaints;
-        void setComplaints(PresentingComplaints complaints) => patientsRM.save(
+        void setComplaints(PresentingComplaints complaints) => patientsRM(
               patient.copyWith(presentingComplaints: complaints),
             );
 
@@ -77,7 +78,9 @@ class PresentingComplaintsUI extends UI {
 }
 
 final complaintRM = RM.inject(() => Complaint(id: randomID));
+
 void setComplaint(Complaint complaint) => complaintRM.state = complaint;
+
 Complaint get complaint => complaintRM.state;
 
 class ComplaintDialogUI extends UI {
@@ -114,15 +117,19 @@ class ComplaintDialogUI extends UI {
   }
 }
 
-class PatientBuilder extends ComplexTableBuilder<Patient> {
-  final MR id;
+class PatientBuilder extends UI {
+  final String id;
   final Widget Function(Patient patient) builder;
+
   PatientBuilder({
     required this.id,
     required this.builder,
-  }) : super(
-          id: id,
-          builder: builder,
-          table: patientsRM,
-        );
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final patient = patientsRM.tryGet(id);
+    if (patient == null) return CircularProgressIndicator().center();
+    return builder(patient);
+  }
 }

@@ -1,10 +1,10 @@
 import 'package:ideal_store/main.dart';
 
-final settingsRM = SettingsRM();
+final settingsRM = SettingsRM(Settings());
 
-class SettingsRM extends Manager<Settings> {
+class SettingsRM extends Simple<Settings> {
   final bool autoDispose = false;
-  final initialState = Settings();
+  SettingsRM(super.initialState);
   set materialColor(_) => state = state.copyWith(materialColor: _);
   set isAddCustomerVisible(_) {
     state = state.copyWith(

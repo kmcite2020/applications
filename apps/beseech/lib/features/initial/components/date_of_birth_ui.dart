@@ -18,7 +18,7 @@ class DateOfBirthUI extends UI {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           'DATE OF BIRTH - date of your coming to creation'.text().pad(),
-          appUserRM().dateOfBirth.date().text().pad().card().pad(),
+          appUserRM().dateOfBirth.text().pad().card().pad(),
           ElevatedButton(
             onPressed: () {
               OnboardingPage.updateDateOfBirth(context: context);

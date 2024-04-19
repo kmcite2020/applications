@@ -1,14 +1,13 @@
 import 'package:prescription_er/main.dart';
+
 part 'prescription.freezed.dart';
 part 'prescription.g.dart';
 
-typedef MR = String;
-
 @freezed
-class Patient extends ID with _$Patient {
+class Patient with _$Patient {
   const factory Patient({
     required final DateTime arrivalAt,
-    @Default("") final MR id,
+    @Default("") final String id,
     @Default("") final String name,
     @Default("") final String fatherName,
     @Default(CNIC()) final CNIC cnic,
@@ -19,8 +18,7 @@ class Patient extends ID with _$Patient {
     @Default(Classification.medical) final Classification classification,
     @Default(Triage.green) final Triage triage,
     @Default(false) final bool isAttended,
-    @Default(PresentingComplaints())
-    final PresentingComplaints presentingComplaints,
+    @Default(PresentingComplaints()) final PresentingComplaints presentingComplaints,
     @Default(Vitals()) final Vitals vitals,
     @Default(Examinations()) final Examinations examinations,
     @Default([]) final List<Investigation> investigations,
@@ -28,6 +26,7 @@ class Patient extends ID with _$Patient {
     @Default("") final String provisionalDiagnosis,
     @Default("") final String diagnosis,
   }) = _Patient;
+
   factory Patient.fromJson(json) => _$PatientFromJson(json);
 }
 
@@ -60,6 +59,7 @@ class Examinations with _$Examinations {
     @Default("") final String gi,
     @Default("") final String gu,
   }) = _Examinations;
+
   factory Examinations.fromJson(json) => _$ExaminationsFromJson(json);
 }
 
@@ -71,6 +71,7 @@ class Complaint with _$Complaint {
     @Default('') final String history,
     @Default(Duration.zero) final Duration duration,
   }) = _Complaint;
+
   factory Complaint.fromJson(json) => _$ComplaintFromJson(json);
 }
 
@@ -81,7 +82,7 @@ enum Gender {
   female;
 
   @override
-  toString() => 'Gender: ${name.capitalize}';
+  toString() => 'Gender: ${name.toUpperCase()}';
 }
 
 @freezed
@@ -91,6 +92,7 @@ class CNIC with _$CNIC {
     @Default('0000002') final String b,
     @Default('1') final String c,
   }) = _CNIC;
+
   factory CNIC.fromJson(json) => _$CNICFromJson(json);
 }
 
@@ -102,6 +104,7 @@ class Address with _$Address {
     @Default('SWABI') final String city,
     @Default('SHAH MANSOOR') final String area,
   }) = _Address;
+
   factory Address.fromJson(json) => _$AddressFromJson(json);
 }
 
@@ -112,6 +115,7 @@ class Investigation with _$Investigation {
     @Default('') final String value,
     required final DateTime time,
   }) = _Investigation;
+
   factory Investigation.fromJson(json) => _$InvestigationFromJson(json);
 }
 
@@ -121,8 +125,9 @@ class Management with _$Management {
     @Default('') final String description,
     required final DateTime time,
   }) = _Management;
+
   factory Management.fromJson(json) => _$ManagementFromJson(json);
-  // factory Medicine.init() => Medicine(medicine: '');
+// factory Medicine.init() => Medicine(medicine: '');
 }
 
 @freezed
@@ -131,8 +136,9 @@ class Outcome with _$Outcome {
     required final OutcomeStatus outcomeStatus,
     required final String description,
   }) = _Outcome;
+
   factory Outcome.fromJson(json) => _$OutcomeFromJson(json);
-  // factory Medicine.init() => Medicine(medicine: '');
+// factory Medicine.init() => Medicine(medicine: '');
 }
 
 enum OutcomeStatus {
@@ -150,9 +156,11 @@ enum Triage {
   white(Colors.white);
 
   const Triage(this.color);
+
   final Color color;
+
   @override
-  toString() => name.capitalize;
+  toString() => name.toUpperCase();
 }
 
 @freezed
@@ -164,5 +172,6 @@ class Vitals with _$Vitals {
     @Default(98) final int oxygen,
     @Default(98.4) final double temperature,
   }) = _Vitals;
+
   factory Vitals.fromJson(json) => _$VitalsFromJson(json);
 }

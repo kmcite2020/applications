@@ -1,3 +1,5 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:roster_system/departments/departments_rm.dart';
 import 'package:roster_system/main.dart';
 
 part 'departments.freezed.dart';

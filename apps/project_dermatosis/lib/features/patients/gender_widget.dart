@@ -5,11 +5,13 @@ import 'patient.dart';
 class GenderWidget extends ReactiveStatelessWidget {
   const GenderWidget({Key? key, required this.id}) : super(key: key);
   final String id;
+
   @override
   Widget build(BuildContext context) {
     return PatientBuilder(
       id: id,
       builder: (patient) {
+        if (patient == null) return CircularProgressIndicator().pad();
         final Gender gender = patient.gender;
         return patient.editing
             ? DropdownButtonFormField(

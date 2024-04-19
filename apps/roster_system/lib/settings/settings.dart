@@ -1,7 +1,8 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:manager/manager.dart';
 
-part 'settings.g.dart';
 part 'settings.freezed.dart';
+part 'settings.g.dart';
 
 @freezed
 class Settings with _$Settings {
@@ -20,12 +21,27 @@ class Settings with _$Settings {
   factory Settings.fromJson(json) => _$SettingsFromJson(json);
 }
 
-class MaterialColorConverter implements JsonConverter<MaterialColor, int> {
-  const MaterialColorConverter();
+final settingsRM = Complex(
+  Settings(),
+  setup: (setup) {
+    setup<_SettingsEventMaterial>(
+      (event, state) => state.copyWith(materialColor: event.materialColor),
+    );
+    setup<_SettingsEventThemeMode>(
+      (event, state) => state.copyWith(themeMode: event.themeMode),
+    );
+    setup<_SettingsEventBorderRadius>(
+      (event, state) => state.copyWith(borderRadius: event.borderRadius),
+    );
+  },
+);
 
-  @override
-  MaterialColor fromJson(int json) => Colors.primaries[json];
-
-  @override
-  int toJson(MaterialColor object) => Colors.primaries.indexOf(object);
+@freezed
+class SettingsEvent with _$SettingsEvent {
+  const factory SettingsEvent.material(MaterialColor materialColor) =
+      _SettingsEventMaterial;
+  const factory SettingsEvent.themeMode(ThemeMode themeMode) =
+      _SettingsEventThemeMode;
+  const factory SettingsEvent.borderRadius(double borderRadius) =
+      _SettingsEventBorderRadius;
 }

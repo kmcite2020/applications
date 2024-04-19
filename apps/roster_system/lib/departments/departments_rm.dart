@@ -1,3 +1,5 @@
+import 'package:roster_system/departments/departments.dart';
+
 import '../main.dart';
 
 final departmentsRM = RM.inject(

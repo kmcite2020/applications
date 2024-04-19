@@ -41,9 +41,11 @@ enum BackupStatus {
   idle;
 }
 
-final backupBloc = BackupBloc();
+final backupBloc = BackupBloc(Backup());
 
-class BackupBloc extends Manager<Backup> {
+class BackupBloc extends Simple<Backup> {
+  BackupBloc(super.initialState);
+
   void onFilesChanged(List<String> files) {
     state = state.copyWith(files: files);
   }
