@@ -10,7 +10,7 @@ class PersonsPage extends UI {
         title: 'Persons'.text(),
         actions: [
           IconButton(
-            onPressed: () => personsRM.save(
+            onPressed: () => personsRM(
               Person(
                 created: DateTime.now(),
                 id: randomID,
@@ -31,7 +31,7 @@ class PersonsPage extends UI {
             title: person.name.text(textScaleFactor: 1.2),
             initiallyExpanded: person.editing,
             onExpansionChanged: (editing) {
-              personsRM.save(
+              personsRM(
                 person.copyWith(editing: editing),
               );
             },

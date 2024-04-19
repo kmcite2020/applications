@@ -10,7 +10,7 @@ class TransactionsPage extends UI {
         title: 'Transactions'.text(),
         actions: [
           IconButton(
-            onPressed: () => transactionsRM.save(
+            onPressed: () => transactionsRM(
               Transaction(
                 id: randomID,
                 created: DateTime.now(),
@@ -30,7 +30,7 @@ class TransactionsPage extends UI {
             initiallyExpanded: transaction.editing,
             maintainState: true,
             onExpansionChanged: (editing) {
-              transactionsRM.save(
+              transactionsRM(
                 transaction.copyWith(editing: editing),
               );
             },
@@ -77,7 +77,7 @@ class TransactionsPage extends UI {
                               (eachPerson) => PopupMenuItem(
                                 enabled:
                                     !(eachPerson.id == transaction.personID),
-                                onTap: () => transactionsRM.save(
+                                onTap: () => transactionsRM(
                                   transaction.copyWith(
                                     personID: eachPerson.id,
                                   ),

@@ -1,4 +1,3 @@
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:manager/manager.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 

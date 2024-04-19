@@ -17,7 +17,6 @@ class PatientPage extends ReactiveStatelessWidget {
     return PatientBuilder(
       id: context.routeData.arguments,
       builder: (patient) {
-        if (patient == null) return CircularProgressIndicator().pad();
         return Scaffold(
           appBar: AppBar(
             title: patient.name.text(),
@@ -304,7 +303,8 @@ class AgeWidget extends ReactiveStatelessWidget {
     return Center(
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(settingsManager.settings.borderRadius),
+          borderRadius:
+              BorderRadius.circular(settingsManager.settings.borderRadius),
         ),
         child: age.formatDuration.text(),
       ),

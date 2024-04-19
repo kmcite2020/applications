@@ -7,7 +7,7 @@ part 'notes.g.dart';
 enum NoteStatus { completed, notCompleted }
 
 @freezed
-class Note extends ID with _$Note {
+class Note with _$Note {
   const factory Note.internal({
     @Default('') final String id,
     @Default('') final String title,
@@ -26,6 +26,6 @@ class Note extends ID with _$Note {
 }
 
 final notesRM = ComplexTable(
-  key: 'notes',
+  'notes',
   fromJson: Note.fromJson,
 );

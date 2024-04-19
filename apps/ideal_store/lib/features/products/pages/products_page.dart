@@ -15,7 +15,7 @@ class ProductsPage extends UI {
           IconButton(
             tooltip: 'Add Product',
             onPressed: () {
-              productsRM(Product().copyWith());
+              productsRM(Product(image: imageRM.state).copyWith());
             },
             icon: Icon(
               Icons.add_shopping_cart,
@@ -45,7 +45,7 @@ class ProductsPage extends UI {
                     .pad(),
               ...productsRM().map(
                 (eachProduct) => ProductTile(
-                  productID: eachProduct.productID,
+                  productID: eachProduct.id,
                   size: size,
                 ),
               ),

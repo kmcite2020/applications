@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:roster_system/main.dart';
 
 part 'doctors.freezed.dart';

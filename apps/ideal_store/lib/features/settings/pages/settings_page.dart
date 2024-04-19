@@ -26,17 +26,15 @@ class SettingsPage extends UI {
             child: 'Reset All States'.text(),
           ).pad(),
           ElevatedButton(
-            onPressed: customersRM().cache.isEmpty
-                ? null
-                : () => customersRM.deleteAllCustomers(),
+            onPressed: customersRM().isEmpty ? null : () => customersRM(),
             child: 'Delete All Customers'.text(),
           ).pad(),
           'Products'.text(textScaleFactor: 4).pad(),
           ElevatedButton(
-            onPressed: productsRM().cache.values.isEmpty
+            onPressed: productsRM().isEmpty
                 ? null
                 : () {
-                    productsRM(Products());
+                    productsRM();
                   },
             child: 'Delete All Products'.text(),
           ).pad(),

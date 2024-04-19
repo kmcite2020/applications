@@ -16,22 +16,21 @@ class CustomersPage extends UI {
             tooltip: 'add customer',
             icon: const Icon(Icons.add_reaction),
             onPressed: () {
-              customersRM.saveCustomer(Customer());
+              customersRM(Customer(city: ''));
             },
           ).pad(),
           SizedBox(width: 5),
         ],
       ),
       body: SafeArea(
-        child: customersRM().cache.isEmpty
+        child: customersRM().isEmpty
             ? emptyListInfoCustomer.text(textScaleFactor: 2.3).pad()
             : ListView.builder(
                 physics: const BouncingScrollPhysics(),
-                itemCount: customersRM().cache.length,
+                itemCount: customersRM().length,
                 itemBuilder: (_, i) {
                   return CustomerTile(
-                    customerID:
-                        customersRM().cache.values.toList()[i].customerID,
+                    customerID: customersRM()[i].customerID,
                   );
                 },
               ),

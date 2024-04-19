@@ -11,7 +11,6 @@ class GenderWidget extends ReactiveStatelessWidget {
     return PatientBuilder(
       id: id,
       builder: (patient) {
-        if (patient == null) return CircularProgressIndicator().pad();
         final Gender gender = patient.gender;
         return patient.editing
             ? DropdownButtonFormField(

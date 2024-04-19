@@ -1,13 +1,19 @@
 import 'package:ideal_store/main.dart';
 
 class ProductBuilder extends UI {
-  final String productID;
+  final String id;
   final Widget Function(Product product) builder;
   ProductBuilder({
-    required this.productID,
+    required this.id,
     required this.builder,
   });
 
   @override
-  Widget build(BuildContext context) => builder(Product.fromID(productID));
+  Widget build(BuildContext context) {
+    final product = productsRM.tryGet(id);
+    if (product == null) {
+      return CircularProgressIndicator().center();
+    }
+    return builder(product);
+  }
 }

@@ -1,4 +1,3 @@
-import 'package:derma_handbook/features/settings/settings.dart';
 import 'package:derma_handbook/main.dart';
 
 part 'edit_disease_bloc.g.dart';

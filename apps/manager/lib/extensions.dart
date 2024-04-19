@@ -3,10 +3,12 @@ import 'manager.dart';
 extension DynamicExtensions on dynamic {
   Widget text({
     double? textScaleFactor,
+    TextStyle? style,
   }) =>
       Text(
         toString(),
         textScaler: TextScaler.linear(textScaleFactor ?? 0),
+        style: style,
       );
 }
 

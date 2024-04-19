@@ -99,8 +99,7 @@ class PearlBuilder extends UI {
   final Widget Function(Pearl pearl) builder;
   @override
   Widget build(BuildContext context) {
-    final pearl =
-        pearlsRM().pearlsCache.values.firstWhere((element) => element.id == id);
+    final pearl = pearlsRM().firstWhere((element) => element.id == id);
     return builder(pearl);
   }
 }

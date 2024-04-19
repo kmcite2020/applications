@@ -22,9 +22,9 @@ class StudyModePage extends UI {
           bottom: TabBar(
             indicatorColor: settingsRM().materialColor.shade900,
             labelColor: settingsRM().materialColor.shade100,
-            tabs: pearlsRM().pearlsCache.values.map(
+            tabs: pearlsRM().map(
               (pearl) {
-                final i = pearlsRM().pearlsCache.values.toList().indexOf(pearl);
+                final i = pearlsRM().indexOf(pearl);
                 return Tab(
                   text: (i + 1).toString(),
                 );
@@ -34,7 +34,7 @@ class StudyModePage extends UI {
           ),
         ),
         body: TabBarView(
-          children: pearlsRM().pearlsCache.values.map(
+          children: pearlsRM().map(
             (pearl) {
               return Scaffold(
                 body: ListView(

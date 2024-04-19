@@ -102,7 +102,9 @@ class __$$PearlPageStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$PearlPageStateImpl implements _PearlPageState {
+class _$PearlPageStateImpl
+    with DiagnosticableTreeMixin
+    implements _PearlPageState {
   const _$PearlPageStateImpl({this.page = PearlPage.pearls, this.id});
 
   @override
@@ -112,8 +114,17 @@ class _$PearlPageStateImpl implements _PearlPageState {
   final String? id;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'PearlPageState(page: $page, id: $id)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'PearlPageState'))
+      ..add(DiagnosticsProperty('page', page))
+      ..add(DiagnosticsProperty('id', id));
   }
 
   @override

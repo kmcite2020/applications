@@ -27,7 +27,7 @@ class TransactionPage extends StatelessWidget {
               Switch(
                 value: transaction.editing,
                 onChanged: (editing) {
-                  transactionsRM.save(
+                  transactionsRM(
                     transaction.copyWith(editing: editing),
                   );
                 },
@@ -50,7 +50,7 @@ class TransactionPage extends StatelessWidget {
                                   enabled:
                                       !(transaction.personID == eachPerson.id),
                                   onTap: () {
-                                    transactionsRM.save(
+                                    transactionsRM(
                                       transaction.copyWith(
                                         personID: eachPerson.id,
                                       ),
@@ -103,7 +103,7 @@ class TransactionPage extends StatelessWidget {
                                           settingsRM().padding / 2)),
                                   onTap: transaction.editing
                                       ? () {
-                                          transactionsRM.save(
+                                          transactionsRM(
                                             transaction.copyWith(
                                               amount: transaction.amount + e,
                                             ),
@@ -112,7 +112,7 @@ class TransactionPage extends StatelessWidget {
                                       : null,
                                   onDoubleTap: transaction.editing
                                       ? () {
-                                          transactionsRM.save(
+                                          transactionsRM(
                                             transaction.copyWith(
                                               amount: transaction.amount - e,
                                             ),
@@ -139,7 +139,7 @@ class TransactionPage extends StatelessWidget {
                   ? TextFormField(
                       initialValue: transaction.notes,
                       onChanged: (notes) {
-                        transactionsRM.save(transaction.copyWith(notes: notes));
+                        transactionsRM(transaction.copyWith(notes: notes));
                       },
                     ).pad()
                   : transaction.notes.text().pad(),

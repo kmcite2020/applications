@@ -21,7 +21,7 @@ class PersonPage extends UI {
               TextFormField(
                 initialValue: person.name,
                 onChanged: (name) {
-                  personsRM.save(
+                  personsRM(
                     person.copyWith(name: name),
                   );
                 },

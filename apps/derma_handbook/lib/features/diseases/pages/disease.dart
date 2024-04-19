@@ -1,7 +1,6 @@
 import 'package:derma_handbook/features/diseases/components/disease_builder.dart';
 import 'package:derma_handbook/main.dart';
 import '../../settings/settings.dart';
-import '../disease.dart';
 import 'edit_disease.dart';
 
 class DiseasePage extends ReactiveStatelessWidget {

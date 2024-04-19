@@ -23,12 +23,9 @@ class StudioModePage extends UI {
             isScrollable: true,
             labelColor: settingsRM().materialColor.shade200,
             tabs: pearlsRM()
-                .pearlsCache
-                .values
                 .map(
                   (pearl) => Tab(
-                    text:
-                        '${pearlsRM().pearlsCache.values.toList().indexOf(pearl) + 1}',
+                    text: '${pearlsRM().indexOf(pearl) + 1}',
                   ),
                 )
                 .toList(),
@@ -47,7 +44,7 @@ class TabBarViewOfPearls extends UI {
   @override
   Widget build(BuildContext context) {
     return TabBarView(
-      children: pearlsRM().pearlsCache.values.map<Widget>(
+      children: pearlsRM().map<Widget>(
         (_pearl) {
           return _pearlRM.inherited(
             stateOverride: () => _pearl,
@@ -98,7 +95,7 @@ class TabBarViewOfPearls extends UI {
                       onPressed: pearlsRM.injected.isWaiting || pearl == _pearl
                           ? null
                           : () {
-                              pearlsRM(PearlsEvent.save(pearl));
+                              pearlsRM(pearl);
                             },
                       label: Row(
                         children: [

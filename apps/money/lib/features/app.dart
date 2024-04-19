@@ -2,7 +2,7 @@ import '../main.dart';
 
 class App extends TopUI {
   @override
-  Widget? homePage(BuildContext context) => DashboardPage();
+  homePage(context) => DashboardPage();
 
   @override
   ThemeData get theme => _theme();

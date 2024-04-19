@@ -3,41 +3,38 @@ import '../../main.dart';
 part 'settings.g.dart';
 part 'settings.freezed.dart';
 
-final settingsRM = SettingsRM();
-
-class SettingsRM extends Complex<SettingsEvent, Settings> {
-  SettingsRM() {
+final settingsRM = Complex<SettingsEvent, Settings>(
+  Settings(),
+  setup: (register) {
     register<_SettingsEventThemeMode>(
-      (_) => state = state.copyWith(themeMode: _.themeMode),
+      (_, state) => state = state.copyWith(themeMode: _.themeMode),
     );
     register<_SettingsEventColor>(
-      (_) => state = state.copyWith(materialColor: _.materialColor),
+      (_, state) => state = state.copyWith(materialColor: _.materialColor),
     );
     register<_SettingsEventUseMaterial3>(
-      (_) => state = state.copyWith(useMaterial3: _.useMaterial3),
+      (_, state) => state = state.copyWith(useMaterial3: _.useMaterial3),
     );
     register<_SettingsEventBackgroundImage>(
-      (_) => state = state.copyWith(backgroundImagePath: _.backgroundImagePath),
+      (_, state) =>
+          state = state.copyWith(backgroundImagePath: _.backgroundImagePath),
     );
     register<_SettingsEventPadding>(
-      (_) => state = state.copyWith(paddingEnum: _.paddingEnum),
+      (_, state) => state = state.copyWith(paddingEnum: _.paddingEnum),
     );
     register<_SettingsEventBorderRadius>(
-      (_) => state = state.copyWith(borderRadiusEnum: _.borderRadiusEnum),
+      (_, state) =>
+          state = state.copyWith(borderRadiusEnum: _.borderRadiusEnum),
     );
     register<_SettingsEventFont>(
-      (_) => state = state.copyWith(font: _.font),
+      (_, state) => state = state.copyWith(font: _.font),
     );
-  }
-
-  @override
-  final persistor = Persistor.freezed(
+  },
+  serializer: Serializer(
     key: 'settings',
     fromJson: Settings.fromJson,
-  );
-  @override
-  Settings get initialState => Settings();
-}
+  ),
+);
 
 @freezed
 class SettingsEvent with _$SettingsEvent {
@@ -70,30 +67,20 @@ enum PaddingEnum {
 
 @freezed
 class Settings with _$Settings {
-  const factory Settings.get({
-    required final ThemeMode themeMode,
-    @MaterialColorConverter() required final MaterialColor materialColor,
-    required final int pageIndex,
-    required final BorderRadiusEnum borderRadiusEnum,
-    required final PaddingEnum paddingEnum,
-    required final String? backgroundImagePath,
-    required final bool useMaterial3,
-    required final String font,
+  const factory Settings({
+    @Default(ThemeMode.system) final ThemeMode themeMode,
+    @MaterialColorConverter()
+    @Default(Colors.deepPurple)
+    final MaterialColor materialColor,
+    @Default(0) final int pageIndex,
+    @Default(BorderRadiusEnum.full) final BorderRadiusEnum borderRadiusEnum,
+    @Default(PaddingEnum.relaxed) final PaddingEnum paddingEnum,
+    @Default('') final String? backgroundImagePath,
+    @Default(true) final bool useMaterial3,
+    @Default('Default') final String font,
   }) = _Settings;
 
   factory Settings.fromJson(json) => _$SettingsFromJson(json);
-  factory Settings() {
-    return Settings.get(
-      themeMode: ThemeMode.system,
-      materialColor: Colors.blue,
-      pageIndex: 0,
-      borderRadiusEnum: BorderRadiusEnum.full,
-      paddingEnum: PaddingEnum.relaxed,
-      backgroundImagePath: '',
-      useMaterial3: true,
-      font: 'Default',
-    );
-  }
 
   Uint8List? get backgroundImage {
     try {

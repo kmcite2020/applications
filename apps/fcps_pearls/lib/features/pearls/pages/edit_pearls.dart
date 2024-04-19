@@ -12,10 +12,10 @@ class EditPearlPage extends UI {
   @override
   void didMountWidget(BuildContext context) {
     super.didMountWidget(context);
-    pearlRM.state = pearlsRM.getByID(id);
+    pearlRM.state = pearlsRM.get(id);
   }
 
-  static final updater = (Pearl pearl) => pearlsRM(PearlsEvent.save(pearl));
+  static final updater = (Pearl pearl) => pearlsRM(pearl);
 
   @override
   Widget build(BuildContext context) {

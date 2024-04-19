@@ -3,14 +3,16 @@ import '../../main.dart';
 part 'transactions.freezed.dart';
 part 'transactions.g.dart';
 
-final transactionsRM = TransactionsRM();
+final transactionsRM = TransactionsRM(
+  'transactions',
+  fromJson: Transaction.fromJson,
+);
 
 class TransactionsRM extends ComplexTable<Transaction> {
-  TransactionsRM()
-      : super(
-          key: 'transactions',
-          fromJson: Transaction.fromJson,
-        );
+  TransactionsRM(
+    super.key, {
+    required super.fromJson,
+  });
 
   int all() => state.values.fold(
         0,
@@ -39,7 +41,7 @@ class TransactionsRM extends ComplexTable<Transaction> {
 }
 
 @freezed
-class Transaction extends ID with _$Transaction {
+class Transaction with _$Transaction {
   const factory Transaction({
     required final String id,
     final String? personID,

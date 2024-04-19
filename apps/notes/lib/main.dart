@@ -34,7 +34,5 @@ class MyApp extends TopUI {
   @override
   ThemeMode get themeMode => settings.themeMode;
   @override
-  Widget homePage(BuildContext context) {
-    return NotesPage();
-  }
+  homePage(BuildContext context) => NotesPage();
 }

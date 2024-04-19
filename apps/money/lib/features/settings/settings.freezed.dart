@@ -1357,65 +1357,7 @@ mixin _$Settings {
   String? get backgroundImagePath => throw _privateConstructorUsedError;
   bool get useMaterial3 => throw _privateConstructorUsedError;
   String get font => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
-            ThemeMode themeMode,
-            @MaterialColorConverter() MaterialColor materialColor,
-            int pageIndex,
-            BorderRadiusEnum borderRadiusEnum,
-            PaddingEnum paddingEnum,
-            String? backgroundImagePath,
-            bool useMaterial3,
-            String font)
-        get,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(
-            ThemeMode themeMode,
-            @MaterialColorConverter() MaterialColor materialColor,
-            int pageIndex,
-            BorderRadiusEnum borderRadiusEnum,
-            PaddingEnum paddingEnum,
-            String? backgroundImagePath,
-            bool useMaterial3,
-            String font)?
-        get,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            ThemeMode themeMode,
-            @MaterialColorConverter() MaterialColor materialColor,
-            int pageIndex,
-            BorderRadiusEnum borderRadiusEnum,
-            PaddingEnum paddingEnum,
-            String? backgroundImagePath,
-            bool useMaterial3,
-            String font)?
-        get,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Settings value) get,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Settings value)? get,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Settings value)? get,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SettingsCopyWith<Settings> get copyWith =>
@@ -1577,47 +1519,55 @@ class __$$SettingsImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$SettingsImpl extends _Settings with DiagnosticableTreeMixin {
   const _$SettingsImpl(
-      {required this.themeMode,
-      @MaterialColorConverter() required this.materialColor,
-      required this.pageIndex,
-      required this.borderRadiusEnum,
-      required this.paddingEnum,
-      required this.backgroundImagePath,
-      required this.useMaterial3,
-      required this.font})
+      {this.themeMode = ThemeMode.system,
+      @MaterialColorConverter() this.materialColor = Colors.deepPurple,
+      this.pageIndex = 0,
+      this.borderRadiusEnum = BorderRadiusEnum.full,
+      this.paddingEnum = PaddingEnum.relaxed,
+      this.backgroundImagePath = '',
+      this.useMaterial3 = true,
+      this.font = 'Default'})
       : super._();
 
   factory _$SettingsImpl.fromJson(Map<String, dynamic> json) =>
       _$$SettingsImplFromJson(json);
 
   @override
+  @JsonKey()
   final ThemeMode themeMode;
   @override
+  @JsonKey()
   @MaterialColorConverter()
   final MaterialColor materialColor;
   @override
+  @JsonKey()
   final int pageIndex;
   @override
+  @JsonKey()
   final BorderRadiusEnum borderRadiusEnum;
   @override
+  @JsonKey()
   final PaddingEnum paddingEnum;
   @override
+  @JsonKey()
   final String? backgroundImagePath;
   @override
+  @JsonKey()
   final bool useMaterial3;
   @override
+  @JsonKey()
   final String font;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Settings.get(themeMode: $themeMode, materialColor: $materialColor, pageIndex: $pageIndex, borderRadiusEnum: $borderRadiusEnum, paddingEnum: $paddingEnum, backgroundImagePath: $backgroundImagePath, useMaterial3: $useMaterial3, font: $font)';
+    return 'Settings(themeMode: $themeMode, materialColor: $materialColor, pageIndex: $pageIndex, borderRadiusEnum: $borderRadiusEnum, paddingEnum: $paddingEnum, backgroundImagePath: $backgroundImagePath, useMaterial3: $useMaterial3, font: $font)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'Settings.get'))
+      ..add(DiagnosticsProperty('type', 'Settings'))
       ..add(DiagnosticsProperty('themeMode', themeMode))
       ..add(DiagnosticsProperty('materialColor', materialColor))
       ..add(DiagnosticsProperty('pageIndex', pageIndex))
@@ -1670,92 +1620,6 @@ class _$SettingsImpl extends _Settings with DiagnosticableTreeMixin {
       __$$SettingsImplCopyWithImpl<_$SettingsImpl>(this, _$identity);
 
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
-            ThemeMode themeMode,
-            @MaterialColorConverter() MaterialColor materialColor,
-            int pageIndex,
-            BorderRadiusEnum borderRadiusEnum,
-            PaddingEnum paddingEnum,
-            String? backgroundImagePath,
-            bool useMaterial3,
-            String font)
-        get,
-  }) {
-    return get(themeMode, materialColor, pageIndex, borderRadiusEnum,
-        paddingEnum, backgroundImagePath, useMaterial3, font);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(
-            ThemeMode themeMode,
-            @MaterialColorConverter() MaterialColor materialColor,
-            int pageIndex,
-            BorderRadiusEnum borderRadiusEnum,
-            PaddingEnum paddingEnum,
-            String? backgroundImagePath,
-            bool useMaterial3,
-            String font)?
-        get,
-  }) {
-    return get?.call(themeMode, materialColor, pageIndex, borderRadiusEnum,
-        paddingEnum, backgroundImagePath, useMaterial3, font);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            ThemeMode themeMode,
-            @MaterialColorConverter() MaterialColor materialColor,
-            int pageIndex,
-            BorderRadiusEnum borderRadiusEnum,
-            PaddingEnum paddingEnum,
-            String? backgroundImagePath,
-            bool useMaterial3,
-            String font)?
-        get,
-    required TResult orElse(),
-  }) {
-    if (get != null) {
-      return get(themeMode, materialColor, pageIndex, borderRadiusEnum,
-          paddingEnum, backgroundImagePath, useMaterial3, font);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Settings value) get,
-  }) {
-    return get(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Settings value)? get,
-  }) {
-    return get?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Settings value)? get,
-    required TResult orElse(),
-  }) {
-    if (get != null) {
-      return get(this);
-    }
-    return orElse();
-  }
-
-  @override
   Map<String, dynamic> toJson() {
     return _$$SettingsImplToJson(
       this,
@@ -1765,14 +1629,14 @@ class _$SettingsImpl extends _Settings with DiagnosticableTreeMixin {
 
 abstract class _Settings extends Settings {
   const factory _Settings(
-      {required final ThemeMode themeMode,
-      @MaterialColorConverter() required final MaterialColor materialColor,
-      required final int pageIndex,
-      required final BorderRadiusEnum borderRadiusEnum,
-      required final PaddingEnum paddingEnum,
-      required final String? backgroundImagePath,
-      required final bool useMaterial3,
-      required final String font}) = _$SettingsImpl;
+      {final ThemeMode themeMode,
+      @MaterialColorConverter() final MaterialColor materialColor,
+      final int pageIndex,
+      final BorderRadiusEnum borderRadiusEnum,
+      final PaddingEnum paddingEnum,
+      final String? backgroundImagePath,
+      final bool useMaterial3,
+      final String font}) = _$SettingsImpl;
   const _Settings._() : super._();
 
   factory _Settings.fromJson(Map<String, dynamic> json) =

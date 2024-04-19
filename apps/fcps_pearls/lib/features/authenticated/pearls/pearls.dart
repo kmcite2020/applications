@@ -26,7 +26,7 @@ class PearlsPage extends UI {
           controller: ScrollController(),
           itemCount: pearlsRM().length,
           itemBuilder: (context, index) {
-            final pearl = pearlsRM().pearlsCache.values.toList()[index];
+            final pearl = pearlsRM()[index];
             return ListTile(
               leading: CircleAvatar(
                 child: (index + 1).text(),

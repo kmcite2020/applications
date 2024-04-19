@@ -43,7 +43,7 @@ class CustomerTile extends UI {
 
         Widget Edit() {
           final possibleProducts = productsRM().where(
-            (element) => !customer.products.contains(element.productID),
+            (element) => !customer.products.contains(element.id),
           );
           return Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -96,7 +96,7 @@ class CustomerTile extends UI {
                             customersRM(
                               customer.copyWith(
                                 products: List.of(customer.products)
-                                  ..remove(eachProduct.productID),
+                                  ..remove(eachProduct.id),
                               ),
                             );
                           },
@@ -126,7 +126,7 @@ class CustomerTile extends UI {
                             customer.copyWith(
                               products: List.of(customer.products)
                                 ..add(
-                                  eachProduct.productID,
+                                  eachProduct.id,
                                 ),
                             ),
                           );

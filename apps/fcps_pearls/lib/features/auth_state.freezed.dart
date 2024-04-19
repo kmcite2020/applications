@@ -162,7 +162,7 @@ class __$$AuthStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$AuthStateImpl implements _AuthState {
+class _$AuthStateImpl with DiagnosticableTreeMixin implements _AuthState {
   const _$AuthStateImpl(
       {this.status = AuthStatus.unAuthenticated,
       this.userID = '',
@@ -194,8 +194,21 @@ class _$AuthStateImpl implements _AuthState {
   final String stackTrace;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AuthState(status: $status, userID: $userID, email: $email, password: $password, error: $error, stackTrace: $stackTrace)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AuthState'))
+      ..add(DiagnosticsProperty('status', status))
+      ..add(DiagnosticsProperty('userID', userID))
+      ..add(DiagnosticsProperty('email', email))
+      ..add(DiagnosticsProperty('password', password))
+      ..add(DiagnosticsProperty('error', error))
+      ..add(DiagnosticsProperty('stackTrace', stackTrace));
   }
 
   @override

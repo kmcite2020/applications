@@ -42,7 +42,7 @@ class CustomerPage extends UI {
               children: customer.products
                   .map(
                     (e) =>
-                        Product.fromID(e).name.text(textScaleFactor: 2).pad(),
+                        productsRM.get(e).name.text(textScaleFactor: 2).pad(),
                   )
                   .toList(),
             ),

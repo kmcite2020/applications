@@ -75,7 +75,7 @@ class OrderTile extends UI {
                   crossAxisCount: 2,
                   children: order.products
                       .map(
-                        (eachProductID) => Product.fromID(eachProductID),
+                        (eachProductID) => productsRM.get(eachProductID),
                       )
                       .map(
                         (eachProduct) => eachProduct.text(),
@@ -85,8 +85,6 @@ class OrderTile extends UI {
               ),
               DropdownButtonFormField(
                 items: productsRM()
-                    .cache
-                    .values
                     .map(
                       (e) => DropdownMenuItem(
                         child: e.name.text(),
@@ -96,7 +94,7 @@ class OrderTile extends UI {
                     .toList(),
                 onChanged: (onChanged) {
                   order(
-                    order..addProductToOrder(onChanged!.productID),
+                    order..addProductToOrder(onChanged!.id),
                   );
                 },
               ),

@@ -103,7 +103,7 @@ class __$$ExamImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ExamImpl implements _Exam {
+class _$ExamImpl with DiagnosticableTreeMixin implements _Exam {
   const _$ExamImpl({final List<Pearl> pearls = const [], this.title = ''})
       : _pearls = pearls;
 
@@ -124,8 +124,17 @@ class _$ExamImpl implements _Exam {
   final String title;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Exam(pearls: $pearls, title: $title)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Exam'))
+      ..add(DiagnosticsProperty('pearls', pearls))
+      ..add(DiagnosticsProperty('title', title));
   }
 
   @override

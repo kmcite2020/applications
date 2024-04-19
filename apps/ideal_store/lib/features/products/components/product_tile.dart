@@ -14,7 +14,7 @@ class ProductTile extends UI {
   @override
   Widget build(BuildContext context) {
     return ProductBuilder(
-      productID: productID,
+      id: productID,
       builder: (product) {
         Widget Read() => Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -23,7 +23,7 @@ class ProductTile extends UI {
                 IconButton.filledTonal(
                   tooltip: 'edit product',
                   onPressed: () {
-                    productsRM.saveProduct(product.copyWith(editing: true));
+                    productsRM(product.copyWith(editing: true));
                   },
                   icon: Icon(Icons.edit_document),
                 ).pad(),
@@ -54,7 +54,7 @@ class ProductTile extends UI {
                 ).pad(),
                 IconButton.filled(
                   tooltip: 'delete product',
-                  onPressed: () => productsRM.deleteProduct(productID),
+                  onPressed: () => productsRM.delete(productID),
                   icon: Icon(Icons.delete_forever),
                 ).pad(),
                 IconButton.filled(
@@ -89,7 +89,7 @@ class ProductTile extends UI {
                 IconButton.filledTonal(
                   tooltip: 'edit product',
                   onPressed: () {
-                    productsRM.saveProduct(product.copyWith(editing: false));
+                    productsRM(product.copyWith(editing: false));
                   },
                   icon: Icon(Icons.done),
                 ).pad(),
@@ -99,7 +99,7 @@ class ProductTile extends UI {
                     labelText: 'Product Name',
                   ),
                   onChanged: (value) {
-                    productsRM.saveProduct(
+                    productsRM(
                       product.copyWith(name: value),
                     );
                   },
@@ -118,7 +118,7 @@ class ProductTile extends UI {
                       )
                       .toList(),
                   onChanged: (_) {
-                    productsRM.saveProduct(product.copyWith(brand: _!));
+                    productsRM(product.copyWith(brand: _!));
                   },
                 ).pad(),
                 DropdownButtonFormField(
@@ -132,7 +132,7 @@ class ProductTile extends UI {
                       )
                       .toList(),
                   onChanged: (_) {
-                    productsRM.saveProduct(product.copyWith(materialColor: _!));
+                    productsRM(product.copyWith(materialColor: _!));
                   },
                   decoration: InputDecoration(
                     labelText: 'Material Color',
@@ -141,7 +141,7 @@ class ProductTile extends UI {
                 TextFormField(
                   initialValue: product.model,
                   onChanged: (value) {
-                    productsRM.saveProduct(product.copyWith(model: value));
+                    productsRM(product.copyWith(model: value));
                   },
                   decoration: InputDecoration(labelText: 'Model'),
                 ).pad(),
@@ -150,7 +150,7 @@ class ProductTile extends UI {
                   onChanged: (nullablePrice) {
                     final price = int.tryParse(nullablePrice);
                     if (price == null) return;
-                    productsRM.saveProduct(product.copyWith(price: price));
+                    productsRM(product.copyWith(price: price));
                   },
                   decoration: InputDecoration(labelText: 'Price'),
                 ).pad(),
@@ -172,7 +172,7 @@ class ProductTile extends UI {
                       if (image.bytes == null) {
                         return;
                       }
-                      productsRM.saveProduct(
+                      productsRM(
                         product.copyWith(image: image.bytes!),
                       );
                     },
@@ -207,7 +207,7 @@ class ProductTile extends UI {
                 Slider(
                   value: product.stock.toDouble(),
                   onChanged: (stock) {
-                    productsRM.saveProduct(
+                    productsRM(
                       product.copyWith(stock: stock.toInt()),
                     );
                   },

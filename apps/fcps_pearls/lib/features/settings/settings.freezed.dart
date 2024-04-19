@@ -150,7 +150,7 @@ class __$$SettingsImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SettingsImpl extends _Settings {
+class _$SettingsImpl extends _Settings with DiagnosticableTreeMixin {
   const _$SettingsImpl(
       {this.themeMode = ThemeMode.system,
       this.borderRadius = 8,
@@ -180,8 +180,20 @@ class _$SettingsImpl extends _Settings {
   final MaterialColor materialColor;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Settings(themeMode: $themeMode, borderRadius: $borderRadius, padding: $padding, studioMode: $studioMode, materialColor: $materialColor)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Settings'))
+      ..add(DiagnosticsProperty('themeMode', themeMode))
+      ..add(DiagnosticsProperty('borderRadius', borderRadius))
+      ..add(DiagnosticsProperty('padding', padding))
+      ..add(DiagnosticsProperty('studioMode', studioMode))
+      ..add(DiagnosticsProperty('materialColor', materialColor));
   }
 
   @override

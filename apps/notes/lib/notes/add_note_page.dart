@@ -59,7 +59,7 @@ class AddNotePage extends UI {
             onPressed: noteRM().title.isEmpty
                 ? null
                 : () {
-                    notesRM.save(
+                    notesRM(
                       noteRM().copyWith(id: randomID),
                     );
                     back();

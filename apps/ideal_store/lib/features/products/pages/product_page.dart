@@ -8,7 +8,7 @@ class ProductPage extends UI {
   @override
   Widget build(BuildContext context) {
     return ProductBuilder(
-      productID: productID,
+      id: productID,
       builder: (product) {
         return Scaffold(
           body: ListView(
@@ -40,14 +40,13 @@ class ProductPage extends UI {
                   borderRadius:
                       BorderRadius.circular(settingsRM().borderRadius),
                 ),
-                child: product.productID.text().center().pad(),
+                child: product.id.text().center().pad(),
               ).pad(),
               (product.editing
                       ? TextFormField(
                           initialValue: product.name,
                           onChanged: (name) {
-                            productsRM
-                                .saveProduct(product.copyWith(name: name));
+                            productsRM(product.copyWith(name: name));
                           },
                         )
                       : product.name.text(textScaleFactor: 3))
@@ -56,7 +55,7 @@ class ProductPage extends UI {
                       ? TextFormField(
                           initialValue: product.model,
                           onChanged: (model) {
-                            productsRM.saveProduct(
+                            productsRM(
                               product.copyWith(model: model),
                             );
                           },
@@ -75,8 +74,7 @@ class ProductPage extends UI {
                               )
                               .toList(),
                           onChanged: (brand) {
-                            productsRM
-                                .saveProduct(product.copyWith(brand: brand!));
+                            productsRM(product.copyWith(brand: brand!));
                           },
                         )
                       : product.brand.description.text())
@@ -93,7 +91,7 @@ class ProductPage extends UI {
                               )
                               .toList(),
                           onChanged: (materialColor) {
-                            productsRM.saveProduct(product.copyWith(
+                            productsRM(product.copyWith(
                                 materialColor: materialColor!));
                           },
                         )
@@ -118,8 +116,7 @@ class ProductPage extends UI {
                               // );
                               return;
                             }
-                            productsRM
-                                .saveProduct(product.copyWith(image: image));
+                            productsRM(product.copyWith(image: image));
                           },
                           child: 'Pick Image'.text(),
                         )
@@ -136,8 +133,7 @@ class ProductPage extends UI {
                           divisions: 99999,
                           value: product.price.toDouble(),
                           onChanged: (price) {
-                            productsRM.saveProduct(
-                                product.copyWith(price: price.toInt()));
+                            productsRM(product.copyWith(price: price.toInt()));
                           },
                           label: product.price.toStringAsFixed(0),
                         )
@@ -150,8 +146,7 @@ class ProductPage extends UI {
                           divisions: 500,
                           value: product.stock.toDouble(),
                           onChanged: (x) {
-                            productsRM.saveProduct(
-                                product.copyWith(stock: x.toInt()));
+                            productsRM(product.copyWith(stock: x.toInt()));
                           },
                         )
                       : product.stock.text())
@@ -160,8 +155,7 @@ class ProductPage extends UI {
           ),
           floatingActionButton: FloatingActionButton(
             onPressed: () {
-              productsRM
-                  .saveProduct(product.copyWith(editing: !product.editing));
+              productsRM(product.copyWith(editing: !product.editing));
             },
             child: Icon(product.editing ? Icons.done : Icons.edit),
           ),

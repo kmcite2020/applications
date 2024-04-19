@@ -8,16 +8,22 @@ part of 'settings.dart';
 
 _$SettingsImpl _$$SettingsImplFromJson(Map<String, dynamic> json) =>
     _$SettingsImpl(
-      themeMode: $enumDecode(_$ThemeModeEnumMap, json['themeMode']),
-      materialColor:
-          const MaterialColorConverter().fromJson(json['materialColor'] as int),
-      pageIndex: json['pageIndex'] as int,
-      borderRadiusEnum:
-          $enumDecode(_$BorderRadiusEnumEnumMap, json['borderRadiusEnum']),
-      paddingEnum: $enumDecode(_$PaddingEnumEnumMap, json['paddingEnum']),
-      backgroundImagePath: json['backgroundImagePath'] as String?,
-      useMaterial3: json['useMaterial3'] as bool,
-      font: json['font'] as String,
+      themeMode: $enumDecodeNullable(_$ThemeModeEnumMap, json['themeMode']) ??
+          ThemeMode.system,
+      materialColor: json['materialColor'] == null
+          ? Colors.deepPurple
+          : const MaterialColorConverter()
+              .fromJson(json['materialColor'] as int),
+      pageIndex: json['pageIndex'] as int? ?? 0,
+      borderRadiusEnum: $enumDecodeNullable(
+              _$BorderRadiusEnumEnumMap, json['borderRadiusEnum']) ??
+          BorderRadiusEnum.full,
+      paddingEnum:
+          $enumDecodeNullable(_$PaddingEnumEnumMap, json['paddingEnum']) ??
+              PaddingEnum.relaxed,
+      backgroundImagePath: json['backgroundImagePath'] as String? ?? '',
+      useMaterial3: json['useMaterial3'] as bool? ?? true,
+      font: json['font'] as String? ?? 'Default',
     );
 
 Map<String, dynamic> _$$SettingsImplToJson(_$SettingsImpl instance) =>

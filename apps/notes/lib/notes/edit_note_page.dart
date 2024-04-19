@@ -76,7 +76,7 @@ class EditNotePage extends UI {
                       onPressed: note == _editNoteRM()
                           ? null
                           : () {
-                              notesRM.save(_editNoteRM() ?? note);
+                              notesRM(_editNoteRM() ?? note);
                             },
                       child: 'Save'.text(textScaleFactor: 1.4).pad(),
                     ).pad(),

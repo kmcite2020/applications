@@ -4,12 +4,12 @@ part 'persons.freezed.dart';
 part 'persons.g.dart';
 
 final personsRM = ComplexTable(
-  key: 'persons',
+  'persons',
   fromJson: Person.fromJson,
 );
 
 @freezed
-class Person extends ID with _$Person {
+class Person with _$Person {
   const factory Person({
     required final String id,
     required final String name,
