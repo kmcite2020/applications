@@ -22,7 +22,7 @@ class AddPatientWizard extends UI {
           ClassificationUI(),
           ElevatedButton(
             onPressed: () {
-              patientsRM(patient);
+              patientsRM(patientRM());
               RM.navigate.back();
             },
             child: "Save".text(),
@@ -33,11 +33,9 @@ class AddPatientWizard extends UI {
   }
 }
 
-Patient get patient => patientRM.state;
-final patientRM = RM.inject<Patient>(
-  () => Patient(
+final patientRM = Simple<Patient>(
+  Patient(
     arrivalAt: DateTime.now(),
     id: randomID,
   ),
 );
-setPatient(Patient patient) => patientRM.state = patient;

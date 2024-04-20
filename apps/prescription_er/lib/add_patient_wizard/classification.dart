@@ -13,7 +13,7 @@ class ClassificationUI extends UI {
       children: [
         "CLASSIFICATIONS".text(textScaleFactor: 1.5).pad(),
         DropdownButtonFormField(
-          value: patient.classification,
+          value: patientRM().classification,
           decoration: InputDecoration(
             labelText: 'CLASSIFICATION',
           ),
@@ -25,12 +25,12 @@ class ClassificationUI extends UI {
                 ),
               )
               .toList(),
-          onChanged: (classification) => setPatient(
-            patient.copyWith(classification: classification!),
+          onChanged: (classification) => patientRM(
+            patientRM().copyWith(classification: classification!),
           ),
         ).pad(),
         DropdownButtonFormField(
-          value: patient.triage,
+          value: patientRM().triage,
           decoration: InputDecoration(
             labelText: 'TRIAGE',
           ),
@@ -42,8 +42,8 @@ class ClassificationUI extends UI {
                 ),
               )
               .toList(),
-          onChanged: (triage) => setPatient(
-            patient.copyWith(triage: triage!),
+          onChanged: (triage) => patientRM(
+            patientRM().copyWith(triage: triage!),
           ),
         ).pad(),
       ],

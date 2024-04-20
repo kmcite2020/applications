@@ -48,8 +48,8 @@ class CNICUI extends UI {
               decoration: InputDecoration(labelText: 'AREA'),
               initialValue: address.area,
               onChanged: (area) {
-                setPatient(
-                  patient.copyWith(
+                patientRM(
+                  patientRM().copyWith(
                     address: address.copyWith(area: area),
                   ),
                 );
@@ -59,8 +59,8 @@ class CNICUI extends UI {
               decoration: InputDecoration(labelText: 'CITY'),
               initialValue: address.city,
               onChanged: (city) {
-                setPatient(
-                  patient.copyWith(
+                patientRM(
+                  patientRM().copyWith(
                     address: address.copyWith(city: city),
                   ),
                 );
@@ -70,8 +70,8 @@ class CNICUI extends UI {
               decoration: InputDecoration(labelText: 'PROVINCE'),
               initialValue: address.province,
               onChanged: (province) {
-                setPatient(
-                  patient.copyWith(
+                patientRM(
+                  patientRM().copyWith(
                     address: address.copyWith(province: province),
                   ),
                 );
@@ -81,8 +81,8 @@ class CNICUI extends UI {
               decoration: InputDecoration(labelText: 'COUNTRY'),
               initialValue: address.country,
               onChanged: (country) {
-                setPatient(
-                  patient.copyWith(
+                patientRM(
+                  patientRM().copyWith(
                     address: address.copyWith(country: country),
                   ),
                 );
@@ -95,14 +95,14 @@ class CNICUI extends UI {
   }
 }
 
-Address get address => patient.address;
+Address get address => patientRM().address;
 
 CNIC get cnic => cnicRM.state;
 final cnicRM = RM.inject<CNIC>(
   () => CNIC(),
   sideEffects: SideEffects(
-    onSetState: (cnicSnap) => setPatient(
-      patient.copyWith(cnic: cnicSnap.state),
+    onSetState: (cnicSnap) => patientRM(
+      patientRM().copyWith(cnic: cnicSnap.state),
     ),
   ),
 );

@@ -7,27 +7,25 @@ final settingsRM = Complex<SettingsEvent, Settings>(
   Settings(),
   setup: (register) {
     register<_SettingsEventThemeMode>(
-      (_, state) => state = state.copyWith(themeMode: _.themeMode),
+      (_, state) => state.copyWith(themeMode: _.themeMode),
     );
     register<_SettingsEventColor>(
-      (_, state) => state = state.copyWith(materialColor: _.materialColor),
+      (_, state) => state.copyWith(materialColor: _.materialColor),
     );
     register<_SettingsEventUseMaterial3>(
-      (_, state) => state = state.copyWith(useMaterial3: _.useMaterial3),
+      (_, state) => state.copyWith(useMaterial3: _.useMaterial3),
     );
     register<_SettingsEventBackgroundImage>(
-      (_, state) =>
-          state = state.copyWith(backgroundImagePath: _.backgroundImagePath),
+      (_, state) => state.copyWith(backgroundImagePath: _.backgroundImagePath),
     );
     register<_SettingsEventPadding>(
-      (_, state) => state = state.copyWith(paddingEnum: _.paddingEnum),
+      (_, state) => state.copyWith(paddingEnum: _.paddingEnum),
     );
     register<_SettingsEventBorderRadius>(
-      (_, state) =>
-          state = state.copyWith(borderRadiusEnum: _.borderRadiusEnum),
+      (_, state) => state.copyWith(borderRadiusEnum: _.borderRadiusEnum),
     );
     register<_SettingsEventFont>(
-      (_, state) => state = state.copyWith(font: _.font),
+      (_, state) => state.copyWith(font: _.font),
     );
   },
   serializer: Serializer(
@@ -38,16 +36,19 @@ final settingsRM = Complex<SettingsEvent, Settings>(
 
 @freezed
 class SettingsEvent with _$SettingsEvent {
-  const factory SettingsEvent.themeMode(themeMode) = _SettingsEventThemeMode;
-  const factory SettingsEvent.color(materialColor) = _SettingsEventColor;
-  const factory SettingsEvent.useMaterial3(useMaterial3) =
+  const factory SettingsEvent.themeMode(ThemeMode themeMode) =
+      _SettingsEventThemeMode;
+  const factory SettingsEvent.color(MaterialColor materialColor) =
+      _SettingsEventColor;
+  const factory SettingsEvent.useMaterial3(bool useMaterial3) =
       _SettingsEventUseMaterial3;
-  const factory SettingsEvent.backgroundImagePath(backgroundImagePath) =
+  const factory SettingsEvent.backgroundImagePath(String backgroundImagePath) =
       _SettingsEventBackgroundImage;
-  const factory SettingsEvent.padding(paddingEnum) = _SettingsEventPadding;
-  const factory SettingsEvent.borderRadius(borderRadiusEnum) =
+  const factory SettingsEvent.padding(PaddingEnum paddingEnum) =
+      _SettingsEventPadding;
+  const factory SettingsEvent.borderRadius(BorderRadiusEnum borderRadiusEnum) =
       _SettingsEventBorderRadius;
-  const factory SettingsEvent.font(font) = _SettingsEventFont;
+  const factory SettingsEvent.font(String font) = _SettingsEventFont;
 }
 
 enum BorderRadiusEnum {

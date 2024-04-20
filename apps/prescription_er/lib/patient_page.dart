@@ -4,6 +4,7 @@ import 'package:prescription_er/prescriptions/patients_rm.dart';
 import 'package:prescription_er/prescriptions/prescription.dart';
 
 import 'complaints.dart';
+import 'patient_builder.dart';
 
 class PatientPage extends UI {
   const PatientPage({
@@ -34,29 +35,43 @@ class PatientPage extends UI {
           shrinkWrap: true,
           physics: BouncingScrollPhysics(),
           children: [
-            "ARRIVAL TIME".text(),
+            "ARRIVAL TIME".text().pad(),
             () {
               final hour = patient.arrivalAt.hour;
               final min = patient.arrivalAt.minute;
               return '$hour:$min'.text();
-            }(),
-            "ARRIVAL DATE".text(),
+            }()
+                .pad(),
+            "ARRIVAL DATE".text().pad(),
             () {
               final day = patient.arrivalAt.day;
               final month = patient.arrivalAt.month;
               final year = patient.arrivalAt.year;
               return '$day-$month-$year'.text();
-            }(),
+            }()
+                .pad(),
+            DropdownButtonFormField(
+              value: patient.gender,
+              items: Gender.values
+                  .map(
+                    (e) => DropdownMenuItem(
+                      value: e,
+                      child: e.name.toUpperCase().text(),
+                    ),
+                  )
+                  .toList(),
+              onChanged: (gender) {
+                patientsRM(patient.copyWith(gender: gender!));
+              },
+            ).pad(),
             'ID: ${patient.id}'.text().pad(),
             TextFormField(
               key: Key(id),
               decoration: InputDecoration(labelText: 'NAME'),
               initialValue: patient.name,
-              onChanged: (value) {
-                patientsRM(
-                  patient.copyWith(name: value),
-                );
-              },
+              onChanged: (name) => patientsRM(
+                patient.copyWith(name: name),
+              ),
             ).pad(),
             TextFormField(
               key: Key(id),
@@ -71,13 +86,52 @@ class PatientPage extends UI {
             PresentingComplaintsUI(id: id),
             ExaminationsUI(id: id),
             VitalsMonitoringUI(id: id),
-            patient.gender.text(),
-            patient.triage.text(),
-            patient.text().pad(),
-            patient.patientStatus.text(),
-            patient.diagnosis.text(),
-            patient.provisionalDiagnosis.text(),
-            patient.examinations.text(),
+            DropdownButtonFormField(
+              value: patient.triage,
+              items: Triage.values
+                  .map(
+                    (e) => DropdownMenuItem(
+                      value: e,
+                      child: e.name.toUpperCase().text(),
+                    ),
+                  )
+                  .toList(),
+              onChanged: (triage) {
+                patientsRM(patient.copyWith(triage: triage!));
+              },
+            ).pad(),
+            DropdownButtonFormField(
+              value: patient.patientStatus,
+              items: PatientStatus.values
+                  .map(
+                    (e) => DropdownMenuItem(
+                      value: e,
+                      child: e.name.toUpperCase().text(),
+                    ),
+                  )
+                  .toList(),
+              onChanged: (status) {
+                patientsRM(patient.copyWith(patientStatus: status!));
+              },
+            ).pad(),
+            TextFormField(
+              decoration: InputDecoration(labelText: 'Provisional Diagnosis'),
+              initialValue: patient.provisionalDiagnosis,
+              minLines: 2,
+              maxLines: 5,
+              onChanged: (value) {
+                patientsRM(patient.copyWith(provisionalDiagnosis: value));
+              },
+            ).pad(),
+            TextFormField(
+              decoration: InputDecoration(labelText: 'Diagnosis'),
+              initialValue: patient.diagnosis,
+              minLines: 1,
+              maxLines: 2,
+              onChanged: (value) {
+                patientsRM(patient.copyWith(diagnosis: value));
+              },
+            ).pad(),
           ],
         ),
       ),
@@ -104,13 +158,14 @@ class ExaminationsUI extends UI {
           shrinkWrap: true,
           physics: BouncingScrollPhysics(),
           children: [
-            examinations.text(),
+            // examinations.text(),
             TextFormField(
               decoration: InputDecoration(labelText: 'EYE'),
               initialValue: examinations.eye,
               onChanged: (eye) {
                 setExaminations(examinations.copyWith(eye: eye));
               },
+              minLines: 1,
               maxLines: 3,
             ).pad(),
             TextFormField(
@@ -119,6 +174,7 @@ class ExaminationsUI extends UI {
               onChanged: (ent) {
                 setExaminations(examinations.copyWith(ent: ent));
               },
+              minLines: 1,
               maxLines: 3,
             ).pad(),
             TextFormField(
@@ -127,6 +183,7 @@ class ExaminationsUI extends UI {
               onChanged: (cvs) {
                 setExaminations(examinations.copyWith(cvs: cvs));
               },
+              minLines: 1,
               maxLines: 3,
             ).pad(),
             TextFormField(
@@ -135,6 +192,7 @@ class ExaminationsUI extends UI {
               onChanged: (cns) {
                 setExaminations(examinations.copyWith(cns: cns));
               },
+              minLines: 1,
               maxLines: 3,
             ).pad(),
             TextFormField(
@@ -143,6 +201,7 @@ class ExaminationsUI extends UI {
               onChanged: (pulmo) {
                 setExaminations(examinations.copyWith(pulmo: pulmo));
               },
+              minLines: 1,
               maxLines: 3,
             ).pad(),
             TextFormField(
@@ -151,6 +210,7 @@ class ExaminationsUI extends UI {
               onChanged: (skin) {
                 setExaminations(examinations.copyWith(skin: skin));
               },
+              minLines: 1,
               maxLines: 3,
             ).pad(),
             TextFormField(
@@ -159,6 +219,7 @@ class ExaminationsUI extends UI {
               onChanged: (gi) {
                 setExaminations(examinations.copyWith(gi: gi));
               },
+              minLines: 1,
               maxLines: 3,
             ).pad(),
             TextFormField(
@@ -167,12 +228,13 @@ class ExaminationsUI extends UI {
               onChanged: (gu) {
                 setExaminations(examinations.copyWith(gu: gu));
               },
+              minLines: 1,
               maxLines: 3,
             ).pad(),
           ],
         );
       },
-    ).pad();
+    );
   }
 }
 
@@ -199,7 +261,7 @@ class VitalsMonitoringUI extends UI {
             vitals.oxygen.text(),
             '%, Pulse is '.text(),
             vitals.pulse.text(),
-            ' bpm, & Temperature is '.text(),
+            'bpm, & Temperature is '.text(),
             vitals.temperature.text(),
             ' F.'.text(),
           ],

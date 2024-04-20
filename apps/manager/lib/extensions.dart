@@ -7,14 +7,14 @@ extension DynamicExtensions on dynamic {
   }) =>
       Text(
         toString(),
-        textScaler: TextScaler.linear(textScaleFactor ?? 0),
+        textScaler: TextScaler.linear(textScaleFactor ?? 1),
         style: style,
       );
 }
 
 extension WidgetExtensions on Widget {
   Widget pad({EdgeInsetsGeometry? custom}) => Padding(
-        padding: custom ?? EdgeInsets.all(8),
+        padding: custom ?? const EdgeInsets.all(8),
         child: this,
       );
   Widget center() => Center(child: this);
@@ -25,4 +25,4 @@ extension ComplexExtensionsBool on Simple<bool> {
   void toggle() => injected.state = !injected.state;
 }
 
-String get randomID => Uuid().v8();
+String get randomID => const Uuid().v8();

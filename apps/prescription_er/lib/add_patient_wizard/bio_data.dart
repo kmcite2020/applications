@@ -10,25 +10,25 @@ class BioDataUI extends UI {
       children: [
         "BIODATA".text(textScaleFactor: 1.5).pad(),
         TextFormField(
-          initialValue: patient.name,
-          onChanged: (name) => setPatient(
-            patient.copyWith(name: name),
+          initialValue: patientRM().name,
+          onChanged: (name) => patientRM(
+            patientRM().copyWith(name: name),
           ),
           decoration: InputDecoration(
             labelText: 'NAME',
           ),
         ).pad(),
         TextFormField(
-          initialValue: patient.fatherName,
-          onChanged: (fatherName) => setPatient(
-            patient.copyWith(fatherName: fatherName),
+          initialValue: patientRM().fatherName,
+          onChanged: (fatherName) => patientRM(
+            patientRM().copyWith(fatherName: fatherName),
           ),
           decoration: InputDecoration(
             labelText: 'FATHER NAME',
           ),
         ).pad(),
         DropdownButtonFormField(
-          value: patient.gender,
+          value: patientRM().gender,
           decoration: InputDecoration(
             labelText: 'GENDER',
           ),
@@ -40,8 +40,8 @@ class BioDataUI extends UI {
                 ),
               )
               .toList(),
-          onChanged: (gender) => setPatient(
-            patient.copyWith(gender: gender!),
+          onChanged: (gender) => patientRM(
+            patientRM().copyWith(gender: gender!),
           ),
         ).pad(),
         AgeUI(),
@@ -77,9 +77,9 @@ class AgeUI extends UI {
             onChanged: (ageValue) => ageValueRM.state = ageValue,
           ).pad(),
           switch (ageTypeRM.state) {
-            AgeType.years => "${patient.age.inDays ~/ 365} years".text(),
-            AgeType.months => "${patient.age.inDays ~/ 30} months".text(),
-            AgeType.days => "${patient.age.inDays} days".text(),
+            AgeType.years => "${patientRM().age.inDays ~/ 365} years".text(),
+            AgeType.months => "${patientRM().age.inDays ~/ 30} months".text(),
+            AgeType.days => "${patientRM().age.inDays} days".text(),
           }
               .pad(),
         ],
@@ -101,12 +101,12 @@ Duration get age {
 final Injected<AgeType> ageTypeRM = RM.inject<AgeType>(
   () => AgeType.years,
   sideEffects: SideEffects(
-    onSetState: (_) => setPatient(patient.copyWith(age: age)),
+    onSetState: (_) => patientRM(patientRM().copyWith(age: age)),
   ),
 );
 final ageValueRM = RM.inject<double>(
   () => 0,
   sideEffects: SideEffects(
-    onSetState: (_) => setPatient(patient.copyWith(age: age)),
+    onSetState: (_) => patientRM(patientRM().copyWith(age: age)),
   ),
 );

@@ -15,7 +15,7 @@ abstract class TopUI extends TopStatelessWidget {
       ];
 
   @override
-  Widget? splashScreen() => CircularProgressIndicator().center();
+  Widget? splashScreen() => const CircularProgressIndicator().center();
 
   Widget homePage(BuildContext context);
   @override

@@ -1,6 +1,7 @@
 import 'package:prescription_er/main.dart';
 import 'package:prescription_er/prescriptions/patients_rm.dart';
 
+import 'patient_builder.dart';
 import 'prescriptions/prescription.dart';
 
 class PresentingComplaintsUI extends UI {
@@ -87,6 +88,9 @@ class ComplaintDialogUI extends UI {
   @override
   Widget build(BuildContext context) {
     return Dialog(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8),
+      ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -114,22 +118,5 @@ class ComplaintDialogUI extends UI {
         ],
       ).pad(),
     );
-  }
-}
-
-class PatientBuilder extends UI {
-  final String id;
-  final Widget Function(Patient patient) builder;
-
-  PatientBuilder({
-    required this.id,
-    required this.builder,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final patient = patientsRM.tryGet(id);
-    if (patient == null) return CircularProgressIndicator().center();
-    return builder(patient);
   }
 }

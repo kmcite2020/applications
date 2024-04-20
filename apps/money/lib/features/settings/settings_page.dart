@@ -30,7 +30,7 @@ class SettingsPage extends UI {
               },
             ).toList(),
             onChanged: (themeMode) => settingsRM(
-              SettingsEvent.themeMode(themeMode),
+              SettingsEvent.themeMode(themeMode!),
             ),
             decoration: const InputDecoration(labelText: 'Theme Mode'),
           ).pad(),
@@ -44,7 +44,7 @@ class SettingsPage extends UI {
                   ),
                 )
                 .toList(),
-            onChanged: (color) => settingsRM(SettingsEvent.color(color)),
+            onChanged: (color) => settingsRM(SettingsEvent.color(color!)),
             decoration: const InputDecoration(
               labelText: 'Material Color',
             ),
@@ -63,7 +63,7 @@ class SettingsPage extends UI {
                 );
               },
             ).toList(),
-            onChanged: (font) => settingsRM(SettingsEvent.font(font)),
+            onChanged: (font) => settingsRM(SettingsEvent.font(font!)),
             decoration: const InputDecoration(labelText: 'Font'),
           ).pad(),
           DropdownButtonFormField(
@@ -77,7 +77,7 @@ class SettingsPage extends UI {
                 )
                 .toList(),
             onChanged: (padding) => settingsRM(
-              SettingsEvent.padding(padding),
+              SettingsEvent.padding(padding!),
             ),
             decoration: const InputDecoration(labelText: 'Padding'),
           ).pad(),
@@ -92,7 +92,7 @@ class SettingsPage extends UI {
                 )
                 .toList(),
             onChanged: (borderRadius) => settingsRM(
-              SettingsEvent.borderRadius(borderRadius),
+              SettingsEvent.borderRadius(borderRadius!),
             ),
             decoration: const InputDecoration(labelText: 'Border Radius'),
           ).pad(),

@@ -29,6 +29,7 @@ class ComplexTable<T> {
       },
     ),
   );
+  // ignore: no_leading_underscores_for_local_identifiers
   List<T> call([T? _item]) {
     if (_item != null) {
       state = Map.of(state)..[(_item as dynamic).id] = _item;
@@ -37,6 +38,7 @@ class ComplexTable<T> {
   }
 
   Map<String, T> get state => injected.state;
+  // ignore: no_leading_underscores_for_local_identifiers
   set state(Map<String, T> _state) => injected.state = _state;
   void delete(String key) {
     state = Map.of(state)..remove(key);

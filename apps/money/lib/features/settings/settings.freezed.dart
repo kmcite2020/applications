@@ -18,35 +18,35 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$SettingsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(dynamic themeMode) themeMode,
-    required TResult Function(dynamic materialColor) color,
-    required TResult Function(dynamic useMaterial3) useMaterial3,
-    required TResult Function(dynamic backgroundImagePath) backgroundImagePath,
-    required TResult Function(dynamic paddingEnum) padding,
-    required TResult Function(dynamic borderRadiusEnum) borderRadius,
-    required TResult Function(dynamic font) font,
+    required TResult Function(ThemeMode themeMode) themeMode,
+    required TResult Function(MaterialColor materialColor) color,
+    required TResult Function(bool useMaterial3) useMaterial3,
+    required TResult Function(String backgroundImagePath) backgroundImagePath,
+    required TResult Function(PaddingEnum paddingEnum) padding,
+    required TResult Function(BorderRadiusEnum borderRadiusEnum) borderRadius,
+    required TResult Function(String font) font,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(dynamic themeMode)? themeMode,
-    TResult? Function(dynamic materialColor)? color,
-    TResult? Function(dynamic useMaterial3)? useMaterial3,
-    TResult? Function(dynamic backgroundImagePath)? backgroundImagePath,
-    TResult? Function(dynamic paddingEnum)? padding,
-    TResult? Function(dynamic borderRadiusEnum)? borderRadius,
-    TResult? Function(dynamic font)? font,
+    TResult? Function(ThemeMode themeMode)? themeMode,
+    TResult? Function(MaterialColor materialColor)? color,
+    TResult? Function(bool useMaterial3)? useMaterial3,
+    TResult? Function(String backgroundImagePath)? backgroundImagePath,
+    TResult? Function(PaddingEnum paddingEnum)? padding,
+    TResult? Function(BorderRadiusEnum borderRadiusEnum)? borderRadius,
+    TResult? Function(String font)? font,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(dynamic themeMode)? themeMode,
-    TResult Function(dynamic materialColor)? color,
-    TResult Function(dynamic useMaterial3)? useMaterial3,
-    TResult Function(dynamic backgroundImagePath)? backgroundImagePath,
-    TResult Function(dynamic paddingEnum)? padding,
-    TResult Function(dynamic borderRadiusEnum)? borderRadius,
-    TResult Function(dynamic font)? font,
+    TResult Function(ThemeMode themeMode)? themeMode,
+    TResult Function(MaterialColor materialColor)? color,
+    TResult Function(bool useMaterial3)? useMaterial3,
+    TResult Function(String backgroundImagePath)? backgroundImagePath,
+    TResult Function(PaddingEnum paddingEnum)? padding,
+    TResult Function(BorderRadiusEnum borderRadiusEnum)? borderRadius,
+    TResult Function(String font)? font,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -112,7 +112,7 @@ abstract class _$$SettingsEventThemeModeImplCopyWith<$Res> {
           $Res Function(_$SettingsEventThemeModeImpl) then) =
       __$$SettingsEventThemeModeImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({dynamic themeMode});
+  $Res call({ThemeMode themeMode});
 }
 
 /// @nodoc
@@ -127,10 +127,13 @@ class __$$SettingsEventThemeModeImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? themeMode = freezed,
+    Object? themeMode = null,
   }) {
     return _then(_$SettingsEventThemeModeImpl(
-      freezed == themeMode ? _value.themeMode! : themeMode,
+      null == themeMode
+          ? _value.themeMode
+          : themeMode // ignore: cast_nullable_to_non_nullable
+              as ThemeMode,
     ));
   }
 }
@@ -143,7 +146,7 @@ class _$SettingsEventThemeModeImpl
   const _$SettingsEventThemeModeImpl(this.themeMode);
 
   @override
-  final dynamic themeMode;
+  final ThemeMode themeMode;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -163,12 +166,12 @@ class _$SettingsEventThemeModeImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SettingsEventThemeModeImpl &&
-            const DeepCollectionEquality().equals(other.themeMode, themeMode));
+            (identical(other.themeMode, themeMode) ||
+                other.themeMode == themeMode));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(themeMode));
+  int get hashCode => Object.hash(runtimeType, themeMode);
 
   @JsonKey(ignore: true)
   @override
@@ -180,13 +183,13 @@ class _$SettingsEventThemeModeImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(dynamic themeMode) themeMode,
-    required TResult Function(dynamic materialColor) color,
-    required TResult Function(dynamic useMaterial3) useMaterial3,
-    required TResult Function(dynamic backgroundImagePath) backgroundImagePath,
-    required TResult Function(dynamic paddingEnum) padding,
-    required TResult Function(dynamic borderRadiusEnum) borderRadius,
-    required TResult Function(dynamic font) font,
+    required TResult Function(ThemeMode themeMode) themeMode,
+    required TResult Function(MaterialColor materialColor) color,
+    required TResult Function(bool useMaterial3) useMaterial3,
+    required TResult Function(String backgroundImagePath) backgroundImagePath,
+    required TResult Function(PaddingEnum paddingEnum) padding,
+    required TResult Function(BorderRadiusEnum borderRadiusEnum) borderRadius,
+    required TResult Function(String font) font,
   }) {
     return themeMode(this.themeMode);
   }
@@ -194,13 +197,13 @@ class _$SettingsEventThemeModeImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(dynamic themeMode)? themeMode,
-    TResult? Function(dynamic materialColor)? color,
-    TResult? Function(dynamic useMaterial3)? useMaterial3,
-    TResult? Function(dynamic backgroundImagePath)? backgroundImagePath,
-    TResult? Function(dynamic paddingEnum)? padding,
-    TResult? Function(dynamic borderRadiusEnum)? borderRadius,
-    TResult? Function(dynamic font)? font,
+    TResult? Function(ThemeMode themeMode)? themeMode,
+    TResult? Function(MaterialColor materialColor)? color,
+    TResult? Function(bool useMaterial3)? useMaterial3,
+    TResult? Function(String backgroundImagePath)? backgroundImagePath,
+    TResult? Function(PaddingEnum paddingEnum)? padding,
+    TResult? Function(BorderRadiusEnum borderRadiusEnum)? borderRadius,
+    TResult? Function(String font)? font,
   }) {
     return themeMode?.call(this.themeMode);
   }
@@ -208,13 +211,13 @@ class _$SettingsEventThemeModeImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(dynamic themeMode)? themeMode,
-    TResult Function(dynamic materialColor)? color,
-    TResult Function(dynamic useMaterial3)? useMaterial3,
-    TResult Function(dynamic backgroundImagePath)? backgroundImagePath,
-    TResult Function(dynamic paddingEnum)? padding,
-    TResult Function(dynamic borderRadiusEnum)? borderRadius,
-    TResult Function(dynamic font)? font,
+    TResult Function(ThemeMode themeMode)? themeMode,
+    TResult Function(MaterialColor materialColor)? color,
+    TResult Function(bool useMaterial3)? useMaterial3,
+    TResult Function(String backgroundImagePath)? backgroundImagePath,
+    TResult Function(PaddingEnum paddingEnum)? padding,
+    TResult Function(BorderRadiusEnum borderRadiusEnum)? borderRadius,
+    TResult Function(String font)? font,
     required TResult orElse(),
   }) {
     if (themeMode != null) {
@@ -272,10 +275,10 @@ class _$SettingsEventThemeModeImpl
 }
 
 abstract class _SettingsEventThemeMode implements SettingsEvent {
-  const factory _SettingsEventThemeMode(final dynamic themeMode) =
+  const factory _SettingsEventThemeMode(final ThemeMode themeMode) =
       _$SettingsEventThemeModeImpl;
 
-  dynamic get themeMode;
+  ThemeMode get themeMode;
   @JsonKey(ignore: true)
   _$$SettingsEventThemeModeImplCopyWith<_$SettingsEventThemeModeImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -287,7 +290,7 @@ abstract class _$$SettingsEventColorImplCopyWith<$Res> {
           $Res Function(_$SettingsEventColorImpl) then) =
       __$$SettingsEventColorImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({dynamic materialColor});
+  $Res call({MaterialColor materialColor});
 }
 
 /// @nodoc
@@ -301,10 +304,13 @@ class __$$SettingsEventColorImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? materialColor = freezed,
+    Object? materialColor = null,
   }) {
     return _then(_$SettingsEventColorImpl(
-      freezed == materialColor ? _value.materialColor! : materialColor,
+      null == materialColor
+          ? _value.materialColor
+          : materialColor // ignore: cast_nullable_to_non_nullable
+              as MaterialColor,
     ));
   }
 }
@@ -317,7 +323,7 @@ class _$SettingsEventColorImpl
   const _$SettingsEventColorImpl(this.materialColor);
 
   @override
-  final dynamic materialColor;
+  final MaterialColor materialColor;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -337,13 +343,12 @@ class _$SettingsEventColorImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SettingsEventColorImpl &&
-            const DeepCollectionEquality()
-                .equals(other.materialColor, materialColor));
+            (identical(other.materialColor, materialColor) ||
+                other.materialColor == materialColor));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(materialColor));
+  int get hashCode => Object.hash(runtimeType, materialColor);
 
   @JsonKey(ignore: true)
   @override
@@ -355,13 +360,13 @@ class _$SettingsEventColorImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(dynamic themeMode) themeMode,
-    required TResult Function(dynamic materialColor) color,
-    required TResult Function(dynamic useMaterial3) useMaterial3,
-    required TResult Function(dynamic backgroundImagePath) backgroundImagePath,
-    required TResult Function(dynamic paddingEnum) padding,
-    required TResult Function(dynamic borderRadiusEnum) borderRadius,
-    required TResult Function(dynamic font) font,
+    required TResult Function(ThemeMode themeMode) themeMode,
+    required TResult Function(MaterialColor materialColor) color,
+    required TResult Function(bool useMaterial3) useMaterial3,
+    required TResult Function(String backgroundImagePath) backgroundImagePath,
+    required TResult Function(PaddingEnum paddingEnum) padding,
+    required TResult Function(BorderRadiusEnum borderRadiusEnum) borderRadius,
+    required TResult Function(String font) font,
   }) {
     return color(materialColor);
   }
@@ -369,13 +374,13 @@ class _$SettingsEventColorImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(dynamic themeMode)? themeMode,
-    TResult? Function(dynamic materialColor)? color,
-    TResult? Function(dynamic useMaterial3)? useMaterial3,
-    TResult? Function(dynamic backgroundImagePath)? backgroundImagePath,
-    TResult? Function(dynamic paddingEnum)? padding,
-    TResult? Function(dynamic borderRadiusEnum)? borderRadius,
-    TResult? Function(dynamic font)? font,
+    TResult? Function(ThemeMode themeMode)? themeMode,
+    TResult? Function(MaterialColor materialColor)? color,
+    TResult? Function(bool useMaterial3)? useMaterial3,
+    TResult? Function(String backgroundImagePath)? backgroundImagePath,
+    TResult? Function(PaddingEnum paddingEnum)? padding,
+    TResult? Function(BorderRadiusEnum borderRadiusEnum)? borderRadius,
+    TResult? Function(String font)? font,
   }) {
     return color?.call(materialColor);
   }
@@ -383,13 +388,13 @@ class _$SettingsEventColorImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(dynamic themeMode)? themeMode,
-    TResult Function(dynamic materialColor)? color,
-    TResult Function(dynamic useMaterial3)? useMaterial3,
-    TResult Function(dynamic backgroundImagePath)? backgroundImagePath,
-    TResult Function(dynamic paddingEnum)? padding,
-    TResult Function(dynamic borderRadiusEnum)? borderRadius,
-    TResult Function(dynamic font)? font,
+    TResult Function(ThemeMode themeMode)? themeMode,
+    TResult Function(MaterialColor materialColor)? color,
+    TResult Function(bool useMaterial3)? useMaterial3,
+    TResult Function(String backgroundImagePath)? backgroundImagePath,
+    TResult Function(PaddingEnum paddingEnum)? padding,
+    TResult Function(BorderRadiusEnum borderRadiusEnum)? borderRadius,
+    TResult Function(String font)? font,
     required TResult orElse(),
   }) {
     if (color != null) {
@@ -447,10 +452,10 @@ class _$SettingsEventColorImpl
 }
 
 abstract class _SettingsEventColor implements SettingsEvent {
-  const factory _SettingsEventColor(final dynamic materialColor) =
+  const factory _SettingsEventColor(final MaterialColor materialColor) =
       _$SettingsEventColorImpl;
 
-  dynamic get materialColor;
+  MaterialColor get materialColor;
   @JsonKey(ignore: true)
   _$$SettingsEventColorImplCopyWith<_$SettingsEventColorImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -463,7 +468,7 @@ abstract class _$$SettingsEventUseMaterial3ImplCopyWith<$Res> {
           $Res Function(_$SettingsEventUseMaterial3Impl) then) =
       __$$SettingsEventUseMaterial3ImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({dynamic useMaterial3});
+  $Res call({bool useMaterial3});
 }
 
 /// @nodoc
@@ -478,10 +483,13 @@ class __$$SettingsEventUseMaterial3ImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? useMaterial3 = freezed,
+    Object? useMaterial3 = null,
   }) {
     return _then(_$SettingsEventUseMaterial3Impl(
-      freezed == useMaterial3 ? _value.useMaterial3! : useMaterial3,
+      null == useMaterial3
+          ? _value.useMaterial3
+          : useMaterial3 // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -494,7 +502,7 @@ class _$SettingsEventUseMaterial3Impl
   const _$SettingsEventUseMaterial3Impl(this.useMaterial3);
 
   @override
-  final dynamic useMaterial3;
+  final bool useMaterial3;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -514,13 +522,12 @@ class _$SettingsEventUseMaterial3Impl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SettingsEventUseMaterial3Impl &&
-            const DeepCollectionEquality()
-                .equals(other.useMaterial3, useMaterial3));
+            (identical(other.useMaterial3, useMaterial3) ||
+                other.useMaterial3 == useMaterial3));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(useMaterial3));
+  int get hashCode => Object.hash(runtimeType, useMaterial3);
 
   @JsonKey(ignore: true)
   @override
@@ -532,13 +539,13 @@ class _$SettingsEventUseMaterial3Impl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(dynamic themeMode) themeMode,
-    required TResult Function(dynamic materialColor) color,
-    required TResult Function(dynamic useMaterial3) useMaterial3,
-    required TResult Function(dynamic backgroundImagePath) backgroundImagePath,
-    required TResult Function(dynamic paddingEnum) padding,
-    required TResult Function(dynamic borderRadiusEnum) borderRadius,
-    required TResult Function(dynamic font) font,
+    required TResult Function(ThemeMode themeMode) themeMode,
+    required TResult Function(MaterialColor materialColor) color,
+    required TResult Function(bool useMaterial3) useMaterial3,
+    required TResult Function(String backgroundImagePath) backgroundImagePath,
+    required TResult Function(PaddingEnum paddingEnum) padding,
+    required TResult Function(BorderRadiusEnum borderRadiusEnum) borderRadius,
+    required TResult Function(String font) font,
   }) {
     return useMaterial3(this.useMaterial3);
   }
@@ -546,13 +553,13 @@ class _$SettingsEventUseMaterial3Impl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(dynamic themeMode)? themeMode,
-    TResult? Function(dynamic materialColor)? color,
-    TResult? Function(dynamic useMaterial3)? useMaterial3,
-    TResult? Function(dynamic backgroundImagePath)? backgroundImagePath,
-    TResult? Function(dynamic paddingEnum)? padding,
-    TResult? Function(dynamic borderRadiusEnum)? borderRadius,
-    TResult? Function(dynamic font)? font,
+    TResult? Function(ThemeMode themeMode)? themeMode,
+    TResult? Function(MaterialColor materialColor)? color,
+    TResult? Function(bool useMaterial3)? useMaterial3,
+    TResult? Function(String backgroundImagePath)? backgroundImagePath,
+    TResult? Function(PaddingEnum paddingEnum)? padding,
+    TResult? Function(BorderRadiusEnum borderRadiusEnum)? borderRadius,
+    TResult? Function(String font)? font,
   }) {
     return useMaterial3?.call(this.useMaterial3);
   }
@@ -560,13 +567,13 @@ class _$SettingsEventUseMaterial3Impl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(dynamic themeMode)? themeMode,
-    TResult Function(dynamic materialColor)? color,
-    TResult Function(dynamic useMaterial3)? useMaterial3,
-    TResult Function(dynamic backgroundImagePath)? backgroundImagePath,
-    TResult Function(dynamic paddingEnum)? padding,
-    TResult Function(dynamic borderRadiusEnum)? borderRadius,
-    TResult Function(dynamic font)? font,
+    TResult Function(ThemeMode themeMode)? themeMode,
+    TResult Function(MaterialColor materialColor)? color,
+    TResult Function(bool useMaterial3)? useMaterial3,
+    TResult Function(String backgroundImagePath)? backgroundImagePath,
+    TResult Function(PaddingEnum paddingEnum)? padding,
+    TResult Function(BorderRadiusEnum borderRadiusEnum)? borderRadius,
+    TResult Function(String font)? font,
     required TResult orElse(),
   }) {
     if (useMaterial3 != null) {
@@ -624,10 +631,10 @@ class _$SettingsEventUseMaterial3Impl
 }
 
 abstract class _SettingsEventUseMaterial3 implements SettingsEvent {
-  const factory _SettingsEventUseMaterial3(final dynamic useMaterial3) =
+  const factory _SettingsEventUseMaterial3(final bool useMaterial3) =
       _$SettingsEventUseMaterial3Impl;
 
-  dynamic get useMaterial3;
+  bool get useMaterial3;
   @JsonKey(ignore: true)
   _$$SettingsEventUseMaterial3ImplCopyWith<_$SettingsEventUseMaterial3Impl>
       get copyWith => throw _privateConstructorUsedError;
@@ -640,7 +647,7 @@ abstract class _$$SettingsEventBackgroundImageImplCopyWith<$Res> {
           $Res Function(_$SettingsEventBackgroundImageImpl) then) =
       __$$SettingsEventBackgroundImageImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({dynamic backgroundImagePath});
+  $Res call({String backgroundImagePath});
 }
 
 /// @nodoc
@@ -656,12 +663,13 @@ class __$$SettingsEventBackgroundImageImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? backgroundImagePath = freezed,
+    Object? backgroundImagePath = null,
   }) {
     return _then(_$SettingsEventBackgroundImageImpl(
-      freezed == backgroundImagePath
-          ? _value.backgroundImagePath!
-          : backgroundImagePath,
+      null == backgroundImagePath
+          ? _value.backgroundImagePath
+          : backgroundImagePath // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -674,7 +682,7 @@ class _$SettingsEventBackgroundImageImpl
   const _$SettingsEventBackgroundImageImpl(this.backgroundImagePath);
 
   @override
-  final dynamic backgroundImagePath;
+  final String backgroundImagePath;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -694,13 +702,12 @@ class _$SettingsEventBackgroundImageImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SettingsEventBackgroundImageImpl &&
-            const DeepCollectionEquality()
-                .equals(other.backgroundImagePath, backgroundImagePath));
+            (identical(other.backgroundImagePath, backgroundImagePath) ||
+                other.backgroundImagePath == backgroundImagePath));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(backgroundImagePath));
+  int get hashCode => Object.hash(runtimeType, backgroundImagePath);
 
   @JsonKey(ignore: true)
   @override
@@ -713,13 +720,13 @@ class _$SettingsEventBackgroundImageImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(dynamic themeMode) themeMode,
-    required TResult Function(dynamic materialColor) color,
-    required TResult Function(dynamic useMaterial3) useMaterial3,
-    required TResult Function(dynamic backgroundImagePath) backgroundImagePath,
-    required TResult Function(dynamic paddingEnum) padding,
-    required TResult Function(dynamic borderRadiusEnum) borderRadius,
-    required TResult Function(dynamic font) font,
+    required TResult Function(ThemeMode themeMode) themeMode,
+    required TResult Function(MaterialColor materialColor) color,
+    required TResult Function(bool useMaterial3) useMaterial3,
+    required TResult Function(String backgroundImagePath) backgroundImagePath,
+    required TResult Function(PaddingEnum paddingEnum) padding,
+    required TResult Function(BorderRadiusEnum borderRadiusEnum) borderRadius,
+    required TResult Function(String font) font,
   }) {
     return backgroundImagePath(this.backgroundImagePath);
   }
@@ -727,13 +734,13 @@ class _$SettingsEventBackgroundImageImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(dynamic themeMode)? themeMode,
-    TResult? Function(dynamic materialColor)? color,
-    TResult? Function(dynamic useMaterial3)? useMaterial3,
-    TResult? Function(dynamic backgroundImagePath)? backgroundImagePath,
-    TResult? Function(dynamic paddingEnum)? padding,
-    TResult? Function(dynamic borderRadiusEnum)? borderRadius,
-    TResult? Function(dynamic font)? font,
+    TResult? Function(ThemeMode themeMode)? themeMode,
+    TResult? Function(MaterialColor materialColor)? color,
+    TResult? Function(bool useMaterial3)? useMaterial3,
+    TResult? Function(String backgroundImagePath)? backgroundImagePath,
+    TResult? Function(PaddingEnum paddingEnum)? padding,
+    TResult? Function(BorderRadiusEnum borderRadiusEnum)? borderRadius,
+    TResult? Function(String font)? font,
   }) {
     return backgroundImagePath?.call(this.backgroundImagePath);
   }
@@ -741,13 +748,13 @@ class _$SettingsEventBackgroundImageImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(dynamic themeMode)? themeMode,
-    TResult Function(dynamic materialColor)? color,
-    TResult Function(dynamic useMaterial3)? useMaterial3,
-    TResult Function(dynamic backgroundImagePath)? backgroundImagePath,
-    TResult Function(dynamic paddingEnum)? padding,
-    TResult Function(dynamic borderRadiusEnum)? borderRadius,
-    TResult Function(dynamic font)? font,
+    TResult Function(ThemeMode themeMode)? themeMode,
+    TResult Function(MaterialColor materialColor)? color,
+    TResult Function(bool useMaterial3)? useMaterial3,
+    TResult Function(String backgroundImagePath)? backgroundImagePath,
+    TResult Function(PaddingEnum paddingEnum)? padding,
+    TResult Function(BorderRadiusEnum borderRadiusEnum)? borderRadius,
+    TResult Function(String font)? font,
     required TResult orElse(),
   }) {
     if (backgroundImagePath != null) {
@@ -806,9 +813,9 @@ class _$SettingsEventBackgroundImageImpl
 
 abstract class _SettingsEventBackgroundImage implements SettingsEvent {
   const factory _SettingsEventBackgroundImage(
-      final dynamic backgroundImagePath) = _$SettingsEventBackgroundImageImpl;
+      final String backgroundImagePath) = _$SettingsEventBackgroundImageImpl;
 
-  dynamic get backgroundImagePath;
+  String get backgroundImagePath;
   @JsonKey(ignore: true)
   _$$SettingsEventBackgroundImageImplCopyWith<
           _$SettingsEventBackgroundImageImpl>
@@ -821,7 +828,7 @@ abstract class _$$SettingsEventPaddingImplCopyWith<$Res> {
           $Res Function(_$SettingsEventPaddingImpl) then) =
       __$$SettingsEventPaddingImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({dynamic paddingEnum});
+  $Res call({PaddingEnum paddingEnum});
 }
 
 /// @nodoc
@@ -835,10 +842,13 @@ class __$$SettingsEventPaddingImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? paddingEnum = freezed,
+    Object? paddingEnum = null,
   }) {
     return _then(_$SettingsEventPaddingImpl(
-      freezed == paddingEnum ? _value.paddingEnum! : paddingEnum,
+      null == paddingEnum
+          ? _value.paddingEnum
+          : paddingEnum // ignore: cast_nullable_to_non_nullable
+              as PaddingEnum,
     ));
   }
 }
@@ -851,7 +861,7 @@ class _$SettingsEventPaddingImpl
   const _$SettingsEventPaddingImpl(this.paddingEnum);
 
   @override
-  final dynamic paddingEnum;
+  final PaddingEnum paddingEnum;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -871,13 +881,12 @@ class _$SettingsEventPaddingImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SettingsEventPaddingImpl &&
-            const DeepCollectionEquality()
-                .equals(other.paddingEnum, paddingEnum));
+            (identical(other.paddingEnum, paddingEnum) ||
+                other.paddingEnum == paddingEnum));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(paddingEnum));
+  int get hashCode => Object.hash(runtimeType, paddingEnum);
 
   @JsonKey(ignore: true)
   @override
@@ -890,13 +899,13 @@ class _$SettingsEventPaddingImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(dynamic themeMode) themeMode,
-    required TResult Function(dynamic materialColor) color,
-    required TResult Function(dynamic useMaterial3) useMaterial3,
-    required TResult Function(dynamic backgroundImagePath) backgroundImagePath,
-    required TResult Function(dynamic paddingEnum) padding,
-    required TResult Function(dynamic borderRadiusEnum) borderRadius,
-    required TResult Function(dynamic font) font,
+    required TResult Function(ThemeMode themeMode) themeMode,
+    required TResult Function(MaterialColor materialColor) color,
+    required TResult Function(bool useMaterial3) useMaterial3,
+    required TResult Function(String backgroundImagePath) backgroundImagePath,
+    required TResult Function(PaddingEnum paddingEnum) padding,
+    required TResult Function(BorderRadiusEnum borderRadiusEnum) borderRadius,
+    required TResult Function(String font) font,
   }) {
     return padding(paddingEnum);
   }
@@ -904,13 +913,13 @@ class _$SettingsEventPaddingImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(dynamic themeMode)? themeMode,
-    TResult? Function(dynamic materialColor)? color,
-    TResult? Function(dynamic useMaterial3)? useMaterial3,
-    TResult? Function(dynamic backgroundImagePath)? backgroundImagePath,
-    TResult? Function(dynamic paddingEnum)? padding,
-    TResult? Function(dynamic borderRadiusEnum)? borderRadius,
-    TResult? Function(dynamic font)? font,
+    TResult? Function(ThemeMode themeMode)? themeMode,
+    TResult? Function(MaterialColor materialColor)? color,
+    TResult? Function(bool useMaterial3)? useMaterial3,
+    TResult? Function(String backgroundImagePath)? backgroundImagePath,
+    TResult? Function(PaddingEnum paddingEnum)? padding,
+    TResult? Function(BorderRadiusEnum borderRadiusEnum)? borderRadius,
+    TResult? Function(String font)? font,
   }) {
     return padding?.call(paddingEnum);
   }
@@ -918,13 +927,13 @@ class _$SettingsEventPaddingImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(dynamic themeMode)? themeMode,
-    TResult Function(dynamic materialColor)? color,
-    TResult Function(dynamic useMaterial3)? useMaterial3,
-    TResult Function(dynamic backgroundImagePath)? backgroundImagePath,
-    TResult Function(dynamic paddingEnum)? padding,
-    TResult Function(dynamic borderRadiusEnum)? borderRadius,
-    TResult Function(dynamic font)? font,
+    TResult Function(ThemeMode themeMode)? themeMode,
+    TResult Function(MaterialColor materialColor)? color,
+    TResult Function(bool useMaterial3)? useMaterial3,
+    TResult Function(String backgroundImagePath)? backgroundImagePath,
+    TResult Function(PaddingEnum paddingEnum)? padding,
+    TResult Function(BorderRadiusEnum borderRadiusEnum)? borderRadius,
+    TResult Function(String font)? font,
     required TResult orElse(),
   }) {
     if (padding != null) {
@@ -982,10 +991,10 @@ class _$SettingsEventPaddingImpl
 }
 
 abstract class _SettingsEventPadding implements SettingsEvent {
-  const factory _SettingsEventPadding(final dynamic paddingEnum) =
+  const factory _SettingsEventPadding(final PaddingEnum paddingEnum) =
       _$SettingsEventPaddingImpl;
 
-  dynamic get paddingEnum;
+  PaddingEnum get paddingEnum;
   @JsonKey(ignore: true)
   _$$SettingsEventPaddingImplCopyWith<_$SettingsEventPaddingImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -998,7 +1007,7 @@ abstract class _$$SettingsEventBorderRadiusImplCopyWith<$Res> {
           $Res Function(_$SettingsEventBorderRadiusImpl) then) =
       __$$SettingsEventBorderRadiusImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({dynamic borderRadiusEnum});
+  $Res call({BorderRadiusEnum borderRadiusEnum});
 }
 
 /// @nodoc
@@ -1013,10 +1022,13 @@ class __$$SettingsEventBorderRadiusImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? borderRadiusEnum = freezed,
+    Object? borderRadiusEnum = null,
   }) {
     return _then(_$SettingsEventBorderRadiusImpl(
-      freezed == borderRadiusEnum ? _value.borderRadiusEnum! : borderRadiusEnum,
+      null == borderRadiusEnum
+          ? _value.borderRadiusEnum
+          : borderRadiusEnum // ignore: cast_nullable_to_non_nullable
+              as BorderRadiusEnum,
     ));
   }
 }
@@ -1029,7 +1041,7 @@ class _$SettingsEventBorderRadiusImpl
   const _$SettingsEventBorderRadiusImpl(this.borderRadiusEnum);
 
   @override
-  final dynamic borderRadiusEnum;
+  final BorderRadiusEnum borderRadiusEnum;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -1049,13 +1061,12 @@ class _$SettingsEventBorderRadiusImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SettingsEventBorderRadiusImpl &&
-            const DeepCollectionEquality()
-                .equals(other.borderRadiusEnum, borderRadiusEnum));
+            (identical(other.borderRadiusEnum, borderRadiusEnum) ||
+                other.borderRadiusEnum == borderRadiusEnum));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(borderRadiusEnum));
+  int get hashCode => Object.hash(runtimeType, borderRadiusEnum);
 
   @JsonKey(ignore: true)
   @override
@@ -1067,13 +1078,13 @@ class _$SettingsEventBorderRadiusImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(dynamic themeMode) themeMode,
-    required TResult Function(dynamic materialColor) color,
-    required TResult Function(dynamic useMaterial3) useMaterial3,
-    required TResult Function(dynamic backgroundImagePath) backgroundImagePath,
-    required TResult Function(dynamic paddingEnum) padding,
-    required TResult Function(dynamic borderRadiusEnum) borderRadius,
-    required TResult Function(dynamic font) font,
+    required TResult Function(ThemeMode themeMode) themeMode,
+    required TResult Function(MaterialColor materialColor) color,
+    required TResult Function(bool useMaterial3) useMaterial3,
+    required TResult Function(String backgroundImagePath) backgroundImagePath,
+    required TResult Function(PaddingEnum paddingEnum) padding,
+    required TResult Function(BorderRadiusEnum borderRadiusEnum) borderRadius,
+    required TResult Function(String font) font,
   }) {
     return borderRadius(borderRadiusEnum);
   }
@@ -1081,13 +1092,13 @@ class _$SettingsEventBorderRadiusImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(dynamic themeMode)? themeMode,
-    TResult? Function(dynamic materialColor)? color,
-    TResult? Function(dynamic useMaterial3)? useMaterial3,
-    TResult? Function(dynamic backgroundImagePath)? backgroundImagePath,
-    TResult? Function(dynamic paddingEnum)? padding,
-    TResult? Function(dynamic borderRadiusEnum)? borderRadius,
-    TResult? Function(dynamic font)? font,
+    TResult? Function(ThemeMode themeMode)? themeMode,
+    TResult? Function(MaterialColor materialColor)? color,
+    TResult? Function(bool useMaterial3)? useMaterial3,
+    TResult? Function(String backgroundImagePath)? backgroundImagePath,
+    TResult? Function(PaddingEnum paddingEnum)? padding,
+    TResult? Function(BorderRadiusEnum borderRadiusEnum)? borderRadius,
+    TResult? Function(String font)? font,
   }) {
     return borderRadius?.call(borderRadiusEnum);
   }
@@ -1095,13 +1106,13 @@ class _$SettingsEventBorderRadiusImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(dynamic themeMode)? themeMode,
-    TResult Function(dynamic materialColor)? color,
-    TResult Function(dynamic useMaterial3)? useMaterial3,
-    TResult Function(dynamic backgroundImagePath)? backgroundImagePath,
-    TResult Function(dynamic paddingEnum)? padding,
-    TResult Function(dynamic borderRadiusEnum)? borderRadius,
-    TResult Function(dynamic font)? font,
+    TResult Function(ThemeMode themeMode)? themeMode,
+    TResult Function(MaterialColor materialColor)? color,
+    TResult Function(bool useMaterial3)? useMaterial3,
+    TResult Function(String backgroundImagePath)? backgroundImagePath,
+    TResult Function(PaddingEnum paddingEnum)? padding,
+    TResult Function(BorderRadiusEnum borderRadiusEnum)? borderRadius,
+    TResult Function(String font)? font,
     required TResult orElse(),
   }) {
     if (borderRadius != null) {
@@ -1159,10 +1170,11 @@ class _$SettingsEventBorderRadiusImpl
 }
 
 abstract class _SettingsEventBorderRadius implements SettingsEvent {
-  const factory _SettingsEventBorderRadius(final dynamic borderRadiusEnum) =
+  const factory _SettingsEventBorderRadius(
+          final BorderRadiusEnum borderRadiusEnum) =
       _$SettingsEventBorderRadiusImpl;
 
-  dynamic get borderRadiusEnum;
+  BorderRadiusEnum get borderRadiusEnum;
   @JsonKey(ignore: true)
   _$$SettingsEventBorderRadiusImplCopyWith<_$SettingsEventBorderRadiusImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -1174,7 +1186,7 @@ abstract class _$$SettingsEventFontImplCopyWith<$Res> {
           $Res Function(_$SettingsEventFontImpl) then) =
       __$$SettingsEventFontImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({dynamic font});
+  $Res call({String font});
 }
 
 /// @nodoc
@@ -1188,10 +1200,13 @@ class __$$SettingsEventFontImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? font = freezed,
+    Object? font = null,
   }) {
     return _then(_$SettingsEventFontImpl(
-      freezed == font ? _value.font! : font,
+      null == font
+          ? _value.font
+          : font // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -1204,7 +1219,7 @@ class _$SettingsEventFontImpl
   const _$SettingsEventFontImpl(this.font);
 
   @override
-  final dynamic font;
+  final String font;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -1224,12 +1239,11 @@ class _$SettingsEventFontImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SettingsEventFontImpl &&
-            const DeepCollectionEquality().equals(other.font, font));
+            (identical(other.font, font) || other.font == font));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(font));
+  int get hashCode => Object.hash(runtimeType, font);
 
   @JsonKey(ignore: true)
   @override
@@ -1241,13 +1255,13 @@ class _$SettingsEventFontImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(dynamic themeMode) themeMode,
-    required TResult Function(dynamic materialColor) color,
-    required TResult Function(dynamic useMaterial3) useMaterial3,
-    required TResult Function(dynamic backgroundImagePath) backgroundImagePath,
-    required TResult Function(dynamic paddingEnum) padding,
-    required TResult Function(dynamic borderRadiusEnum) borderRadius,
-    required TResult Function(dynamic font) font,
+    required TResult Function(ThemeMode themeMode) themeMode,
+    required TResult Function(MaterialColor materialColor) color,
+    required TResult Function(bool useMaterial3) useMaterial3,
+    required TResult Function(String backgroundImagePath) backgroundImagePath,
+    required TResult Function(PaddingEnum paddingEnum) padding,
+    required TResult Function(BorderRadiusEnum borderRadiusEnum) borderRadius,
+    required TResult Function(String font) font,
   }) {
     return font(this.font);
   }
@@ -1255,13 +1269,13 @@ class _$SettingsEventFontImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(dynamic themeMode)? themeMode,
-    TResult? Function(dynamic materialColor)? color,
-    TResult? Function(dynamic useMaterial3)? useMaterial3,
-    TResult? Function(dynamic backgroundImagePath)? backgroundImagePath,
-    TResult? Function(dynamic paddingEnum)? padding,
-    TResult? Function(dynamic borderRadiusEnum)? borderRadius,
-    TResult? Function(dynamic font)? font,
+    TResult? Function(ThemeMode themeMode)? themeMode,
+    TResult? Function(MaterialColor materialColor)? color,
+    TResult? Function(bool useMaterial3)? useMaterial3,
+    TResult? Function(String backgroundImagePath)? backgroundImagePath,
+    TResult? Function(PaddingEnum paddingEnum)? padding,
+    TResult? Function(BorderRadiusEnum borderRadiusEnum)? borderRadius,
+    TResult? Function(String font)? font,
   }) {
     return font?.call(this.font);
   }
@@ -1269,13 +1283,13 @@ class _$SettingsEventFontImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(dynamic themeMode)? themeMode,
-    TResult Function(dynamic materialColor)? color,
-    TResult Function(dynamic useMaterial3)? useMaterial3,
-    TResult Function(dynamic backgroundImagePath)? backgroundImagePath,
-    TResult Function(dynamic paddingEnum)? padding,
-    TResult Function(dynamic borderRadiusEnum)? borderRadius,
-    TResult Function(dynamic font)? font,
+    TResult Function(ThemeMode themeMode)? themeMode,
+    TResult Function(MaterialColor materialColor)? color,
+    TResult Function(bool useMaterial3)? useMaterial3,
+    TResult Function(String backgroundImagePath)? backgroundImagePath,
+    TResult Function(PaddingEnum paddingEnum)? padding,
+    TResult Function(BorderRadiusEnum borderRadiusEnum)? borderRadius,
+    TResult Function(String font)? font,
     required TResult orElse(),
   }) {
     if (font != null) {
@@ -1333,10 +1347,9 @@ class _$SettingsEventFontImpl
 }
 
 abstract class _SettingsEventFont implements SettingsEvent {
-  const factory _SettingsEventFont(final dynamic font) =
-      _$SettingsEventFontImpl;
+  const factory _SettingsEventFont(final String font) = _$SettingsEventFontImpl;
 
-  dynamic get font;
+  String get font;
   @JsonKey(ignore: true)
   _$$SettingsEventFontImplCopyWith<_$SettingsEventFontImpl> get copyWith =>
       throw _privateConstructorUsedError;

@@ -3,39 +3,35 @@ import 'dart:developer';
 
 import 'package:manager/manager.dart';
 
-typedef Setup<E, T> = void Function(Registerar<E, T>);
-typedef Registeree<E, T> = T Function(E, T);
-typedef Registerar<E, T> = void Function<E>(Registeree<E, T>);
+class Handler<E, State> {
+  final bool Function(dynamic) isType;
+  final Type type;
+  final State Function(E, State) function;
+  Handler({
+    required this.isType,
+    required this.type,
+    required this.function,
+  });
+  @override
+  toString() {
+    final string = StringBuffer();
+    string.writeln(type);
+    string.writeln(function);
+    return string.toString();
+  }
+}
 
-class Complex<E, T> {
-  final Map<Type, void Function(E)> events = {};
-  final T initialState;
-  final Serializer<T>? serializer;
+class Complex<Event, State> {
+  final State initialState;
+  final Serializer<State>? serializer;
   Complex(
     this.initialState, {
-    required Setup<E, T> setup,
     this.serializer,
-  }) {
-    setup(_register);
-  }
+  });
 
-  void _register<E>(Registeree<E, T> registeree) {
-    events[E] = (event) {
-      final newState = registeree(event as E, state);
-      state = newState;
-    };
-    log('$E registered');
-  }
-
-  T call([E? event]) {
-    if (event != null) {
-      final registeredEvent = events[event.runtimeType];
-      if (registeredEvent != null) {
-        registeredEvent(event);
-      }
-    }
-    return state;
-  }
+  @visibleForTesting
+  set state(State _state) => injected.state = _state;
+  State get state => injected.state;
 
   late final injected = RM.inject(
     () => initialState,
@@ -47,8 +43,36 @@ class Complex<E, T> {
             )
         : null,
   );
-  set state(T _state) => injected.state = _state;
-  T get state => injected.state;
+
+  final _handlers = <Handler<Event, State>>[];
+  void register<E extends Event>(State Function(E, State) function) {
+    final registered = _handlers.any((handler) => handler.type == E);
+    if (registered) {
+      log('🟥 $E already registered');
+      return;
+    }
+    _handlers.add(
+      Handler(
+        isType: (event) => event is E,
+        type: E,
+        function: (e, s) => function(e as E, s),
+      ),
+    );
+    log('🟩 $E registered');
+  }
+
+  State call([Event? event]) {
+    if (event != null) {
+      final index = _handlers.indexWhere((e) => e.isType(event));
+      if (index != -1) {
+        final function = _handlers[index].function;
+        state = function(event, state);
+        log('🟩 $event');
+      } else
+        log('🟥 $event');
+    }
+    return state;
+  }
 }
 
 ___(____) => ____.toJson();

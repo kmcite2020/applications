@@ -28,9 +28,7 @@ export 'package:money/features/transactions/transactions_page.dart';
 export 'package:states_rebuilder/states_rebuilder.dart';
 export 'package:uuid/uuid.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+void main() {
   GoogleFonts.config.allowRuntimeFetching = false;
-  await RM.storageInitializer(HiveStorage());
   runApp(App());
 }

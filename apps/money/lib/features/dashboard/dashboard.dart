@@ -30,10 +30,10 @@ class DashboardPage extends UI {
         PersonsPage(),
         TransactionsPage(),
         SettingsPage(),
-      ][index()],
+      ][navigationIndex()],
       bottomNavigationBar: NavigationBar(
-        selectedIndex: index(),
-        onDestinationSelected: index,
+        selectedIndex: navigationIndex(),
+        onDestinationSelected: navigationIndex,
         destinations: [
           NavigationDestination(
             icon: Icon(Icons.dashboard),
@@ -57,10 +57,7 @@ class DashboardPage extends UI {
   }
 }
 
-final indexRM = RM.inject(() => 0);
-
-final index =
-    ([int? _index]) => _index != null ? indexRM.state = _index : indexRM.state;
+final navigationIndex = Simple(0);
 
 class DateTimeUI extends UI {
   const DateTimeUI({
