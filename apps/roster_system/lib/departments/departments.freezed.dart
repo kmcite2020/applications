@@ -22,6 +22,7 @@ Department _$DepartmentFromJson(Map<String, dynamic> json) {
 mixin _$Department {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
+  List<Duty> get duties => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +36,7 @@ abstract class $DepartmentCopyWith<$Res> {
           Department value, $Res Function(Department) then) =
       _$DepartmentCopyWithImpl<$Res, Department>;
   @useResult
-  $Res call({String id, String name});
+  $Res call({String id, String name, List<Duty> duties});
 }
 
 /// @nodoc
@@ -53,6 +54,7 @@ class _$DepartmentCopyWithImpl<$Res, $Val extends Department>
   $Res call({
     Object? id = null,
     Object? name = null,
+    Object? duties = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -63,6 +65,10 @@ class _$DepartmentCopyWithImpl<$Res, $Val extends Department>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      duties: null == duties
+          ? _value.duties
+          : duties // ignore: cast_nullable_to_non_nullable
+              as List<Duty>,
     ) as $Val);
   }
 }
@@ -75,7 +81,7 @@ abstract class _$$DepartmentImplCopyWith<$Res>
       __$$DepartmentImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String name});
+  $Res call({String id, String name, List<Duty> duties});
 }
 
 /// @nodoc
@@ -91,6 +97,7 @@ class __$$DepartmentImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? name = null,
+    Object? duties = null,
   }) {
     return _then(_$DepartmentImpl(
       id: null == id
@@ -101,6 +108,10 @@ class __$$DepartmentImplCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      duties: null == duties
+          ? _value._duties
+          : duties // ignore: cast_nullable_to_non_nullable
+              as List<Duty>,
     ));
   }
 }
@@ -108,7 +119,9 @@ class __$$DepartmentImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$DepartmentImpl with DiagnosticableTreeMixin implements _Department {
-  const _$DepartmentImpl({this.id = '', this.name = ''});
+  const _$DepartmentImpl(
+      {this.id = '', this.name = '', final List<Duty> duties = const <Duty>[]})
+      : _duties = duties;
 
   factory _$DepartmentImpl.fromJson(Map<String, dynamic> json) =>
       _$$DepartmentImplFromJson(json);
@@ -119,10 +132,18 @@ class _$DepartmentImpl with DiagnosticableTreeMixin implements _Department {
   @override
   @JsonKey()
   final String name;
+  final List<Duty> _duties;
+  @override
+  @JsonKey()
+  List<Duty> get duties {
+    if (_duties is EqualUnmodifiableListView) return _duties;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_duties);
+  }
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Department(id: $id, name: $name)';
+    return 'Department(id: $id, name: $name, duties: $duties)';
   }
 
   @override
@@ -131,7 +152,8 @@ class _$DepartmentImpl with DiagnosticableTreeMixin implements _Department {
     properties
       ..add(DiagnosticsProperty('type', 'Department'))
       ..add(DiagnosticsProperty('id', id))
-      ..add(DiagnosticsProperty('name', name));
+      ..add(DiagnosticsProperty('name', name))
+      ..add(DiagnosticsProperty('duties', duties));
   }
 
   @override
@@ -140,12 +162,14 @@ class _$DepartmentImpl with DiagnosticableTreeMixin implements _Department {
         (other.runtimeType == runtimeType &&
             other is _$DepartmentImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.name, name) || other.name == name));
+            (identical(other.name, name) || other.name == name) &&
+            const DeepCollectionEquality().equals(other._duties, _duties));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name);
+  int get hashCode => Object.hash(
+      runtimeType, id, name, const DeepCollectionEquality().hash(_duties));
 
   @JsonKey(ignore: true)
   @override
@@ -162,8 +186,10 @@ class _$DepartmentImpl with DiagnosticableTreeMixin implements _Department {
 }
 
 abstract class _Department implements Department {
-  const factory _Department({final String id, final String name}) =
-      _$DepartmentImpl;
+  const factory _Department(
+      {final String id,
+      final String name,
+      final List<Duty> duties}) = _$DepartmentImpl;
 
   factory _Department.fromJson(Map<String, dynamic> json) =
       _$DepartmentImpl.fromJson;
@@ -173,38 +199,42 @@ abstract class _Department implements Department {
   @override
   String get name;
   @override
+  List<Duty> get duties;
+  @override
   @JsonKey(ignore: true)
   _$$DepartmentImplCopyWith<_$DepartmentImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
-Departments _$DepartmentsFromJson(Map<String, dynamic> json) {
-  return _Departments.fromJson(json);
+Duty _$DutyFromJson(Map<String, dynamic> json) {
+  return _Duty.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Departments {
-  Map<String, Department> get cache => throw _privateConstructorUsedError;
+mixin _$Duty {
+  DayShift get dayShift => throw _privateConstructorUsedError;
+  Doctor get doctor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $DepartmentsCopyWith<Departments> get copyWith =>
-      throw _privateConstructorUsedError;
+  $DutyCopyWith<Duty> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $DepartmentsCopyWith<$Res> {
-  factory $DepartmentsCopyWith(
-          Departments value, $Res Function(Departments) then) =
-      _$DepartmentsCopyWithImpl<$Res, Departments>;
+abstract class $DutyCopyWith<$Res> {
+  factory $DutyCopyWith(Duty value, $Res Function(Duty) then) =
+      _$DutyCopyWithImpl<$Res, Duty>;
   @useResult
-  $Res call({Map<String, Department> cache});
+  $Res call({DayShift dayShift, Doctor doctor});
+
+  $DayShiftCopyWith<$Res> get dayShift;
+  $DoctorCopyWith<$Res> get doctor;
 }
 
 /// @nodoc
-class _$DepartmentsCopyWithImpl<$Res, $Val extends Departments>
-    implements $DepartmentsCopyWith<$Res> {
-  _$DepartmentsCopyWithImpl(this._value, this._then);
+class _$DutyCopyWithImpl<$Res, $Val extends Duty>
+    implements $DutyCopyWith<$Res> {
+  _$DutyCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -214,120 +244,147 @@ class _$DepartmentsCopyWithImpl<$Res, $Val extends Departments>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? cache = null,
+    Object? dayShift = null,
+    Object? doctor = null,
   }) {
     return _then(_value.copyWith(
-      cache: null == cache
-          ? _value.cache
-          : cache // ignore: cast_nullable_to_non_nullable
-              as Map<String, Department>,
+      dayShift: null == dayShift
+          ? _value.dayShift
+          : dayShift // ignore: cast_nullable_to_non_nullable
+              as DayShift,
+      doctor: null == doctor
+          ? _value.doctor
+          : doctor // ignore: cast_nullable_to_non_nullable
+              as Doctor,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $DayShiftCopyWith<$Res> get dayShift {
+    return $DayShiftCopyWith<$Res>(_value.dayShift, (value) {
+      return _then(_value.copyWith(dayShift: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $DoctorCopyWith<$Res> get doctor {
+    return $DoctorCopyWith<$Res>(_value.doctor, (value) {
+      return _then(_value.copyWith(doctor: value) as $Val);
+    });
   }
 }
 
 /// @nodoc
-abstract class _$$DepartmentsImplCopyWith<$Res>
-    implements $DepartmentsCopyWith<$Res> {
-  factory _$$DepartmentsImplCopyWith(
-          _$DepartmentsImpl value, $Res Function(_$DepartmentsImpl) then) =
-      __$$DepartmentsImplCopyWithImpl<$Res>;
+abstract class _$$DutyImplCopyWith<$Res> implements $DutyCopyWith<$Res> {
+  factory _$$DutyImplCopyWith(
+          _$DutyImpl value, $Res Function(_$DutyImpl) then) =
+      __$$DutyImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Map<String, Department> cache});
+  $Res call({DayShift dayShift, Doctor doctor});
+
+  @override
+  $DayShiftCopyWith<$Res> get dayShift;
+  @override
+  $DoctorCopyWith<$Res> get doctor;
 }
 
 /// @nodoc
-class __$$DepartmentsImplCopyWithImpl<$Res>
-    extends _$DepartmentsCopyWithImpl<$Res, _$DepartmentsImpl>
-    implements _$$DepartmentsImplCopyWith<$Res> {
-  __$$DepartmentsImplCopyWithImpl(
-      _$DepartmentsImpl _value, $Res Function(_$DepartmentsImpl) _then)
+class __$$DutyImplCopyWithImpl<$Res>
+    extends _$DutyCopyWithImpl<$Res, _$DutyImpl>
+    implements _$$DutyImplCopyWith<$Res> {
+  __$$DutyImplCopyWithImpl(_$DutyImpl _value, $Res Function(_$DutyImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? cache = null,
+    Object? dayShift = null,
+    Object? doctor = null,
   }) {
-    return _then(_$DepartmentsImpl(
-      cache: null == cache
-          ? _value._cache
-          : cache // ignore: cast_nullable_to_non_nullable
-              as Map<String, Department>,
+    return _then(_$DutyImpl(
+      dayShift: null == dayShift
+          ? _value.dayShift
+          : dayShift // ignore: cast_nullable_to_non_nullable
+              as DayShift,
+      doctor: null == doctor
+          ? _value.doctor
+          : doctor // ignore: cast_nullable_to_non_nullable
+              as Doctor,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$DepartmentsImpl with DiagnosticableTreeMixin implements _Departments {
-  const _$DepartmentsImpl(
-      {final Map<String, Department> cache = const <String, Department>{}})
-      : _cache = cache;
+class _$DutyImpl with DiagnosticableTreeMixin implements _Duty {
+  const _$DutyImpl({required this.dayShift, required this.doctor});
 
-  factory _$DepartmentsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$DepartmentsImplFromJson(json);
+  factory _$DutyImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DutyImplFromJson(json);
 
-  final Map<String, Department> _cache;
   @override
-  @JsonKey()
-  Map<String, Department> get cache {
-    if (_cache is EqualUnmodifiableMapView) return _cache;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_cache);
-  }
+  final DayShift dayShift;
+  @override
+  final Doctor doctor;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Departments(cache: $cache)';
+    return 'Duty(dayShift: $dayShift, doctor: $doctor)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'Departments'))
-      ..add(DiagnosticsProperty('cache', cache));
+      ..add(DiagnosticsProperty('type', 'Duty'))
+      ..add(DiagnosticsProperty('dayShift', dayShift))
+      ..add(DiagnosticsProperty('doctor', doctor));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DepartmentsImpl &&
-            const DeepCollectionEquality().equals(other._cache, _cache));
+            other is _$DutyImpl &&
+            (identical(other.dayShift, dayShift) ||
+                other.dayShift == dayShift) &&
+            (identical(other.doctor, doctor) || other.doctor == doctor));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_cache));
+  int get hashCode => Object.hash(runtimeType, dayShift, doctor);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DepartmentsImplCopyWith<_$DepartmentsImpl> get copyWith =>
-      __$$DepartmentsImplCopyWithImpl<_$DepartmentsImpl>(this, _$identity);
+  _$$DutyImplCopyWith<_$DutyImpl> get copyWith =>
+      __$$DutyImplCopyWithImpl<_$DutyImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$DepartmentsImplToJson(
+    return _$$DutyImplToJson(
       this,
     );
   }
 }
 
-abstract class _Departments implements Departments {
-  const factory _Departments({final Map<String, Department> cache}) =
-      _$DepartmentsImpl;
+abstract class _Duty implements Duty {
+  const factory _Duty(
+      {required final DayShift dayShift,
+      required final Doctor doctor}) = _$DutyImpl;
 
-  factory _Departments.fromJson(Map<String, dynamic> json) =
-      _$DepartmentsImpl.fromJson;
+  factory _Duty.fromJson(Map<String, dynamic> json) = _$DutyImpl.fromJson;
 
   @override
-  Map<String, Department> get cache;
+  DayShift get dayShift;
+  @override
+  Doctor get doctor;
   @override
   @JsonKey(ignore: true)
-  _$$DepartmentsImplCopyWith<_$DepartmentsImpl> get copyWith =>
+  _$$DutyImplCopyWith<_$DutyImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

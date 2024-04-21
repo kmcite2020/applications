@@ -3,36 +3,34 @@ import '../../main.dart';
 part 'settings.g.dart';
 part 'settings.freezed.dart';
 
-final settingsRM = Complex<SettingsEvent, Settings>(
+final settingsRM = ComplexLegacy<SettingsEvent, Settings>(
   Settings(),
-  setup: (register) {
-    register<_SettingsEventThemeMode>(
-      (_, state) => state.copyWith(themeMode: _.themeMode),
-    );
-    register<_SettingsEventColor>(
-      (_, state) => state.copyWith(materialColor: _.materialColor),
-    );
-    register<_SettingsEventUseMaterial3>(
-      (_, state) => state.copyWith(useMaterial3: _.useMaterial3),
-    );
-    register<_SettingsEventBackgroundImage>(
-      (_, state) => state.copyWith(backgroundImagePath: _.backgroundImagePath),
-    );
-    register<_SettingsEventPadding>(
-      (_, state) => state.copyWith(paddingEnum: _.paddingEnum),
-    );
-    register<_SettingsEventBorderRadius>(
-      (_, state) => state.copyWith(borderRadiusEnum: _.borderRadiusEnum),
-    );
-    register<_SettingsEventFont>(
-      (_, state) => state.copyWith(font: _.font),
-    );
-  },
   serializer: Serializer(
     key: 'settings',
     fromJson: Settings.fromJson,
   ),
-);
+)
+  ..register<_SettingsEventThemeMode>(
+    (_, state) => state.copyWith(themeMode: _.themeMode),
+  )
+  ..register<_SettingsEventColor>(
+    (_, state) => state.copyWith(materialColor: _.materialColor),
+  )
+  ..register<_SettingsEventUseMaterial3>(
+    (_, state) => state.copyWith(useMaterial3: _.useMaterial3),
+  )
+  ..register<_SettingsEventBackgroundImage>(
+    (_, state) => state.copyWith(backgroundImagePath: _.backgroundImagePath),
+  )
+  ..register<_SettingsEventPadding>(
+    (_, state) => state.copyWith(paddingEnum: _.paddingEnum),
+  )
+  ..register<_SettingsEventBorderRadius>(
+    (_, state) => state.copyWith(borderRadiusEnum: _.borderRadiusEnum),
+  )
+  ..register<_SettingsEventFont>(
+    (_, state) => state.copyWith(font: _.font),
+  );
 
 @freezed
 class SettingsEvent with _$SettingsEvent {

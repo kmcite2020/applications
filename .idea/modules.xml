@@ -11,6 +11,7 @@
       <module fileurl="file://$PROJECT_DIR$/apps/hmis/melos_hmis.iml" filepath="$PROJECT_DIR$/apps/hmis/melos_hmis.iml" />
       <module fileurl="file://$PROJECT_DIR$/apps/ideal_store/melos_ideal_store.iml" filepath="$PROJECT_DIR$/apps/ideal_store/melos_ideal_store.iml" />
       <module fileurl="file://$PROJECT_DIR$/apps/manager/melos_manager.iml" filepath="$PROJECT_DIR$/apps/manager/melos_manager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/apps/memories/melos_memories.iml" filepath="$PROJECT_DIR$/apps/memories/melos_memories.iml" />
       <module fileurl="file://$PROJECT_DIR$/apps/money/melos_money.iml" filepath="$PROJECT_DIR$/apps/money/melos_money.iml" />
       <module fileurl="file://$PROJECT_DIR$/apps/notes/melos_notes.iml" filepath="$PROJECT_DIR$/apps/notes/melos_notes.iml" />
       <module fileurl="file://$PROJECT_DIR$/apps/opthalmology/melos_opthalmology.iml" filepath="$PROJECT_DIR$/apps/opthalmology/melos_opthalmology.iml" />

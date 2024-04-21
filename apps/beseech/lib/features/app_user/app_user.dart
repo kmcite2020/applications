@@ -2,31 +2,36 @@ import '../../main.dart';
 part 'app_user.freezed.dart';
 part 'app_user.g.dart';
 
-final appUserRM = Complex<AppUserEvent, AppUser>(
+final appUserRM = ComplexLegacy<AppUserEvent, AppUser>(
   AppUser(),
-  setup: (register) {
-    register<_AppUserEventSetDateOfBirth>(
-      (_, state) => state = state.copyWith(dateOfBirth: _.dateOfBirth),
-    );
-    register<_AppUserEventSetAgeBaredOrExplicit>(
-      (_, state) =>
-          state = state.copyWith(ageBasedOrExplicit: _.ageBasedOrExplicit),
-    );
-    register<_AppUserEventSetDateOfPubertyExplicit>(
-      (_, state) =>
-          state = state.copyWith(dateOfPubertyExplicit: _.dateOfPuberty),
-    );
-    register<_AppUserEventSetAgeVysor>(
-      (_, state) => state = state.copyWith(ageVysor: _.ageVysor!),
-    );
-    register<_AppUserEventSetUserName>(
-      (_, state) => state = state.copyWith(userName: _.userName),
-    );
-    register<_AppUserEventSetAge>(
-      (_, state) => state = state.copyWith(age: _.age),
-    );
-  },
-);
+  serializer: Serializer(
+    key: 'appUser',
+    fromJson: AppUser.fromJson,
+  ),
+)
+  ..register<_AppUserEventSetDateOfBirth>(
+    (_, state) => state = state.copyWith(dateOfBirth: _.dateOfBirth),
+  )
+  ..register<_AppUserEventSetAgeBaredOrExplicit>(
+    (_, state) =>
+        state = state.copyWith(ageBasedOrExplicit: _.ageBasedOrExplicit),
+  )
+  ..register<_AppUserEventSetDateOfPubertyExplicit>(
+    (_, state) =>
+        state = state.copyWith(dateOfPubertyExplicit: _.dateOfPuberty),
+  )
+  ..register<_AppUserEventSetAgeVysor>(
+    (_, state) => state = state.copyWith(ageVysor: _.ageVysor!),
+  )
+  ..register<_AppUserEventSetUserName>(
+    (_, state) => state = state.copyWith(userName: _.userName),
+  )
+  ..register<_AppUserEventSetAge>(
+    (_, state) => state = state.copyWith(age: _.age),
+  )
+  ..register<_AppUserEventSetEditing>(
+    (_, state) => state = state.copyWith(editing: _.editing),
+  );
 
 class AppUserRM {
   AppUserRM() {
@@ -63,6 +68,7 @@ class AppUserEvent with _$AppUserEvent {
   const factory AppUserEvent.setUserName(String userName) =
       _AppUserEventSetUserName;
   const factory AppUserEvent.setAge(Duration age) = _AppUserEventSetAge;
+  const factory AppUserEvent.setEditing(bool editing) = _AppUserEventSetEditing;
 }
 
 @freezed

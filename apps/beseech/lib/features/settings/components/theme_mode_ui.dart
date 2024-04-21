@@ -9,7 +9,7 @@ class ThemeModeUI extends UI {
       children: [
         'THEME MODE'.text().pad(),
         DropdownButtonFormField(
-          value: settingsRM.state.themeMode,
+          value: settingsRM().themeMode,
           items: ThemeMode.values
               .map(
                 (themeMode) => DropdownMenuItem(

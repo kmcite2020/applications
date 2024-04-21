@@ -32,7 +32,7 @@ class SettingsPage extends UI {
                 settingsRM(SettingsEvent.themeMode(themeMode!)),
           ).pad(),
           DropdownButtonFormField(
-            value: settingsRM.state.materialColor,
+            value: settingsRM().materialColor,
             items: Colors.primaries.map(
               (eachMaterialColor) {
                 return DropdownMenuItem(
@@ -48,9 +48,9 @@ class SettingsPage extends UI {
             value: settingsRM().borderRadius,
             onChanged: (br) => settingsRM(SettingsEvent.borderRadius(br)),
           ).pad(),
-          FilledButton(
+          CupertinoButton.filled(
             onPressed: () {
-              RM.navigate.to(const DepartmentsPage());
+              to(const DepartmentsPage());
             },
             child: 'Departments'.text(),
           ).pad(),

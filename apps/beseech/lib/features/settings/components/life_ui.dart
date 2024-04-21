@@ -22,7 +22,7 @@ class LifeUI extends UI {
           onChanged: (ageVysor) {
             appUserRM(AppUserEvent.setAgeVysor(ageVysor));
           },
-          padding: EdgeInsets.all(settingsRM.state.padding),
+          padding: EdgeInsets.all(settingsRM().padding),
         ),
         () {
           switch (appUserRM().ageVysor) {

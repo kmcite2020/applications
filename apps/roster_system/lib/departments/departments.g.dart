@@ -10,24 +10,26 @@ _$DepartmentImpl _$$DepartmentImplFromJson(Map<String, dynamic> json) =>
     _$DepartmentImpl(
       id: json['id'] as String? ?? '',
       name: json['name'] as String? ?? '',
+      duties: (json['duties'] as List<dynamic>?)
+              ?.map((e) => Duty.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const <Duty>[],
     );
 
 Map<String, dynamic> _$$DepartmentImplToJson(_$DepartmentImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
+      'duties': instance.duties,
     };
 
-_$DepartmentsImpl _$$DepartmentsImplFromJson(Map<String, dynamic> json) =>
-    _$DepartmentsImpl(
-      cache: (json['cache'] as Map<String, dynamic>?)?.map(
-            (k, e) =>
-                MapEntry(k, Department.fromJson(e as Map<String, dynamic>)),
-          ) ??
-          const <String, Department>{},
+_$DutyImpl _$$DutyImplFromJson(Map<String, dynamic> json) => _$DutyImpl(
+      dayShift: DayShift.fromJson(json['dayShift'] as Map<String, dynamic>),
+      doctor: Doctor.fromJson(json['doctor']),
     );
 
-Map<String, dynamic> _$$DepartmentsImplToJson(_$DepartmentsImpl instance) =>
+Map<String, dynamic> _$$DutyImplToJson(_$DutyImpl instance) =>
     <String, dynamic>{
-      'cache': instance.cache,
+      'dayShift': instance.dayShift,
+      'doctor': instance.doctor,
     };

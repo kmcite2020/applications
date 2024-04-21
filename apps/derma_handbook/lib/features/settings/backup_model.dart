@@ -117,9 +117,6 @@ class BackupBloc extends Simple<Backup> {
       files.map<XFile>((e) => XFile.fromData(base64Decode(e))).toList(),
     );
   }
-
-  @override
-  Backup get initialState => Backup();
 }
 
   // void startBackup() async {

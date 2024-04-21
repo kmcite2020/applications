@@ -12,7 +12,7 @@ _$NoteImpl _$$NoteImplFromJson(Map<String, dynamic> json) => _$NoteImpl(
       details: json['details'] as String? ?? '',
       noteStatus:
           $enumDecodeNullable(_$NoteStatusEnumMap, json['noteStatus']) ??
-              NoteStatus.notCompleted,
+              NoteStatus.Incomplete,
       dueDate: DateTime.parse(json['dueDate'] as String),
       timeCreated: DateTime.parse(json['timeCreated'] as String),
     );
@@ -28,6 +28,6 @@ Map<String, dynamic> _$$NoteImplToJson(_$NoteImpl instance) =>
     };
 
 const _$NoteStatusEnumMap = {
-  NoteStatus.completed: 'completed',
-  NoteStatus.notCompleted: 'notCompleted',
+  NoteStatus.Complete: 'completed',
+  NoteStatus.Incomplete: 'notCompleted',
 };

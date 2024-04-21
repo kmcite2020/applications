@@ -201,7 +201,7 @@ class _$NoteImpl with DiagnosticableTreeMixin implements _Note {
       {this.id = '',
       this.title = '',
       this.details = '',
-      this.noteStatus = NoteStatus.notCompleted,
+      this.noteStatus = NoteStatus.Incomplete,
       required this.dueDate,
       required this.timeCreated});
 

@@ -77,9 +77,11 @@ class LoginPage extends UI {
           ).pad(),
           ElevatedButton(
             onPressed: isItGoodToLogin
-                ? () => authStateRM.login(
-                      loginEmailRM(),
-                      loginPasswordRM(),
+                ? () => authStateRM(
+                      AuthEvent.login(
+                        loginEmailRM(),
+                        loginPasswordRM(),
+                      ),
                     )
                 : null,
             child: 'Login'.text(textScaleFactor: 2).pad(),

@@ -1,5 +1,4 @@
 import 'package:roster_system/departments/departments.dart';
-import 'package:roster_system/departments/departments_rm.dart';
 import 'package:roster_system/departments/ui/department_page.dart';
 
 import '../../main.dart';
@@ -14,16 +13,16 @@ class DepartmentsPage extends UI {
         title: 'Departments'.text(),
       ),
       body: ListView(
-        children: departmentsRM.state.cache.entries.map(
-          (departmentEntry) {
+        children: departmentsRM().map(
+          (department) {
             return ListTile(
-              onTap: () => RM.navigate.to(
-                DepartmentPage(id: departmentEntry.key),
+              onTap: () => to(
+                DepartmentPage(id: department.id),
               ),
-              title: departmentEntry.value.name.text(),
+              title: department.name.text(),
               trailing: IconButton(
                 onPressed: () {
-                  removeDepartment(departmentEntry.value);
+                  departmentsRM.delete(department.id);
                 },
                 icon: const Icon(Icons.delete_forever_sharp),
               ),
@@ -33,10 +32,11 @@ class DepartmentsPage extends UI {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          addDepartment(
+          departmentsRM(
             Department(id: randomID),
           );
         },
+        child: Icon(Icons.add),
       ),
     );
   }

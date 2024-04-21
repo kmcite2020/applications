@@ -8,14 +8,14 @@ export 'package:notes/notes/note_page.dart';
 export 'package:notes/notes/notes.dart';
 export 'package:states_rebuilder/states_rebuilder.dart';
 
-void main() => runApp(MyApp());
+void main() => run(MyApp());
 
 class MyApp extends TopUI {
   @override
   Widget? splashScreen() => CircularProgressIndicator().center();
   @override
   ThemeData get theme => FlexThemeData.light(
-        useMaterial3: false,
+        useMaterial3: true,
         lightIsWhite: true,
         subThemesData: FlexSubThemesData(
           defaultRadius: settings.borderRadius,
@@ -24,7 +24,7 @@ class MyApp extends TopUI {
 
   @override
   ThemeData get darkTheme => FlexThemeData.dark(
-        useMaterial3: false,
+        useMaterial3: true,
         darkIsTrueBlack: true,
         subThemesData: FlexSubThemesData(
           defaultRadius: settings.borderRadius,

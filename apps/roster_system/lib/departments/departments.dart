@@ -1,5 +1,7 @@
-import 'package:roster_system/departments/departments_rm.dart';
+import 'package:roster_system/departments/ui/department_page.dart';
 import 'package:roster_system/main.dart';
+
+import '../doctors/doctors.dart';
 
 part 'departments.freezed.dart';
 part 'departments.g.dart';
@@ -9,20 +11,38 @@ class Department with _$Department {
   const factory Department({
     @Default('') final String id,
     @Default('') final String name,
+    @Default(<Duty>[]) final List<Duty> duties,
   }) = _Department;
 
   factory Department.fromJson(Map<String, dynamic> json) =>
       _$DepartmentFromJson(json);
-
-  factory Department.get(String id) => departments.cache[id]!;
 }
 
 @freezed
-class Departments with _$Departments {
-  const factory Departments({
-    @Default(<String, Department>{}) final Map<String, Department> cache,
-  }) = _Departments;
+class Duty with _$Duty {
+  const factory Duty({
+    required final DayShift dayShift,
+    required final Doctor doctor,
+  }) = _Duty;
 
-  factory Departments.fromJson(Map<String, dynamic> json) =>
-      _$DepartmentsFromJson(json);
+  factory Duty.fromJson(Map<String, dynamic> json) => _$DutyFromJson(json);
+}
+
+final departmentsRM = ComplexTable(
+  'departments',
+  fromJson: Department.fromJson,
+);
+
+class DepartmentBuilder extends UI {
+  final Widget Function(Department department) builder;
+  final String id;
+  const DepartmentBuilder({
+    super.key,
+    required this.builder,
+    required this.id,
+  });
+  @override
+  Widget build(BuildContext context) {
+    return builder(departmentsRM.get(id));
+  }
 }

@@ -1,5 +1,9 @@
+import 'dart:developer';
+
+import 'package:manager/manager.dart';
 import 'package:notes/main.dart';
 import 'package:notes/notes/note_tile.dart';
+import 'package:notes/settings/settings_page.dart';
 
 import 'add_note_page.dart';
 
@@ -11,6 +15,34 @@ class NotesPage extends UI {
     return Scaffold(
       appBar: AppBar(
         title: 'NOTES'.text(),
+        actions: [
+          IconButton(
+            onPressed: () {
+              navigator.toDialog(
+                BottomSheet(
+                  showDragHandle: true,
+                  onDragStart: (details) {
+                    log(details.toString());
+                  },
+                  onClosing: () {},
+                  builder: (context) => Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      FilledButton(
+                        onPressed: () {
+                          navigator.back();
+                          navigator.to(SettingsPage());
+                        },
+                        child: 'Settings'.text(),
+                      ).pad(),
+                    ],
+                  ),
+                ),
+              );
+            },
+            icon: Icon(Icons.menu),
+          ).pad(),
+        ],
       ),
       body: NotesListUI(),
       floatingActionButton: FloatingActionButton(

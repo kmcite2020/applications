@@ -22,7 +22,15 @@ extension WidgetExtensions on Widget {
 }
 
 extension ComplexExtensionsBool on Simple<bool> {
-  void toggle() => injected.state = !injected.state;
+  void toggle() => call(!call());
+}
+
+extension Stringify on String {
+  static String fromJson(Map<String, dynamic> json) {
+    return json['data'] ?? '';
+  }
+
+  Map<String, dynamic> toJson() => {'data': this};
 }
 
 String get randomID => const Uuid().v8();

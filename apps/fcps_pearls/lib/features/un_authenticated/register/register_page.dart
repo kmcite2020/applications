@@ -35,10 +35,12 @@ class RegisterPage extends UI {
             autovalidateMode: AutovalidateMode.always,
           ).pad(),
           ElevatedButton(
-            onPressed: () => authStateRM.register(
-              registerEmailRM(),
-              registerPasswordRM(),
-              registerUserIDRM(),
+            onPressed: () => authStateRM(
+              AuthEvent.register(
+                registerEmailRM(),
+                registerPasswordRM(),
+                registerUserIDRM(),
+              ),
             ),
             child: 'Register'.text(textScaleFactor: 2).pad(),
           ).pad(),

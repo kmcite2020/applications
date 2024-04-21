@@ -61,32 +61,28 @@ class I extends E {}
 
 class D extends E {}
 
-final countRM = Complex(
+final countRM = ComplexLegacy(
   0,
-  setup: (setup) {
-    setup<I>((event, state) => state + 1);
-    setup<D>((event, state) => state - 1);
-  },
-);
+)
+  ..register<I>((event, state) => state + 1)
+  ..register<D>((event, state) => state - 1);
 
-final memoryRM = Complex<MemoryEvent, Memory>(
+final memoryRM = ComplexLegacy<MemoryEvent, Memory>(
   Memory(id: randomID),
-  setup: (setup) {
-    setup<Name>(
-      (_, state) => state.copyWith(name: _.name),
-    );
-    setup<Description>(
-      (_, state) => state.copyWith(description: _.description),
-    );
-    setup<Path>(
-      (_, state) => state.copyWith(path: _.path),
-    );
-  },
   serializer: Serializer(
     key: 'memory',
     fromJson: Memory.fromJson,
   ),
-);
+)
+  ..register<Name>(
+    (_, state) => state.copyWith(name: _.name),
+  )
+  ..register<Description>(
+    (_, state) => state.copyWith(description: _.description),
+  )
+  ..register<Path>(
+    (_, state) => state.copyWith(path: _.path),
+  );
 
 class MemoryEvent {
   const MemoryEvent();

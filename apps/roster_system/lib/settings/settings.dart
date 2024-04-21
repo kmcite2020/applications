@@ -20,20 +20,22 @@ class Settings with _$Settings {
   factory Settings.fromJson(json) => _$SettingsFromJson(json);
 }
 
-final settingsRM = Complex(
+final settingsRM = ComplexLegacy(
   Settings(),
-  setup: (setup) {
-    setup<_SettingsEventMaterial>(
-      (event, state) => state.copyWith(materialColor: event.materialColor),
-    );
-    setup<_SettingsEventThemeMode>(
-      (event, state) => state.copyWith(themeMode: event.themeMode),
-    );
-    setup<_SettingsEventBorderRadius>(
-      (event, state) => state.copyWith(borderRadius: event.borderRadius),
-    );
-  },
-);
+  serializer: Serializer(
+    key: 'settings',
+    fromJson: Settings.fromJson,
+  ),
+)
+  ..register<_SettingsEventMaterial>(
+    (event, state) => state.copyWith(materialColor: event.materialColor),
+  )
+  ..register<_SettingsEventThemeMode>(
+    (event, state) => state.copyWith(themeMode: event.themeMode),
+  )
+  ..register<_SettingsEventBorderRadius>(
+    (event, state) => state.copyWith(borderRadius: event.borderRadius),
+  );
 
 @freezed
 class SettingsEvent with _$SettingsEvent {

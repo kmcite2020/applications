@@ -14,115 +14,48 @@ class AuthState with _$AuthState {
     @Default('') String password,
     @Default('') String error,
     @Default('') String stackTrace,
-    // @JsonKey(
-    //   toJson: toJsonAny,
-    //   fromJson: Session.fromMap,
-    // )
-    // final Session? session,
-    // @JsonKey(
-    //   toJson: toJsonAny,
-    //   fromJson: User.fromMap,
-    // )
-    // final User? user,
   }) = _AuthState;
 
   factory AuthState.fromJson(Map<String, dynamic> json) =>
       _$AuthStateFromJson(json);
 }
 
-final authStateRM = AuthStateRM(AuthState());
+final authStateRM = ComplexLegacy(AuthState())
+  ..register<_AuthEventLogin>(
+    (event, state) {
+      return state.copyWith(
+        status: AuthStatus.authenticated,
+        email: event.email,
+        password: event.password,
+        userID: "user.id",
+      );
+    },
+  )
+  ..register<_AuthEventRegister>(
+    (event, state) => state.copyWith(
+      status: AuthStatus.authenticated,
+      email: event.email,
+      password: event.password,
+      userID: event.userID,
+    ),
+  )
+  ..register<_AuthEventLogout>(
+    (event, state) => state.copyWith(
+      status: AuthStatus.unAuthenticated,
+    ),
+  );
 
-class AuthStateRM extends Simple<AuthState> {
-  AuthStateRM(super.initialState);
-  void login(
+// AuthStateRM(AuthState());
+@freezed
+class AuthEvent with _$AuthEvent {
+  const factory AuthEvent.login(
     String email,
     String password,
-  ) async {
-    state = (state.copyWith(status: AuthStatus.waiting));
-
-    // final session =
-    //     await authenticationRepository.createSession(email, password);
-    // final user = await account.get();
-    await Future.delayed(
-      1.seconds,
-      () => state = (state.copyWith(
-        status: AuthStatus.authenticated,
-        email: email,
-        password: password,
-        userID: "user.id",
-      )),
-    );
-  }
-
-  void logout() async {
-    state = (state.copyWith(status: AuthStatus.waiting));
-    // await authenticationRepository.logout();
-    await Future.delayed(
-      1.seconds,
-      () => state = (state.copyWith(status: AuthStatus.unAuthenticated)),
-    );
-  }
-
-  void register(
+  ) = _AuthEventLogin;
+  const factory AuthEvent.register(
     String email,
     String password,
     String userID,
-  ) async {
-    state = (state.copyWith(status: AuthStatus.waiting));
-
-    // final user = await authenticationRepository.register(
-    //   email,
-    //   password,
-    //   userID,
-    // );
-    // final session = await account.getSession(sessionId: 'current');
-
-    await Future.delayed(
-      1.seconds,
-      () => state = (state.copyWith(
-        status: AuthStatus.authenticated,
-        email: email,
-        password: password,
-        userID: userID,
-      )),
-    );
-  }
+  ) = _AuthEventRegister;
+  const factory AuthEvent.logout() = _AuthEventLogout;
 }
-
-// final authStateRM = RM(
-//   () => AuthState(),
-//   persistor: Persistor(
-//     key: 'auth',
-//     toJson: (s) => s.toJson(),
-//     fromJson: AuthState.fromJson,
-//   ),
-// );
-
-// final authenticationRepository = AuthenticationRepository();
-// final account = Account(client);
-
-// class AuthenticationRepository {
-//   Future<Session> createSession(
-//     String email,
-//     String password,
-//   ) {
-//     return account.createEmailSession(
-//       email: email,
-//       password: password,
-//     );
-//   }
-
-//   Future<User> register(
-//     String email,
-//     String password,
-//     String userID,
-//   ) {
-//     return account.create(
-//       userId: userID,
-//       email: email,
-//       password: password,
-//     );
-//   }
-
-//   Future logout() => account.deleteSessions();
-// }

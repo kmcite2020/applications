@@ -3,23 +3,25 @@ import 'package:manager/manager.dart';
 part 'settings.freezed.dart';
 part 'settings.g.dart';
 
-final settingsRM = Complex<SettingsEvent, SettingsState>(
+final settingsRM = ComplexLegacy<SettingsEvent, SettingsState>(
   SettingsState(),
-  setup: (register) {
-    register<_SettingsEventThemeMode>(
-      (_, state) => state = state.copyWith(themeMode: _.themeMode),
-    );
-    register<_SettingsEventMaterialColor>(
-      (_, state) => state = state.copyWith(materialColor: _.materialColor),
-    );
-    register<_SettingsEventBorderRadius>(
-      (_, state) => state = (state.copyWith(borderRadius: _.borderRadius)),
-    );
-    register<_SettingsEventPadding>(
-      (_, state) => state = (state.copyWith(padding: _.padding)),
-    );
-  },
-);
+  serializer: Serializer(
+    key: 'settings',
+    fromJson: SettingsState.fromJson,
+  ),
+)
+  ..register<_SettingsEventThemeMode>(
+    (_, state) => state = state.copyWith(themeMode: _.themeMode),
+  )
+  ..register<_SettingsEventMaterialColor>(
+    (_, state) => state = state.copyWith(materialColor: _.materialColor),
+  )
+  ..register<_SettingsEventBorderRadius>(
+    (_, state) => state = (state.copyWith(borderRadius: _.borderRadius)),
+  )
+  ..register<_SettingsEventPadding>(
+    (_, state) => state = (state.copyWith(padding: _.padding)),
+  );
 
 @freezed
 class SettingsEvent with _$SettingsEvent {

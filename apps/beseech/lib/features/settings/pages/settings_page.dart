@@ -22,14 +22,14 @@ class SettingsPage extends UI {
           const ThemeModeUI(),
           Slider(
             // name: 'Border Radius',
-            value: settingsRM.state.borderRadius,
+            value: settingsRM().borderRadius,
             onChanged: (_) => settingsRM(SettingsEvent.borderRadius(_)),
             min: 0,
             max: 30,
           ).pad(),
           Slider(
             // name: 'Padding',
-            value: settingsRM.state.padding,
+            value: settingsRM().padding,
             onChanged: (_) => settingsRM(SettingsEvent.padding(_)),
             min: 4,
             max: 10,

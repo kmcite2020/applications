@@ -24,6 +24,7 @@ mixin _$AppUserEvent {
     required TResult Function(AgeVysor? ageVysor) setAgeVysor,
     required TResult Function(String userName) setUserName,
     required TResult Function(Duration age) setAge,
+    required TResult Function(bool editing) setEditing,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -34,6 +35,7 @@ mixin _$AppUserEvent {
     TResult? Function(AgeVysor? ageVysor)? setAgeVysor,
     TResult? Function(String userName)? setUserName,
     TResult? Function(Duration age)? setAge,
+    TResult? Function(bool editing)? setEditing,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,6 +46,7 @@ mixin _$AppUserEvent {
     TResult Function(AgeVysor? ageVysor)? setAgeVysor,
     TResult Function(String userName)? setUserName,
     TResult Function(Duration age)? setAge,
+    TResult Function(bool editing)? setEditing,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -57,6 +60,7 @@ mixin _$AppUserEvent {
     required TResult Function(_AppUserEventSetAgeVysor value) setAgeVysor,
     required TResult Function(_AppUserEventSetUserName value) setUserName,
     required TResult Function(_AppUserEventSetAge value) setAge,
+    required TResult Function(_AppUserEventSetEditing value) setEditing,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,6 +73,7 @@ mixin _$AppUserEvent {
     TResult? Function(_AppUserEventSetAgeVysor value)? setAgeVysor,
     TResult? Function(_AppUserEventSetUserName value)? setUserName,
     TResult? Function(_AppUserEventSetAge value)? setAge,
+    TResult? Function(_AppUserEventSetEditing value)? setEditing,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -81,6 +86,7 @@ mixin _$AppUserEvent {
     TResult Function(_AppUserEventSetAgeVysor value)? setAgeVysor,
     TResult Function(_AppUserEventSetUserName value)? setUserName,
     TResult Function(_AppUserEventSetAge value)? setAge,
+    TResult Function(_AppUserEventSetEditing value)? setEditing,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -188,6 +194,7 @@ class _$AppUserEventSetDateOfBirthImpl
     required TResult Function(AgeVysor? ageVysor) setAgeVysor,
     required TResult Function(String userName) setUserName,
     required TResult Function(Duration age) setAge,
+    required TResult Function(bool editing) setEditing,
   }) {
     return setDateOfBirth(dateOfBirth);
   }
@@ -201,6 +208,7 @@ class _$AppUserEventSetDateOfBirthImpl
     TResult? Function(AgeVysor? ageVysor)? setAgeVysor,
     TResult? Function(String userName)? setUserName,
     TResult? Function(Duration age)? setAge,
+    TResult? Function(bool editing)? setEditing,
   }) {
     return setDateOfBirth?.call(dateOfBirth);
   }
@@ -214,6 +222,7 @@ class _$AppUserEventSetDateOfBirthImpl
     TResult Function(AgeVysor? ageVysor)? setAgeVysor,
     TResult Function(String userName)? setUserName,
     TResult Function(Duration age)? setAge,
+    TResult Function(bool editing)? setEditing,
     required TResult orElse(),
   }) {
     if (setDateOfBirth != null) {
@@ -233,6 +242,7 @@ class _$AppUserEventSetDateOfBirthImpl
     required TResult Function(_AppUserEventSetAgeVysor value) setAgeVysor,
     required TResult Function(_AppUserEventSetUserName value) setUserName,
     required TResult Function(_AppUserEventSetAge value) setAge,
+    required TResult Function(_AppUserEventSetEditing value) setEditing,
   }) {
     return setDateOfBirth(this);
   }
@@ -248,6 +258,7 @@ class _$AppUserEventSetDateOfBirthImpl
     TResult? Function(_AppUserEventSetAgeVysor value)? setAgeVysor,
     TResult? Function(_AppUserEventSetUserName value)? setUserName,
     TResult? Function(_AppUserEventSetAge value)? setAge,
+    TResult? Function(_AppUserEventSetEditing value)? setEditing,
   }) {
     return setDateOfBirth?.call(this);
   }
@@ -263,6 +274,7 @@ class _$AppUserEventSetDateOfBirthImpl
     TResult Function(_AppUserEventSetAgeVysor value)? setAgeVysor,
     TResult Function(_AppUserEventSetUserName value)? setUserName,
     TResult Function(_AppUserEventSetAge value)? setAge,
+    TResult Function(_AppUserEventSetEditing value)? setEditing,
     required TResult orElse(),
   }) {
     if (setDateOfBirth != null) {
@@ -368,6 +380,7 @@ class _$AppUserEventSetAgeBaredOrExplicitImpl
     required TResult Function(AgeVysor? ageVysor) setAgeVysor,
     required TResult Function(String userName) setUserName,
     required TResult Function(Duration age) setAge,
+    required TResult Function(bool editing) setEditing,
   }) {
     return setAgeBasedOrExplicit(ageBasedOrExplicit);
   }
@@ -381,6 +394,7 @@ class _$AppUserEventSetAgeBaredOrExplicitImpl
     TResult? Function(AgeVysor? ageVysor)? setAgeVysor,
     TResult? Function(String userName)? setUserName,
     TResult? Function(Duration age)? setAge,
+    TResult? Function(bool editing)? setEditing,
   }) {
     return setAgeBasedOrExplicit?.call(ageBasedOrExplicit);
   }
@@ -394,6 +408,7 @@ class _$AppUserEventSetAgeBaredOrExplicitImpl
     TResult Function(AgeVysor? ageVysor)? setAgeVysor,
     TResult Function(String userName)? setUserName,
     TResult Function(Duration age)? setAge,
+    TResult Function(bool editing)? setEditing,
     required TResult orElse(),
   }) {
     if (setAgeBasedOrExplicit != null) {
@@ -413,6 +428,7 @@ class _$AppUserEventSetAgeBaredOrExplicitImpl
     required TResult Function(_AppUserEventSetAgeVysor value) setAgeVysor,
     required TResult Function(_AppUserEventSetUserName value) setUserName,
     required TResult Function(_AppUserEventSetAge value) setAge,
+    required TResult Function(_AppUserEventSetEditing value) setEditing,
   }) {
     return setAgeBasedOrExplicit(this);
   }
@@ -428,6 +444,7 @@ class _$AppUserEventSetAgeBaredOrExplicitImpl
     TResult? Function(_AppUserEventSetAgeVysor value)? setAgeVysor,
     TResult? Function(_AppUserEventSetUserName value)? setUserName,
     TResult? Function(_AppUserEventSetAge value)? setAge,
+    TResult? Function(_AppUserEventSetEditing value)? setEditing,
   }) {
     return setAgeBasedOrExplicit?.call(this);
   }
@@ -443,6 +460,7 @@ class _$AppUserEventSetAgeBaredOrExplicitImpl
     TResult Function(_AppUserEventSetAgeVysor value)? setAgeVysor,
     TResult Function(_AppUserEventSetUserName value)? setUserName,
     TResult Function(_AppUserEventSetAge value)? setAge,
+    TResult Function(_AppUserEventSetEditing value)? setEditing,
     required TResult orElse(),
   }) {
     if (setAgeBasedOrExplicit != null) {
@@ -550,6 +568,7 @@ class _$AppUserEventSetDateOfPubertyExplicitImpl
     required TResult Function(AgeVysor? ageVysor) setAgeVysor,
     required TResult Function(String userName) setUserName,
     required TResult Function(Duration age) setAge,
+    required TResult Function(bool editing) setEditing,
   }) {
     return setDateOfPubertyExplicit(dateOfPuberty);
   }
@@ -563,6 +582,7 @@ class _$AppUserEventSetDateOfPubertyExplicitImpl
     TResult? Function(AgeVysor? ageVysor)? setAgeVysor,
     TResult? Function(String userName)? setUserName,
     TResult? Function(Duration age)? setAge,
+    TResult? Function(bool editing)? setEditing,
   }) {
     return setDateOfPubertyExplicit?.call(dateOfPuberty);
   }
@@ -576,6 +596,7 @@ class _$AppUserEventSetDateOfPubertyExplicitImpl
     TResult Function(AgeVysor? ageVysor)? setAgeVysor,
     TResult Function(String userName)? setUserName,
     TResult Function(Duration age)? setAge,
+    TResult Function(bool editing)? setEditing,
     required TResult orElse(),
   }) {
     if (setDateOfPubertyExplicit != null) {
@@ -595,6 +616,7 @@ class _$AppUserEventSetDateOfPubertyExplicitImpl
     required TResult Function(_AppUserEventSetAgeVysor value) setAgeVysor,
     required TResult Function(_AppUserEventSetUserName value) setUserName,
     required TResult Function(_AppUserEventSetAge value) setAge,
+    required TResult Function(_AppUserEventSetEditing value) setEditing,
   }) {
     return setDateOfPubertyExplicit(this);
   }
@@ -610,6 +632,7 @@ class _$AppUserEventSetDateOfPubertyExplicitImpl
     TResult? Function(_AppUserEventSetAgeVysor value)? setAgeVysor,
     TResult? Function(_AppUserEventSetUserName value)? setUserName,
     TResult? Function(_AppUserEventSetAge value)? setAge,
+    TResult? Function(_AppUserEventSetEditing value)? setEditing,
   }) {
     return setDateOfPubertyExplicit?.call(this);
   }
@@ -625,6 +648,7 @@ class _$AppUserEventSetDateOfPubertyExplicitImpl
     TResult Function(_AppUserEventSetAgeVysor value)? setAgeVysor,
     TResult Function(_AppUserEventSetUserName value)? setUserName,
     TResult Function(_AppUserEventSetAge value)? setAge,
+    TResult Function(_AppUserEventSetEditing value)? setEditing,
     required TResult orElse(),
   }) {
     if (setDateOfPubertyExplicit != null) {
@@ -730,6 +754,7 @@ class _$AppUserEventSetAgeVysorImpl
     required TResult Function(AgeVysor? ageVysor) setAgeVysor,
     required TResult Function(String userName) setUserName,
     required TResult Function(Duration age) setAge,
+    required TResult Function(bool editing) setEditing,
   }) {
     return setAgeVysor(ageVysor);
   }
@@ -743,6 +768,7 @@ class _$AppUserEventSetAgeVysorImpl
     TResult? Function(AgeVysor? ageVysor)? setAgeVysor,
     TResult? Function(String userName)? setUserName,
     TResult? Function(Duration age)? setAge,
+    TResult? Function(bool editing)? setEditing,
   }) {
     return setAgeVysor?.call(ageVysor);
   }
@@ -756,6 +782,7 @@ class _$AppUserEventSetAgeVysorImpl
     TResult Function(AgeVysor? ageVysor)? setAgeVysor,
     TResult Function(String userName)? setUserName,
     TResult Function(Duration age)? setAge,
+    TResult Function(bool editing)? setEditing,
     required TResult orElse(),
   }) {
     if (setAgeVysor != null) {
@@ -775,6 +802,7 @@ class _$AppUserEventSetAgeVysorImpl
     required TResult Function(_AppUserEventSetAgeVysor value) setAgeVysor,
     required TResult Function(_AppUserEventSetUserName value) setUserName,
     required TResult Function(_AppUserEventSetAge value) setAge,
+    required TResult Function(_AppUserEventSetEditing value) setEditing,
   }) {
     return setAgeVysor(this);
   }
@@ -790,6 +818,7 @@ class _$AppUserEventSetAgeVysorImpl
     TResult? Function(_AppUserEventSetAgeVysor value)? setAgeVysor,
     TResult? Function(_AppUserEventSetUserName value)? setUserName,
     TResult? Function(_AppUserEventSetAge value)? setAge,
+    TResult? Function(_AppUserEventSetEditing value)? setEditing,
   }) {
     return setAgeVysor?.call(this);
   }
@@ -805,6 +834,7 @@ class _$AppUserEventSetAgeVysorImpl
     TResult Function(_AppUserEventSetAgeVysor value)? setAgeVysor,
     TResult Function(_AppUserEventSetUserName value)? setUserName,
     TResult Function(_AppUserEventSetAge value)? setAge,
+    TResult Function(_AppUserEventSetEditing value)? setEditing,
     required TResult orElse(),
   }) {
     if (setAgeVysor != null) {
@@ -908,6 +938,7 @@ class _$AppUserEventSetUserNameImpl
     required TResult Function(AgeVysor? ageVysor) setAgeVysor,
     required TResult Function(String userName) setUserName,
     required TResult Function(Duration age) setAge,
+    required TResult Function(bool editing) setEditing,
   }) {
     return setUserName(userName);
   }
@@ -921,6 +952,7 @@ class _$AppUserEventSetUserNameImpl
     TResult? Function(AgeVysor? ageVysor)? setAgeVysor,
     TResult? Function(String userName)? setUserName,
     TResult? Function(Duration age)? setAge,
+    TResult? Function(bool editing)? setEditing,
   }) {
     return setUserName?.call(userName);
   }
@@ -934,6 +966,7 @@ class _$AppUserEventSetUserNameImpl
     TResult Function(AgeVysor? ageVysor)? setAgeVysor,
     TResult Function(String userName)? setUserName,
     TResult Function(Duration age)? setAge,
+    TResult Function(bool editing)? setEditing,
     required TResult orElse(),
   }) {
     if (setUserName != null) {
@@ -953,6 +986,7 @@ class _$AppUserEventSetUserNameImpl
     required TResult Function(_AppUserEventSetAgeVysor value) setAgeVysor,
     required TResult Function(_AppUserEventSetUserName value) setUserName,
     required TResult Function(_AppUserEventSetAge value) setAge,
+    required TResult Function(_AppUserEventSetEditing value) setEditing,
   }) {
     return setUserName(this);
   }
@@ -968,6 +1002,7 @@ class _$AppUserEventSetUserNameImpl
     TResult? Function(_AppUserEventSetAgeVysor value)? setAgeVysor,
     TResult? Function(_AppUserEventSetUserName value)? setUserName,
     TResult? Function(_AppUserEventSetAge value)? setAge,
+    TResult? Function(_AppUserEventSetEditing value)? setEditing,
   }) {
     return setUserName?.call(this);
   }
@@ -983,6 +1018,7 @@ class _$AppUserEventSetUserNameImpl
     TResult Function(_AppUserEventSetAgeVysor value)? setAgeVysor,
     TResult Function(_AppUserEventSetUserName value)? setUserName,
     TResult Function(_AppUserEventSetAge value)? setAge,
+    TResult Function(_AppUserEventSetEditing value)? setEditing,
     required TResult orElse(),
   }) {
     if (setUserName != null) {
@@ -1083,6 +1119,7 @@ class _$AppUserEventSetAgeImpl
     required TResult Function(AgeVysor? ageVysor) setAgeVysor,
     required TResult Function(String userName) setUserName,
     required TResult Function(Duration age) setAge,
+    required TResult Function(bool editing) setEditing,
   }) {
     return setAge(age);
   }
@@ -1096,6 +1133,7 @@ class _$AppUserEventSetAgeImpl
     TResult? Function(AgeVysor? ageVysor)? setAgeVysor,
     TResult? Function(String userName)? setUserName,
     TResult? Function(Duration age)? setAge,
+    TResult? Function(bool editing)? setEditing,
   }) {
     return setAge?.call(age);
   }
@@ -1109,6 +1147,7 @@ class _$AppUserEventSetAgeImpl
     TResult Function(AgeVysor? ageVysor)? setAgeVysor,
     TResult Function(String userName)? setUserName,
     TResult Function(Duration age)? setAge,
+    TResult Function(bool editing)? setEditing,
     required TResult orElse(),
   }) {
     if (setAge != null) {
@@ -1128,6 +1167,7 @@ class _$AppUserEventSetAgeImpl
     required TResult Function(_AppUserEventSetAgeVysor value) setAgeVysor,
     required TResult Function(_AppUserEventSetUserName value) setUserName,
     required TResult Function(_AppUserEventSetAge value) setAge,
+    required TResult Function(_AppUserEventSetEditing value) setEditing,
   }) {
     return setAge(this);
   }
@@ -1143,6 +1183,7 @@ class _$AppUserEventSetAgeImpl
     TResult? Function(_AppUserEventSetAgeVysor value)? setAgeVysor,
     TResult? Function(_AppUserEventSetUserName value)? setUserName,
     TResult? Function(_AppUserEventSetAge value)? setAge,
+    TResult? Function(_AppUserEventSetEditing value)? setEditing,
   }) {
     return setAge?.call(this);
   }
@@ -1158,6 +1199,7 @@ class _$AppUserEventSetAgeImpl
     TResult Function(_AppUserEventSetAgeVysor value)? setAgeVysor,
     TResult Function(_AppUserEventSetUserName value)? setUserName,
     TResult Function(_AppUserEventSetAge value)? setAge,
+    TResult Function(_AppUserEventSetEditing value)? setEditing,
     required TResult orElse(),
   }) {
     if (setAge != null) {
@@ -1175,6 +1217,189 @@ abstract class _AppUserEventSetAge implements AppUserEvent {
   @JsonKey(ignore: true)
   _$$AppUserEventSetAgeImplCopyWith<_$AppUserEventSetAgeImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AppUserEventSetEditingImplCopyWith<$Res> {
+  factory _$$AppUserEventSetEditingImplCopyWith(
+          _$AppUserEventSetEditingImpl value,
+          $Res Function(_$AppUserEventSetEditingImpl) then) =
+      __$$AppUserEventSetEditingImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool editing});
+}
+
+/// @nodoc
+class __$$AppUserEventSetEditingImplCopyWithImpl<$Res>
+    extends _$AppUserEventCopyWithImpl<$Res, _$AppUserEventSetEditingImpl>
+    implements _$$AppUserEventSetEditingImplCopyWith<$Res> {
+  __$$AppUserEventSetEditingImplCopyWithImpl(
+      _$AppUserEventSetEditingImpl _value,
+      $Res Function(_$AppUserEventSetEditingImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? editing = null,
+  }) {
+    return _then(_$AppUserEventSetEditingImpl(
+      null == editing
+          ? _value.editing
+          : editing // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AppUserEventSetEditingImpl
+    with DiagnosticableTreeMixin
+    implements _AppUserEventSetEditing {
+  const _$AppUserEventSetEditingImpl(this.editing);
+
+  @override
+  final bool editing;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'AppUserEvent.setEditing(editing: $editing)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AppUserEvent.setEditing'))
+      ..add(DiagnosticsProperty('editing', editing));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AppUserEventSetEditingImpl &&
+            (identical(other.editing, editing) || other.editing == editing));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, editing);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AppUserEventSetEditingImplCopyWith<_$AppUserEventSetEditingImpl>
+      get copyWith => __$$AppUserEventSetEditingImplCopyWithImpl<
+          _$AppUserEventSetEditingImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(DateTime dateOfBirth) setDateOfBirth,
+    required TResult Function(bool ageBasedOrExplicit) setAgeBasedOrExplicit,
+    required TResult Function(DateTime dateOfPuberty) setDateOfPubertyExplicit,
+    required TResult Function(AgeVysor? ageVysor) setAgeVysor,
+    required TResult Function(String userName) setUserName,
+    required TResult Function(Duration age) setAge,
+    required TResult Function(bool editing) setEditing,
+  }) {
+    return setEditing(editing);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(DateTime dateOfBirth)? setDateOfBirth,
+    TResult? Function(bool ageBasedOrExplicit)? setAgeBasedOrExplicit,
+    TResult? Function(DateTime dateOfPuberty)? setDateOfPubertyExplicit,
+    TResult? Function(AgeVysor? ageVysor)? setAgeVysor,
+    TResult? Function(String userName)? setUserName,
+    TResult? Function(Duration age)? setAge,
+    TResult? Function(bool editing)? setEditing,
+  }) {
+    return setEditing?.call(editing);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DateTime dateOfBirth)? setDateOfBirth,
+    TResult Function(bool ageBasedOrExplicit)? setAgeBasedOrExplicit,
+    TResult Function(DateTime dateOfPuberty)? setDateOfPubertyExplicit,
+    TResult Function(AgeVysor? ageVysor)? setAgeVysor,
+    TResult Function(String userName)? setUserName,
+    TResult Function(Duration age)? setAge,
+    TResult Function(bool editing)? setEditing,
+    required TResult orElse(),
+  }) {
+    if (setEditing != null) {
+      return setEditing(editing);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AppUserEventSetDateOfBirth value) setDateOfBirth,
+    required TResult Function(_AppUserEventSetAgeBaredOrExplicit value)
+        setAgeBasedOrExplicit,
+    required TResult Function(_AppUserEventSetDateOfPubertyExplicit value)
+        setDateOfPubertyExplicit,
+    required TResult Function(_AppUserEventSetAgeVysor value) setAgeVysor,
+    required TResult Function(_AppUserEventSetUserName value) setUserName,
+    required TResult Function(_AppUserEventSetAge value) setAge,
+    required TResult Function(_AppUserEventSetEditing value) setEditing,
+  }) {
+    return setEditing(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_AppUserEventSetDateOfBirth value)? setDateOfBirth,
+    TResult? Function(_AppUserEventSetAgeBaredOrExplicit value)?
+        setAgeBasedOrExplicit,
+    TResult? Function(_AppUserEventSetDateOfPubertyExplicit value)?
+        setDateOfPubertyExplicit,
+    TResult? Function(_AppUserEventSetAgeVysor value)? setAgeVysor,
+    TResult? Function(_AppUserEventSetUserName value)? setUserName,
+    TResult? Function(_AppUserEventSetAge value)? setAge,
+    TResult? Function(_AppUserEventSetEditing value)? setEditing,
+  }) {
+    return setEditing?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AppUserEventSetDateOfBirth value)? setDateOfBirth,
+    TResult Function(_AppUserEventSetAgeBaredOrExplicit value)?
+        setAgeBasedOrExplicit,
+    TResult Function(_AppUserEventSetDateOfPubertyExplicit value)?
+        setDateOfPubertyExplicit,
+    TResult Function(_AppUserEventSetAgeVysor value)? setAgeVysor,
+    TResult Function(_AppUserEventSetUserName value)? setUserName,
+    TResult Function(_AppUserEventSetAge value)? setAge,
+    TResult Function(_AppUserEventSetEditing value)? setEditing,
+    required TResult orElse(),
+  }) {
+    if (setEditing != null) {
+      return setEditing(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AppUserEventSetEditing implements AppUserEvent {
+  const factory _AppUserEventSetEditing(final bool editing) =
+      _$AppUserEventSetEditingImpl;
+
+  bool get editing;
+  @JsonKey(ignore: true)
+  _$$AppUserEventSetEditingImplCopyWith<_$AppUserEventSetEditingImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 AppUser _$AppUserFromJson(Map<String, dynamic> json) {

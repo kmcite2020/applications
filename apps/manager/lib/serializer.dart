@@ -9,6 +9,12 @@ class Serializer<T> {
   });
 }
 
+typedef MapSerializer<K, V> = ({
+  String name,
+  K Function(Map<String, dynamic> json) key,
+  V Function(Map<String, dynamic> json) value,
+});
+
 typedef FromJson<T> = T Function(Map<String, dynamic> json);
 
 class MaterialColorConverter implements JsonConverter<MaterialColor, int> {

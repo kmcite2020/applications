@@ -29,15 +29,15 @@ class UserInformationUI extends UI {
                       appUserRM(AppUserEvent.setUserName(userName));
                     },
                     onFieldSubmitted: (_) {
-                      appUserRM.state = appUserRM().copyWith(editing: false);
+                      appUserRM(AppUserEvent.setEditing(false));
                     },
                   ).pad()
                 else
                   appUserRM().userName.text().pad().container(
-                        onTap: () => appUserRM.state = appUserRM().copyWith(
-                          editing: true,
-                        ),
-                      ),
+                    onTap: () {
+                      appUserRM(AppUserEvent.setEditing(true));
+                    },
+                  ),
                 const Divider(),
                 'DATE OF BIRTH'.text().pad(),
                 appUserRM().dateOfBirth.text().pad().container(

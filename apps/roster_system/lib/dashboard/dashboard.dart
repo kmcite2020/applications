@@ -4,7 +4,7 @@ import 'package:roster_system/doctors/ui/doctors_page.dart';
 import 'package:roster_system/main.dart';
 import 'package:roster_system/settings/settings_page.dart';
 
-class DashboardPage extends UI {
+class DashboardPage extends UIv2 {
   const DashboardPage({super.key});
   @override
   Widget build(BuildContext context) {
@@ -13,9 +13,9 @@ class DashboardPage extends UI {
         title: 'DASHBOARD'.text(),
       ),
       body: [
-        SettingsPage(),
-        DepartmentsPage(),
         DoctorsPage(),
+        DepartmentsPage(),
+        SettingsPage(),
       ][index()],
       bottomNavigationBar: NavigationBar(
         selectedIndex: index(),
@@ -39,4 +39,9 @@ class DashboardPage extends UI {
   }
 }
 
-final index = Simple(0);
+final index = ComplexLegacy(0)
+  ..register<int>(
+    (event, state) {
+      return event;
+    },
+  );

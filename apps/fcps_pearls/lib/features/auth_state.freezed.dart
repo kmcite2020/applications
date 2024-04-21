@@ -274,3 +274,523 @@ abstract class _AuthState implements AuthState {
   _$$AuthStateImplCopyWith<_$AuthStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+/// @nodoc
+mixin _$AuthEvent {
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String email, String password) login,
+    required TResult Function(String email, String password, String userID)
+        register,
+    required TResult Function() logout,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String email, String password)? login,
+    TResult? Function(String email, String password, String userID)? register,
+    TResult? Function()? logout,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String email, String password)? login,
+    TResult Function(String email, String password, String userID)? register,
+    TResult Function()? logout,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AuthEventLogin value) login,
+    required TResult Function(_AuthEventRegister value) register,
+    required TResult Function(_AuthEventLogout value) logout,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_AuthEventLogin value)? login,
+    TResult? Function(_AuthEventRegister value)? register,
+    TResult? Function(_AuthEventLogout value)? logout,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AuthEventLogin value)? login,
+    TResult Function(_AuthEventRegister value)? register,
+    TResult Function(_AuthEventLogout value)? logout,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $AuthEventCopyWith<$Res> {
+  factory $AuthEventCopyWith(AuthEvent value, $Res Function(AuthEvent) then) =
+      _$AuthEventCopyWithImpl<$Res, AuthEvent>;
+}
+
+/// @nodoc
+class _$AuthEventCopyWithImpl<$Res, $Val extends AuthEvent>
+    implements $AuthEventCopyWith<$Res> {
+  _$AuthEventCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+}
+
+/// @nodoc
+abstract class _$$AuthEventLoginImplCopyWith<$Res> {
+  factory _$$AuthEventLoginImplCopyWith(_$AuthEventLoginImpl value,
+          $Res Function(_$AuthEventLoginImpl) then) =
+      __$$AuthEventLoginImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String email, String password});
+}
+
+/// @nodoc
+class __$$AuthEventLoginImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$AuthEventLoginImpl>
+    implements _$$AuthEventLoginImplCopyWith<$Res> {
+  __$$AuthEventLoginImplCopyWithImpl(
+      _$AuthEventLoginImpl _value, $Res Function(_$AuthEventLoginImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? email = null,
+    Object? password = null,
+  }) {
+    return _then(_$AuthEventLoginImpl(
+      null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AuthEventLoginImpl
+    with DiagnosticableTreeMixin
+    implements _AuthEventLogin {
+  const _$AuthEventLoginImpl(this.email, this.password);
+
+  @override
+  final String email;
+  @override
+  final String password;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'AuthEvent.login(email: $email, password: $password)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AuthEvent.login'))
+      ..add(DiagnosticsProperty('email', email))
+      ..add(DiagnosticsProperty('password', password));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AuthEventLoginImpl &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.password, password) ||
+                other.password == password));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, email, password);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AuthEventLoginImplCopyWith<_$AuthEventLoginImpl> get copyWith =>
+      __$$AuthEventLoginImplCopyWithImpl<_$AuthEventLoginImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String email, String password) login,
+    required TResult Function(String email, String password, String userID)
+        register,
+    required TResult Function() logout,
+  }) {
+    return login(email, password);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String email, String password)? login,
+    TResult? Function(String email, String password, String userID)? register,
+    TResult? Function()? logout,
+  }) {
+    return login?.call(email, password);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String email, String password)? login,
+    TResult Function(String email, String password, String userID)? register,
+    TResult Function()? logout,
+    required TResult orElse(),
+  }) {
+    if (login != null) {
+      return login(email, password);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AuthEventLogin value) login,
+    required TResult Function(_AuthEventRegister value) register,
+    required TResult Function(_AuthEventLogout value) logout,
+  }) {
+    return login(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_AuthEventLogin value)? login,
+    TResult? Function(_AuthEventRegister value)? register,
+    TResult? Function(_AuthEventLogout value)? logout,
+  }) {
+    return login?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AuthEventLogin value)? login,
+    TResult Function(_AuthEventRegister value)? register,
+    TResult Function(_AuthEventLogout value)? logout,
+    required TResult orElse(),
+  }) {
+    if (login != null) {
+      return login(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AuthEventLogin implements AuthEvent {
+  const factory _AuthEventLogin(final String email, final String password) =
+      _$AuthEventLoginImpl;
+
+  String get email;
+  String get password;
+  @JsonKey(ignore: true)
+  _$$AuthEventLoginImplCopyWith<_$AuthEventLoginImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AuthEventRegisterImplCopyWith<$Res> {
+  factory _$$AuthEventRegisterImplCopyWith(_$AuthEventRegisterImpl value,
+          $Res Function(_$AuthEventRegisterImpl) then) =
+      __$$AuthEventRegisterImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String email, String password, String userID});
+}
+
+/// @nodoc
+class __$$AuthEventRegisterImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$AuthEventRegisterImpl>
+    implements _$$AuthEventRegisterImplCopyWith<$Res> {
+  __$$AuthEventRegisterImplCopyWithImpl(_$AuthEventRegisterImpl _value,
+      $Res Function(_$AuthEventRegisterImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? email = null,
+    Object? password = null,
+    Object? userID = null,
+  }) {
+    return _then(_$AuthEventRegisterImpl(
+      null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+      null == userID
+          ? _value.userID
+          : userID // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AuthEventRegisterImpl
+    with DiagnosticableTreeMixin
+    implements _AuthEventRegister {
+  const _$AuthEventRegisterImpl(this.email, this.password, this.userID);
+
+  @override
+  final String email;
+  @override
+  final String password;
+  @override
+  final String userID;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'AuthEvent.register(email: $email, password: $password, userID: $userID)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AuthEvent.register'))
+      ..add(DiagnosticsProperty('email', email))
+      ..add(DiagnosticsProperty('password', password))
+      ..add(DiagnosticsProperty('userID', userID));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AuthEventRegisterImpl &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.password, password) ||
+                other.password == password) &&
+            (identical(other.userID, userID) || other.userID == userID));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, email, password, userID);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AuthEventRegisterImplCopyWith<_$AuthEventRegisterImpl> get copyWith =>
+      __$$AuthEventRegisterImplCopyWithImpl<_$AuthEventRegisterImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String email, String password) login,
+    required TResult Function(String email, String password, String userID)
+        register,
+    required TResult Function() logout,
+  }) {
+    return register(email, password, userID);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String email, String password)? login,
+    TResult? Function(String email, String password, String userID)? register,
+    TResult? Function()? logout,
+  }) {
+    return register?.call(email, password, userID);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String email, String password)? login,
+    TResult Function(String email, String password, String userID)? register,
+    TResult Function()? logout,
+    required TResult orElse(),
+  }) {
+    if (register != null) {
+      return register(email, password, userID);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AuthEventLogin value) login,
+    required TResult Function(_AuthEventRegister value) register,
+    required TResult Function(_AuthEventLogout value) logout,
+  }) {
+    return register(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_AuthEventLogin value)? login,
+    TResult? Function(_AuthEventRegister value)? register,
+    TResult? Function(_AuthEventLogout value)? logout,
+  }) {
+    return register?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AuthEventLogin value)? login,
+    TResult Function(_AuthEventRegister value)? register,
+    TResult Function(_AuthEventLogout value)? logout,
+    required TResult orElse(),
+  }) {
+    if (register != null) {
+      return register(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AuthEventRegister implements AuthEvent {
+  const factory _AuthEventRegister(
+          final String email, final String password, final String userID) =
+      _$AuthEventRegisterImpl;
+
+  String get email;
+  String get password;
+  String get userID;
+  @JsonKey(ignore: true)
+  _$$AuthEventRegisterImplCopyWith<_$AuthEventRegisterImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AuthEventLogoutImplCopyWith<$Res> {
+  factory _$$AuthEventLogoutImplCopyWith(_$AuthEventLogoutImpl value,
+          $Res Function(_$AuthEventLogoutImpl) then) =
+      __$$AuthEventLogoutImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$AuthEventLogoutImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$AuthEventLogoutImpl>
+    implements _$$AuthEventLogoutImplCopyWith<$Res> {
+  __$$AuthEventLogoutImplCopyWithImpl(
+      _$AuthEventLogoutImpl _value, $Res Function(_$AuthEventLogoutImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$AuthEventLogoutImpl
+    with DiagnosticableTreeMixin
+    implements _AuthEventLogout {
+  const _$AuthEventLogoutImpl();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'AuthEvent.logout()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'AuthEvent.logout'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$AuthEventLogoutImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String email, String password) login,
+    required TResult Function(String email, String password, String userID)
+        register,
+    required TResult Function() logout,
+  }) {
+    return logout();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String email, String password)? login,
+    TResult? Function(String email, String password, String userID)? register,
+    TResult? Function()? logout,
+  }) {
+    return logout?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String email, String password)? login,
+    TResult Function(String email, String password, String userID)? register,
+    TResult Function()? logout,
+    required TResult orElse(),
+  }) {
+    if (logout != null) {
+      return logout();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AuthEventLogin value) login,
+    required TResult Function(_AuthEventRegister value) register,
+    required TResult Function(_AuthEventLogout value) logout,
+  }) {
+    return logout(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_AuthEventLogin value)? login,
+    TResult? Function(_AuthEventRegister value)? register,
+    TResult? Function(_AuthEventLogout value)? logout,
+  }) {
+    return logout?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AuthEventLogin value)? login,
+    TResult Function(_AuthEventRegister value)? register,
+    TResult Function(_AuthEventLogout value)? logout,
+    required TResult orElse(),
+  }) {
+    if (logout != null) {
+      return logout(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AuthEventLogout implements AuthEvent {
+  const factory _AuthEventLogout() = _$AuthEventLogoutImpl;
+}

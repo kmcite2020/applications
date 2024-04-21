@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:notes/main.dart';
 
 final noteRM = Simple(Note());
@@ -59,9 +61,9 @@ class AddNotePage extends UI {
             onPressed: noteRM().title.isEmpty
                 ? null
                 : () {
-                    notesRM(
-                      noteRM().copyWith(id: randomID),
-                    );
+                    final note = noteRM().copyWith(id: randomID);
+                    log(note.toString());
+                    notesRM(note);
                     back();
                   },
             child: 'Save Note'.text(),

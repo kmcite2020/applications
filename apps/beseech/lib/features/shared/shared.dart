@@ -34,11 +34,11 @@ extension A0003 on Widget {
     return ClayContainer(
       height: height,
       width: width,
-      color: color ?? settingsRM.state.materialColor.shade800,
+      color: color ?? settingsRM().materialColor.shade800,
       surfaceColor: surfaceColor,
       parentColor: parentColor,
       spread: spread,
-      borderRadius: customBorderRadiusValue ?? settingsRM.state.borderRadius,
+      borderRadius: customBorderRadiusValue ?? settingsRM().borderRadius,
       customBorderRadius: customBorderRadius,
       curveType: curveType,
       depth: depth,

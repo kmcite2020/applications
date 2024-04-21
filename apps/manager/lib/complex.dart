@@ -3,6 +3,8 @@ import 'dart:developer';
 
 import 'package:manager/manager.dart';
 
+part 'simple.dart';
+
 class Handler<E, State> {
   final bool Function(dynamic) isType;
   final Type type;
@@ -21,34 +23,35 @@ class Handler<E, State> {
   }
 }
 
-class Complex<Event, State> {
-  final State initialState;
-  final Serializer<State>? serializer;
-  Complex(
-    this.initialState, {
-    this.serializer,
-  });
+class ComplexLegacy<Event, State> {
+  ComplexLegacy(
+    State initialState, {
+    Serializer<State>? serializer,
+  }) {
+    _injected = RM.inject(
+      () => initialState,
+      persist: serializer != null
+          ? () => PersistState(
+                key: serializer.key,
+                fromJson: (json) => serializer.fromJson(jsonDecode(json)),
+                toJson: (state) => jsonEncode(toJson(state)),
+              )
+          : null,
+    );
+  }
 
   @visibleForTesting
-  set state(State _state) => injected.state = _state;
-  State get state => injected.state;
+  void setState(State _state) => _injected.state = _state;
+  @visibleForTesting
+  State getState() => _injected.state;
 
-  late final injected = RM.inject(
-    () => initialState,
-    persist: serializer != null
-        ? () => PersistState(
-              key: serializer!.key,
-              fromJson: (json) => serializer!.fromJson(jsonDecode(json)),
-              toJson: (state) => jsonEncode(___(state)),
-            )
-        : null,
-  );
+  late final _injected;
 
   final _handlers = <Handler<Event, State>>[];
   void register<E extends Event>(State Function(E, State) function) {
     final registered = _handlers.any((handler) => handler.type == E);
     if (registered) {
-      log('🟥 $E already registered');
+      log('🟥 [$E]');
       return;
     }
     _handlers.add(
@@ -58,7 +61,7 @@ class Complex<Event, State> {
         function: (e, s) => function(e as E, s),
       ),
     );
-    log('🟩 $E registered');
+    log('🟩 [$E]');
   }
 
   State call([Event? event]) {
@@ -66,13 +69,13 @@ class Complex<Event, State> {
       final index = _handlers.indexWhere((e) => e.isType(event));
       if (index != -1) {
         final function = _handlers[index].function;
-        state = function(event, state);
-        log('🟩 $event');
+        setState(function(event, getState()));
+        log('🟩 [$event]');
       } else
-        log('🟥 $event');
+        log('🟥 [$event]');
     }
-    return state;
+    return getState();
   }
 }
 
-___(____) => ____.toJson();
+toJson(any) => any.toJson();

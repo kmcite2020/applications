@@ -10,9 +10,9 @@ class DateOfBirthUI extends UI {
       decoration: BoxDecoration(
         border: Border.all(
           width: 2,
-          color: settingsRM.state.materialColor.withOpacity(.6),
+          color: settingsRM().materialColor.withOpacity(.6),
         ),
-        borderRadius: BorderRadius.circular(settingsRM.state.borderRadius),
+        borderRadius: BorderRadius.circular(settingsRM().borderRadius),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,

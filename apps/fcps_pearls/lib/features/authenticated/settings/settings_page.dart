@@ -54,7 +54,7 @@ class SettingsPage extends UI {
             ),
           ).pad(),
           ElevatedButton(
-            onPressed: () => authStateRM.logout(),
+            onPressed: () => authStateRM(AuthEvent.logout()),
             child: 'Log Out'.text(textScaleFactor: 2).pad(),
           ).pad(),
         ],

@@ -2,16 +2,28 @@ import 'package:chat_gpt/main.dart';
 
 part 'current_chat_rm.freezed.dart';
 
-final currentChatRM = Complex<CurrentChatEvent, Chat?>(
+final currentChatRM = ComplexLegacy<CurrentChatEvent, Chat?>(
   null,
-  setup: (setup) {
-    setup<_CurrentChatEventLoad>((_, state) => state?.copyWith());
-    setup<_CurrentChatEventCreateQuery>((_, state) => state?.copyWith());
-    setup<_CurrentChatEventCreateResponse>((_, state) => state?.copyWith());
-    setup<_CurrentChatEventDelete>((_, state) => state?.copyWith());
-    setup<_CurrentChatEventChangeTitle>((_, state) => state?.copyWith());
-  },
-);
+  serializer: Serializer(
+    key: 'currentChat',
+    fromJson: Chat.fromJson,
+  ),
+)
+  ..register<_CurrentChatEventLoad>(
+    (_, state) => state?.copyWith(),
+  )
+  ..register<_CurrentChatEventCreateQuery>(
+    (_, state) => state?.copyWith(),
+  )
+  ..register<_CurrentChatEventCreateResponse>(
+    (_, state) => state?.copyWith(),
+  )
+  ..register<_CurrentChatEventDelete>(
+    (_, state) => state?.copyWith(),
+  )
+  ..register<_CurrentChatEventChangeTitle>(
+    (_, state) => state?.copyWith(),
+  );
 
 @freezed
 class CurrentChatEvent with _$CurrentChatEvent {
