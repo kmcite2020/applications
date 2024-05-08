@@ -25,7 +25,7 @@ class Topic with _$Topic {
 }
 
 @freezed
-class Settings with _$Settings implements Live<Settings> {
+class Settings with _$Settings {
   const factory Settings.raw({
     required final ThemeMode themeMode,
     @MaterialColorConverter() required final MaterialColor materialColor,
@@ -41,22 +41,20 @@ class Settings with _$Settings implements Live<Settings> {
       );
   factory Settings.fromJson(Map<String, dynamic> json) =>
       _$SettingsFromJson(json);
-
-  @override
-  Settings call([Settings? t]) => t != null ? settings = t : settings;
-}
-
-class MaterialColorConverter implements JsonConverter<MaterialColor, int> {
-  const MaterialColorConverter();
-  @override
-  MaterialColor fromJson(int json) => Colors.primaries[json];
-
-  @override
-  int toJson(MaterialColor object) => Colors.primaries.indexOf(object);
 }
 
 final settingsRM = RM.inject(
-  () => Settings(),
+  Settings.new,
+  persist: () => PersistState(
+    key: 'settings',
+    toJson: (s) => jsonEncode(s.toJson()),
+    fromJson: (json) => Settings.fromJson(jsonDecode(json)),
+  ),
 );
-set settings(Settings state) => settingsRM.state = state;
-Settings get settings => settingsRM.state;
+
+Settings settings([Settings? _settings]) {
+  if (_settings != null) {
+    settingsRM.state = _settings;
+  }
+  return settingsRM.state;
+}

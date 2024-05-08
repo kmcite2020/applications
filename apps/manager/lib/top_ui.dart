@@ -11,7 +11,9 @@ abstract class TopUI extends TopStatelessWidget {
 
   @override
   List<FutureOr<void>>? ensureInitialization() => [
-        RM.storageInitializer(HiveStorage()),
+        RM.storageInitializer(
+          HiveStorage(),
+        ),
       ];
 
   @override
@@ -39,3 +41,14 @@ final navigator = RM.navigate;
 final to = navigator.to;
 final back = navigator.back;
 final toDialog = navigator.toDialog;
+final backAndToNamed = navigator.backAndToNamed;
+final backUntil = navigator.backUntil;
+final forceBack = navigator.forceBack;
+final toAndRemoveUntil = navigator.toAndRemoveUntil;
+final toBottomSheet = navigator.toBottomSheet;
+final toCupertinoDialog = navigator.toCupertinoDialog;
+final toCupertinoModalPopup = navigator.toCupertinoModalPopup;
+final toNamed = navigator.toNamed;
+final toNamedAndRemoveUntil = navigator.toNamedAndRemoveUntil;
+final toReplacement = navigator.toReplacement;
+final toReplacementNamed = navigator.toReplacementNamed;

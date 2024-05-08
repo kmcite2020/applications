@@ -1,3 +1,4 @@
+###### version 1.0.0+1
 ### Complex
 This type of state management is complex. You have to create events and states and push states based on the registered events.
 we have an example implemented below for reference. In [UI] what you need. Just you need to extend UI class -> a reactive widget with a build() method. and all flutter. 

@@ -1,3 +1,4 @@
+###### version 1.0.0+1
 ## states_rebuilder
 library to manage state efficiently and easily.
 created states are reactive to UI and persistent only if Persistor is provided.

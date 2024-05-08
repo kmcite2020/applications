@@ -12,7 +12,7 @@ class SettingsPage extends UI {
       body: ListView(
         children: [
           DropdownButtonFormField(
-            value: settings.themeMode,
+            value: settings().themeMode,
             items: ThemeMode.values
                 .map(
                   (eachThemeMode) => DropdownMenuItem(
@@ -22,11 +22,11 @@ class SettingsPage extends UI {
                 )
                 .toList(),
             onChanged: (themeMode) => settings(
-              settings.copyWith(themeMode: themeMode!),
+              settings().copyWith(themeMode: themeMode!),
             ),
           ).pad(),
           DropdownButtonFormField(
-            value: settings.materialColor,
+            value: settings().materialColor,
             items: Colors.primaries
                 .map(
                   (eachThemeMode) => DropdownMenuItem(
@@ -36,7 +36,7 @@ class SettingsPage extends UI {
                 )
                 .toList(),
             onChanged: (materialColor) => settings(
-              settings.copyWith(materialColor: materialColor!),
+              settings().copyWith(materialColor: materialColor!),
             ),
           ).pad(),
           ElevatedButton.icon(

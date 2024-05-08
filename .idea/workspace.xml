@@ -5,72 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21815b96-f851-4168-9e4f-8aabdee08f47" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/rebuilder_docs/assets/CHANGELOG.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/rebuilder_docs/assets/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/rebuilder_docs/assets/changelog/v-1.15.0.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/rebuilder_docs/assets/changelog/v-2.0.0.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/rebuilder_docs/assets/changelog/v-3.0.0.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/rebuilder_docs/assets/changelog/v-4.0.0.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/rebuilder_docs/assets/changelog/v-4.4.0.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/rebuilder_docs/assets/changelog/v-5.0.0.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/batteries/lib/batteries/pages/battery_details_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/batteries/lib/batteries/pages/battery_details_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/batteries/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/apps/batteries/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/beseech/lib/features/app_user/app_user.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/beseech/lib/features/app_user/app_user.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/beseech/lib/features/app_user/app_user.freezed.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/beseech/lib/features/app_user/app_user.freezed.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/beseech/lib/features/initial/components/date_of_birth_ui.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/beseech/lib/features/initial/components/date_of_birth_ui.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/beseech/lib/features/settings/components/border_radius_ui.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/beseech/lib/features/settings/components/border_radius_ui.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/beseech/lib/features/settings/components/life_ui.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/beseech/lib/features/settings/components/life_ui.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/beseech/lib/features/settings/components/theme_mode_ui.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/beseech/lib/features/settings/components/theme_mode_ui.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/beseech/lib/features/settings/components/user_information_ui.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/beseech/lib/features/settings/components/user_information_ui.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/beseech/lib/features/settings/pages/settings_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/beseech/lib/features/settings/pages/settings_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/beseech/lib/features/settings/settings.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/beseech/lib/features/settings/settings.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/beseech/lib/features/shared/core.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/beseech/lib/features/shared/core.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/beseech/lib/features/shared/shared.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/beseech/lib/features/shared/shared.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/chat_gpt/lib/chats/current_chat_rm.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/chat_gpt/lib/chats/current_chat_rm.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/derma_handbook/lib/features/settings/backup_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/derma_handbook/lib/features/settings/backup_model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/fcps_pearls/lib/features/auth_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fcps_pearls/lib/features/auth_state.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/fcps_pearls/lib/features/auth_state.freezed.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fcps_pearls/lib/features/auth_state.freezed.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/fcps_pearls/lib/features/authenticated/settings/settings_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fcps_pearls/lib/features/authenticated/settings/settings_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/fcps_pearls/lib/features/shared/app.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/fcps_pearls/lib/features/shared/core.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/fcps_pearls/lib/features/un_authenticated/login/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fcps_pearls/lib/features/un_authenticated/login/login_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/fcps_pearls/lib/features/un_authenticated/register/register_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fcps_pearls/lib/features/un_authenticated/register/register_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/fcps_pearls/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fcps_pearls/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/fcps_pearls/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/apps/fcps_pearls/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/hmis/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/apps/hmis/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/ideal_store/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/apps/ideal_store/pubspec.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/manager/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/apps/manager/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/manager/lib/complex.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/manager/lib/complex.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/manager/lib/extensions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/manager/lib/extensions.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/manager/lib/manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/manager/lib/manager.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/manager/lib/serializer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/manager/lib/serializer.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/manager/lib/simple.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/manager/lib/simple.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/manager/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/apps/manager/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/manager/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/apps/manager/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/memories/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/memories/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/memories/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/apps/memories/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/money/lib/features/settings/settings.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/money/lib/features/settings/settings.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/money/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/apps/money/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/money/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/apps/money/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/notes/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/notes/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/notes/lib/notes/add_note_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/notes/lib/notes/add_note_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/notes/lib/notes/note_tile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/notes/lib/notes/note_tile.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/notes/lib/notes/notes.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/notes/lib/notes/notes.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/notes/lib/notes/notes.freezed.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/notes/lib/notes/notes.freezed.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/notes/lib/notes/notes.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/notes/lib/notes/notes.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/notes/lib/notes/notes_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/notes/lib/notes/notes_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/notes/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/apps/notes/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/opthalmology/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/apps/opthalmology/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/prescription_er/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/apps/prescription_er/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/roster_system/lib/dashboard/dashboard.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/roster_system/lib/dashboard/dashboard.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/roster_system/lib/departments/departments.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/roster_system/lib/departments/departments.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/roster_system/lib/departments/departments.freezed.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/roster_system/lib/departments/departments.freezed.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/roster_system/lib/departments/departments.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/roster_system/lib/departments/departments.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/roster_system/lib/departments/departments_rm.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/roster_system/lib/departments/ui/department_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/roster_system/lib/departments/ui/department_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/roster_system/lib/departments/ui/departments_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/roster_system/lib/departments/ui/departments_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/roster_system/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/roster_system/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/roster_system/lib/settings/settings.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/roster_system/lib/settings/settings.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/roster_system/lib/settings/settings_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/roster_system/lib/settings/settings_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/roster_system/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/apps/roster_system/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/smc/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/apps/smc/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/assets/BLoC Pattern.md" beforeDir="false" afterPath="$PROJECT_DIR$/apps/manager/assets/BLoC Pattern.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/assets/Complex.md" beforeDir="false" afterPath="$PROJECT_DIR$/apps/manager/assets/Complex.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/assets/Documentation.md" beforeDir="false" afterPath="$PROJECT_DIR$/apps/manager/assets/Documentation.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/assets/Introduction.md" beforeDir="false" afterPath="$PROJECT_DIR$/apps/manager/assets/Introduction.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/assets/Manager.md" beforeDir="false" afterPath="$PROJECT_DIR$/apps/manager/assets/Manager.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/assets/Simplicity.md" beforeDir="false" afterPath="$PROJECT_DIR$/apps/manager/assets/Simplicity.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/assets/State Manager.md" beforeDir="false" afterPath="$PROJECT_DIR$/apps/manager/assets/State Manager.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/lib/alfa/complex.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/manager/lib/alfa/complex.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/lib/complex_list.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/manager/lib/complex_list.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/manager/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/manager/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/rebuilder_docs/lib/features/home_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/rebuilder_docs/lib/features/home_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/rebuilder_docs/lib/features/settings/components/navigator.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/rebuilder_docs/lib/features/settings/pages/settings_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/rebuilder_docs/lib/features/settings/pages/settings_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/rebuilder_docs/lib/features/settings/settings.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/rebuilder_docs/lib/features/settings/settings.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/rebuilder_docs/lib/hive_storage.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/rebuilder_docs/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/rebuilder_docs/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/rebuilder_docs/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/apps/rebuilder_docs/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/rebuilder_docs/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/apps/rebuilder_docs/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,18 +64,23 @@
   &quot;associatedIndex&quot;: 4
 }</component>
   <component name="ProjectId" id="2e0QrEP14EdVc1FsqUTmD29qmHt" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "dart.analysis.tool.window.visible": "false",
+    "flutter.performance.tool.window.visible": "true",
     "git-widget-placeholder": "main",
     "io.flutter.reload.alreadyRun": "true",
     "last_opened_file_path": "D:/FLUTTER/applications",
@@ -123,7 +90,7 @@
     "show.migrate.to.gradle.popup": "false"
   }
 }]]></component>
-  <component name="RunManager" selected="Flutter.Flutter Run -&gt; 'opthalmology'" />
+  <component name="RunManager" selected="Flutter.Flutter Run -&gt; 'patients'" />
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -134,5 +101,8 @@
       <updated>1711039212618</updated>
     </task>
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

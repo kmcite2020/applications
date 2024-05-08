@@ -25,7 +25,7 @@ abstract class ComplexBase<Event, T> extends SimpleBase<T> {
 }
 
 mixin Registerar<Event, T> on ComplexBase<Event, T> {
-  void register<E extends Event>(T Function(E, T) function) {
+  void register<E extends Event>(T Function(Event, T) function) {
     final registered = _handlers.any((handler) => handler.type == E);
     if (registered) {
       log('🟥 [$E]');

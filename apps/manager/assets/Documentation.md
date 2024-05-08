@@ -1,4 +1,4 @@
-
+###### version 1.0.0+1
 # State Management API
 
 There are three ways to manage state with State Manager library.

@@ -1,9 +1,10 @@
+import 'dart:collection';
 import 'dart:math';
 
 import 'package:manager/manager.dart';
 
-abstract class ComplexList<E> extends SimpleBase<List<E>> {
-  ComplexList() : super([]);
+abstract class ComplexList<E> extends SimpleBase<ListBase<E>> {
+  ComplexList(super.initalState);
   E operator [](int index);
   void operator []=(int index, E value);
   void set first(E value);

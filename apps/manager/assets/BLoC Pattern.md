@@ -1,6 +1,6 @@
-# Manager 
-
 ###### version 1.0.0+1
+
+# Complex<E,S> 
 
 You can use BLoC pattern with `Manager`.
 There are two ways to do it.

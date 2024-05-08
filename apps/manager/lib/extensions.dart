@@ -34,3 +34,13 @@ extension Stringify on String {
 }
 
 String get randomID => const Uuid().v8();
+
+extension InjectedExtensions<T> on Injected<T> {
+  Widget build(Widget Function(T state) builder) {
+    return this.onAll(
+      onWaiting: () => CircularProgressIndicator(),
+      onError: (_, __) => CircularProgressIndicator(),
+      onData: builder,
+    );
+  }
+}
