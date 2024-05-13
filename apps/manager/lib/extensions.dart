@@ -4,25 +4,25 @@ extension DynamicExtensions on dynamic {
   Widget text({
     double? textScaleFactor,
     TextStyle? style,
-  }) =>
-      Text(
-        toString(),
-        textScaler: TextScaler.linear(textScaleFactor ?? 1),
-        style: style,
-      );
+  }) {
+    return Text(
+      toString(),
+      textScaler: TextScaler.linear(textScaleFactor ?? 1),
+      style: style,
+    );
+  }
 }
 
 extension WidgetExtensions on Widget {
-  Widget pad({EdgeInsetsGeometry? custom}) => Padding(
-        padding: custom ?? const EdgeInsets.all(8),
-        child: this,
-      );
+  Widget pad({EdgeInsetsGeometry? custom}) {
+    return Padding(
+      padding: custom ?? const EdgeInsets.all(8),
+      child: this,
+    );
+  }
+
   Widget center() => Center(child: this);
   Card card() => Card(child: this);
-}
-
-extension ComplexExtensionsBool on Simple<bool> {
-  void toggle() => call(!call());
 }
 
 extension Stringify on String {
@@ -33,13 +33,13 @@ extension Stringify on String {
   Map<String, dynamic> toJson() => {'data': this};
 }
 
-String get randomID => const Uuid().v8();
+String get randomID => Uuid().v8();
 
 extension InjectedExtensions<T> on Injected<T> {
   Widget build(Widget Function(T state) builder) {
     return this.onAll(
       onWaiting: () => CircularProgressIndicator(),
-      onError: (_, __) => CircularProgressIndicator(),
+      onError: (_, __) => _.text(),
       onData: builder,
     );
   }

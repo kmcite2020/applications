@@ -2,10 +2,9 @@ import 'package:prescription_er/add_patient_wizard/bio_data.dart';
 import 'package:prescription_er/add_patient_wizard/classification.dart';
 import 'package:prescription_er/add_patient_wizard/cnic.dart';
 import 'package:prescription_er/main.dart';
-import 'package:prescription_er/prescriptions/patients_rm.dart';
 import 'package:prescription_er/prescriptions/prescription.dart';
 
-class AddPatientWizard extends UI {
+class AddPatientWizard extends StatelessWidget {
   const AddPatientWizard({super.key});
 
   @override
@@ -22,8 +21,7 @@ class AddPatientWizard extends UI {
           ClassificationUI(),
           ElevatedButton(
             onPressed: () {
-              patientsRM(patientRM());
-              RM.navigate.back();
+              back(patientRM());
             },
             child: "Save".text(),
           ).pad(),

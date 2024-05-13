@@ -4,7 +4,7 @@ import 'package:prescription_er/prescriptions/patients_rm.dart';
 import 'patient_builder.dart';
 import 'prescriptions/prescription.dart';
 
-class PresentingComplaintsUI extends UI {
+class PresentingComplaintsUI extends StatelessWidget {
   const PresentingComplaintsUI({
     super.key,
     required this.id,
@@ -62,7 +62,7 @@ class PresentingComplaintsUI extends UI {
             ),
             ElevatedButton(
               onPressed: () async {
-                final complaint = await RM.navigate.toDialog<Complaint>(
+                final complaint = await to<Complaint>(
                   ComplaintDialogUI(),
                 );
                 if (complaint != null) {
@@ -84,7 +84,7 @@ void setComplaint(Complaint complaint) => complaintRM.state = complaint;
 
 Complaint get complaint => complaintRM.state;
 
-class ComplaintDialogUI extends UI {
+class ComplaintDialogUI extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Dialog(
@@ -110,9 +110,7 @@ class ComplaintDialogUI extends UI {
             maxLines: 4,
           ).pad(),
           ElevatedButton(
-            onPressed: () {
-              RM.navigate.back(complaint);
-            },
+            onPressed: () => back(complaint),
             child: 'Save'.text(),
           )
         ],

@@ -53,12 +53,12 @@ class ComplexMap<K, V> extends SimpleBase<Map<K, V>> {
   }
 
   final MapSerializer<K, V> serializer;
-  Map<K, V> call([MapEntry<K, V>? entry]) {
-    if (entry != null) {
-      state = Map.of(state)..[entry.key] = entry.value;
-    }
-    return state;
-  }
+  // Map<K, V> call([MapEntry<K, V>? entry]) {
+  //   if (entry != null) {
+  //     state = Map.of(state)..[entry.key] = entry.value;
+  //   }
+  //   return state;
+  // }
 
   void delete(MapEntry<K, V> entry) {
     state = Map.of(state)..remove(entry.key);

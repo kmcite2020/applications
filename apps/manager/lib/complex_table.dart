@@ -1,53 +1,78 @@
+import 'dart:developer';
+
 import 'package:manager/manager.dart';
 
-class ComplexTable<T> {
-  late final Injected<Map<String, T>> injected = RM.inject(
-    () => {},
-    initialState: {},
-    persist: () => PersistState(
-      key: key,
-      fromJson: (json) async {
-        return SynchronousFuture(
-          jsonDecode(json).map<String, T>(
-            (key, value) => MapEntry(
-              key as String,
-              fromJson(value),
-            ),
-          ),
-        );
-      },
-      toJson: (state) {
-        toJson(state) => state.toJson();
-        return jsonEncode(
-          state.map(
-            (key, value) => MapEntry<dynamic, dynamic>(
-              key,
-              toJson(value),
-            ),
-          ),
-        );
-      },
-    ),
-  );
-  // ignore: no_leading_underscores_for_local_identifiers
+class ComplexTable<T> extends SimpleBase<Map<String, T>> {
+  String name;
+  FromJson<T> fromJson;
+  ComplexTable(
+    this.name,
+    this.fromJson,
+  ) : super({}) {
+    loadTableFromStorage();
+  }
   List<T> call([T? _item]) {
     if (_item != null) {
-      state = Map.of(state)..[(_item as dynamic).id] = _item;
+      state = Map.of(state)
+        ..[() {
+          try {
+            final id = (_item as dynamic).id;
+            return id;
+          } catch (e) {
+            throw Exception('No id property defined for $T');
+          }
+        }()] = _item;
     }
-    return injected.state.values.toList();
+    return state.values.toList();
   }
 
-  Map<String, T> get state => injected.state;
-  // ignore: no_leading_underscores_for_local_identifiers
-  set state(Map<String, T> _state) => injected.state = _state;
   void delete(String key) {
     state = Map.of(state)..remove(key);
   }
 
-  final FromJson<T> fromJson;
-  final String key;
-  ComplexTable(this.key, {required this.fromJson});
+  @override
+  set state(Map<String, T> newValue) {
+    super.state = newValue;
+    storeTableInStorage();
+  }
 
   T get(String id) => state[id]!;
   T? tryGet(String id) => state[id];
+
+  void loadTableFromStorage() {
+    try {
+      final json = storage.get(name);
+      final Map<String, dynamic> value = jsonDecode(json);
+      final decoded = value.map(
+        (key, value) => MapEntry(
+          key,
+          fromJson(value),
+        ),
+      );
+      state = decoded;
+    } catch (e) {
+      log('🟥 [$e]');
+    }
+  }
+
+  void storeTableInStorage() {
+    Map<String, dynamic> toJson(any) {
+      if (any is String) {
+        return any.toJson();
+      }
+      return any.toJson();
+    }
+
+    final value = state.map(
+      (key, value) => MapEntry(
+        jsonEncode(toJson(key)),
+        toJson(value),
+      ),
+    );
+    try {
+      storage.put(name, jsonEncode(value));
+    } catch (e) {
+      log('🟥 ${e}');
+    }
+  }
 }

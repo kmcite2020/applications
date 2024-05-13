@@ -4,5 +4,5 @@ import 'prescription.dart';
 
 final patientsRM = ComplexTable<Patient>(
   'patients',
-  fromJson: Patient.fromJson,
+  Patient.fromJson,
 );

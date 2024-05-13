@@ -3,12 +3,13 @@ import 'package:prescription_er/patient_page.dart';
 
 import 'add_patient_wizard/add_patient_wizard.dart';
 import 'prescriptions/patients_rm.dart';
+import 'prescriptions/prescription.dart';
 
-final currentlySelectedPatientRM = Simple('');
+final currentlySelectedPatientIDRM = Simple('');
 
-bool get currentlyEmpty => currentlySelectedPatientRM() == '';
+bool get currentlyEmpty => currentlySelectedPatientIDRM() == '';
 void selectPatient(String id) {
-  currentlySelectedPatientRM(id);
+  currentlySelectedPatientIDRM(id);
 }
 
 class PatientsListPage extends UI {
@@ -30,14 +31,14 @@ class PatientsListPage extends UI {
                 itemBuilder: (context, index) {
                   final patient = patientsRM()[index];
                   return ListTile(
-                    selected: patient.id == currentlySelectedPatientRM.state,
+                    selected: patient.id == currentlySelectedPatientIDRM.state,
                     title: patient.name.text(),
                     subtitle: patient.address.text(),
                     onTap: () {
                       if (currentlyEmpty) {
                         selectPatient(patient.id);
                       } else {
-                        if (currentlySelectedPatientRM.state == patient.id) {
+                        if (currentlySelectedPatientIDRM.state == patient.id) {
                           selectPatient('');
                         } else {
                           selectPatient(patient.id);
@@ -54,16 +55,19 @@ class PatientsListPage extends UI {
               width: 300,
               child: currentlyEmpty
                   ? 'No patient is selected'.text().center()
-                  : PatientPage(id: currentlySelectedPatientRM()),
+                  : PatientPage(id: currentlySelectedPatientIDRM()),
             )
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          RM.navigate.to(
-            AddPatientWizard(),
-          );
+        onPressed: () async {
+          final patient = await to<Patient>(AddPatientWizard());
+          if (patient != null) {
+            patientsRM(
+              patient.copyWith(id: randomID),
+            );
+          }
         },
       ),
     );

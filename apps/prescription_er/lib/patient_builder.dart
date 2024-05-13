@@ -2,7 +2,7 @@ import 'package:prescription_er/main.dart';
 import 'package:prescription_er/prescriptions/patients_rm.dart';
 import 'package:prescription_er/prescriptions/prescription.dart';
 
-class PatientBuilder extends UI {
+class PatientBuilder extends StatelessWidget {
   final String id;
   final Widget Function(Patient patient) builder;
 

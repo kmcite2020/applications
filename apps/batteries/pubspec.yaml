@@ -17,6 +17,7 @@ dependencies:
     path: D://FLUTTER//applications//apps//manager
   states_rebuilder: ^6.4.0
   hive_flutter: ^1.1.0
+  get: ^4.6.6
 
 dev_dependencies:
   build_runner: ^2.4.8

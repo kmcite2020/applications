@@ -7,14 +7,16 @@ import 'manager.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  run(App());
+  runApp(App());
 }
 
-final documentsRM = RM.injectFuture(() => Documents.create);
+final documentsRM = RM.injectFuture(Documents.create);
 
 class Documents {
-  static Future<Documents> get create async {
-    final get = (String name) => rootBundle.loadString('assets/$name.md');
+  static Future<Documents> create() async {
+    final get = (String name) {
+      return rootBundle.loadString('assets/$name.md');
+    };
 
     final _listOfStrings = <String>[];
 
@@ -36,8 +38,6 @@ class Documents {
 
   Documents(this.data) {}
   final List<String> data;
-
-  Future<void> initApp() async {}
   List<String> call() => data;
 }
 
@@ -53,7 +53,7 @@ class App extends UI {
           body: SafeArea(
             child: Markdown(
               selectable: true,
-              data: data()[index()],
+              data: data()[index.state],
               controller: ScrollController(),
               styleSheet: MarkdownStyleSheet(
                 h1: TextStyle(
@@ -87,7 +87,7 @@ class App extends UI {
                 ),
                 code: TextStyle(
                   backgroundColor: Colors.transparent,
-                  fontFamily: 'Fira Code',
+                  fontFamily: 'Operator Mono',
                 ),
               ),
             ),
@@ -95,18 +95,18 @@ class App extends UI {
           floatingActionButton: ButtonBar(
             children: [
               FilledButton(
-                onPressed: index() == 0
+                onPressed: index.state == 0
                     ? null
                     : () {
-                        index(index() - 1);
+                        index.state = index.state - 1;
                       },
                 child: Icon(Icons.turn_left).pad(),
               ),
               FilledButton(
-                onPressed: index() >= data().length - 1
+                onPressed: index.state >= data().length - 1
                     ? null
                     : () {
-                        index(index() + 1);
+                        index.state = index.state + 1;
                       },
                 child: Icon(Icons.turn_right).pad(),
               ),
@@ -118,4 +118,4 @@ class App extends UI {
   }
 }
 
-final index = Simple(0);
+final index = SimpleBase(0);
